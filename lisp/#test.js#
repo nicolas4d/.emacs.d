@@ -1,0 +1,3 @@
+var obj  = {
+    func1 : function(){}
+};

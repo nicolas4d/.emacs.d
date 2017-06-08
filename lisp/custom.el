@@ -11,7 +11,8 @@
     ("a3132bd39a977ddde4c002f8bd0ef181414c3fbe9228e3643b999491192680ad" "f78de13274781fbb6b01afd43327a4535438ebaeec91d93ebdbba1e3fba34d3c" "525cf5e455ac1c31b2c32ea4f71954e792dbbeadf5fcb28393167f6e60107294" default)))
  '(package-selected-packages
    (quote
-    (dark-krystal-theme monokai-theme monokai-alt-theme darkokai-theme import-popwin exec-path-from-shell nodejs-repl js2-mode smartparens counsel swiper smex hungry-delete company w3m omnisharp)))
+    (iedit expand-region js2-refactor web-mode dark-krystal-theme monokai-theme monokai-alt-theme darkokai-theme import-popwin exec-path-from-shell nodejs-repl js2-mode smartparens counsel swiper smex hungry-delete company w3m omnisharp)))
+ '(popwin:popup-window-position (quote bottom))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -19,4 +20,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(iedit-occurrence ((t (:inherit region)))))
