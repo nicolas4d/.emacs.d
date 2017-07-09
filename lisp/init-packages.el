@@ -107,5 +107,9 @@
 ;; expand-regions
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+;; sourcekit
+(require 'company-sourcekit)
+(add-to-list 'company-backends 'company-sourcekit)
+
 ;; provide features
 (provide 'init-packages)
