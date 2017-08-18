@@ -30,14 +30,17 @@
 (global-set-key (kbd "C-c p f") 'counsel-git)
 
 ;; alter set-mark-command
-(global-unset-key (kbd "C-SPC"))
-(global-set-key (kbd "M-SPC") 'set-mark-command)
+(if (string= system-type "window-nt")
+    ((global-unset-key (kbd "C-SPC"))
+     (global-set-key (kbd "M-SPC") 'set-mark-command)
+     ))
+
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 (global-set-key (kbd "s-/") 'hippie-expand)
 
 ;; dired
 (with-eval-after-load 'dired
-(define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 (global-set-key (kbd "M-s i") 'counsel-imenu)
 
 (provide 'init-keybinddings)

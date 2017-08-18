@@ -28,7 +28,9 @@
 
 (delete-selection-mode t)
 
-(set-default-font "-outline-幼圆-normal-normal-normal-mono-16-*-*-*-c-*-ascii-0")
+(if (string= system-type "windows-nt")
+    (set-default-font "-outline-幼圆-normal-normal-normal-mono-16-*-*-*-c-*-ascii-0")
+  )
 
 ;; program code indent config
 (defun indent-buffer()
@@ -99,5 +101,7 @@
         regexp-history)
   (call-interactively 'occur))
 (global-set-key (kbd "M-s o") 'occur-dwim)
+
+(setq make-backup-files nil)
 
 (provide 'init-better-defaults)
