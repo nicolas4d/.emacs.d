@@ -28,8 +28,6 @@
 
 (delete-selection-mode t)
 
-(set-default-font "-outline-幼圆-normal-normal-normal-mono-16-*-*-*-c-*-ascii-0")
-
 ;; program code indent config
 (defun indent-buffer()
   (interactive)
