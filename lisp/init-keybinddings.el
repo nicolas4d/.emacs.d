@@ -20,6 +20,7 @@
 ;;(define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
 
 
+
 (defun open-my-emacs-file()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
@@ -30,6 +31,7 @@
 (global-set-key (kbd "C-c p f") 'counsel-git)
 
 ;; alter set-mark-command
+
 (global-unset-key (kbd "C-SPC"))
 (global-set-key (kbd "M-SPC") 'set-mark-command)
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)

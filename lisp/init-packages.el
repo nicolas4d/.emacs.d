@@ -113,5 +113,9 @@
 (require 'company-sourcekit)
 (add-to-list 'company-backends 'company-sourcekit)
 
+;;hungry-delete mode
+(require 'hungry-delete)
+(global-hungry-delete-mode)
+
 ;; provide features
 (provide 'init-packages)
