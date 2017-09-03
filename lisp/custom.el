@@ -4,6 +4,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-dabbrev-ignore-buffers "ignoreBuffer")
  '(company-idle-delay 0.08)
  '(company-minimum-prefix-length 1)
  '(custom-safe-themes
@@ -15,6 +16,10 @@
  '(package-selected-packages
    (quote
     (hungry-delete flycheck-swift swift-mode 0blayout ztree company-sourcekit iedit expand-region js2-refactor web-mode dark-krystal-theme monokai-theme monokai-alt-theme darkokai-theme import-popwin exec-path-from-shell nodejs-repl js2-mode smartparens counsel swiper smex company w3m omnisharp)))
+ '(package-selected-packages
+   (quote
+    (iedit expand-region js2-refactor web-mode dark-krystal-theme monokai-theme monokai-alt-theme darkokai-theme import-popwin exec-path-from-shell nodejs-repl js2-mode smartparens counsel swiper smex hungry-delete company w3m omnisharp)))
+ '(plantuml-jar-path "/home/d/ProgramFiles/pantuml/plantuml.jar")
  '(popwin:popup-window-position (quote bottom))
  '(show-paren-mode t)
  '(sourcekit-verbose nil)

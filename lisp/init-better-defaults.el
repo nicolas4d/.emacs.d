@@ -28,6 +28,10 @@
 
 (delete-selection-mode t)
 
+(if (string= system-type "windows-nt")
+    (set-default-font "-outline-幼圆-normal-normal-normal-mono-16-*-*-*-c-*-ascii-0")
+  )
+
 ;; program code indent config
 (defun indent-buffer()
   (interactive)
@@ -98,6 +102,8 @@
   (call-interactively 'occur))
 (global-set-key (kbd "M-s o") 'occur-dwim)
 
+(setq make-backup-files nil)
+
 ;;coding system
 (set-language-environment "UTF-8")
 ;;(set-terminal-coding-system 'utf-8)
@@ -106,6 +112,5 @@
 ;;(set-buffer-file-coding-system 'utf-8)
 ;;(set-selection-coding-system 'utf-8)
 ;;(modify-coding-system-alist 'process "*" 'utf-8)
-
 
 (provide 'init-better-defaults)

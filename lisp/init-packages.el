@@ -31,9 +31,10 @@
 (setq enable-recursive-minibuffers t)
 
 ;; smartparens config
-;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
+(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (smartparens-global-mode t)
 (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
+
 ;; config js2-mode for js files
 (setq auto-mode-alist
       (append
@@ -84,7 +85,7 @@
 
 ;; config js2-refactor
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
-(js2r-add-keybindings-with-prefix "C-c C-m")
+;;(js2r-add-keybindings-with-prefix "C-c C-m")
 
 ;; config imenu
 (defun js2-imenu-make-index ()
@@ -110,8 +111,62 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; sourcekit
-(require 'company-sourcekit)
-(add-to-list 'company-backends 'company-sourcekit)
+(if (string= system-type "darwin")
+    ((require 'company-sourcekit)
+     (add-to-list 'company-backends 'company-sourcekit))
+    )
+
+;; auto-java-complete
+;(add-to-list 'load-path "~/.emacs.d/ajc-java-complete/")
+;(require 'ajc-java-complete-config)
+;(add-hook 'java-mode-hook 'ajc-java-complete-mode)
+;(add-hook 'find-file-hook 'ajc-4-jsp-find-file-hook)
+
+;;(require 'eclim)
+;;(global-eclim-mode)
+;;(require 'eclimd)
+
+;;eclim and eclipse path
+;;(custom-set-variables
+;;  '(eclim-eclipse-dirs '("/home/d/ProgramFiles/eclipse"))
+;;  '(eclim-executable "/home/d/ProgramFiles/eclipse/eclim")
+;;  )
+
+;;(setq help-at-pt-display-when-idle t)
+;;(setq help-at-pt-timer-delay 0.1)
+;;(help-at-pt-set-timer)
+
+;; eclim company
+;;(require 'company)
+;;(require 'company-emacs-eclim)
+;;(company-emacs-eclim-setup)
+;;(global-company-mode t)
+
+;; eclim
+;;(require If you want to control eclimd from emacs, also add:eclim)
+;;(setq eclimd-autostart t)
+
+;;(defun my-java-mode-hook ()
+;;    (eclim-mode t))
+
+;;(add-hook 'java-mode-hook 'my-java-mode-hook)
+
+
+;; Enable plantuml-mode for PlantUML files
+(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
+
+;; plantuml in org-mode
+(add-to-list
+  'org-src-lang-modes '("plantuml" . plantuml))
+
+;; active Org-babel languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(;; other Babel languages
+   (plantuml . t)))
+(setq org-plantuml-jar-path
+      (expand-file-name "/home/d/ProgramFiles/pantuml/plantuml.jar"))
+
 
 ;;hungry-delete mode
 (require 'hungry-delete)
