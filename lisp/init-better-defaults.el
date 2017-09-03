@@ -11,7 +11,7 @@
 					    ;; emacs regex
 					    ))
 
-(setq make-backup-file nil)
+(setq make-backup-files nil)
 (auto-save-mode nil)
 
 (recentf-mode t)
@@ -103,5 +103,14 @@
 (global-set-key (kbd "M-s o") 'occur-dwim)
 
 (setq make-backup-files nil)
+
+;;coding system
+(set-language-environment "UTF-8")
+;;(set-terminal-coding-system 'utf-8)
+;;(set-keyboard-coding-system 'utf-8)
+;;(set-clipboard-coding-system 'utf-8)
+;;(set-buffer-file-coding-system 'utf-8)
+;;(set-selection-coding-system 'utf-8)
+;;(modify-coding-system-alist 'process "*" 'utf-8)
 
 (provide 'init-better-defaults)

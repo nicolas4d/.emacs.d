@@ -38,8 +38,10 @@
 ;; config js2-mode for js files
 (setq auto-mode-alist
       (append
-       '(("\\.js\\'" . js2-mode))
+;;       '(("\\.js\\'" . js2-mode))
        '(("\\.html\\'" . web-mode))
+       '(("\\.wxss\\'" . web-mode))
+       '(("\\.wxml\\'" . web-mode))
        auto-mode-alist))
 
 ;; nodejs-repl config 
