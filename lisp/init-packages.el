@@ -111,10 +111,10 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; sourcekit
-(if (string= system-type "darwin")
-    ((require 'company-sourcekit)
-     (add-to-list 'company-backends 'company-sourcekit))
-    )
+;;(if (string= system-type "darwin")
+;;    ((require 'company-sourcekit)
+;;     (add-to-list 'company-backends 'company-sourcekit))
+;;    )
 
 ;; auto-java-complete
 ;(add-to-list 'load-path "~/.emacs.d/ajc-java-complete/")

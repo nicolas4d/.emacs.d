@@ -4,7 +4,7 @@
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "company-sourcekit" "company-sourcekit.el"
-;;;;;;  (22881 50932 0 0))
+;;;;;;  (22956 6967 0 0))
 ;;; Generated autoloads from company-sourcekit.el
 
 (autoload 'company-sourcekit "company-sourcekit" "\
