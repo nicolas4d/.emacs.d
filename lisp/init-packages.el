@@ -1,13 +1,40 @@
 ;; malpa config
 (require 'package)
-(add-to-list 'package-archives
-;;	     '("melpa" . "http://melpa.org/packages/") t)
-	     '("melpa" . "http://elpa.emacs-china.org/melpa/") t)
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives
-;;	       '("gnu" . "http://elpa.gnu.org/packages/")))
-	       '("gnu" . "http://elpa.emacs-china.org/gnu/")))
+
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives 
+	       ;;'("melpa" . "http://melpa.org/packages/") t)
+	       '("melpa" . "http://elpa.emacs-china.org/melpa/") t)
+  )
+(require 'cl)
+
+;;add whatever packages you want here
+(defvar zilongshanren/packages '(
+				 company
+				 monokai-theme
+				 hungry-delete
+				 smex
+				 swiper
+				 counsel
+				 smartparens
+				 js2-mode
+				 nodejs-repl
+				 exec-path-from-shell
+				 )  "Default packages")
+
+(defun zilongshanren/packages-installed-p ()
+  (loop for pkg in zilongshanren/packages
+        when (not (package-installed-p pkg)) do (return nil)
+        finally (return t)))
+
+(unless (zilongshanren/packages-installed-p)
+  (message "%s" "Refreshing package database...")
+  (package-refresh-contents)
+  (dolist (pkg zilongshanren/packages)
+    (when (not (package-installed-p pkg))
+      (package-install pkg))))
 
 ;; omnisharp config
 (setq omnisharp-server-executable-path "C:\\Users\\D\\Program Files\\omnisharp-win-x64-netcoreapp1.1\\OmniSharp.exe")
@@ -23,7 +50,7 @@
 ;; config smex
 (require 'smex) ; Not needed if you use package.el
 (smex-initialize) ; Can be omitted. This might cause a (minimal) delay
-                    ; when Smex is auto-initialized on its first run.
+					; when Smex is auto-initialized on its first run.
 
 ;; config ivy swiper
 (ivy-mode 1)
@@ -36,9 +63,10 @@
 (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
 
 ;; config js2-mode for js files
+;; config default major mode
 (setq auto-mode-alist
       (append
-;;       '(("\\.js\\'" . js2-mode))
+       '(("\\.js\\'" . js2-mode))
        '(("\\.html\\'" . web-mode))
        '(("\\.wxss\\'" . web-mode))
        '(("\\.wxml\\'" . web-mode))
@@ -89,23 +117,23 @@
 
 ;; config imenu
 (defun js2-imenu-make-index ()
-      (interactive)
-      (save-excursion
-        ;; (setq imenu-generic-expression '((nil "describe\\(\"\\(.+\\)\"" 1)))
-        (imenu--generic-function '(("describe" "\\s-*describe\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-                                   ("it" "\\s-*it\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-                                   ("test" "\\s-*test\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-                                   ("before" "\\s-*before\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-                                   ("after" "\\s-*after\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-                                   ("Function" "function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*(" 1)
-                                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
-                                   ("Function" "^var[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
-                                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*()[ \t]*{" 1)
-                                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*function[ \t]*(" 1)
-                                   ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
+  (interactive)
+  (save-excursion
+    ;; (setq imenu-generic-expression '((nil "describe\\(\"\\(.+\\)\"" 1)))
+    (imenu--generic-function '(("describe" "\\s-*describe\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                               ("it" "\\s-*it\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                               ("test" "\\s-*test\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                               ("before" "\\s-*before\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                               ("after" "\\s-*after\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                               ("Function" "function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*(" 1)
+                               ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
+                               ("Function" "^var[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
+                               ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*()[ \t]*{" 1)
+                               ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*function[ \t]*(" 1)
+                               ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
 (add-hook 'js2-mode-hook
-              (lambda ()
-                (setq imenu-create-index-function 'js2-imenu-make-index)))
+          (lambda ()
+            (setq imenu-create-index-function 'js2-imenu-make-index)))
 
 ;; expand-regions
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -117,10 +145,10 @@
 ;;    )
 
 ;; auto-java-complete
-;(add-to-list 'load-path "~/.emacs.d/ajc-java-complete/")
-;(require 'ajc-java-complete-config)
-;(add-hook 'java-mode-hook 'ajc-java-complete-mode)
-;(add-hook 'find-file-hook 'ajc-4-jsp-find-file-hook)
+					;(add-to-list 'load-path "~/.emacs.d/ajc-java-complete/")
+					;(require 'ajc-java-complete-config)
+					;(add-hook 'java-mode-hook 'ajc-java-complete-mode)
+					;(add-hook 'find-file-hook 'ajc-4-jsp-find-file-hook)
 
 ;;(require 'eclim)
 ;;(global-eclim-mode)
@@ -155,9 +183,13 @@
 ;; Enable plantuml-mode for PlantUML files
 (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
 
+;; org-mode elisp
+(require 'org)
+(setq org-src-fontify-natively t)
+
 ;; plantuml in org-mode
 (add-to-list
-  'org-src-lang-modes '("plantuml" . plantuml))
+ 'org-src-lang-modes '("plantuml" . plantuml))
 
 ;; active Org-babel languages
 (org-babel-do-load-languages

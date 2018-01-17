@@ -24,7 +24,7 @@
 (defun open-my-emacs-file()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
-(global-set-key (kbd "<f5>") 'open-my-emacs-file)
+(global-set-key (kbd "<f2>") 'open-my-emacs-file)
 
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
@@ -44,5 +44,14 @@
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 (global-set-key (kbd "M-s i") 'counsel-imenu)
+
+(global-set-key (kbd "C-h C-f") 'find-function)
+(global-set-key (kbd "C-h C-v") 'find-variable)
+(global-set-key (kbd "C-h C-k") 'find-function-on-key)
+
+;; org
+(setq org-agenda-files '("~/org"))
+(global-set-key (kbd "C-c a") 'org-agenda)
+
 
 (provide 'init-keybinddings)
