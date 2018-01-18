@@ -8,6 +8,7 @@
 	       ;;'("melpa" . "http://melpa.org/packages/") t)
 	       '("melpa" . "http://elpa.emacs-china.org/melpa/") t)
   )
+
 (require 'cl)
 
 ;;add whatever packages you want here
@@ -22,6 +23,13 @@
 				 js2-mode
 				 nodejs-repl
 				 exec-path-from-shell
+				 popwin
+				 reveal-in-osx-finder
+				 web-mode
+				 js2-refactor
+				 expand-region
+				 iedit
+				 org-pomodoro
 				 )  "Default packages")
 
 (defun zilongshanren/packages-installed-p ()
@@ -61,6 +69,7 @@
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (smartparens-global-mode t)
 (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
+
 
 ;; config js2-mode for js files
 ;; config default major mode
@@ -109,11 +118,11 @@
 
   (setq indent-tabs-mode nil))
 
-(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+
 
 ;; config js2-refactor
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
-;;(js2r-add-keybindings-with-prefix "C-c C-m")
+(js2r-add-keybindings-with-prefix "C-c C-m")
 
 ;; config imenu
 (defun js2-imenu-make-index ()
@@ -135,8 +144,22 @@
           (lambda ()
             (setq imenu-create-index-function 'js2-imenu-make-index)))
 
-;; expand-regions
-(global-set-key (kbd "C-=") 'er/expand-region)
+
+;; edit occur-mode dwim: do what i eam
+(defun occur-dwim ()
+  "Call `occur' with a sane default."
+  (interactive)
+  (push (if (region-active-p)
+            (buffer-substring-no-properties
+             (region-beginning)
+             (region-end))
+          (let ((sym (thing-at-point 'symbol)))
+            (when (stringp sym)
+              (regexp-quote sym))))
+        regexp-history)
+  (call-interactively 'occur))
+
+
 
 ;; sourcekit
 ;;(if (string= system-type "darwin")
@@ -179,30 +202,12 @@
 
 ;;(add-hook 'java-mode-hook 'my-java-mode-hook)
 
-
-;; Enable plantuml-mode for PlantUML files
-(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
-
-;; org-mode elisp
-(require 'org)
-(setq org-src-fontify-natively t)
-
-;; plantuml in org-mode
-(add-to-list
- 'org-src-lang-modes '("plantuml" . plantuml))
-
-;; active Org-babel languages
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '(;; other Babel languages
-   (plantuml . t)))
-(setq org-plantuml-jar-path
-      (expand-file-name "/home/d/ProgramFiles/pantuml/plantuml.jar"))
-
-
 ;;hungry-delete mode
 (require 'hungry-delete)
 (global-hungry-delete-mode)
+
+;;
+(require 'org-pomodoro)
 
 ;; provide features
 (provide 'init-packages)

@@ -4,7 +4,7 @@
 
 (setq ring-bell-function 'ignore)
 
-(abbrev-mode t)
+(abbrev-mode t) 
 (define-abbrev-table 'global-abbrev-table '(
 					    ;; signature
 					    ("n4d" "nicolas4d")
@@ -12,11 +12,12 @@
 					    ))
 
 (setq make-backup-files nil)
-(auto-save-mode nil)
+(setq auto-save-default nil)
 
 (recentf-mode t)
+(setq recentf-max-menu-items 10)
 
-;; fix show-paren-mode
+;; fix show-paren-mode in middle
 (define-advice show-paren-function (:around (fn) fix-show-paren-function)
   "Highlight enclosing parens."
   (cond ((looking-at-p "\\s(") (funcall fn))
@@ -100,7 +101,6 @@
               (regexp-quote sym))))
         regexp-history)
   (call-interactively 'occur))
-(global-set-key (kbd "M-s o") 'occur-dwim)
 
 (setq make-backup-files nil)
 

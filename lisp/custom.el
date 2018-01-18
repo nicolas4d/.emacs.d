@@ -13,12 +13,13 @@
  '(exec-path
    (quote
     ("/usr/local/bin/" "/usr/bin/" "/bin/" "/usr/sbin/" "/sbin/" "/usr/local/Cellar/emacs/25.2/libexec/emacs/25.2/x86_64-apple-darwin16.6.0/" "/usr/local/bin/sourcekittendaemon")))
- '(org-agenda-files nil)
+ '(org-agenda-files (quote ("~/.emacs.d/")))
  '(package-selected-packages
    (quote
     (iedit expand-region js2-refactor web-mode dark-krystal-theme monokai-theme monokai-alt-theme darkokai-theme import-popwin exec-path-from-shell nodejs-repl js2-mode smartparens counsel swiper smex hungry-delete company w3m omnisharp)))
  '(plantuml-jar-path "/home/d/ProgramFiles/pantuml/plantuml.jar")
- '(popwin:popup-window-position (quote bottom))
+ '(popwin:popup-window-position (quote right))
+ '(popwin:popup-window-width 90)
  '(show-paren-mode t)
  '(sourcekit-verbose nil)
  '(tool-bar-mode nil))

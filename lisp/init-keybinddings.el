@@ -43,6 +43,7 @@
 ;; dired
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
 (global-set-key (kbd "M-s i") 'counsel-imenu)
 
 (global-set-key (kbd "C-h C-f") 'find-function)
@@ -52,6 +53,14 @@
 ;; org
 (setq org-agenda-files '("~/org"))
 (global-set-key (kbd "C-c a") 'org-agenda)
-
+(global-set-key (kbd "M-s e") 'iedit-mode)
+(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+(global-set-key (kbd "M-s o") 'occur-dwim)
+;; expand-regions
+(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "M-s o") 'occur-dwim)
+(global-set-key (kbd "C-c a") 'org-agenda)
+;; remember
+(global-set-key (kbd "C-c r") 'org-capture)
 
 (provide 'init-keybinddings)

@@ -25,5 +25,14 @@
 (require 'ob-tangle)
 (org-babel-load-file (expand-file-name "nicolas4d.org" user-emacs-directory))
 
-(put 'narrow-to-region 'disabled nil)
-(put 'narrow-to-page 'disabled nil)
+;; 什么玩意儿 不知道
+;;(put 'narrow-to-region 'disabled nil)
+;;(put 'narrow-to-page 'disabled nil)
+
+;; autoload test
+;;(autoload 'test-autoload "autoloadtest")
+;;(test-autoload)
+
+;;(update-file-autoloads "~/.emacs.d/lisp/autoloadtest.el" t "~/.emacs.d/lisp/autoloadtest-autoload.el")
+;;(load "autoloadtest-autoload")
+;;(test-autoload)
