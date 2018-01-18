@@ -113,4 +113,7 @@
 ;;(set-selection-coding-system 'utf-8)
 ;;(modify-coding-system-alist 'process "*" 'utf-8)
 
+;; `
+(sp-local-pair 'emacs-lisp-mode "`" nil :actions nil)
+
 (provide 'init-better-defaults)

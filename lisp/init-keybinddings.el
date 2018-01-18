@@ -63,4 +63,7 @@
 ;; remember
 (global-set-key (kbd "C-c r") 'org-capture)
 
+(global-set-key (kbd "C-c w") 'backward-kill-word)
+
+(global-set-key (kbd "C-c z") 'evil-toggle-key)
 (provide 'init-keybinddings)

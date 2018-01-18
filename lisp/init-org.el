@@ -29,10 +29,5 @@
 (setq org-plantuml-jar-path
       (expand-file-name "/home/d/ProgramFiles/pantuml/plantuml.jar"))
 
-(global-set-key (kbd "C-c a") 'org-agenda)
-
-;; remember
-(global-set-key (kbd "C-c r") 'org-capture)
-
 (provide 'init-org)
 

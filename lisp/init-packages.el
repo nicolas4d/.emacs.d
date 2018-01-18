@@ -6,7 +6,7 @@
   (package-initialize)
   (add-to-list 'package-archives 
 	       ;;'("melpa" . "http://melpa.org/packages/") t)
-	       '("melpa" . "http://elpa.emacs-china.org/melpa/") t)
+	       '("melpa" . "http://elpa.emacs-china.org/melpa-stable/") t)
   )
 
 (require 'cl)
@@ -30,6 +30,13 @@
 				 expand-region
 				 iedit
 				 org-pomodoro
+				 helm-ag
+				 flycheck
+				 auto-yasnippet
+				 evil
+				 evil-leader
+				 evil-surround
+				 pallet
 				 )  "Default packages")
 
 (defun zilongshanren/packages-installed-p ()
@@ -208,6 +215,15 @@
 
 ;;
 (require 'org-pomodoro)
+
+;;(global-flycheck-mode)
+(add-hook 'js2-mode-hook 'flycheck-mode)
+
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
+
+;;(evil-mode 1)
+;;(global-evil-leader-mode)
 
 ;; provide features
 (provide 'init-packages)
