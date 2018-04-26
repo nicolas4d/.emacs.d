@@ -5,6 +5,7 @@
 (setq file-name-history '(#("/home/d/.emacs.d/.gitignore" 0 27 (ivy-index 0)) "~/.spacemacs.d/custom.el"))
 (setq evil-jumps-history 'nil)
 (setq mark-ring 'nil)
+(setq global-mark-ring 'nil)
 (setq search-ring 'nil)
 (setq regexp-search-ring 'nil)
 (setq extended-command-history 'nil)
