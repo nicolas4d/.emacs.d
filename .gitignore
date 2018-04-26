@@ -1,12 +1,10 @@
 auto-save-list/
-elpa/
 export/
 ac-comphist.dat
 eproject.lst
 .smex-items
 \#*
 .places
-.cache
 /eww-bookmarks
 eshell/history
 .emacs.desktop
@@ -35,7 +33,6 @@ tmp/
 .python-environments/
 server/
 /network-security.data
-*.elc
 *.pyc
 /*.zip
 *.db
