@@ -1,4 +1,6 @@
 ;;; -*- coding: utf-8 -*-
-(("/home/d/.emacs.d/.cache/recentf" . 250)
- ("/home/d/.emacs.d/.cache/layouts/persp-auto-save" . 1413)
+(("/home/d/.emacs.d/"
+  (dired-filename . "/home/d/.emacs.d/init.el"))
+ ("/home/d/.emacs.d/.cache/recentf" . 250)
+ ("/home/d/.emacs.d/.cache/layouts/persp-auto-save" . 1446)
  ("/home/d/.emacs.d/elpa/org-plus-contrib-20180423/org-loaddefs.el" . 100619))
