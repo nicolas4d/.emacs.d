@@ -1,0 +1,780 @@
+#+Title python3.5 Tutorial
+* references
+https://docs.python.org/3.5/
+* 1. Whetting Your Appetite 
+Python enables programs to be written compactly and readably.
+Programs written in Python are typically much shorter than equivalent C, C++, or Java programs, 
+for several reasons:
+the high-level data types allow you to express complex operations in a single statement;
+statement grouping is done by indentation instead of beginning and ending brackets;
+no variable or argument declarations are necessary.
+
+Python is extensible: 
+if you know how to program in C it is easy to add a new built-in function or module to the interpreter.
+* 2. Using the Python Interpreter
+*** 2.1 Invoking the Interpreter
+first way of starting the interpreter: 
+python3.5 in bash.(on ubuntu)
+
+(Control-D on Unix, Control-Z on Windows) or quit() to exit with a zero exit status. 
+
+A second way of starting the interpreter is 
+python -c command [arg] ...
+
+python -m module [arg] ...
+**** 2.1.1. Argument Passing
+You can access this list by executing import sys.
+The length of the list is at least one; 
+when no script and no arguments are given, sys.argv[0] is an empty string. 
+When the script name is given as '-' (meaning standard input), sys.argv[0] is set to '-'. 
+When -c command is used, sys.argv[0] is set to '-c'. 
+When -m module is used, sys.argv[0] is set to the full name of the located module. 
+**** 2.1.2. Interactive Mode
+primary prompt greater-than signs (>>>); 
+continuation lines default three dots (...).
+*** 2.2. The Interpreter and Its Environment
+**** 2.2.1. Source Code Encoding
+By default, Python source files are treated as encoded in UTF-8.
+right after the #! line to define the source file encoding:
+# -*- coding: encoding(UTF8) -*-
+* 3. An Informal Introduction to Python
+Comments    #
+*** 3.1. Using Python as a Calculator
+**** 3.1.1. Numbers
+In interactive mode, the last printed expression is assigned to the variable _. 
+***** 取余和取模
+取余运算在计算商值向0方向舍弃小数位
+取模运算在计算商值向负无穷方向舍弃小数位
+同时，也可以这样理解：
+取余，遵循尽可能让余数的绝对值小的原则
+取模，遵循尽可能让商小的原则
+***** references : https://blog.csdn.net/coder_panyy/article/details/73743722
+**** 3.1.2. Strings
+Python strings cannot be changed — they are immutable.
+**** 3.1.3. Lists
+[,]
+lists are a mutable type.
+list.append(element)
+len(list)
+**** 3.2. First Steps Towards Programming
+while condition:
+    statement
+
+1. multiple assignment
+2. while loop executes as long as the condition remains true.
+The condition may also be a string or list value, in fact any sequence; 
+anything with a non-zero length is true, empty sequences are false
+3. The body of the loop is indented
+Note that each line within a basic block must be indented by the same amount.
+4. The keyword argument end:
+print(b, end=',')
+* 4. More Control Flow Tools
+*** 4.1. if Statements
+if condition:
+    statement
+elif condition:
+    statement
+elif condition:
+    statement
+else:
+    statement
+*** 4.2. for Statements
+Python’s for statement iterates over the items of any sequence.
+for item in sequence:
+    statement
+
+words = ['cat', 'window', 'defenestrate']
+words[:] is copy of words
+*** 4.3. The range() Function
+for i in range(5):
+     print(i)
+
+a = ['Mary', 'had', 'a', 'little', 'lamb']
+for i in range(len(a)):
+     print(i, a[i])
+
+iterable: range(...)
+iterator: for , List()
+*** 4.4. break and continue Statements, and else Clauses on Loops
+while or for:
+    statement
+else:
+    execute when not break
+*** 4.5. pass Statements
+The pass statement does nothing.
+*** 4.6. Defining Functions
+def functionName(parameterList):
+    """function’s documentation string, or docstring."""
+    statement
+
+The execution of a function introduces a new symbol table.
+variable references:
+local symbol table-> 
+local symbol tables of enclosing functions-> 
+global symbol table-> 
+table of built-in names.
+global variables cannot be directly assigned a value within a function (unless named in a global statement), although they may be referenced.
+
+parameters(arguments):
+where the value is always an object reference, not the value of the object.
+
+return:
+no return actruly return 'None'.
+Falling off the end of a function also returns None.
+*** 4.7. More on Defining Functions
+**** 4.7.1. Default Argument Values
+def ask_ok(prompt, retries=4, reminder='Please try again!'):
+    statement
+
+"in" keyword. This tests whether or not a sequence contains a certain value.
+
+The default values are evaluated at the point of function definition in the defining scope.
+Important warning: The default value is evaluated only once.
+**** 4.7.2. Keyword Arguments
+In a function call, keyword arguments must follow positional arguments.
+
+def cheeseshop(kind, *arguments, **keywords):
+    pass
+
+*arguments are tuple.
+**keywords are dictionary.
+*name must occur before **name
+**** 4.7.3. Arbitrary Argument Lists
+def write_multiple_items(file, separator, *args):
+    pass
+arbitrry arguments will be wrapped up in a tuple
+**** 4.7.4. Unpacking Argument Lists
+list *-Operator
+dictionary **-Operator
+**** 4.7.5. Lambda Expressions
+lambda a, b: a+b
+lambda functions can reference variables from the containing scope
+**** 4.7.6. Documentation Strings
+ def doc_function():
+     """
+     short, concise summary of the object’s purpose
+
+     describing the object’s calling conventions, its side effects, etc.
+     """
+     
+     pass
+**** 4.7.7. Function Annotations
+def my_annotations(arg: str, arg0: str = 'value') -> str:
+     print("Annotations:", f.__annotations__)
+     return arg + arg0
+*** 4.8. Intermezzo: Coding Style
+PEP 8
+https://docs.python.org/3.5/tutorial/controlflow.html#intermezzo-coding-style
+* 5. Data Structures
+*** 5.1. More on Lists
+list.append(x). Equivalent to a[len(a):] = [x].
+list.extend(iterable). Equivalent to a[len(a):] = iterable.
+list.insert(i, x)
+list.remove(x)
+list.pop([i])
+list.clear() == del a[:].
+list.index(x[, start[, end]])
+list.count(x)
+list.sort(key=None, reverse=False)
+list.reverse()
+list.copy() == a[:].
+**** 5.1.1. Using Lists as Stacks
+last-in, first-out 后进先出
+use:
+stack.append(x)
+stack.pop()
+**** 5.1.2. Using Lists as Queues
+first-in, first-out 先进先出
+
+use:
+from collections import deque
+queue.append(x)
+queue.popleft() 
+**** 5.1.3. List Comprehensions
+squares = list(map(lambda x: x**2, range(10)))
+or, equivalently:
+squares = [x**2 for x in range(10)]
+
+for... in ... if
+**** 5.1.4. Nested List Comprehensions
+*** 5.2. The del statement
+del returns a value
+*** 5.3. Tuples and Sequences
+*** 5.3. Tuples and Sequences
+(,) or ,
+Tuples are immutable, but they can contain mutable objects.
+
+purposes:
+Tuples are immutable, and usually contain a heterogeneous sequence of elements that are accessed via unpacking or indexing. 
+Lists are mutable, and their elements are usually homogeneous and are accessed by iterating over the list.
+
+empty = ()
+singleton = 'hello',
+
+unpacking :
+x, y, z = tupple # tupple has 3 elements.
+
+*** 5.4. Sets
+set is an unordered collection with no duplicate elements.
+basic uses include membership testing and eliminating duplicate entries.
+{} or set()
+empty set set() not {}.
+*** 5.5. Dictionaries
+unordered set of key: value pairs
+empty dictionary: {}
+dictionaries are indexed by keys, which can be any immutable type.
+strings and numbers and tupples(only cantain strings, numbers, tupples) can always be keys.
+list(d.keys())
+sorted(d.keys())
+The dict() constructor builds dictionaries directly from sequences of key-value pairs.
+*** 5.6. Looping Techniques
+for k, v in dictionary.items():
+     print(k, v)
+
+for i, v in enumerate(sequence):
+    print(i, v)
+
+for q, a in zip(sequence1, sequence2):
+    print('What is your {0}?  It is {1}.'.format(q, a))
+
+for i in reversed(range(1, 10, 2)):
+    print(i)
+
+for f in sorted(set(sequence)):
+    print(f)
+*** 5.7. More on Conditions
+in   not in 
+is   not is
+"and" and "or" are short-circuit operators.
+*** 5.8. Comparing Sequences and Other Types
+comparison uses lexicographical ordering.
+* 6. Modules
+A module is a file containing Python definitions and statements.
+.py
+__name__  
+import: use in the current directory.
+*** 6.1. More on Modules
+executable statements excute when import or use as script.
+Each module has its own private symbol table
+modname.itemname
+from module import function...
+from module import *
+This imports all names except those beginning with an underscore (_).
+each module is only imported once per interpreter session:
+importlib.reload()
+import importlib
+importlib.reload(modulename).
+**** 6.1.1. Executing modules as scripts
+python fibo.py <arguments>
+**** 6.1.2. The Module Search Path
+1. built-in module 
+2. sys.path 
+The directory containing the input script.
+PYTHONPATH
+The installation-dependent default.
+**** 6.1.3. “Compiled” Python files
+ __pycache__(directory)/module.version.pyc
+tips:https://docs.python.org/3.5/tutorial/modules.html#compiled-python-files
+*** 6.2. Standard Modules
+the winreg module is only provided on Windows systems. 
+One particular module deserves some attention: sys, 
+which is built into every Python interpreter. 
+The variables sys.ps1 and sys.ps2 define the strings used as 
+primary and secondary prompts.
+sys.path == PYTHONPATH(built-in default if PYTHONPATH is not set.)
+*** 6.3. The dir() Function
+The built-in function dir() is used to find out which names a module defines.
+dir(module)
+dir()
+import builtins
+dir(builtins) 
+*** 6.4. Packages
+packages are a way of structuring Python’s module namespace by 
+using “dotted module names”.
+When importing the package, Python searches through the directories 
+on sys.path looking for the package subdirectory.
+The __init__.py files are required to make Python treat the directories 
+as containing packages;
+
+from package import item
+import item.subitem.subsubitem
+**** 6.4.1. Importing * From a Package
+__all__ = ["echo", "surround", "reverse"]
+**** 6.4.2. Intra-package References
+**** 6.4.3. Packages in Multiple Directories
+Packages support one more special attribute, __path__
+* 7. Input and Output
+*** 7.1. Fancier Output Formatting
+str.format()
+repr() read by the interpreter
+str() human-readable
+
+print(repr(x*x*x).rjust(4))
+print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
+
+str.ljust() 
+str.center()
+str.ljust(n)[:n]
+str.zfill()
+
+print('We are the {} who say "{}!"'.format('knights', 'Ni'))
+print('{0} and {1}'.format('spam', 'eggs'))
+print('This {food} is {adjective}.'.format(food='spam', 
+                                       adjective='absolutely horrible'))
+print('The story of {0}, {1}, and {other}.'.format('Bill', 'Manfred',
+                                                       other='Georg'))
+'!a' (apply ascii()), '!s' (apply str()) and '!r' (apply repr()) 
+print('My hovercraft is full of {!r}.'.format(contents))
+print('The value of PI is approximately {0:.3f}.'.format(math.pi))
+print('{0:10} ==> {1:10d}'.format(name, phone))
+print('Jack: {0[Jack]:d}; Sjoerd: {0[Sjoerd]:d}; '
+                'Dcab: {0[Dcab]:d}'.format(dict))
+print('Jack: {Jack:d}; Sjoerd: {Sjoerd:d}; Dcab: {Dcab:d}'.format(**dict))
+
+
+**** 7.1.1. Old string formatting
+print('The value of PI is approximately %5.3f.' % math.pi)
+*** 7.2. Reading and Writing Files
+open(filename, mode)
+mode: r w a r+ b
+
+with open('workfile') as f:
+     read_data = f.read()
+**** 7.2.1. Methods of File Objects
+f.read(size)
+f.readline()
+
+for line in f:
+     print(line, end='')
+
+list(f) 
+f.readlines()
+f.write(string)
+f.tell()
+f.seek(offset, from_what)
+form_what: 0 1 2
+
+isatty()
+truncate()
+
+json.dumps([1, 'simple', 'list'])
+json.dump(x, f)
+x = json.load(f)
+* 8. Errors and Exceptions
+*** 8.1. Syntax Errors
+*** 8.2. Exceptions
+*** 8.3. Handling Exceptions
+KeyboardInterrupt 
+try:
+    pass
+except (RuntimeError, TypeError, NameError):
+    pass
+except Exception as inst:
+    pass
+except:
+    pass or raise
+else: (try clause does not raise an exceptio)
+    pass
+
+A class in an except clause is compatible with an exception 
+if it is the same class or a base class thereof.
+
+instance.args
+__str__()
+*** 8.4. Raising Exceptions
+raise NameError('HiThere')
+*** 8.5. User-defined Exceptions
+Exceptions should typically be derived from the Exception class, 
+either directly or indirectly.
+*** 8.6. Defining Clean-up Actions
+try:
+    raise KeyboardInterrupt
+finally:
+    print('Goodbye, world!')
+
+*** 8.7. Predefined Clean-up Actions
+with ... as ...:
+* 9. Classes
+classes partake of the dynamic nature of Python
+*** 9.1. A Word About Names and Objects
+Objects have individuality, and multiple names (in multiple scopes) 
+can be bound to the same object.
+*** 9.2. Python Scopes and Namespaces
+A namespace is a mapping from names to objects.
+there is absolutely no relation between names in different namespaces
+modname.funcname
+del modname.the_answer
+global names live in module __main__ : global namespace
+built-in names live in module builtins : built-in namespace
+local namespace: for a function live in call-to-return span.
+
+A scope is a textual region of a Python program where a namespace is directly accessible.
+there are at least three nested scopes whose namespaces are directly accessible:
+1. the innermost scope, 
+   which is searched first, contains the local names
+2. the scopes of any enclosing functions, 
+   which are searched starting with the nearest enclosing scope, contains non-local, but also non-global names
+3. the next-to-last scope contains the current module’s global names
+4. the outermost scope (searched last) is the namespace containing built-in names
+import statements and function definitions bind the module or function name in the local scope.
+global statement can be used to indicate that particular variables live in the global scope and should be rebound there; 
+the nonlocal statement indicates that particular variables live in an enclosing scope and should be rebound there.
+**** 9.2.1. Scopes and Namespaces Example
+*** 9.3. A First Look at Classes
+**** 9.3.1. Class Definition Syntax
+class ClassName:
+    <statement-1>
+    .
+    .
+    .
+    <statement-N>
+
+When a class definition is entered, a new namespace is created, and used as the local scope.
+When a class definition is left normally (via the end), a class object is created.
+**** 9.3.2. Class Objects
+Class objects support two kinds of operations: 
+attribute references and instantiation
+
+attribute reference : obj.name
+obj.__doc__ return docstring.
+
+instatiation : x = MyClass()
+
+def __init__(self, param1, param2, ....):
+    pass
+**** 9.3.3. Instance Objects
+Data attributes need not be declared; like local variables, 
+they spring into existence when they are first assigned to.
+The other kind of instance attribute reference is a method. 
+A method is a function that “belongs to” an object.
+**** 9.3.4. Method Objects
+the special thing about methods is that the 
+instance object is passed as the first argument of the function.
+**** 9.3.5. Class and Instance Variables
+*** 9.4. Random Remarks
+the first argument of a method is called self.This is nothing more than a convention.
+Each value is an object, and therefore has a class (also called its type). It is stored as object.__class__
+*** 9.5. Inheritance
+class DerivedClassName(BaseClassName):
+    <statement-1>
+    .
+    .
+    .
+    <statement-N>
+
+class DerivedClassName(modname.BaseClassName):
+
+BaseClassName.methodname(self, arguments)
+
+isinstance(obj, int)
+issubclass(bool, int)
+
+**** 9.5.1. Multiple Inheritance
+class DerivedClassName(Base1, Base2, Base3):
+    <statement-1>
+    .
+    .
+    .
+    <statement-N>
+
+search for attributes inherited from a parent class as 
+depth-first, left-to-right.
+
+super()
+*** 9.6. Private Variables
+a name prefixed with an underscore in Python with convention.
+_private
+name mangling
+__classname__private
+*** 9.7. Odds and Ends
+m.__self__ instance object
+m.__func__  function object
+*** 9.8. Iterators
+for element in [1, 2, 3]:
+    print(element)
+for element in (1, 2, 3):
+    print(element)
+for key in {'one':1, 'two':2}:
+    print(key)
+for char in "123":
+    print(char)
+for line in open("myfile.txt"):
+    print(line, end='')
+
+principle:
+obj = for calls iter()
+obj.__next__()
+
+built-int next().
+*** 9.9. Generators
+yield
+*** 9.10. Generator Expressions
+sum(i*i for i in range(10)) 
+*** footnotes
+readonly __dict__ 
+* 10. Brief Tour of the Standard Library
+*** 10.1. Operating System Interface
+>>> import os
+>>> os.getcwd()      # Return the current working directory
+>>> os.chdir('/server/accesslogs')   # Change current working directory
+>>> os.system('mkdir today')   # Run the command mkdir in the system shell
+
+>>> dir(os)
+<returns a list of all module functions>
+>>> help(os)
+<returns an extensive manual page created from the module's docstrings>
+
+>>> import shutil
+>>> shutil.copyfile('data.db', 'archive.db')
+>>> shutil.move('/build/executables', 'installdir')
+*** 10.2. File Wildcards
+>>> import glob
+>>> glob.glob('*.py')
+*** 10.3. Command Line Arguments
+import sys
+print(sys.argv)
+
+other moudules:
+getopt
+argparse
+*** 10.4. Error Output Redirection and Program Termination
+sys.stderr.write('Warning, log file not found starting a new one\n')
+sys.exit()
+*** 10.5. String Pattern Matching
+>>> import re
+>>> re.findall(r'\bf[a-z]*', 'which foot or hand fell fastest')
+>>> re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the the hat')
+>>> 'tea for too'.replace('too', 'two')
+*** 10.6. Mathematics
+>>> import math
+>>> math.cos(math.pi / 4)
+>>> math.log(1024, 2)
+
+AttributeError: module 'random' has no attribute 'choice'
+reason: I created random.py in the working diretory. conflited with random moudules.
+fix: delete or raname random.py that I created.
+
+>>> import random
+>>> random.choice(['apple', 'pear', 'banana'])
+>>> random.sample(range(100), 10)   # sampling without replacement
+>>> random.random()    # random float
+>>> random.randrange(6)    # random integer chosen from range(6)
+
+>>> import statistics
+>>> data = [2.75, 1.75, 1.25, 0.25, 0.5, 1.25, 3.5]
+>>> statistics.mean(data)
+>>> statistics.median(data)
+>>> statistics.variance(data)
+*** 10.7. Internet Access
+urllib.request 
+smtplib
+*** 10.8. Dates and Times
+>>> from datetime import date
+>>> now = date.today()
+>>> now.strftime("%m-%d-%y. %d %b %Y is a %A on the %d day of %B.")
+>>> birthday = date(1964, 7, 31)
+>>> age = now - birthday
+>>> age.days
+*** 10.9. Data Compression
+modules: zlib, gzip, bz2, lzma, zipfile and tarfile.
+>>> import zlib
+>>> s = b'witch which has which witches wrist watch'
+>>> len(s)
+>>> t = zlib.compress(s)
+>>> len(t)
+>>> zlib.decompress(t)
+>>> zlib.crc32(s)
+*** 10.10. Performance Measurement
+>>> from timeit import Timer
+>>> Timer('t=a; a=b; b=t', 'a=1; b=2').timeit()
+>>> Timer('a,b = b,a', 'a=1; b=2').timeit()
+*** 10.11. Quality Control
+doctest
+unittest
+*** 10.12. Batteries Included
+* 11. Brief Tour of the Standard Library — Part II
+*** 11.1. Output Formatting
+>>> import reprlib
+>>> import pprint
+>>> import textwrap
+>>> import locale
+*** 11.2. Templating
+>>> from string import Template
+>>> t = Template('${village}folk send $$10 to $cause.')
+>>> t.substitute(village='Nottingham', cause='the ditch fund')
+
+>>> t = Template('Return the $item to $owner.')
+>>> d = dict(item='unladen swallow')
+>>> t.safe_substitute(d)
+
+>>> import time, os.path
+>>> photofiles = ['img_1074.jpg', 'img_1076.jpg', 'img_1077.jpg']
+>>> class BatchRename(Template):
+...     delimiter = '%'
+>>> fmt = input('Enter rename style (%d-date %n-seqnum %f-format):  ')
+Enter rename style (%d-date %n-seqnum %f-format):  Ashley_%n%f
+>>> t = BatchRename(fmt)
+>>> date = time.strftime('%d%b%y')
+>>> for i, filename in enumerate(photofiles):
+...     base, ext = os.path.splitext(filename)
+...     newname = t.substitute(d=date, n=i, f=ext)
+...     print('{0} --> {1}'.format(filename, newname))
+*** 11.3. Working with Binary Data Record Layouts
+import struct
+
+with open('myfile.zip', 'rb') as f:
+    data = f.read()
+
+start = 0
+for i in range(3):                      # show the first 3 file headers
+    start += 14
+    fields = struct.unpack('<IIIHH', data[start:start+16])
+    crc32, comp_size, uncomp_size, filenamesize, extra_size = fields
+
+    start += 16
+    filename = data[start:start+filenamesize]
+    start += filenamesize
+    extra = data[start:start+extra_size]
+    print(filename, hex(crc32), comp_size, uncomp_size)
+
+    start += extra_size + comp_size     # skip to the next header
+*** 11.4. Multi-threading
+*** 11.5. Logging
+import logging
+logging.debug('Debugging information')
+logging.info('Informational message')
+logging.warning('Warning:config file %s not found', 'server.conf')
+logging.error('Error occurred')
+logging.critical('Critical error -- shutting down')
+*** 11.6. Weak References
+>>> import weakref, gc
+>>> class A:
+...     def __init__(self, value):
+...         self.value = value
+...     def __repr__(self):
+...         return str(self.value)
+...
+>>> a = A(10)                   # create a reference
+>>> d = weakref.WeakValueDictionary()
+>>> d['primary'] = a            # does not create a reference
+>>> d['primary']                # fetch the object if it is still alive
+10
+>>> del a                       # remove the one reference
+>>> gc.collect()                # run garbage collection right away
+0
+>>> d['primary']                # entry was automatically removed
+*** 11.7. Tools for Working with Lists
+>>> from array import array
+>>> from collections import deque
+>>> import bisect
+>>> from heapq import heapify, heappop, heappush
+*** 11.8. Decimal Floating Point Arithmetic
+>>> from decimal import *
+decimal 四舍五入
+float 五舍六入
+* 12. Virtual Environments and Packages
+** 12.1. Introduction
+virtual environment (often shortened to “virtualenv”).
+pyvenv. pyvenv
+
+pyvenv tutorial-env
+On Windows, run:
+tutorial-env/Scripts/activate
+On Unix or MacOS, run:
+souInstalling an official release with pip¶
+rce tutorial-env/bin/activate
+** 12.3. Managing Packages with pip¶
+(tutorial-env) -> pip search astronomy
+-> pip install novas
+-> pip install requests==2.6.0
+-> pip install --upgrade requests
+pip uninstall
+(tutorial-env) -> pip show requests
+pip list
+-> pip install -r requirements.txt
+
+* 13. What Now?
+* 14. Interactive Input Editing and History Substitution
+*** 14.1. Tab Completion and History Editing
+TAB
+** 14.2. Alternatives to the Interactive Interpreter
+IPython
+bpython
+* 15. Floating Point Arithmetic: Issues and Limitations
+二进制转十进制：每位数乘与二的位数次幂，在相加。
+十进制转二进制：整数采用"除2取余，逆序排列"法，小数采用"乘2取整，顺序排列"法。
+
+Decimal fraction 0.1 approximation to
+binary fraction 0.0001100110011001100110011001100110011001100110011...
+
+float：
+3602879701896397 / 2 ** 55 close to 1/10 why is explained next session.
+
+format(math.pi, '.12g')  # give 12 significant digits
+
+>>> round(.1 + .1 + .1, 10) == round(.3, 10)
+True
+
+str.format()
+decimal module
+fractions module
+Numerical Python package
+
+float.as_integer_ratio()
+float.hex()
+float.fromhex('0x1.921f9f01b866ep+1')
+math.fsum()
+*** 15.1. Representation Error
+1 / 10 ~= J / (2**N)
+J ~= 2**N / 10
+
+>>> 2**52 <=  2**56 // 10  < 2**53
+True
+>>> q, r = divmod(2**56, 10)
+>>> r
+6
+>>> q+1
+7205759403792794
+
+7205759403792794 / 2 ** 56
+3602879701896397 / 2 ** 55
+
+>>> 0.1 * 2 ** 55
+3602879701896397.0
+>>> 3602879701896397 * 10 ** 55 // 2 ** 55
+1000000000000000055511151231257827021181583404541015625
+
+Decimal(0.1) == 0.1000000000000000055511151231257827021181583404541015625
+
+>>> format(0.1, '.17f')
+
+>>> from decimal import Decimal
+>>> from fractions import Fraction
+
+>>> Fraction.from_float(0.1)
+Fraction(3602879701896397, 36028797018963968)
+
+>>> (0.1).as_integer_ratio()
+(3602879701896397, 36028797018963968)
+
+>>> Decimal.from_float(0.1)
+Decimal('0.1000000000000000055511151231257827021181583404541015625')
+
+>>> format(Decimal.from_float(0.1), '.17')
+'0.10000000000000001'
+* 16. Appendix
+** 16.1.1. Error Handling
+Typing the interrupt character (usually Control-C or Delete)
+** 16.1.2. Executable Python Scripts
+#!/usr/bin/env python3.5
+$ chmod +x myscript.py
+** 16.1.3. The Interactive Startup File
+environment variable named PYTHONSTARTUP
+** 16.1.4. The Customization Modules
+Python provides two hooks to let you customize it: sitecustomize and usercustomize.
+
+>>> import site
+>>> site.getusersitepackages()
+'/home/user/.local/lib/python3.5/site-packages'
+
+Now you can create a file named usercustomize.py

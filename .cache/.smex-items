@@ -1,0 +1,99 @@
+
+;; ----- smex-history -----
+(
+ lispy-mode
+ visit-tags-table
+ eshell
+ configuration-layer/create-layer
+ package-list-packages
+ ivy-mode
+ imenu
+ LaTeX-mode
+ toggle-proxy
+ set-proxy
+ unset-proxy
+ show-proxy
+ list-packages
+ iedit-mode
+ replace-string
+ imenu-add-menubar-index
+ imenu-add-to-menubar
+ occur
+ groovy-mode
+ gradle-mode
+ eval-buffer
+ find-function
+ count-words
+ recentf-cleanup
+ revert-buffer
+ auto-fill-mode
+ projectile-mode
+ evil-normal-state
+ evil-emacs-state
+ delete-frame
+ make-frame
+ org-toggle-inline-images
+)
+
+;; ----- smex-data -----
+(
+ (org-toggle-inline-images . 9)
+ (hs-hide-all . 1)
+ (hs-show-all . 1)
+ (query-replace . 5)
+ (org-table-align . 1)
+ (org-table-create . 2)
+ (org-table-convert . 2)
+ (org-table-create-or-convert-from-region . 7)
+ (org-table-convert-region . 1)
+ (eshell . 68)
+ (count-words . 9)
+ (customize-variable . 5)
+ (org-footnote-new . 11)
+ (org-reveal . 1)
+ (org-copy-visible . 1)
+ (org-insert-heading . 4)
+ (orgstruct-mode . 1)
+ (org-lint . 1)
+ (org-up-element . 1)
+ (customize-mode . 1)
+ (customize-option . 3)
+ (org-table-wrap-region . 3)
+ (org-mode . 1)
+ (org-plot/gnuplot . 1)
+ (orgtbl-ascii-plot . 2)
+ (org-insert-drawer . 3)
+ (revert-buffer . 2)
+ (org-columns . 1)
+ (customize-save-variable . 2)
+ (doc-view-mode . 1)
+ (auto-fill-mode . 4)
+ (make-frame . 1)
+ (delete-frame . 1)
+ (evil-emacs-state . 1)
+ (evil-normal-state . 1)
+ (projectile-mode . 2)
+ (eval-buffer . 4)
+ (replace-string . 8)
+ (recentf-cleanup . 2)
+ (find-function . 1)
+ (gradle-mode . 1)
+ (groovy-mode . 1)
+ (configuration-layer/create-layer . 6)
+ (imenu . 6)
+ (occur . 1)
+ (imenu-add-to-menubar . 2)
+ (imenu-add-menubar-index . 1)
+ (iedit-mode . 2)
+ (list-packages . 1)
+ (company-tabnine-install-binary . 10)
+ (show-proxy . 1)
+ (set-proxy . 5)
+ (unset-proxy . 1)
+ (toggle-proxy . 2)
+ (LaTeX-mode . 2)
+ (ivy-mode . 2)
+ (package-list-packages . 1)
+ (visit-tags-table . 3)
+ (lispy-mode . 1)
+)

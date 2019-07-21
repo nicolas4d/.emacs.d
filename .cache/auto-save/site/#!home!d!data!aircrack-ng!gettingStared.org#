@@ -1,0 +1,90 @@
+#+Title getting Started
+* Introduction
+** 
+The basic process consists of three steps:
+1. Determin the chipset in your wireless card
+2. Determin which of the three options you will use to run the aircrack-ng suit
+3. Get started using the aircrack-ng suit
+
+decide which method :
+1. linux 
+2. Live CD
+3. VMWare
+** determing the Wireless Card Chipset
+*** Tutorial: Is my Wireless Card Compatible
+**** introduction
+supports cards
+
+on to the matter at hand. here are the steps we will be follow:
+***** Determin your requirements and constraints
+****** Which operating system you plan to use
+window can not inject data packets. far fewer cards compatible.
+linux gives you the ability to both listen to and inject packets.
+****** Your preferred hardware format(PCI, PCMCIA, USB, etc.)
+****** Which features you require(Listening, injection)
+***** Learn the basics of a wireless cards
+There are two manufacturers involved with wireless cards:
+1. the brand of the card itself.
+2. who makes the wireless chipset whith the card.
+***** Determin the chipset
+****** 
+- search the internet
+- search forum
+- look at windows driver file names
+- check the card manufacturers page
+- physically see the wireless chip
+- Federal Communications Commission ID search
+
+- IkiDevi
+- Madwifi compatibility list
+- Wireless Adapter Chipset Directory
+- Atheros 
+
+make sure to include revision/version when doing search.
+****** linux
+- dmesg
+- ISA. out of the luck
+- PCI card. 
+lspci -nn
+- lsusb
+- Cardbus card and kernal 2.4x above
+lspci -nn
+cardctl ident
+- Pcmcia card 
+kernel 2.6.14 or later:
+pccardctl ident
+older kernel:
+cardctl ident
+- lsmod
+***** Verify the chipset capabilities
+capability section
+***** Determin the drivers and patches required
+Drivers Section
+***** Select card
+Compatible card list
+*** Compatible Cards
+** Linux Distribution of Your Choice
+installing drivers
+installing aircrack
+*** Advantages
+1. aircrack-ng is almost certainly guaranteed to work
+2. Provides the ability to run the latest versions of aircrack-ng and any wireless driver
+3. Provides the most flexibility
+*** Disadvantage
+Requires much deeper knowledge of linux
+** Live CD
+** VMWare Image
+** Using the Aircrack-ng Suite
+*** injection test
+**** Description
+     the injection test determins if your card can successfully inject and determine the ping response times to the Access Point(AP).
+**** Usage
+aireplay-ng -9 -e teddy -a mac -i wlan1 wlan
+*** Sinmple WEP Crack Tutorial
+*** other tutorial
+** Resources
+Wiki
+Forum
+IRC
+* references
+www.aircrack-ng.org
