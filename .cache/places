@@ -1,0 +1,203 @@
+;;; -*- coding: utf-8 -*-
+(("/home/d/.spacemacs.d/init.el" . 11768)
+ ("/home/d/data/spring/spring-boot/Spring Boot Reference Guide-2.1.6.RELEASE.org" . 2499)
+ ("/home/d/data/emacs/note.org" . 593)
+ ("/home/d/data/website/website.org" . 1168)
+ ("/home/d/data/Linux/ubuntu/ubuntu-sys-log.org" . 1937)
+ ("/home/d/.emacs.d/.cache/recentf" . 80930)
+ ("/home/d/.emacs.d/.cache/layouts/persp-auto-save" . 8865)
+ ("/home/d/.emacs.d/.cache/layouts/d-layout" . 8996)
+ ("/usr/local/share/emacs/25.3/lisp/subr.el.gz" . 33332)
+ ("/home/d/data/Chrome/Extentions/sis001/js/event.js" . 254)
+ ("/home/d/.emacs.d/doc/FAQ.org" . 15395)
+ ("/home/d/.emacs.d/.cache/url/cookies" . 231)
+ ("/home/d/data/Chrome/Extentions/sis001Back/"
+  (dired-filename . "/home/d/data/Chrome/Extentions/sis001Back/manifest.json"))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-program/funcs.el" . 976)
+ ("/home/d/data/Chrome/Extentions/sis001/test.el" . 49)
+ ("/home/d/data/Chrome/Extentions/sis001Back/manifest.json" . 585)
+ ("/home/d/data/Chrome/Extentions/"
+  (dired-filename . "/home/d/data/Chrome/Extentions/sis001Back"))
+ ("/home/d/data/Chrome/Extentions/sis001/"
+  (dired-filename . "/home/d/data/Chrome/Extentions/sis001/.."))
+ ("/home/d/data/Chrome/Extentions/sis001/js/"
+  (dired-filename . "/home/d/data/Chrome/Extentions/sis001/js/.."))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-program/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-program/funcs.el"))
+ ("/home/d/.spacemacs.d/layers/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-program"))
+ ("/home/d/.spacemacs.d/"
+  (dired-filename . "/home/d/.spacemacs.d/layers"))
+ ("/home/d/.spacemacs.d/layers/nicolas4d/layers.el" . 664)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-program/packages.el" . 158)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-program/README.org" . 165)
+ ("/home/d/.spacemacs.d/layers/nicolas4d/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d/.."))
+ ("/usr/local/share/info/"
+  (dired-filename . "/usr/local/share/info/.."))
+ ("/home/d/data/tmp/program-setup/test.el" . 164)
+ ("/usr/local/share/emacs/25.3/lisp/files.el.gz" . 200469)
+ ("/home/d/.spacemacs.d/layers/nicolas4d/funcs.el" . 633)
+ ("/home/d/data/tmp/program-setup/"
+  (dired-filename . "/home/d/data/tmp/program-setup/test.el"))
+ ("/home/d/data/tmp/"
+  (dired-filename . "/home/d/data/tmp/program-setup"))
+ ("/home/d/data/spring/"
+  (dired-filename . "/home/d/data/spring/spring-boot"))
+ ("/home/d/data/spring/spring-boot/note/SB_Filter.org" . 746)
+ ("/home/d/data/spring/spring-boot/note/spring boot + mybatis + mysql 整合.org" . 112)
+ ("/home/d/data/spring/spring-boot/note/"
+  (dired-filename . "/home/d/data/spring/spring-boot/note/spring boot web环境搭建 code.rar"))
+ ("/home/d/data/spring/spring-boot/"
+  (dired-filename . "/home/d/data/spring/spring-boot/.."))
+ ("/home/d/"
+  (dired-filename . "/home/d/.emacs.d"))
+ ("/home/d/.emacs.d/elpa/projectile-20180324.2226/projectile.el" . 70868)
+ ("/home/d/data/fluxion/bin/arch/"
+  (dired-filename . "/home/d/data/fluxion/bin/arch/PKGBUILD"))
+ ("/home/d/data/fluxion/bin/"
+  (dired-filename . "/home/d/data/fluxion/bin/arch"))
+ ("/home/d/data/fluxion/"
+  (dired-filename . "/home/d/data/fluxion/bin"))
+ ("/home/d/.spacemacs.d/layers/nicolas4d/config.el" . 133)
+ ("/home/d/.spacemacs.d/layers/nicolas4d/keybindings.el" . 103)
+ ("/home/d/.emacs.d/.cache/layouts/d" . 4206)
+ ("/home/d/.emacs.d/doc/"
+  (dired-filename . "/home/d/.emacs.d/doc/FAQ.org"))
+ ("/home/d/data/Git/progit book/ProGit.org" . 16569)
+ ("/home/d/.emacs.d/doc/DOCUMENTATION.org" . 17555)
+ ("/home/d/.emacs.d/.cache/layouts/"
+  (dired-filename . "/home/d/.emacs.d/.cache/layouts/d"))
+ ("/home/d/.emacs.d/.cache/"
+  (dired-filename . "/home/d/.emacs.d/.cache/layouts"))
+ ("/home/d/.emacs.d/"
+  (dired-filename . "/home/d/.emacs.d/.cache"))
+ ("/home/d/.emacs.d/layers/+lang/agda/packages.el" . 504)
+ ("/home/d/.emacs.d/layers/+lang/agda/README.org" . 285)
+ ("/home/d/.emacs.d/layers/+lang/agda/"
+  (dired-filename . "/home/d/.emacs.d/layers/+lang/agda/README.org"))
+ ("/home/d/.emacs.d/elpa/web-beautify-20161115.2247/web-beautify-autoloads.el" . 1256)
+ ("/home/d/.spacemacs.d/custom.el" . 3175)
+ ("/home/d/.emacs.d/elpa/livid-mode-20131116.1344/livid-mode-autoloads.el" . 456)
+ ("/home/d/.emacs.d/elpa/skewer-mode-20180706.1807/skewer-mode-autoloads.el" . 2995)
+ ("/home/d/.emacs.d/elpa/simple-httpd-20190110.1505/simple-httpd-autoloads.el" . 907)
+ ("/home/d/.emacs.d/elpa/json-mode-20190123.422/json-mode-autoloads.el" . 1947)
+ ("/home/d/.emacs.d/elpa/json-snatcher-20150512.347/json-snatcher-autoloads.el" . 464)
+ ("/home/d/.emacs.d/elpa/json-reformat-20160212.853/json-reformat-autoloads.el" . 588)
+ ("/home/d/.emacs.d/elpa/js2-refactor-20190630.2108/js2-refactor-autoloads.el" . 1306)
+ ("/home/d/.emacs.d/elpa/multiple-cursors-20190317.1211/multiple-cursors-autoloads.el" . 10439)
+ ("/home/d/.emacs.d/elpa/js2-mode-20190606.1008/js2-mode-autoloads.el" . 1779)
+ ("/home/d/.emacs.d/elpa/js-doc-20160715.434/js-doc-autoloads.el" . 878)
+ ("/home/d/.emacs.d/elpa/company-tern-20161004.1847/company-tern-autoloads.el" . 502)
+ ("/home/d/.emacs.d/elpa/tern-20181108.722/tern-autoloads.el" . 459)
+ ("/home/d/.emacs.d/elpa/coffee-mode-20170324.940/coffee-mode-autoloads.el" . 726)
+ ("/home/d/.emacs.d/layers/+lang/html/funcs.el" . 572)
+ ("/home/d/.emacs.d/layers/+lang/html/config.el" . 301)
+ ("/home/d/.emacs.d/layers/+lang/html/packages.el" . 6820)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-web-mode/packages.el" . 368)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-web-mode/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-web-mode/packages.el"))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-web-mode/config.el" . 56)
+ ("/home/d/.emacs.d/layers/+lang/html/"
+  (dired-filename . "/home/d/.emacs.d/layers/+lang/html/packages.el"))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-abbrev/packages.el" . 1127)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-dired/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-dired/config.el"))
+ ("/home/d/.anthy/"
+  (dired-filename . "/home/d/.anthy/.."))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-abbrev/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-abbrev/.."))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-abbrev/config.el" . 149)
+ ("/home/d/.byteexec/"
+  (dired-filename . "/home/d/.byteexec/.."))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-dired/packages.el.bak" . 2146)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-dired/config.el" . 146)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-iedit/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-iedit/.."))
+ ("/home/d/data/workspaces/"
+  (dired-filename . "/home/d/data/workspaces/wxdc"))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-plantuml/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-plantuml/.."))
+ ("/home/d/data/ctags/docs/autotools.rst" . 1201)
+ ("/home/d/data/ctags/docs/"
+  (dired-filename . "/home/d/data/ctags/docs/autotools.rst"))
+ ("/home/d/data/ctags/"
+  (dired-filename . "/home/d/data/ctags/docs"))
+ ("/"
+  (dired-filename . "/home"))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-hungry-delete/packages.el" . 1023)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-hungry-delete/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-hungry-delete/.."))
+ ("/home/"
+  (dired-filename . "/home/d"))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-org/packages.el" . 1317)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-org/keybindings.el" . 103)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-org/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-org/.."))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-expand-region/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-expand-region/.."))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-occur/packages.el" . 1463)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-occur/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-occur/funcs.el"))
+ ("/home/d/data/"
+  (dired-filename . "/home/d/data/版本控制规则"))
+ ("/home/d/.emacs.d/layers/+distributions/spacemacs-base/packages.el" . 3364)
+ ("/home/d/.emacs.d/layers/+distributions/spacemacs-base/keybindings.el" . 1119)
+ ("/home/d/.emacs.d/layers/+distributions/spacemacs-base/"
+  (dired-filename . "/home/d/.emacs.d/layers/+distributions/spacemacs-base/keybindings.el"))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-hungry-delete/keybindings.el" . 27)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-youdao-dictionary/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-youdao-dictionary/.."))
+ ("/home/d/data/版本控制规则/"
+  (dired-filename . "/home/d/data/版本控制规则/.."))
+ ("/home/d/.cache/"
+  (dired-filename . "/home/d/.cache/bcloud"))
+ ("/home/d/.emacs.d/layers/+tools/ansible/packages.el" . 2014)
+ ("/home/d/.emacs.d/doc/BEGINNERS_TUTORIAL.org" . 2050)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-occur/funcs.el" . 404)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-occur/keybindings.el" . 42)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-youdao-dictionary/packages.el" . 2102)
+ ("/home/d/.emacs.d/doc/QUICK_START.org" . 5837)
+ ("/media/"
+  (dired-filename . "/media/d"))
+ ("/media/d/"
+  (dired-filename . "/media/d/backup"))
+ ("/home/d/data/java/"
+  (dired-filename . "/home/d/data/java/.."))
+ ("/home/d/data/js/"
+  (dired-filename . "/home/d/data/js/.."))
+ ("/home/d/.emacs.d/doc/LAYERS.org" . 19086)
+ ("/home/d/.emacs.d/doc/VIMUSERS.org" . 22325)
+ ("/home/d/data/spring/spring-boot/refrences/IV/29_1/RestController.java" . 519)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-iedit/README.org" . 33)
+ ("/home/d/.emacs.d/layers/+spacemacs/spacemacs-evil/funcs.el" . 400)
+ ("/home/d/.emacs.d/layers/+spacemacs/spacemacs-evil/packages.el" . 2729)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-proxy/funcs.el" . 101)
+ ("/home/d/data/Linux/ubuntu/note.org" . 7670)
+ ("/home/d/.emacs.d/layers/+spacemacs/spacemacs-evil/"
+  (dired-filename . "/home/d/.emacs.d/layers/+spacemacs/spacemacs-evil/funcs.el"))
+ ("/home/d/data/Linux/ubuntu/"
+  (dired-filename . "/home/d/data/Linux/ubuntu/note.org"))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-proxy/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-proxy/.."))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-iedit/keybindings.el" . 42)
+ ("/home/d/data/DesignPatterns/runoob/设计模式.org" . 14)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-org/README.org" . 571)
+ ("/home/d/data/浏览器同源策略/"
+  (dired-filename . "/home/d/data/浏览器同源策略/.."))
+ ("/home/d/data/workspaces/SSO-System/"
+  (dired-filename . "/home/d/data/workspaces/SSO-System/.."))
+ ("/home/d/data/spring/spring-mvc/spring-mvc.org" . 2038)
+ ("/home/d/data/spring/spring-mvc/"
+  (dired-filename . "/home/d/data/spring/spring-mvc/.."))
+ ("/home/d/.emacs.d/elpa/groovy-mode-20180412.538/groovy-mode-autoloads.el" . 3866)
+ ("/home/d/data/spring/spring-boot/example/"
+  (dired-filename . "/home/d/data/spring/spring-boot/example/mockito"))
+ ("/home/d/.m2/"
+  (dired-filename . "/home/d/.m2/settings.xml"))
+ ("/opt/gradle/gradle-5.5.1/init.d/init.gradle" . 137)
+ ("/home/d/data/js/jquery/"
+  (dired-filename . "/home/d/data/js/jquery/jquery-runoob.org"))
+ ("/home/d/.m2/settings.xml" . 6240)
+ ("/home/d/data/Gradle/note.org" . 71)
+ ("/sudo:root@localhost:/opt/gradle/gradle-5.5.1/init.d/init.gradle" . 160))

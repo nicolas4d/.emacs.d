@@ -1,12 +1,3 @@
-exit
-ls
-java ChainPatternDemo.java
-java ChainPatternDemo
-exit
-pyton3 1-5-2.python 
-python3 1-5-2.python 
-exit
-python3 1-5-2.python 
 python3 1-5-2.python 
 exit
 python3.5 1-5-2.python 
@@ -126,3 +117,12 @@ ctags -e a.js
 ctags -h
 ctags -v
 exit
+git status
+git remote
+exit
+git
+exit
+ctags 
+ctags --help
+ctags -f TAGS -e -R 
+ exit
