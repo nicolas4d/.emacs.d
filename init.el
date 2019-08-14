@@ -2,4 +2,5 @@
 
 (require 'org-install)
 (require 'ob-tangle)
-(org-babel-load-file (expand-file-name "init.org" user-emacs-directory))
+;; org 文件名不可以是init.org
+(org-babel-load-file (expand-file-name "init-org.org" user-emacs-directory))

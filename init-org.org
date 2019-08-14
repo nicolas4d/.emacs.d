@@ -1,0 +1,8 @@
+* load-path
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+#+END_SRC
+* package management
+#+BEGIN_SRC emacs-lisp
+(require 'init-packages)
+#+END_SRC
