@@ -1,11 +1,11 @@
 ;;; -*- coding: utf-8 -*-
-(("/home/d/.spacemacs.d/init.el" . 11768)
+(("/home/d/.emacs.d/.cache/recentf" . 80891)
+ ("/home/d/.emacs.d/.cache/layouts/persp-auto-save" . 2409)
+ ("/home/d/.spacemacs.d/init.el" . 11768)
  ("/home/d/data/spring/spring-boot/Spring Boot Reference Guide-2.1.6.RELEASE.org" . 2499)
  ("/home/d/data/emacs/note.org" . 593)
  ("/home/d/data/website/website.org" . 1168)
  ("/home/d/data/Linux/ubuntu/ubuntu-sys-log.org" . 1937)
- ("/home/d/.emacs.d/.cache/recentf" . 80930)
- ("/home/d/.emacs.d/.cache/layouts/persp-auto-save" . 8865)
  ("/home/d/.emacs.d/.cache/layouts/d-layout" . 8996)
  ("/usr/local/share/emacs/25.3/lisp/subr.el.gz" . 33332)
  ("/home/d/data/Chrome/Extentions/sis001/js/event.js" . 254)
@@ -64,7 +64,6 @@
  ("/home/d/.emacs.d/.cache/layouts/d" . 4206)
  ("/home/d/.emacs.d/doc/"
   (dired-filename . "/home/d/.emacs.d/doc/FAQ.org"))
- ("/home/d/data/Git/progit book/ProGit.org" . 16569)
  ("/home/d/.emacs.d/doc/DOCUMENTATION.org" . 17555)
  ("/home/d/.emacs.d/.cache/layouts/"
   (dired-filename . "/home/d/.emacs.d/.cache/layouts/d"))
@@ -94,69 +93,36 @@
  ("/home/d/.emacs.d/layers/+lang/html/funcs.el" . 572)
  ("/home/d/.emacs.d/layers/+lang/html/config.el" . 301)
  ("/home/d/.emacs.d/layers/+lang/html/packages.el" . 6820)
- ("/home/d/.spacemacs.d/layers/nicolas4d-web-mode/packages.el" . 368)
- ("/home/d/.spacemacs.d/layers/nicolas4d-web-mode/"
-  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-web-mode/packages.el"))
- ("/home/d/.spacemacs.d/layers/nicolas4d-web-mode/config.el" . 56)
  ("/home/d/.emacs.d/layers/+lang/html/"
   (dired-filename . "/home/d/.emacs.d/layers/+lang/html/packages.el"))
- ("/home/d/.spacemacs.d/layers/nicolas4d-abbrev/packages.el" . 1127)
- ("/home/d/.spacemacs.d/layers/nicolas4d-dired/"
-  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-dired/config.el"))
  ("/home/d/.anthy/"
   (dired-filename . "/home/d/.anthy/.."))
- ("/home/d/.spacemacs.d/layers/nicolas4d-abbrev/"
-  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-abbrev/.."))
- ("/home/d/.spacemacs.d/layers/nicolas4d-abbrev/config.el" . 149)
  ("/home/d/.byteexec/"
   (dired-filename . "/home/d/.byteexec/.."))
- ("/home/d/.spacemacs.d/layers/nicolas4d-dired/packages.el.bak" . 2146)
- ("/home/d/.spacemacs.d/layers/nicolas4d-dired/config.el" . 146)
- ("/home/d/.spacemacs.d/layers/nicolas4d-iedit/"
-  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-iedit/.."))
  ("/home/d/data/workspaces/"
   (dired-filename . "/home/d/data/workspaces/wxdc"))
- ("/home/d/.spacemacs.d/layers/nicolas4d-plantuml/"
-  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-plantuml/.."))
- ("/home/d/data/ctags/docs/autotools.rst" . 1201)
- ("/home/d/data/ctags/docs/"
-  (dired-filename . "/home/d/data/ctags/docs/autotools.rst"))
  ("/home/d/data/ctags/"
   (dired-filename . "/home/d/data/ctags/docs"))
  ("/"
   (dired-filename . "/home"))
- ("/home/d/.spacemacs.d/layers/nicolas4d-hungry-delete/packages.el" . 1023)
- ("/home/d/.spacemacs.d/layers/nicolas4d-hungry-delete/"
-  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-hungry-delete/.."))
  ("/home/"
   (dired-filename . "/home/d"))
  ("/home/d/.spacemacs.d/layers/nicolas4d-org/packages.el" . 1317)
  ("/home/d/.spacemacs.d/layers/nicolas4d-org/keybindings.el" . 103)
  ("/home/d/.spacemacs.d/layers/nicolas4d-org/"
   (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-org/.."))
- ("/home/d/.spacemacs.d/layers/nicolas4d-expand-region/"
-  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-expand-region/.."))
- ("/home/d/.spacemacs.d/layers/nicolas4d-occur/packages.el" . 1463)
- ("/home/d/.spacemacs.d/layers/nicolas4d-occur/"
-  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-occur/funcs.el"))
  ("/home/d/data/"
   (dired-filename . "/home/d/data/版本控制规则"))
  ("/home/d/.emacs.d/layers/+distributions/spacemacs-base/packages.el" . 3364)
  ("/home/d/.emacs.d/layers/+distributions/spacemacs-base/keybindings.el" . 1119)
  ("/home/d/.emacs.d/layers/+distributions/spacemacs-base/"
   (dired-filename . "/home/d/.emacs.d/layers/+distributions/spacemacs-base/keybindings.el"))
- ("/home/d/.spacemacs.d/layers/nicolas4d-hungry-delete/keybindings.el" . 27)
- ("/home/d/.spacemacs.d/layers/nicolas4d-youdao-dictionary/"
-  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-youdao-dictionary/.."))
  ("/home/d/data/版本控制规则/"
   (dired-filename . "/home/d/data/版本控制规则/.."))
  ("/home/d/.cache/"
   (dired-filename . "/home/d/.cache/bcloud"))
  ("/home/d/.emacs.d/layers/+tools/ansible/packages.el" . 2014)
  ("/home/d/.emacs.d/doc/BEGINNERS_TUTORIAL.org" . 2050)
- ("/home/d/.spacemacs.d/layers/nicolas4d-occur/funcs.el" . 404)
- ("/home/d/.spacemacs.d/layers/nicolas4d-occur/keybindings.el" . 42)
- ("/home/d/.spacemacs.d/layers/nicolas4d-youdao-dictionary/packages.el" . 2102)
  ("/home/d/.emacs.d/doc/QUICK_START.org" . 5837)
  ("/media/"
   (dired-filename . "/media/d"))
@@ -169,18 +135,13 @@
  ("/home/d/.emacs.d/doc/LAYERS.org" . 19086)
  ("/home/d/.emacs.d/doc/VIMUSERS.org" . 22325)
  ("/home/d/data/spring/spring-boot/refrences/IV/29_1/RestController.java" . 519)
- ("/home/d/.spacemacs.d/layers/nicolas4d-iedit/README.org" . 33)
  ("/home/d/.emacs.d/layers/+spacemacs/spacemacs-evil/funcs.el" . 400)
  ("/home/d/.emacs.d/layers/+spacemacs/spacemacs-evil/packages.el" . 2729)
- ("/home/d/.spacemacs.d/layers/nicolas4d-proxy/funcs.el" . 101)
  ("/home/d/data/Linux/ubuntu/note.org" . 7670)
  ("/home/d/.emacs.d/layers/+spacemacs/spacemacs-evil/"
   (dired-filename . "/home/d/.emacs.d/layers/+spacemacs/spacemacs-evil/funcs.el"))
  ("/home/d/data/Linux/ubuntu/"
   (dired-filename . "/home/d/data/Linux/ubuntu/note.org"))
- ("/home/d/.spacemacs.d/layers/nicolas4d-proxy/"
-  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-proxy/.."))
- ("/home/d/.spacemacs.d/layers/nicolas4d-iedit/keybindings.el" . 42)
  ("/home/d/data/DesignPatterns/runoob/设计模式.org" . 14)
  ("/home/d/.spacemacs.d/layers/nicolas4d-org/README.org" . 571)
  ("/home/d/data/浏览器同源策略/"
