@@ -1,1 +1,0 @@
-("~/.spacemacs.d/" "~/.emacs.d/" "~/data/Chrome/Extentions/sis001/" "~/data/Emacs/Spacemacs/Spacemacs-rocks-zilongshanren/" "~/data/Emacs/Spacemacs/zilongshanren-spacemacs-private/" "~/data/tern/" "~/data/githosts/" "~/data/Emacs/zilongshanren-spacemacs-private/")
