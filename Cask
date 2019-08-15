@@ -28,6 +28,7 @@
 (depends-on "js2-mode")
 (depends-on "js2-refactor")
 (depends-on "log4e")
+(depends-on "mmm-mode")
 (depends-on "monokai-theme")
 (depends-on "multiple-cursors")
 (depends-on "nodejs-repl")

@@ -71,8 +71,10 @@
 (require 'hungry-delete)
 (global-hungry-delete-mode)
 
-;; '' isuue
+;; '' isue ' 
 (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
+;; `` isuse `
+(sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "`" nil :actions nil)
 
 ;;js2-refactor
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
