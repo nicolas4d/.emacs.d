@@ -1,63 +1,3 @@
-;; 注意 elpa.emacs-china.org 是 Emacs China 中文社区在国内搭建的一个 ELPA 镜像
-(when (>= emacs-major-version 24)
-  (require 'package)
-  ;;(package-initialize)
-  (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-			   ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
-
-;; cl - Common Lisp Extension
-(require 'cl)
-
-;; Add Packages
-(defvar my/packages '(
-		      ;; --- Auto-completion ---
-		      company
-		      ;; --- Better Editor ---
-		      hungry-delete
-		      ;;smex
-		      swiper
-		      counsel
-		      smartparens
-		      ;; --- Major Mode ---
-		      js2-mode
-		      web-mode
-		      evil
-		      ;; --- Minor Mode ---
-		      nodejs-repl
-		      js2-refactor
-		      ;;exec-path-from-shell
-		      ;; --- Themes ---
-		      monokai-theme
-		      ;; solarized-theme
-		      popwin
-		      ;;
-		      expand-region
-		      iedit
-		      org-pomodoro
-		      helm-ag
-		      flycheck
-		      auto-yasnippet
-		      evil-leader
-		      window-numbering
-		      evil-surround
-		      evil-nerd-commenter
-		      which-key
-		      ) "Default packages")
-
-(setq package-selected-packages my/packages)
-
-(defun my/packages-installed-p ()
-  (loop for pkg in my/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
-
-(unless (my/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg my/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
-
 ;; 关闭工具栏，tool-bar-mode 即为一个 Minor Mode
 (tool-bar-mode -1)
 
@@ -140,9 +80,10 @@
 ;;window-numbering
 (window-numbering-mode 1)
 
-;;after evil   
+;;before evil   
 ;; evil-leader
 (global-evil-leader-mode)
+(setq evil-leader/leader "SPC")
 
 (evil-leader/set-key
   "ff" 'find-file
