@@ -1,38 +1,38 @@
 
 ;; ----- smex-history -----
 (
- lisp-mode
- fundamental-mode
- count-words
- customize
- apropos
- count-words-region
- regexp-builder
+ package-install
+ load-library
+ package-list-packages
+ eshell
  query-replace
- re-search-forward
- re-builder
- org-table-create-or-convert-from-region
- eval-buffer
- gui-set-selection
- transient-mark-mode
- copy-region-as-kill
- search-forward
- counsel-mark-ring
- beginning-of-buffer
- helm-mark-ring
+ yas-global-mode
+ emacs-lisp-mode
+ count-words
+ org-mode
+ snippet-mode
+ version
+ customize-group
+ customize-variable
+ tern-mode
+ company-mode
+ lisp-mode
+ js2-mode
  grep-find
  grep
- insert-buffer
- toggle-read-only
- read-only-mode
- copy-to-buffer
- append-to-buffer
- xref-find-definitions
- zap-to-char
- lisp-interaction-mode
- version
- configuration-layer/create-layer
- eshell
+ man
+ javascript-mode
+ js-mode
+ fundamental-mode
+ text-mode
+ aya-expand
+ aya-create
+ java-mode
+ regexp-builder
+ org-footnote-new
+ org-toggle-inline-images
+ replace-string
+ counsel-etags-find-tag-at-point
 )
 
 ;; ----- smex-data -----
@@ -40,15 +40,15 @@
  (org-toggle-inline-images . 9)
  (hs-hide-all . 1)
  (hs-show-all . 1)
- (query-replace . 6)
+ (query-replace . 7)
  (org-table-align . 1)
  (org-table-create . 2)
  (org-table-convert . 2)
  (org-table-create-or-convert-from-region . 8)
  (org-table-convert-region . 1)
- (eshell . 71)
- (count-words . 20)
- (customize-variable . 5)
+ (eshell . 72)
+ (count-words . 21)
+ (customize-variable . 6)
  (org-footnote-new . 11)
  (org-reveal . 1)
  (org-copy-visible . 1)
@@ -59,7 +59,7 @@
  (customize-mode . 1)
  (customize-option . 3)
  (org-table-wrap-region . 3)
- (org-mode . 1)
+ (org-mode . 2)
  (org-plot/gnuplot . 1)
  (orgtbl-ascii-plot . 2)
  (org-insert-drawer . 3)
@@ -93,21 +93,21 @@
  (toggle-proxy . 2)
  (LaTeX-mode . 2)
  (ivy-mode . 2)
- (package-list-packages . 1)
+ (package-list-packages . 14)
  (visit-tags-table . 3)
  (lispy-mode . 1)
  (dired-find-alternate-file . 1)
- (abbrev-mode . 3)
+ (abbrev-mode . 4)
  (web-mode . 2)
  (counsel-git . 1)
  (nicolas4d/open-file-with-projectile-or-counsel-git . 1)
- (fundamental-mode . 3)
+ (fundamental-mode . 4)
  (my-auto-update-tags-when-save . 1)
  (nicolas4d/setup-develop-environment . 2)
- (lisp-mode . 2)
+ (lisp-mode . 4)
  (nicolas4d/tags-project-root . 3)
  (nicolas4d/setup-tags-project-environment . 1)
- (version . 1)
+ (version . 2)
  (lisp-interaction-mode . 2)
  (multiply-by-seven . 2)
  (zaptochar . 14)
@@ -119,8 +119,8 @@
  (read-only-mode . 1)
  (toggle-read-only . 1)
  (insert-buffer . 2)
- (grep . 1)
- (grep-find . 1)
+ (grep . 6)
+ (grep-find . 10)
  (helm-mark-ring . 2)
  (counsel-mark-ring . 1)
  (great-or-less-then-fill-column . 4)
@@ -138,4 +138,49 @@
  (apropos . 2)
  (customize . 4)
  (line-to-top-of-window . 1)
+ (diminish-undo . 1)
+ (tags-company/set-environment . 3)
+ (ggtags-global-mode . 2)
+ (emacs-lisp-mode . 9)
+ (ggtags-mode . 3)
+ (ggtags-find-tag-dwim . 1)
+ (ggtags-find-reference . 3)
+ (ggtags-find-definition . 1)
+ (etags-select-find-tag . 2)
+ (etags-select-find-tag-at-point . 1)
+ (counsel-etags-find-tag . 3)
+ (counsel-etags-find-tag-at-point . 8)
+ (counsel-etags-grep . 1)
+ (helm-etags-plus-select-internal . 3)
+ (ac-etags-setup . 1)
+ (ac-complete-etags . 1)
+ (view-hello-file . 2)
+ (man . 3)
+ (yas-global-mode . 6)
+ (yas-new-snippet . 8)
+ (yas/new-snippet . 1)
+ (yas-insert-snippet . 12)
+ (yas--minor-mode-menu . 1)
+ (yas-expand . 14)
+ (yas-visit-snippet-file . 2)
+ (yas-describe-tables . 12)
+ (yas/describe-tables . 24)
+ (java-mode . 1)
+ (aya-create . 1)
+ (aya-expand . 1)
+ (text-mode . 1)
+ (js2-mode . 8)
+ (js-mode . 1)
+ (javascript-mode . 1)
+ (company-mode . 3)
+ (customize-group . 3)
+ (yas-next-field-or-maybe-expand . 11)
+ (tern-mode . 1)
+ (snippet-mode . 2)
+ (yas-load-snippet-buffer . 2)
+ (yas-reload-all . 2)
+ (tags-company/toggle-update-tags-when-save-buffer . 24)
+ (helm-ag . 1)
+ (load-library . 4)
+ (package-install . 1)
 )

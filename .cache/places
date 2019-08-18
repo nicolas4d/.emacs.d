@@ -1,47 +1,168 @@
 ;;; -*- coding: utf-8 -*-
-(("/home/d/.spacemacs.d/init.el" . 11768)
- ("/home/d/data/spring/spring-boot/Spring Boot Reference Guide-2.1.6.RELEASE.org" . 2499)
+(("/home/d/data/spring/spring-boot/Spring Boot Reference Guide-2.1.6.RELEASE.org" . 2499)
  ("/home/d/data/Linux/ubuntu/ubuntu-sys-log.org" . 1937)
- ("/home/d/data/website/website.org" . 1711)
- ("/home/d/.emacs.d/.cache/recentf" . 80891)
- ("/home/d/.emacs.d/.cache/layouts/persp-auto-save" . 7885)
- ("/home/d/data/emacs/note.org" . 593)
- ("/home/d/.emacs.d/.cache/layouts/d-layout" . 8996)
- ("/usr/local/share/emacs/25.3/lisp/subr.el.gz" . 33332)
- ("/home/d/data/Chrome/Extentions/sis001/js/event.js" . 254)
- ("/home/d/.emacs.d/doc/FAQ.org" . 15395)
- ("/home/d/.emacs.d/.cache/url/cookies" . 231)
- ("/home/d/data/Chrome/Extentions/sis001Back/"
-  (dired-filename . "/home/d/data/Chrome/Extentions/sis001Back/manifest.json"))
- ("/home/d/.spacemacs.d/layers/nicolas4d-program/funcs.el" . 976)
- ("/home/d/data/Chrome/Extentions/sis001/test.el" . 49)
- ("/home/d/data/Chrome/Extentions/sis001Back/manifest.json" . 585)
- ("/home/d/data/Chrome/Extentions/"
-  (dired-filename . "/home/d/data/Chrome/Extentions/sis001Back"))
- ("/home/d/data/Chrome/Extentions/sis001/"
-  (dired-filename . "/home/d/data/Chrome/Extentions/sis001/.."))
- ("/home/d/data/Chrome/Extentions/sis001/js/"
-  (dired-filename . "/home/d/data/Chrome/Extentions/sis001/js/.."))
+ ("/home/d/data/website/website.org" . 1168)
+ ("/home/d/data/emacs/tags-company/tags-company.el" . 289)
+ ("/home/d/.spacemacs.d/init.el" . 11806)
+ ("/home/d/data/emacs/Info(C-h i)/Elisp/note/Packaging.org" . 2403)
+ ("/home/d/.emacs.d/.cache/recentf" . 81343)
+ ("/home/d/.emacs.d/.cache/layouts/persp-auto-save" . 8937)
+ ("/home/d/data/emacs/tags-company/tags-company.el.sig" . 180)
+ ("/home/d/data/emacs/tags-company/"
+  (dired-filename . "/home/d/data/emacs/tags-company/tags-company.el.sig"))
+ ("/home/d/"
+  (dired-filename . "/home/d/.emacs.d"))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-program/packages.el" . 2999)
  ("/home/d/.spacemacs.d/layers/nicolas4d-program/"
-  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-program/funcs.el"))
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-program/packages.el"))
  ("/home/d/.spacemacs.d/layers/"
   (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-program"))
  ("/home/d/.spacemacs.d/"
   (dired-filename . "/home/d/.spacemacs.d/layers"))
- ("/home/d/.spacemacs.d/layers/nicolas4d/layers.el" . 664)
- ("/home/d/.spacemacs.d/layers/nicolas4d-program/packages.el" . 158)
- ("/home/d/.spacemacs.d/layers/nicolas4d-program/README.org" . 165)
+ ("/home/d/.emacs.d/.cache/layouts/d-layout" . 7370)
+ ("/home/d/data/emacs/Info(C-h i)/Elisp/note.org" . 1917)
+ ("/home/d/data/emacs/Info(C-h i)/Elisp/note/Tips.org" . 1113)
+ ("/home/d/.emacs.d/layers/+completion/auto-completion/packages.el" . 2200)
+ ("/home/d/.emacs.d/elpa/company-20180424.1456/company.el" . 220)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-program/config.el.bak-for-tags-company" . 249)
+ ("/home/d/data/emacs/"
+  (dired-filename . "/home/d/data/emacs/tags-company"))
+ ("/home/d/.emacs.d/elpa/company-20180424.1456/"
+  (dired-filename . "/home/d/.emacs.d/elpa/company-20180424.1456/company.el"))
+ ("/home/d/.emacs.d/layers/+completion/auto-completion/local/"
+  (dired-filename . "/home/d/.emacs.d/layers/+completion/auto-completion/local/snippets"))
+ ("/home/d/.emacs.d/layers/+completion/auto-completion/"
+  (dired-filename . "/home/d/.emacs.d/layers/+completion/auto-completion/local"))
+ ("/home/d/.emacs.d/layers/+completion/auto-completion/local/snippets/emacs-lisp-mode/"
+  (dired-filename . "/home/d/.emacs.d/layers/+completion/auto-completion/local/snippets/emacs-lisp-mode/.yas-parents"))
+ ("/home/d/.emacs.d/layers/+completion/auto-completion/local/snippets/"
+  (dired-filename . "/home/d/.emacs.d/layers/+completion/auto-completion/local/snippets/emacs-lisp-mode"))
+ ("/home/d/.emacs.d/elpa/" . 14076)
+ ("/home/d/.emacs.d/"
+  (dired-filename . "/home/d/.emacs.d/elpa"))
+ ("/home/d/.emacs.d/url/cookies" . 231)
+ ("/home/d/data/emacs/Info(C-h i)/Emacs/note.org" . 60481)
+ ("/home/d/data/Git/progit/note.org" . 37092)
+ ("/home/d/data/Git/progit/"
+  (dired-filename . "/home/d/data/Git/progit/note.org"))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-defaults/packages.el" . 1125)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-defaults/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-defaults/packages.el"))
+ ("/home/d/.spacemacs.d/custom.el" . 2482)
+ ("/home/d/data/emacs/spacemacs/spacemacs-rocks/note-book.org" . 15704)
+ ("/home/d/.emacs.d/private/snippets/emacs-lisp-mode/" . 181)
+ ("/home/d/data/emacs/note/note.org" . 717)
+ ("/home/d/.emacs.d/elpa/yasnippet-20180412.1548/"
+  (dired-filename . "/home/d/.emacs.d/elpa/yasnippet-20180412.1548/yasnippet.el"))
+ ("/home/d/data/emacs/note/yasnippet.org" . 249)
+ ("/home/d/.spacemacs.d/layers/nicolas4d/keybindings.el" . 103)
+ ("/home/d/.spacemacs.d/layers/nicolas4d/layers.el" . 246)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-defaults/keybindings.el" . 454)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-defaults/config.el" . 337)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-org/keybindings.el" . 103)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-program/funcs-test.el" . 220)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-org/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-org/.."))
  ("/home/d/.spacemacs.d/layers/nicolas4d/"
   (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d/.."))
+ ("/home/d/.emacs.d/.cache/url/cookies" . 231)
+ ("/home/d/.emacs.d/private/snippets/org-mode/+new-snippet+" . 59)
+ ("/home/d/.emacs.d/layers/+spacemacs/spacemacs-editing/packages.el" . 5734)
+ ("/home/d/.emacs.d/elpa/yasnippet-20180412.1548/yasnippet.el" . 22446)
+ ("/home/d/.emacs.d/.cache/layouts/d" . 7697)
+ ("/home/d/.emacs.d/elpa/yasnippet-snippets-20190725.1049/snippets/org-mode/author" . 34)
+ ("/home/d/data/emacs/note/"
+  (dired-filename . "/home/d/data/emacs/note/note.org"))
+ ("/home/d/.emacs.d/layers/+lang/javascript/config.el" . 356)
+ ("/home/d/.emacs.d/layers/+lang/javascript/packages.el" . 2902)
+ ("/home/d/.emacs.d/layers/+lang/"
+  (dired-filename . "/home/d/.emacs.d/layers/+lang/agda"))
+ ("/home/d/.emacs.d/layers/+lang/javascript/"
+  (dired-filename . "/home/d/.emacs.d/layers/+lang/javascript/.."))
+ ("/home/d/data/tern/"
+  (dired-filename . "/home/d/data/tern/tern-git"))
+ ("/home/d/data/"
+  (dired-filename . "/home/d/data/tern"))
+ ("/home/d/data/tern/tern-git/"
+  (dired-filename . "/home/d/data/tern/tern-git/.."))
+ ("/home/d/data/tmp/"
+  (dired-filename . "/home/d/data/tmp/.."))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-org/packages.el" . 1317)
+ ("/home/d/.emacs.d/layers/+completion/auto-completion/funcs.el" . 9764)
+ ("/home/d/.emacs.d/layers/+emacs/better-defaults/funcs.el" . 287)
+ ("/home/d/.emacs.d/layers/+emacs/better-defaults/packages.el" . 417)
+ ("/home/d/.emacs.d/layers/+emacs/better-defaults/"
+  (dired-filename . "/home/d/.emacs.d/layers/+emacs/better-defaults/img"))
+ ("/home/d/.emacs.d/layers/+emacs/ibuffer/"
+  (dired-filename . "/home/d/.emacs.d/layers/+emacs/ibuffer/funcs.el"))
+ ("/home/d/.emacs.d/layers/+emacs/"
+  (dired-filename . "/home/d/.emacs.d/layers/+emacs/ibuffer"))
+ ("/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/zilongshanren-misc/"
+  (dired-filename . "/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/zilongshanren-misc/packages.el"))
+ ("/home/d/.emacs.d/layers/+completion/"
+  (dired-filename . "/home/d/.emacs.d/layers/+completion/auto-completion"))
+ ("/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/zilongshanren-better-defaults/config.el" . 9790)
+ ("/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/zilongshanren-better-defaults/funcs.el" . 5413)
+ ("/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/zilongshanren-better-defaults/packages.el" . 829)
+ ("/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/zilongshanren/config.el" . 1019)
+ ("/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/zilongshanren-misc/config.el" . 2043)
+ ("/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/zilongshanren-misc/funcs.el" . 24175)
+ ("/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/zilongshanren-misc/packages.el" . 26857)
+ ("/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/"
+  (dired-filename . "/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/zilongshanren-misc"))
+ ("/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/zilongshanren/"
+  (dired-filename . "/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/zilongshanren/.."))
+ ("/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/zilongshanren-better-defaults/"
+  (dired-filename . "/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers/zilongshanren-better-defaults/.."))
+ ("/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/"
+  (dired-filename . "/home/d/data/emacs/spacemacs/zilongshanren-spacemacs-private/layers"))
+ ("/home/d/data/Chrome/Extentions/sis001/"
+  (dired-filename . "/home/d/data/Chrome/Extentions/sis001/js"))
+ ("/home/d/.emacs.d/doc/DOCUMENTATION.org" . 17726)
+ ("/home/d/.emacs.d/doc/BEGINNERS_TUTORIAL.org" . 3323)
+ ("/home/d/data/Chrome/Extentions/sis001/js/event.js" . 274)
+ ("/home/d/data/Chrome/Extentions/sis001/js/"
+  (dired-filename . "/home/d/data/Chrome/Extentions/sis001/js/.."))
+ ("/home/d/.emacs.d/doc/FAQ.org" . 15395)
+ ("/home/d/.emacs.d/doc/"
+  (dired-filename . "/home/d/.emacs.d/doc/DOCUMENTATION.org"))
+ ("/home/d/.emacs.d/elpa/yasnippet-snippets-20190725.1049/yasnippet-snippets.el" . 1509)
+ ("/home/d/.emacs.d/elpa/yasnippet-snippets-20190725.1049/"
+  (dired-filename . "/home/d/.emacs.d/elpa/yasnippet-snippets-20190725.1049/yasnippet-snippets.el"))
+ ("/home/d/.emacs.d/elpa/yasnippet-snippets-20190725.1049/yasnippet-snippets-pkg.el" . 153)
+ ("/home/d/.emacs.d/snippets/"
+  (dired-filename . "/home/d/.emacs.d/snippets/.."))
+ ("/home/d/.emacs.d/assets/"
+  (dired-filename . "/home/d/.emacs.d/assets/spacemacs-badge.svg"))
+ ("/home/d/.emacs.d/elpa/yasnippet-snippets-20190725.1049/snippets/"
+  (dired-filename . "/home/d/.emacs.d/elpa/yasnippet-snippets-20190725.1049/snippets/js-mode"))
+ ("/home/d/.emacs.d/private/snippets/text-mode/yastest" . 55)
+ ("/home/d/.emacs.d/private/snippets/text-mode/"
+  (dired-filename . "/home/d/.emacs.d/private/snippets/text-mode/yastest"))
+ ("/home/d/.emacs.d/private/snippets/"
+  (dired-filename . "/home/d/.emacs.d/private/snippets/text-mode"))
+ ("/home/d/.emacs.d/private/"
+  (dired-filename . "/home/d/.emacs.d/private/snippets"))
+ ("/home/d/data/emacs/example/"
+  (dired-filename . "/home/d/data/emacs/example/.."))
+ ("/home/d/data/emacs/decenniumLinuxCenturyEmacs/note.org" . 372)
+ ("/home/d/data/emacs/decenniumLinuxCenturyEmacs/"
+  (dired-filename . "/home/d/data/emacs/decenniumLinuxCenturyEmacs/note.org"))
+ ("/opt/emacs/27.0.50/share/emacs/27.0.50/etc/HELLO" . 3283)
+ ("/usr/local/share/emacs/25.3/lisp/subr.el.gz" . 33332)
+ ("/home/d/data/Chrome/Extentions/sis001Back/"
+  (dired-filename . "/home/d/data/Chrome/Extentions/sis001Back/manifest.json"))
+ ("/home/d/data/Chrome/Extentions/sis001/test.el" . 49)
+ ("/home/d/data/Chrome/Extentions/sis001Back/manifest.json" . 585)
+ ("/home/d/data/Chrome/Extentions/"
+  (dired-filename . "/home/d/data/Chrome/Extentions/sis001Back"))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-program/README.org" . 165)
  ("/usr/local/share/info/"
   (dired-filename . "/usr/local/share/info/.."))
  ("/home/d/data/tmp/program-setup/test.el" . 164)
  ("/usr/local/share/emacs/25.3/lisp/files.el.gz" . 200469)
- ("/home/d/.spacemacs.d/layers/nicolas4d/funcs.el" . 633)
  ("/home/d/data/tmp/program-setup/"
   (dired-filename . "/home/d/data/tmp/program-setup/test.el"))
- ("/home/d/data/tmp/"
-  (dired-filename . "/home/d/data/tmp/program-setup"))
  ("/home/d/data/spring/"
   (dired-filename . "/home/d/data/spring/spring-boot"))
  ("/home/d/data/spring/spring-boot/note/SB_Filter.org" . 746)
@@ -50,8 +171,6 @@
   (dired-filename . "/home/d/data/spring/spring-boot/note/spring boot web环境搭建 code.rar"))
  ("/home/d/data/spring/spring-boot/"
   (dired-filename . "/home/d/data/spring/spring-boot/.."))
- ("/home/d/"
-  (dired-filename . "/home/d/.emacs.d"))
  ("/home/d/.emacs.d/elpa/projectile-20180324.2226/projectile.el" . 70868)
  ("/home/d/data/fluxion/bin/arch/"
   (dired-filename . "/home/d/data/fluxion/bin/arch/PKGBUILD"))
@@ -59,24 +178,15 @@
   (dired-filename . "/home/d/data/fluxion/bin/arch"))
  ("/home/d/data/fluxion/"
   (dired-filename . "/home/d/data/fluxion/bin"))
- ("/home/d/.spacemacs.d/layers/nicolas4d/config.el" . 133)
- ("/home/d/.spacemacs.d/layers/nicolas4d/keybindings.el" . 103)
- ("/home/d/.emacs.d/.cache/layouts/d" . 4206)
- ("/home/d/.emacs.d/doc/"
-  (dired-filename . "/home/d/.emacs.d/doc/FAQ.org"))
- ("/home/d/.emacs.d/doc/DOCUMENTATION.org" . 17555)
  ("/home/d/.emacs.d/.cache/layouts/"
   (dired-filename . "/home/d/.emacs.d/.cache/layouts/d"))
  ("/home/d/.emacs.d/.cache/"
   (dired-filename . "/home/d/.emacs.d/.cache/layouts"))
- ("/home/d/.emacs.d/"
-  (dired-filename . "/home/d/.emacs.d/.cache"))
  ("/home/d/.emacs.d/layers/+lang/agda/packages.el" . 504)
  ("/home/d/.emacs.d/layers/+lang/agda/README.org" . 285)
  ("/home/d/.emacs.d/layers/+lang/agda/"
   (dired-filename . "/home/d/.emacs.d/layers/+lang/agda/README.org"))
  ("/home/d/.emacs.d/elpa/web-beautify-20161115.2247/web-beautify-autoloads.el" . 1256)
- ("/home/d/.spacemacs.d/custom.el" . 3175)
  ("/home/d/.emacs.d/elpa/livid-mode-20131116.1344/livid-mode-autoloads.el" . 456)
  ("/home/d/.emacs.d/elpa/skewer-mode-20180706.1807/skewer-mode-autoloads.el" . 2995)
  ("/home/d/.emacs.d/elpa/simple-httpd-20190110.1505/simple-httpd-autoloads.el" . 907)
@@ -107,12 +217,6 @@
   (dired-filename . "/home"))
  ("/home/"
   (dired-filename . "/home/d"))
- ("/home/d/.spacemacs.d/layers/nicolas4d-org/packages.el" . 1317)
- ("/home/d/.spacemacs.d/layers/nicolas4d-org/keybindings.el" . 103)
- ("/home/d/.spacemacs.d/layers/nicolas4d-org/"
-  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-org/.."))
- ("/home/d/data/"
-  (dired-filename . "/home/d/data/版本控制规则"))
  ("/home/d/.emacs.d/layers/+distributions/spacemacs-base/packages.el" . 3364)
  ("/home/d/.emacs.d/layers/+distributions/spacemacs-base/keybindings.el" . 1119)
  ("/home/d/.emacs.d/layers/+distributions/spacemacs-base/"
@@ -122,7 +226,6 @@
  ("/home/d/.cache/"
   (dired-filename . "/home/d/.cache/bcloud"))
  ("/home/d/.emacs.d/layers/+tools/ansible/packages.el" . 2014)
- ("/home/d/.emacs.d/doc/BEGINNERS_TUTORIAL.org" . 2050)
  ("/home/d/.emacs.d/doc/QUICK_START.org" . 5837)
  ("/media/"
   (dired-filename . "/media/d"))
