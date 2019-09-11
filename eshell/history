@@ -1,0 +1,128 @@
+env
+env
+exit
+netstat -a
+netstat -ap | grep 8080
+lsof -i:8888
+exit
+env 
+env
+env
+exit
+env
+env
+exit
+evn
+env
+cd /usr/share/tomcat8/
+ls
+ev
+env
+mvn clean install
+ls
+cd target/
+ls
+cp demo-0.0.1-SNAPSHOT.war /opt/tomcat8/webapps/
+cd ../../
+ls
+cd ../
+cd ..
+cd ..
+ls
+cd .
+cd ..
+exit
+gradle clean build
+gradle clean build
+gradle clean build --debug
+exit
+gradle build
+exit
+gradle clean build
+ls
+cd build/
+ls
+cd libs/
+ls
+exit
+gradle clean build
+ls
+cd build/
+ls
+cd libs/
+ls
+exit
+mvn lean install
+mvn clean install
+exit
+mvn clean install
+java -jar target/demo-0.0.1-SNAPSHOT.jar
+exit
+gradle -q 
+gradle -q hello
+exit
+ls
+gradle -q upper
+gradle -q count
+gradle -q
+gradle -q build
+ls
+gradle --init-script init.gradle -q showRepos
+gradle -h
+exit
+mvn dependency:tree
+exit
+ctags -e a.js
+ctags -h
+ctags -v
+exit
+git status
+git remote
+exit
+git
+exit
+ctags 
+ctags --help
+ctags -f TAGS -e -R 
+exit
+cd ../../
+cd ../
+ls
+cd tags-company/
+ls
+gpg -ba -o tags-company.el.sig tags-company.el
+ls
+mkdir ~/.local/share/applications/spacemacs.desktop 
+cd  ~/.local/share/applications/spacemacs.desktop 
+ls
+cd ..
+ls
+gpg --list-keys
+gpg --list-keys
+gpg --gen-key
+gpg --list-keys
+cat ~/.gnupg/pubring.gpg
+ls
+cd ~/.gnupg/
+ls
+ls
+cd private-keys-v1.d/
+ls
+cd ..
+exit
+ssh-keygen
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+ssh-keygen -t rsa -b 4096 -C "nicolas4d@foxmail.com"
+ssh-keygen -t rsa -b 4096 -C "nicolas4d@foxmail.com"
+ls -al ~/.ssh/
+eval "$(ssh-agent -s)"
+cat ~/.ssh/id_rsa.pub
+exit
+cat ~/.ssh/id_rsa.pub
+ssh-keygen -t rsa -b 4096 -C "nicolas4d@foxmail.com"
+ls -al ~/.ssh/
+cat ~/.ssh/id_rsa.pub
+latex theInput.tex
+latex theInput.tex
+latex theInput.tex

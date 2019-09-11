@@ -1,0 +1,1 @@
+((etags-select :fetcher github :repo "emacsmirror/etags-select") (graphviz-dot-mode :fetcher github :repo "luxbock/graphviz-dot-mode") (highlight-global :fetcher github :repo "glen-dai/highlight-global"))

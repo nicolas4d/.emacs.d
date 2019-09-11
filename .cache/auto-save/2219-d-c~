@@ -1,0 +1,32 @@
+/sudo:root@localhost:/etc/environment
+/home/d/.emacs.d/.cache/auto-save/dist/#!sudo:root@localhost:!etc!environment#
+/sudo:root@localhost:/etc/profile
+/home/d/.emacs.d/.cache/auto-save/dist/#!sudo:root@localhost:!etc!profile#
+/sudo:root@localhost:/etc/shadowsocks.json
+/home/d/.emacs.d/.cache/auto-save/dist/#!sudo:root@localhost:!etc!shadowsocks.json#
+/home/d/data/Linux/ubuntu/note.org
+/home/d/.emacs.d/.cache/auto-save/site/#!home!d!data!Linux!ubuntu!note.org#
+/etc/shadowsocks.json
+/home/d/.emacs.d/.cache/auto-save/site/#!etc!shadowsocks.json#
+/var/log/shadowsocks.log
+/home/d/.emacs.d/.cache/auto-save/site/#!var!log!shadowsocks.log#
+/etc/environment
+/home/d/.emacs.d/.cache/auto-save/site/#!etc!environment#
+/home/d/data/Linux/ubuntu/ubuntu-sys-log.org
+/home/d/.emacs.d/.cache/auto-save/site/#!home!d!data!Linux!ubuntu!ubuntu-sys-log.org#
+/home/d/.pip/pip.conf
+/home/d/.emacs.d/.cache/auto-save/site/#!home!d!.pip!pip.conf#
+/home/d/data/website/website.org
+/home/d/.emacs.d/.cache/auto-save/site/#!home!d!data!website!website.org#
+/home/d/data/emacs/Info(C-h i)/Info.org
+/home/d/.emacs.d/.cache/auto-save/site/#!home!d!data!emacs!Info(C-h i)!Info.org#
+/home/d/data/emacs/spacemacs/spacemacs-install.org
+/home/d/.emacs.d/.cache/auto-save/site/#!home!d!data!emacs!spacemacs!spacemacs-install.org#
+/home/d/data/spring/spring-yiibai.org
+/home/d/.emacs.d/.cache/auto-save/site/#!home!d!data!spring!spring-yiibai.org#
+/home/d/data/spring/spring-boot/Spring Boot Reference Guide-2.1.6.RELEASE.org
+/home/d/.emacs.d/.cache/auto-save/site/#!home!d!data!spring!spring-boot!Spring Boot Reference Guide-2.1.6.RELEASE.org#
+/home/d/data/emacs/Info(C-h i)/Emacs Lisp Intro/note.org
+/home/d/.emacs.d/.cache/auto-save/site/#!home!d!data!emacs!Info(C-h i)!Emacs Lisp Intro!note.org#
+/home/d/.spacemacs.d/init.el
+/home/d/.emacs.d/.cache/auto-save/site/#!home!d!.spacemacs.d!init.el#

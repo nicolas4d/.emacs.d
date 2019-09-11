@@ -1,0 +1,328 @@
+;;; -*- coding: utf-8 -*-
+(("/home/d/.spacemacs.d/layers/nicolas4d-defaults/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-defaults/packages.el"))
+ ("/home/d/emacs/.org/d.org" . 53)
+ ("/home/d/ai/deapleaning/deapLearningFromScratch/example/ch04/4-2-4.py" . 472)
+ ("/home/d/ai/deapleaning/deapLearningFromScratch/example/ch04/4-2-4_2.py" . 198)
+ ("/home/d/ai/deapleaning/deapLearningFromScratch/example/ch03/neuralnet_mnist.py" . 803)
+ ("/home/d/ai/deapleaning/deapLearningFromScratch/example/ch04/4-3-1.py" . 242)
+ ("/home/d/ai/deapleaning/deapLearningFromScratch/example/ch04/gradient_2d.py" . 943)
+ ("/home/d/website.org" . 1815)
+ ("/home/d/Chrome/Extentions/sis001/js/TAGS" . 1164)
+ ("/home/d/Chrome/Extentions/sis001/js/event.js" . 41)
+ ("/home/d/.spacemacs.d/init.el" . 2451)
+ ("/home/d/emacs/Info(C-h i)/OrgMode/note.org" . 28066)
+ ("/home/d/Downloads/" . 151)
+ ("/home/d/.data/ubuntu/importance/.av.complete/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/trash"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/三石@第一会所@SSNI-432 ノーブラFカップおっぱいで全力アピールしてくる彼女の巨乳妹と、誘惑に負けちゃう最低な僕。 三上悠亜/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/三石@第一会所@SSNI-432 ノーブラFカップおっぱいで全力アピールしてくる彼女の巨乳妹と、誘惑に負けちゃう最低な僕。 三上悠亜/SSNI-432.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/trash/lauchou@第一会所@SSNI-516/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/trash/lauchou@第一会所@SSNI-516/ssni-516-C.mp4"))
+ ("/home/d/ai/deapleaning/deapLearningFromScratch/book/"
+  (dired-filename . "/home/d/ai/deapleaning/deapLearningFromScratch/book/《深度学习入门：基于Python的理论与实现》_中文版.pdf"))
+ ("/home/d/latex/LaTeX - A Document Preparation System 2e/"
+  (dired-filename . "/home/d/latex/LaTeX - A Document Preparation System 2e/tables"))
+ ("/home/d/latex/LaTeX - A Document Preparation System 2e/example/mathematicalFormulas/mf.tex" . 100)
+ ("/home/d/latex/LaTeX - A Document Preparation System 2e/note.org" . 41)
+ ("/home/d/latex/LaTeX - A Document Preparation System 2e/example/log-like Functions.tex" . 666)
+ ("/home/d/latex/LaTeX - A Document Preparation System 2e/example/small2e.tex" . 3)
+ ("/home/d/Python/python3/python3.5/Tutorial.org" . 4800)
+ ("/home/d/Python/python3/python3.7/tutorial/tutorial.org" . 5254)
+ ("/home/d/Python/python3/python3.7/tutorial/example/"
+  (dired-filename . "/home/d/Python/python3/python3.7/tutorial/example/e3"))
+ ("/home/d/Python/python3/python3.7/readme.org" . 16)
+ ("/home/d/Linux/ubuntu/note.org" . 2642)
+ ("/home/d/.emacs.d/doc/DOCUMENTATION.org" . 24627)
+ ("/home/d/shadowsocks/note.org" . 412)
+ ("/home/d/ai/deapleaning/deapLearningFromScratch/example/ch04/gradient_1d.py" . 402)
+ ("/home/d/ai/deapleaning/deapLearningFromScratch/note.org" . 16055)
+ ("/home/d/.emacs.d/.cache/recentf" . 8684)
+ ("/home/d/.emacs.d/.cache/layouts/persp-auto-save" . 16537)
+ ("/home/d/.emacs.d/elpa/cdlatex-20190130.1419/cdlatex.el" . 14952)
+ ("/home/d/.emacs.d/elpa/"
+  (dired-filename . "/home/d/.emacs.d/elpa/bind-map-20161207.711"))
+ ("/home/d/.emacs.d/"
+  (dired-filename . "/home/d/.emacs.d/elpa"))
+ ("/home/d/tmp/cx.el" . 1698)
+ ("/home/d/.emacs.d/elpa/company-auctex-20180725.1912/company-auctex-autoloads.el" . 1271)
+ ("/home/d/.emacs.d/elpa/auctex-12.1.2/auctex-autoloads.el" . 13643)
+ ("/home/d/.authinfo" . 124)
+ ("/home/d/tmp/"
+  (dired-filename . "/home/d/tmp/cx.el"))
+ ("/home/d/"
+  (dired-filename . "/home/d/tmp"))
+ ("/home/d/.emacs.d/elpa/cdlatex-20190130.1419/"
+  (dired-filename . "/home/d/.emacs.d/elpa/cdlatex-20190130.1419/.."))
+ ("/home/d/.spacemacs.d/layers/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-defaults"))
+ ("/home/d/.spacemacs.d/"
+  (dired-filename . "/home/d/.spacemacs.d/layers"))
+ ("/home/d/.emacs.d/layers/+lang/latex/"
+  (dired-filename . "/home/d/.emacs.d/layers/+lang/latex/.."))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-org/packages.el" . 1044)
+ ("/home/d/.emacs.d/layers/+lang/latex/packages.el" . 6134)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-org/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-org/packages.el"))
+ ("/home/d/.emacs.d/layers/+spacemacs/spacemacs-language/packages.el" . 592)
+ ("/home/d/.emacs.d/layers/+tools/ansible/"
+  (dired-filename . "/home/d/.emacs.d/layers/+tools/ansible/packages.el"))
+ ("/home/d/.emacs.d/layers/+tools/ansible/packages.el" . 1737)
+ ("/home/d/.emacs.d/layers/+completion/auto-completion/packages.el" . 2239)
+ ("/home/d/.data/ubuntu/importance/.av.complete/三石@第一会所@SSNI-533 デビュー1周年記念作品解禁！最初で最高の大乱交スペシャル 坂道みる/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/三石@第一会所@SSNI-533 デビュー1周年記念作品解禁！最初で最高の大乱交スペシャル 坂道みる/SSNI-533.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/三石@第一会所@SSNI-549 絶頂してピクピクしているおま●こを容赦なく突きまくる怒涛のおかわり激ピストン性交 星宮一花/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/三石@第一会所@SSNI-549 絶頂してピクピクしているおま●こを容赦なく突きまくる怒涛のおかわり激ピストン性交 星宮一花/SSNI-549.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/三石@第一会所@IPX-291 ピュア美少女と交わすヨダレだらだらツバだくだく濃厚な接吻とセックス 楓カレン/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/三石@第一会所@IPX-291 ピュア美少女と交わすヨダレだらだらツバだくだく濃厚な接吻とセックス 楓カレン/IPX-291.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/三石@第一会所@SSNI-541 新人NO.1STYLE 白葉りこAVデビュー/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/三石@第一会所@SSNI-541 新人NO.1STYLE 白葉りこAVデビュー/SSNI-541.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/三石@第一会所@SSNI-536 ノーブラ着衣おっぱいで全力アピールしてくる彼女の巨乳妹と、誘惑に負けちゃう最低な僕。 乃木蛍/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/三石@第一会所@SSNI-536 ノーブラ着衣おっぱいで全力アピールしてくる彼女の巨乳妹と、誘惑に負けちゃう最低な僕。 乃木蛍/SSNI-536.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/NikeのＢ@第一会所@21Naturals - Mary Rock/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/NikeのＢ@第一会所@21Naturals - Mary Rock/21naturals.19.09.06.mary.rock.first.date.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/NikeのＢ@第一会所@Bang YNGR - Lola Leda/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/NikeのＢ@第一会所@Bang YNGR - Lola Leda/byngr.19.09.07.lola.leda.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/NikeのＢ@第一会所@DorcelClub - Cherry Kiss/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/NikeのＢ@第一会所@DorcelClub - Cherry Kiss/dorcelclub.19.09.06.cherry.kiss.zazie.skymm.and.anya.krey.cherry.4.you.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/三石@第一会所@IPX-290 ねぇねぇエッチしちゃう？ チラ見せ現役アイドルとHな学園性活 専属第3弾 アイドルがまさかの失禁まで…ww 優月心菜/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/三石@第一会所@IPX-290 ねぇねぇエッチしちゃう？ チラ見せ現役アイドルとHな学園性活 専属第3弾 アイドルがまさかの失禁まで…ww 優月心菜/IPX-290.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/trash/三石@第一会所@IPX-298 終電逃し先輩社員にNTR 絶倫の先輩上司に一晩中何度も中出しされた女子社員 岬ななみ/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/trash/三石@第一会所@IPX-298 終電逃し先輩社員にNTR 絶倫の先輩上司に一晩中何度も中出しされた女子社員 岬ななみ/IPX-298.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/trash/olo@SIS001@083119-997-carib-1080p/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/trash/olo@SIS001@083119-997-carib-1080p/083119-997-carib-1080p.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/trash/olo@SIS001@LAFBD-18/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/trash/olo@SIS001@LAFBD-18/LAFBD-18.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/trash/olo@SIS001@LAFBD-20/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/trash/olo@SIS001@LAFBD-20/LAFBD-20.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/trash/三石@第一会所@IPX-296 希崎ジェシカ初真正中出し大乱交 マ○コから溢れる程の大量中出しザーメン20発！完全ノーカット20人集団セックス！！/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/trash/三石@第一会所@IPX-296 希崎ジェシカ初真正中出し大乱交 マ○コから溢れる程の大量中出しザーメン20発！完全ノーカット20人集団セックス！！/IPX-296 希崎ジェシカ初真正中出し大乱交 マ○コから溢れる程の大量中出しザーメン20発！完全ノーカット20人集団セックス！！.jpg"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/trash/三石@第一会所@SSNI-431 新人NO.1STYLE 桜羽のどかAVデビュー 1本限定AV解禁/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/trash/三石@第一会所@SSNI-431 新人NO.1STYLE 桜羽のどかAVデビュー 1本限定AV解禁/.."))
+ ("/home/d/.data/ubuntu/importance/.av.complete/trash/hhbb_zcm @sis001@heyzo_1504/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/trash/hhbb_zcm @sis001@heyzo_1504/heyzo_1504.mp4"))
+ ("/home/d/.emacs.d/.cache/layouts/d" . 19058)
+ ("/home/d/shadowsocks/"
+  (dired-filename . "/home/d/shadowsocks/note.org"))
+ ("/home/d/.emacs.d/.cache/url/cookies" . 231)
+ ("/home/d/Python/python3/python3.7/"
+  (dired-filename . "/home/d/Python/python3/python3.7/readme.org"))
+ ("/home/d/Python/python3/python3.7/tutorial/"
+  (dired-filename . "/home/d/Python/python3/python3.7/tutorial/.."))
+ ("/home/d/Python/python3/"
+  (dired-filename . "/home/d/Python/python3/python3.7"))
+ ("/home/d/Python/python3/python3.5/"
+  (dired-filename . "/home/d/Python/python3/python3.5/.."))
+ ("/home/d/Python/python3/python3.5/example/"
+  (dired-filename . "/home/d/Python/python3/python3.5/example/.."))
+ ("/home/d/ai/deapleaning/deapLearningFromScratch/example/ch04/"
+  (dired-filename . "/home/d/ai/deapleaning/deapLearningFromScratch/example/ch04/gradient_2d.py"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/trash/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/trash/.."))
+ ("/home/d/.data/ubuntu/importance/.av/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av/olo@SIS001@LAFBD-23"))
+ ("/home/d/.data/ubuntu/importance/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av"))
+ ("/home/d/latex/LaTeX - A Document Preparation System 2e/example/"
+  (dired-filename . "/home/d/latex/LaTeX - A Document Preparation System 2e/example/log-like Functions.tex"))
+ ("/home/d/latex/LaTeX - A Document Preparation System 2e/example/mathematicalFormulas/"
+  (dired-filename . "/home/d/latex/LaTeX - A Document Preparation System 2e/example/mathematicalFormulas/.."))
+ ("/home/d/latex/LaTeX - A Document Preparation System 2e/tables/"
+  (dired-filename . "/home/d/latex/LaTeX - A Document Preparation System 2e/tables/.."))
+ ("/home/d/ai/deapleaning/deapLearningFromScratch/"
+  (dired-filename . "/home/d/ai/deapleaning/deapLearningFromScratch/book"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/南@第一会所@BLACKED-Apolonia Lapiedra/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/南@第一会所@BLACKED-Apolonia Lapiedra/BLACKED-Apolonia Lapiedra.mp4"))
+ ("/home/d/.data/ubuntu/importance/.av.complete/NikeのＢ@第一会所@KarupsHA - JoJo Kiss/"
+  (dired-filename . "/home/d/.data/ubuntu/importance/.av.complete/NikeのＢ@第一会所@KarupsHA - JoJo Kiss/karupsha.19.09.04.jojo.kiss.mp4"))
+ ("/home/d/emacs/spacemacs/documentation.org" . 3406)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-defaults/keybindings.el" . 525)
+ ("/home/d/.emacs.d/layers/+completion/auto-completion/"
+  (dired-filename . "/home/d/.emacs.d/layers/+completion/auto-completion/.."))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-defaults/funcs.el" . 709)
+ ("/home/d/emacs/"
+  (dired-filename . "/home/d/emacs/Info(C-h i)"))
+ ("/home/d/.spacemacs.d/layers/nicolas4d-defaults/config.el" . 226)
+ ("/home/d/.spacemacs.d/layers/nicolas4d/keybindings.el" . 240)
+ ("/home/d/.spacemacs.d/layers/nicolas4d/funcs.el" . 1762)
+ ("/etc/profile" . 616)
+ ("/home/d/.profile" . 264)
+ ("/home/d/java/java_runoob/java教程.org" . 16902)
+ ("/home/d/.spacemacs.d/layers/nicolas4d/"
+  (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d/.."))
+ ("/home/d/.emacs.d/.cache/layouts/d-layout" . 6916)
+ ("/home/d/ai/"
+  (dired-filename . "/home/d/ai/deapleaning"))
+ ("/home/d/.data/"
+  (dired-filename . "/home/d/.data/.."))
+ ("/home/d/.data/ubuntu/"
+  (dired-filename . "/home/d/.data/ubuntu/.."))
+ ("/home/d/emacs/example/"
+  (dired-filename . "/home/d/emacs/example/.."))
+ ("/home/d/emacs/Info(C-h i)/"
+  (dired-filename . "/home/d/emacs/Info(C-h i)/Info.org"))
+ ("/home/d/latex/"
+  (dired-filename . "/home/d/latex/LaTeX - A Document Preparation System 2e"))
+ ("/home/d/emacs/decenniumLinuxCenturyEmacs/"
+  (dired-filename . "/home/d/emacs/decenniumLinuxCenturyEmacs/note.org"))
+ ("/home/d/emacs/note/"
+  (dired-filename . "/home/d/emacs/note/emacs-install.org"))
+ ("/home/d/emacs/tags-company/"
+  (dired-filename . "/home/d/emacs/tags-company/.git"))
+ ("/home/d/emacs/spacemacs/"
+  (dired-filename . "/home/d/emacs/spacemacs/LAYERS.org"))
+ ("/home/d/Videos/" . 148)
+ ("/home/d/ai/deapleaning/"
+  (dired-filename . "/home/d/ai/deapleaning/deapLearningFromScratch"))
+ ("/home/d/trash/"
+  (dired-filename . "/home/d/trash/olo@SIS001@S2MBD-015.torrent"))
+ ("/home/d/latex/LaTeX - A Document Preparation System 2e/example/delimiters.tex" . 636)
+ ("/home/d/ai/deapleaning/deapLearningFromScratch/example/3-3-1.py" . 128)
+ ("/home/d/latex/LaTeX - A Document Preparation System 2e/example/mathematical Symbols.tex" . 1478)
+ ("/home/d/workspaces/"
+  (dired-filename . "/home/d/workspaces/.."))
+ ("/home/d/resume/"
+  (dired-filename . "/home/d/resume/东华软件"))
+ ("/home/d/Linux/"
+  (dired-filename . "/home/d/Linux/ubuntu"))
+ ("/home/d/latex/note.org" . 36)
+ ("/home/d/examples.desktop" . 1166)
+ ("/home/d/Chrome/"
+  (dired-filename . "/home/d/Chrome/.."))
+ ("/home/d/ai/heima/"
+  (dired-filename . "/home/d/ai/heima/.."))
+ ("/home/"
+  (dired-filename . "/home/d"))
+ ("/etc/fstab" . 717)
+ ("/sudo:root@localhost:/etc/fstab" . 718)
+ ("/home/d/.presage/"
+  (dired-filename . "/home/d/.presage/lm.db"))
+ ("/home/d/Public/"
+  (dired-filename . "/home/d/Public/.."))
+ ("/home/d/.emacs.d/layers/+emacs/org/"
+  (dired-filename . "/home/d/.emacs.d/layers/+emacs/org/packages.el"))
+ ("/home/d/.emacs.d/layers/+emacs/org/packages.el" . 2533)
+ ("/home/d/.emacs.d/elpa/org-category-capture-20180601.242/"
+  (dired-filename . "/home/d/.emacs.d/elpa/org-category-capture-20180601.242/org-category-capture-autoloads.el"))
+ ("/home/d/.emacs.d/elpa/org-download-20190604.1340/"
+  (dired-filename . "/home/d/.emacs.d/elpa/org-download-20190604.1340/org-download-autoloads.el"))
+ ("/home/d/.emacs.d/elpa/org-mime-20190805.57/"
+  (dired-filename . "/home/d/.emacs.d/elpa/org-mime-20190805.57/org-mime-autoloads.el"))
+ ("/home/d/.emacs.d/elpa/org-plus-contrib-20180423/"
+  (dired-filename . "/home/d/.emacs.d/elpa/org-plus-contrib-20180423/COPYING"))
+ ("/home/d/.emacs.d/elpa/org-pomodoro-20190530.1445/"
+  (dired-filename . "/home/d/.emacs.d/elpa/org-pomodoro-20190530.1445/org-pomodoro-autoloads.el"))
+ ("/home/d/.emacs.d/elpa/org-present-20180303.2330/"
+  (dired-filename . "/home/d/.emacs.d/elpa/org-present-20180303.2330/org-present-autoloads.el"))
+ ("/home/d/.emacs.d/elpa/org-projectile-20190130.1439/"
+  (dired-filename . "/home/d/.emacs.d/elpa/org-projectile-20190130.1439/org-projectile-autoloads.el"))
+ ("/home/d/.emacs.d/elpa/org-bullets-20171127.526/"
+  (dired-filename . "/home/d/.emacs.d/elpa/org-bullets-20171127.526/.."))
+ ("/home/d/Pictures/"
+  (dired-filename . "/home/d/Pictures/.."))
+ ("/home/d/.emacs.d/elpa/persp-mode-20180410.1252/persp-mode.el" . 168033)
+ ("/home/d/.emacs.d/elpa/persp-mode-20180410.1252/"
+  (dired-filename . "/home/d/.emacs.d/elpa/persp-mode-20180410.1252/persp-mode.el"))
+ ("/home/d/.local/share/applications/spacemacs.desktop" . 436)
+ ("/opt/emacs/27.0.50/bin/"
+  (dired-filename . "/opt/emacs/27.0.50/bin/ctags.bak"))
+ ("/opt/emacs/27.0.50/"
+  (dired-filename . "/opt/emacs/27.0.50/bin"))
+ ("/opt/emacs/"
+  (dired-filename . "/opt/emacs/27.0.50"))
+ ("/opt/emacs/27.0.50/share/emacs/27.0.50/etc/gnus/news-server.ast" . 1501)
+ ("/opt/emacs/27.0.50/share/emacs/27.0.50/etc/NEWS.24" . 122977)
+ ("/home/d/.emacs.d/elpa/ace-link-20180308.100/"
+  (dired-filename . "/home/d/.emacs.d/elpa/ace-link-20180308.100/.."))
+ ("/home/d/.emacs.d/elpa/27.0/"
+  (dired-filename . "/home/d/.emacs.d/elpa/27.0/.."))
+ ("/home/d/.emacs.d/elpa/bind-map-20161207.711/"
+  (dired-filename . "/home/d/.emacs.d/elpa/bind-map-20161207.711/.."))
+ ("/etc/s-nail.rc" . 6510)
+ ("/opt/emacs/27.0.50/libexec/emacs/27.0.50/x86_64-pc-linux-gnu/"
+  (dired-filename . "/opt/emacs/27.0.50/libexec/emacs/27.0.50/x86_64-pc-linux-gnu/emacs.pdmp"))
+ ("/var/mail/" . 155)
+ ("/sudo:root@localhost:/etc/s-nail.rc" . 6509)
+ ("/etc/proxychains.conf" . 1632)
+ ("/sudo:root@localhost:/etc/proxychains.conf" . 1648)
+ ("/home/d/.local/share/applications/" . 220)
+ ("/home/d/.emacs.d/elpa/helm-core-20180423.2200/helm.el" . 19997)
+ ("/home/d/.emacs.d/layers/+completion/auto-completion/local/"
+  (dired-filename . "/home/d/.emacs.d/layers/+completion/auto-completion/local/snippets"))
+ ("/home/d/.emacs.d/layers/+completion/auto-completion/local/snippets/emacs-lisp-mode/"
+  (dired-filename . "/home/d/.emacs.d/layers/+completion/auto-completion/local/snippets/emacs-lisp-mode/.yas-parents"))
+ ("/home/d/.emacs.d/layers/+completion/auto-completion/local/snippets/"
+  (dired-filename . "/home/d/.emacs.d/layers/+completion/auto-completion/local/snippets/emacs-lisp-mode"))
+ ("/home/d/.emacs.d/url/cookies" . 231)
+ ("/home/d/.emacs.d/private/snippets/org-mode/+new-snippet+" . 59)
+ ("/home/d/.emacs.d/layers/+spacemacs/spacemacs-editing/packages.el" . 5734)
+ ("/home/d/.emacs.d/layers/+lang/javascript/config.el" . 356)
+ ("/home/d/.emacs.d/layers/+lang/javascript/packages.el" . 2902)
+ ("/home/d/.emacs.d/layers/+lang/"
+  (dired-filename . "/home/d/.emacs.d/layers/+lang/agda"))
+ ("/home/d/.emacs.d/layers/+lang/javascript/"
+  (dired-filename . "/home/d/.emacs.d/layers/+lang/javascript/.."))
+ ("/home/d/.emacs.d/layers/+completion/auto-completion/funcs.el" . 9764)
+ ("/home/d/.emacs.d/layers/+emacs/better-defaults/funcs.el" . 287)
+ ("/home/d/.emacs.d/layers/+emacs/better-defaults/packages.el" . 417)
+ ("/home/d/.emacs.d/layers/+emacs/better-defaults/"
+  (dired-filename . "/home/d/.emacs.d/layers/+emacs/better-defaults/img"))
+ ("/home/d/.emacs.d/layers/+emacs/ibuffer/"
+  (dired-filename . "/home/d/.emacs.d/layers/+emacs/ibuffer/funcs.el"))
+ ("/home/d/.emacs.d/layers/+emacs/"
+  (dired-filename . "/home/d/.emacs.d/layers/+emacs/ibuffer"))
+ ("/home/d/.emacs.d/layers/+completion/"
+  (dired-filename . "/home/d/.emacs.d/layers/+completion/auto-completion"))
+ ("/home/d/.emacs.d/doc/BEGINNERS_TUTORIAL.org" . 3323)
+ ("/home/d/.emacs.d/doc/FAQ.org" . 15395)
+ ("/home/d/.emacs.d/doc/"
+  (dired-filename . "/home/d/.emacs.d/doc/DOCUMENTATION.org"))
+ ("/home/d/.emacs.d/assets/"
+  (dired-filename . "/home/d/.emacs.d/assets/spacemacs-badge.svg"))
+ ("/home/d/.emacs.d/private/snippets/text-mode/yastest" . 55)
+ ("/home/d/.emacs.d/private/snippets/text-mode/"
+  (dired-filename . "/home/d/.emacs.d/private/snippets/text-mode/yastest"))
+ ("/home/d/.emacs.d/private/snippets/"
+  (dired-filename . "/home/d/.emacs.d/private/snippets/text-mode"))
+ ("/home/d/.emacs.d/private/"
+  (dired-filename . "/home/d/.emacs.d/private/snippets"))
+ ("/opt/emacs/27.0.50/share/emacs/27.0.50/etc/HELLO" . 3283)
+ ("/usr/local/share/emacs/25.3/lisp/subr.el.gz" . 33332)
+ ("/usr/local/share/info/"
+  (dired-filename . "/usr/local/share/info/.."))
+ ("/usr/local/share/emacs/25.3/lisp/files.el.gz" . 200469)
+ ("/home/d/.emacs.d/elpa/projectile-20180324.2226/projectile.el" . 70868)
+ ("/home/d/.emacs.d/.cache/layouts/"
+  (dired-filename . "/home/d/.emacs.d/.cache/layouts/d"))
+ ("/home/d/.emacs.d/.cache/"
+  (dired-filename . "/home/d/.emacs.d/.cache/layouts"))
+ ("/home/d/.emacs.d/layers/+lang/agda/packages.el" . 504)
+ ("/home/d/.emacs.d/layers/+lang/agda/README.org" . 285)
+ ("/home/d/.emacs.d/layers/+lang/agda/"
+  (dired-filename . "/home/d/.emacs.d/layers/+lang/agda/README.org"))
+ ("/home/d/.emacs.d/layers/+lang/html/funcs.el" . 572)
+ ("/home/d/.emacs.d/layers/+lang/html/config.el" . 301)
+ ("/home/d/.emacs.d/layers/+lang/html/packages.el" . 6820)
+ ("/home/d/.emacs.d/layers/+lang/html/"
+  (dired-filename . "/home/d/.emacs.d/layers/+lang/html/packages.el"))
+ ("/"
+  (dired-filename . "/home"))
+ ("/home/d/.emacs.d/layers/+distributions/spacemacs-base/packages.el" . 3364)
+ ("/home/d/.emacs.d/layers/+distributions/spacemacs-base/keybindings.el" . 1119)
+ ("/home/d/.emacs.d/layers/+distributions/spacemacs-base/"
+  (dired-filename . "/home/d/.emacs.d/layers/+distributions/spacemacs-base/keybindings.el"))
+ ("/home/d/.cache/"
+  (dired-filename . "/home/d/.cache/bcloud"))
+ ("/home/d/.emacs.d/doc/QUICK_START.org" . 5837)
+ ("/media/"
+  (dired-filename . "/media/d"))
+ ("/media/d/"
+  (dired-filename . "/media/d/backup"))
+ ("/home/d/.emacs.d/doc/LAYERS.org" . 19086)
+ ("/home/d/.emacs.d/doc/VIMUSERS.org" . 22325)
+ ("/home/d/.emacs.d/layers/+spacemacs/spacemacs-evil/funcs.el" . 400)
+ ("/home/d/.emacs.d/layers/+spacemacs/spacemacs-evil/packages.el" . 2729)
+ ("/home/d/.emacs.d/layers/+spacemacs/spacemacs-evil/"
+  (dired-filename . "/home/d/.emacs.d/layers/+spacemacs/spacemacs-evil/funcs.el"))
+ ("/opt/gradle/gradle-5.5.1/init.d/init.gradle" . 137)
+ ("/sudo:root@localhost:/opt/gradle/gradle-5.5.1/init.d/init.gradle" . 160))

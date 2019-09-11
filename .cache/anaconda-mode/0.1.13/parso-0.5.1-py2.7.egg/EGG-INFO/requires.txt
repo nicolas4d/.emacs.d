@@ -1,0 +1,4 @@
+
+[testing]
+pytest>=3.0.7
+docopt
