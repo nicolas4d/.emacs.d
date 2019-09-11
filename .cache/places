@@ -1,5 +1,11 @@
 ;;; -*- coding: utf-8 -*-
-(("/home/d/.spacemacs.d/layers/nicolas4d-defaults/"
+(("/home/d/"
+  (dired-filename . "/home/d/tmp"))
+ ("/home/d/.emacs.d/layers/+distributions/spacemacs-base/funcs.el" . 25809)
+ ("/home/d/emacs/spacemacs/spacemacs-install.org" . 910)
+ ("/home/d/.emacs.d/.cache/recentf" . 8813)
+ ("/home/d/.emacs.d/.cache/layouts/persp-auto-save" . 1783)
+ ("/home/d/.spacemacs.d/layers/nicolas4d-defaults/"
   (dired-filename . "/home/d/.spacemacs.d/layers/nicolas4d-defaults/packages.el"))
  ("/home/d/emacs/.org/d.org" . 53)
  ("/home/d/ai/deapleaning/deapLearningFromScratch/example/ch04/4-2-4.py" . 472)
@@ -37,8 +43,6 @@
  ("/home/d/shadowsocks/note.org" . 412)
  ("/home/d/ai/deapleaning/deapLearningFromScratch/example/ch04/gradient_1d.py" . 402)
  ("/home/d/ai/deapleaning/deapLearningFromScratch/note.org" . 16055)
- ("/home/d/.emacs.d/.cache/recentf" . 8684)
- ("/home/d/.emacs.d/.cache/layouts/persp-auto-save" . 16537)
  ("/home/d/.emacs.d/elpa/cdlatex-20190130.1419/cdlatex.el" . 14952)
  ("/home/d/.emacs.d/elpa/"
   (dired-filename . "/home/d/.emacs.d/elpa/bind-map-20161207.711"))
@@ -50,8 +54,6 @@
  ("/home/d/.authinfo" . 124)
  ("/home/d/tmp/"
   (dired-filename . "/home/d/tmp/cx.el"))
- ("/home/d/"
-  (dired-filename . "/home/d/tmp"))
  ("/home/d/.emacs.d/elpa/cdlatex-20190130.1419/"
   (dired-filename . "/home/d/.emacs.d/elpa/cdlatex-20190130.1419/.."))
  ("/home/d/.spacemacs.d/layers/"

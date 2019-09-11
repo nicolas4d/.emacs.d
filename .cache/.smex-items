@@ -1,11 +1,11 @@
 
 ;; ----- smex-history -----
 (
+ package-list-packages
  org-cdlatex-mode
  cdlatex-mode
  org-toggle-inline-images
  LaTeX-mode
- package-list-packages
  load-file
  load-library
  rmail
@@ -93,7 +93,7 @@
  (toggle-proxy . 2)
  (LaTeX-mode . 3)
  (ivy-mode . 2)
- (package-list-packages . 19)
+ (package-list-packages . 20)
  (visit-tags-table . 3)
  (lispy-mode . 1)
  (dired-find-alternate-file . 1)
