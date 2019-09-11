@@ -1,6 +1,7 @@
 (source "gnu" "http://elpa.emacs-china.org/gnu/")
 (source "melpa" "http://elpa.emacs-china.org/melpa/")
 
+(depends-on "abyss-theme")
 (depends-on "alert")
 (depends-on "ansi")
 (depends-on "async")
@@ -29,7 +30,6 @@
 (depends-on "js2-refactor")
 (depends-on "log4e")
 (depends-on "mmm-mode")
-(depends-on "monokai-theme")
 (depends-on "multiple-cursors")
 (depends-on "nodejs-repl")
 (depends-on "org-pomodoro")
@@ -43,6 +43,7 @@
 (depends-on "smartparens")
 (depends-on "swiper")
 (depends-on "undo-tree")
+(depends-on "use-package")
 (depends-on "web-mode")
 (depends-on "which-key")
 (depends-on "window-numbering")

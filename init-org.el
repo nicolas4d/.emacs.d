@@ -1,28 +1,26 @@
-;; 关闭工具栏，tool-bar-mode 即为一个 Minor Mode
 (tool-bar-mode -1)
-
-;; 关闭文件滑动控件
+(menu-bar-mode -1)
 (scroll-bar-mode -1)
-
-;; 显示行号
 (global-linum-mode 1)
 
 ;; 更改光标的样式（不能生效，解决方案见第二集）
 (setq-default cursor-type 'bar)
 
-;; 更改显示字体大小 16pt
+;; 更改显示字体大小
 ;; http://stackoverflow.com/questions/294664/how-to-set-the-font-size-in-emacs
-;; too large
 (set-face-attribute 'default nil :height 110)
 
-;;最大化
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
-
-;;高亮当前行
 (global-hl-line-mode 1)
 
-;;monokai theme
-(load-theme 'monokai 1)
+;; kill word or region
+(defun backward-kill-word-or-kill-region(arg)
+  (interactive "p")
+  (if mark-active
+      (kill-region 0 0 t)
+    (kill-word (- arg))
+      )
+  )
 
 ;;yasnippet
 (require 'yasnippet)
@@ -82,7 +80,6 @@
 ;;window-numbering
 (window-numbering-mode 1)
 
-;;before evil   
 ;; evil-leader
 (global-evil-leader-mode)
 (setq evil-leader/leader "SPC")
@@ -201,7 +198,10 @@
 
 (require 'recentf)
 (recentf-mode 1)
-(setq recentf-max-menu-item 10)
+(setq
+ recentf-max-menu-item 10
+ recentf-max-saved-items 40
+)
 
 ;; add js to auto-mode-list
 (setq auto-mode-alist
@@ -287,14 +287,14 @@
 (setq org-src-fontify-natively t)
 
 ;; 设置默认 Org Agenda 文件目录
-(setq org-agenda-files '("~/.emacs.d/org"))
+(setq org-agenda-files '("~/emacs/.org"))
 
 ;; 设置 org-agenda 打开快捷键
 (global-set-key (kbd "C-c a") 'org-agenda)
 
 ;;capture templates
 (setq org-capture-templates
-	'(("t" "Todo" entry (file+headline "~/.emacs.d/gtd.org" "工作安排")
+	'(("t" "Todo" entry (file+headline "~/emacs/gtd.org" "工作安排")
 	   "* TODO [#B] %?\n  %i\n"
 	   :empty-lines 1)))
 
@@ -308,6 +308,8 @@
   ;; Org 模式相关设定
   (require 'org-pomodoro)
   )
+  
+(setq org-startup-with-inline-images t)
 
 ;;backward kill
 (global-set-key (kbd "C-w") 'backward-kill-word)
@@ -356,6 +358,8 @@
 
 ;;Hippie
 (global-set-key (kbd "s-/") 'hippie-expand)
+
+(global-set-key "\C-w" 'backward-kill-word-or-kill-region)
 
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)

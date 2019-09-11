@@ -14,72 +14,83 @@
 
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 (global-hl-line-mode 1)
-(load-theme 'monokai 1)
 
   #+END_SRC
+** theme
+;;(load-theme 'monokai 1)
+;;(load-theme 'abyss 1)
 * better-defaults
+** ^  
   #+BEGIN_SRC emacs-lisp
-;;yasnippet
-(require 'yasnippet)
-(yas-reload-all)
-(add-hook 'prog-mode-hook #'yas-minor-mode)
+    ;; kill word or region
+    (defun backward-kill-word-or-kill-region(arg)
+      (interactive "p")
+      (if mark-active
+	  (kill-region 0 0 t)
+	(kill-word (- arg))
+	  )
+      )
 
-;;flycheck
-(add-hook 'js2-mode-hook 'flycheck-mode)
+    ;;yasnippet
+    (require 'yasnippet)
+    (yas-reload-all)
+    (add-hook 'prog-mode-hook #'yas-minor-mode)
 
-;; smartparens
-(require 'smartparens-config)
-(smartparens-global-mode t)
+    ;;flycheck
+    (add-hook 'js2-mode-hook 'flycheck-mode)
 
-;;自动加载外部修改过的文件
-(global-auto-revert-mode 1)
+    ;; smartparens
+    (require 'smartparens-config)
+    (smartparens-global-mode t)
 
-;;close auto save
-(setq auto-save-default nil)
+    ;;自动加载外部修改过的文件
+    (global-auto-revert-mode 1)
 
-;;光标移动到，新创建的窗口
-(require 'popwin)
-(popwin-mode 1)
+    ;;close auto save
+    (setq auto-save-default nil)
 
-;;close beep
-(setq ring-bell-function 'ignore)
+    ;;光标移动到，新创建的窗口
+    (require 'popwin)
+    (popwin-mode 1)
 
-;;yes to y, no to n
-(fset 'yes-or-no-p 'y-or-n-p)
+    ;;close beep
+    (setq ring-bell-function 'ignore)
 
-;; 关闭启动帮助画面
-(setq inhibit-splash-screen 1)
+    ;;yes to y, no to n
+    (fset 'yes-or-no-p 'y-or-n-p)
 
-;; 关闭缩进
-;;(electric-indent-mode -1)
+    ;; 关闭启动帮助画面
+    (setq inhibit-splash-screen 1)
 
-;; 开启全局 Company 补全
-(global-company-mode 1)
+    ;; 关闭缩进
+    ;;(electric-indent-mode -1)
 
-;;禁止备份文件的生成
-(setq make-backup-files nil)
+    ;; 开启全局 Company 补全
+    (global-company-mode 1)
 
-;;选中的文字，编辑覆盖
-(delete-selection-mode 1)
+    ;;禁止备份文件的生成
+    (setq make-backup-files nil)
 
-;; hungry-delete
-(require 'hungry-delete)
-(global-hungry-delete-mode)
+    ;;选中的文字，编辑覆盖
+    (delete-selection-mode 1)
 
-;; '' isue ' 
-(sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
-;; `` isuse `
-(sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "`" nil :actions nil)
+    ;; hungry-delete
+    (require 'hungry-delete)
+    (global-hungry-delete-mode)
 
-;;js2-refactor
-(add-hook 'js2-mode-hook #'js2-refactor-mode)
+    ;; '' isue ' 
+    (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
+    ;; `` isuse `
+    (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "`" nil :actions nil)
+
+    ;;js2-refactor
+    (add-hook 'js2-mode-hook #'js2-refactor-mode)
   #+END_SRC
 ** evil
    #+BEGIN_SRC emacs-lisp
 ;;window-numbering
 (window-numbering-mode 1)
 
-;;before evil   
 ;; evil-leader
 (global-evil-leader-mode)
 (setq evil-leader/leader "SPC")
@@ -208,9 +219,12 @@
    #+END_SRC
 ** recentf
    #+BEGIN_SRC emacs-lisp
-(require 'recentf)
-(recentf-mode 1)
-(setq recentf-max-menu-item 10)
+     (require 'recentf)
+     (recentf-mode 1)
+     (setq
+      recentf-max-menu-item 10
+      recentf-max-saved-items 40
+     )
    #+END_SRC
 ** js2-mode
    #+BEGIN_SRC emacs-lisp
@@ -333,6 +347,9 @@
   ;; Org 模式相关设定
   (require 'org-pomodoro)
   )
+  
+(setq org-startup-with-inline-images t)
+
   #+END_SRC
 * keybindings
   #+BEGIN_SRC emacs-lisp
@@ -383,6 +400,9 @@
 
 ;;Hippie
 (global-set-key (kbd "s-/") 'hippie-expand)
+
+(global-set-key "\C-w" 'backward-kill-word-or-kill-region)
+
   #+END_SRC
 ** ivy
    #+BEGIN_SRC emacs-lisp
