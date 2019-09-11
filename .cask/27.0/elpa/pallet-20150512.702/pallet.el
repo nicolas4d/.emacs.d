@@ -193,6 +193,7 @@
 
 ;; We need to get a copy of the package-archives alist
 ;; before requiring Cask, as doing so will empty the list.
+
 (package-initialize)
 
 (defvar pallet--package-archives-copy

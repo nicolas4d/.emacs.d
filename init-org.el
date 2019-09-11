@@ -13,6 +13,9 @@
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 (global-hl-line-mode 1)
 
+;;(load-theme 'monokai 1)
+;;(load-theme 'abyss 1)
+
 ;; kill word or region
 (defun backward-kill-word-or-kill-region(arg)
   (interactive "p")
@@ -114,6 +117,18 @@
 
 ;;which-key
 (which-key-mode 1)
+
+;;; prevent keys
+(define-key evil-motion-state-map (kbd "C-e") nil)
+(define-key evil-motion-state-map (kbd "C-v") nil)
+(define-key evil-motion-state-map (kbd "C-d") nil)
+(define-key evil-motion-state-map (kbd "C-f") nil)
+(define-key evil-motion-state-map (kbd "C-y") nil)
+
+(define-key evil-normal-state-map (kbd "q") nil)
+(define-key evil-normal-state-map (kbd "C-p") nil)
+(define-key evil-normal-state-map (kbd "C-n") nil)
+;;; evil ends here
 
 (defun js2-imenu-make-index ()
       (interactive)
@@ -377,3 +392,6 @@
 (global-set-key (kbd "C-x l") 'counsel-locate)
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+
+(global-unset-key (kbd "M-m"))
+(global-set-key (kbd "M-m f o") 'spacemacs/open-file-or-directory-in-external-app)

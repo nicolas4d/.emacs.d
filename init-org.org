@@ -1,4 +1,5 @@
 * ui.el
+** ^
   #+BEGIN_SRC emacs-lisp
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -14,11 +15,12 @@
 
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 (global-hl-line-mode 1)
-
   #+END_SRC
 ** theme
+#+BEGIN_SRC emacs-lisp
 ;;(load-theme 'monokai 1)
 ;;(load-theme 'abyss 1)
+#+END_SRC
 * better-defaults
 ** ^  
   #+BEGIN_SRC emacs-lisp
@@ -87,7 +89,7 @@
     (add-hook 'js2-mode-hook #'js2-refactor-mode)
   #+END_SRC
 ** evil
-   #+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp
 ;;window-numbering
 (window-numbering-mode 1)
 
@@ -125,6 +127,19 @@
 
 ;;which-key
 (which-key-mode 1)
+
+;;; prevent keys
+(define-key evil-motion-state-map (kbd "C-e") nil)
+(define-key evil-motion-state-map (kbd "C-v") nil)
+(define-key evil-motion-state-map (kbd "C-d") nil)
+(define-key evil-motion-state-map (kbd "C-f") nil)
+(define-key evil-motion-state-map (kbd "C-y") nil)
+
+(define-key evil-normal-state-map (kbd "q") nil)
+(define-key evil-normal-state-map (kbd "C-p") nil)
+(define-key evil-normal-state-map (kbd "C-n") nil)
+;;; evil ends here
+
    #+END_SRC
 ** imenu
    #+BEGIN_SRC emacs-lisp
@@ -351,7 +366,16 @@
 (setq org-startup-with-inline-images t)
 
   #+END_SRC
+* spacemacs
+d#+BEGIN_SRC emacs-lisp
+(setq spacemacs-core-directory "~/.emacs.d/spacemacs/core/")
+(load-file (concat spacemacs-core-directory "core-funcs.el"))
+
+(setq spacemacs-base-directory "~/.emacs.d/spacemacs/layers/+distributions/spacemacs-base/")
+(load-file (concat spacemacs-base-directory "funcs.el"))
+#+END_SRC
 * keybindings
+** ^
   #+BEGIN_SRC emacs-lisp
 ;;backward kill
 (global-set-key (kbd "C-w") 'backward-kill-word)
@@ -423,3 +447,9 @@
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
    #+END_SRC
+** spacemacs
+#+BEGIN_SRC emacs-lisp
+(global-unset-key (kbd "M-m"))
+(global-set-key (kbd "M-m f o") 'spacemacs/open-file-or-directory-in-external-app)
+#+END_SRC
+

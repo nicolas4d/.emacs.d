@@ -1,23 +1,11 @@
-(require 'cask "/home/d/.cask/cask.el")
-(cask-initialize)   
+(defvar emacs-or-space nil
+  "start emacs if value is t (defaut is t).
+start spacemacs if value is nil "
+  )
 
-(require 'pallet)
-(pallet-mode t)  
-
-(require 'org-install)
-(require 'ob-tangle)
-;; org 文件名不可以是init.org
-(org-babel-load-file (expand-file-name "init-org.org" user-emacs-directory))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(abyss-theme use-package window-numbering which-key web-mode smartparens popwin pallet org-pomodoro nodejs-repl monokai-theme js2-refactor iedit hungry-delete helm-ag flycheck expand-region evil-surround evil-nerd-commenter evil-leader counsel company auto-yasnippet)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(if emacs-or-space
+    ;; emacs
+    (load-file "~/.emacs.d/init-emacs.el")
+  ;; spacemacs
+  (load-file "~/.emacs.d/init-spacemacs.el")
+  )

@@ -1,0 +1,20 @@
+
+;; ----- smex-history -----
+(
+ spacemacs/open-file-or-directory-in-external-app
+ helm-ag
+ byte-compile-file
+ package-list-packages
+ grep
+ cd
+ 5x5
+)
+
+;; ----- smex-data -----
+(
+ (package-list-packages . 2)
+ (grep . 1)
+ (byte-compile-file . 3)
+ (helm-ag . 29)
+ (spacemacs/open-file-or-directory-in-external-app . 5)
+)

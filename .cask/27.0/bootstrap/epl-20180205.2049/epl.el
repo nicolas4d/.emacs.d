@@ -183,7 +183,7 @@ defined as function."
 
 With NO-ACTIVATE non-nil, do not activate packages."
   (setq epl--load-path-before-initialize load-path)
-  (package-initialize no-activate))
+ ;; (package-initialize no-activate))
 
 (defalias 'epl-refresh 'package-refresh-contents)
 
