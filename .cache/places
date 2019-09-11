@@ -1,10 +1,10 @@
 ;;; -*- coding: utf-8 -*-
 (("/home/d/.emacs.d/.cache/recentf" . 567)
- ("/home/d/.emacs.d/.cache/layouts/persp-auto-save" . 1491)
+ ("/home/d/.emacs.d/.cache/layouts/persp-auto-save" . 2409)
+ ("/home/d/.emacs.d/init.el" . 250)
  ("/home/d/website.org" . 2156)
  ("/home/d/ai/deapleaning/deapLearningFromScratch/"
   (dired-filename . "/home/d/ai/deapleaning/deapLearningFromScratch/note.org"))
- ("/home/d/.emacs.d/init.el" . 25)
  ("/home/d/.spacemacs.d/"
   (dired-filename . "/home/d/.spacemacs.d/.git"))
  ("/home/d/.spacemacs.d/init.el" . 17254)
