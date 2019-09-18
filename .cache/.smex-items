@@ -1,7 +1,18 @@
 
 ;; ----- smex-history -----
 (
+ insert-char
+ org-cdlatex-mode
+ org-toggle-inline-images
+ cdlatex-mode
+ LaTeX-mode
+ cdlatex-item
+ cdlatex-insert-filename
+ package-list-packages
+ customize-group
  version
+ shell
+ count-words
  cd
  5x5
  arp
@@ -22,20 +33,20 @@
  sdb
  xdb
  calc
- deer
- diff
- dirs
- ffap
- gnus
- grep
- help
- ielm
- info
- life
- mail
 )
 
 ;; ----- smex-data -----
 (
- (version . 1)
+ (version . 7)
+ (package-list-packages . 4)
+ (count-words . 1)
+ (shell . 1)
+ (customize-group . 1)
+ (org-cdlatex-mode . 5)
+ (cdlatex-item . 2)
+ (cdlatex-insert-filename . 1)
+ (cdlatex-mode . 4)
+ (LaTeX-mode . 2)
+ (org-toggle-inline-images . 1)
+ (insert-char . 1)
 )

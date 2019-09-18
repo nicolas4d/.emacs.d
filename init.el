@@ -1,6 +1,6 @@
 (defvar emacs-or-space nil
-  "start emacs if value is t (defaut is t).
-start spacemacs if value is nil "
+  "start emacs if value is t..
+start spacemacs if value is nil"
   )
 
 (if emacs-or-space

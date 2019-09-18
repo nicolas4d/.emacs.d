@@ -1,1 +1,1 @@
-("~/.emacs.d/" "~/.spacemacs.d/")
+("~/.emacs.d/" "~/.spacemacs.d/" "~/Chrome/Extentions/sis001/js/" "~/.data/emacs-git/")

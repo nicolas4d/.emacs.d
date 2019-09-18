@@ -367,13 +367,11 @@
 
   #+END_SRC
 * spacemacs
-d#+BEGIN_SRC emacs-lisp
 (setq spacemacs-core-directory "~/.emacs.d/spacemacs/core/")
 (load-file (concat spacemacs-core-directory "core-funcs.el"))
 
 (setq spacemacs-base-directory "~/.emacs.d/spacemacs/layers/+distributions/spacemacs-base/")
 (load-file (concat spacemacs-base-directory "funcs.el"))
-#+END_SRC
 * keybindings
 ** ^
   #+BEGIN_SRC emacs-lisp

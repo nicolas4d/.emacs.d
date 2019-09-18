@@ -1,2 +1,2 @@
 
-(setq spacemacs-buffer--release-note-version 'nil)
+(setq spacemacs-buffer--release-note-version (quote nil))
