@@ -1,0 +1,14 @@
+exit
+ln -h
+ln -s ~/Python/lib lib
+ls
+ll
+exit
+ls
+ll
+ll
+exit
+ll
+exit
+ll ssr.sh 
+exit

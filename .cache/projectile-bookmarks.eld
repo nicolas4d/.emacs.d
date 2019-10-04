@@ -1,1 +1,1 @@
-("~/.emacs.d/" "~/.spacemacs.d/" "~/Chrome/Extentions/sis001/js/" "~/.data/emacs-git/")
+("~/.emacs.d/spacemacs/" "~/.spacemacs.d/" "~/.emacs.d/" "~/Chrome/Extentions/sis001/js/" "~/.local/share/shadowsocksr/" "~/Downloads/xemacs-21.4.20/" "~/.data/VirtualMac/unlocker/" "~/.data/emacs-git/")

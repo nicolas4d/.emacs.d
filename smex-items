@@ -1,22 +1,30 @@
 
 ;; ----- smex-history -----
 (
- version
- insert-char
- helm-ag
- byte-compile-file
+ counsel-describe-variable
+ counsel-describe-function
  package-list-packages
- grep
- cd
+ customize-group
+ rmail
+ counsel-find-file
+ org-toggle-inline-images
 )
 
 ;; ----- smex-data -----
 (
- (package-list-packages . 2)
+ (package-list-packages . 9)
  (grep . 1)
  (byte-compile-file . 3)
  (helm-ag . 31)
  (spacemacs/open-file-or-directory-in-external-app . 5)
  (version . 2)
  (insert-char . 2)
+ (pallet-install . 1)
+ (eshell . 1)
+ (org-toggle-inline-images . 3)
+ (counsel-find-file . 1)
+ (rmail . 1)
+ (customize-group . 1)
+ (counsel-describe-function . 1)
+ (counsel-describe-variable . 1)
 )

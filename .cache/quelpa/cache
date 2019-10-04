@@ -1,0 +1,1 @@
+((evil-unimpaired :fetcher file :path "/home/d/.emacs.d/spacemacs/layers/+spacemacs/spacemacs-evil/local/evil-unimpaired/evil-unimpaired.el") (tags-company :fetcher github :repo "nicolas4d/tags-company"))

@@ -1,0 +1,8 @@
+;; load emacs init configurations
+(load-file "~/.emacs.d/init/better-defaults.el")
+(load-file "~/.emacs.d/init/funcs.el")
+(load-file "~/.emacs.d/init/org.el")
+(load-file "~/.emacs.d/init/keybindings.el")
+
+(setq spacemacs-start-directory "~/.emacs.d/spacemacs/")
+(load-file (concat spacemacs-start-directory "init.el"))
