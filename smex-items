@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ eval-last-sexp
+ pallet-init
+ web-mode
+ customize-group
  counsel-describe-variable
  counsel-describe-function
  package-list-packages
- customize-group
- rmail
- counsel-find-file
- org-toggle-inline-images
 )
 
 ;; ----- smex-data -----
@@ -24,7 +24,10 @@
  (org-toggle-inline-images . 3)
  (counsel-find-file . 1)
  (rmail . 1)
- (customize-group . 1)
+ (customize-group . 2)
  (counsel-describe-function . 1)
  (counsel-describe-variable . 1)
+ (web-mode . 1)
+ (pallet-init . 2)
+ (eval-last-sexp . 5)
 )

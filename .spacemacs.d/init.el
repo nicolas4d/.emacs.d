@@ -38,7 +38,7 @@ values."
      ;; ----------------------------------------------------------------
      nicolas4d
      auto-completion
-     (better-defaults :variables better-defaults-move-to-end-of-code-first t)
+     better-defaults
      emacs-lisp
      ;;helm
      html
