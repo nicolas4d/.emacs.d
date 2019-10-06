@@ -9,7 +9,3 @@ start spacemacs if value is nil"
   ;; spacemacs
   (load-file "~/.emacs.d/init/spacemacs.el")
   )
-
-
-
-

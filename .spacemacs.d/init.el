@@ -64,29 +64,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(
-                                      lispy
-                                      epc
-                                      groovy-mode
-                                      yasnippet-snippets
-                                      youdao-dictionary
-                                      window-numbering
-                                      window-number
-                                      shut-up
-                                      pallet
-                                      package-build
-                                      nodejs-repl
-                                      names
-                                      ledger-mode
-                                      chinese-word-at-point
-                                      cask
-                                      ansi
-                                      nadvice
-                                      web-mode
-                                      yasnippet
-                                      helm-ag
-                                      cdlatex
-                                      )
+   dotspacemacs-additional-packages name-list-package
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -342,9 +320,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; fix why is spacemacs hanging on startup.
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-
-  (setq elpa-of-cask (concat "~/.emacs.d/.cask/" (number-to-string emacs-major-version) "." (number-to-string emacs-minor-version) "/elpa")
-        package-user-dir elpa-of-cask)
   )
 
 (defun dotspacemacs/user-config ()

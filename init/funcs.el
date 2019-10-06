@@ -47,7 +47,7 @@
   (interactive)
   (if mark-active
       (kill-ring-save 0 0 t)
-    hungry-delete-backward
+    (hungry-delete-backward 1)
     )
   )
 
