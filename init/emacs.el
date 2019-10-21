@@ -1,12 +1,7 @@
-(require 'cask "/home/d/.cask/cask.el")
-(cask-initialize)   
-
-(require 'pallet)
-(pallet-mode t)
-
 (load-file "~/.emacs.d/init/ui.el")
 (load-file "~/.emacs.d/init/better-defaults.el")
 (load-file "~/.emacs.d/init/funcs.el")
+(load-file "~/.emacs.d/init/spacemacs-funcs.el")
 (load-file "~/.emacs.d/init/org.el")
 (load-file "~/.emacs.d/init/keybindings.el")
 

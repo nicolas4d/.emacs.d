@@ -1,5 +1,8 @@
 (when emacs-or-space
 
+  ;; projectile
+  (projectile-mode +1)
+    
   ;;yasnippet
   (require 'yasnippet)
   (yas-reload-all)
@@ -291,4 +294,5 @@
 
 ;;; web-mode ends here
 
-
+;; counsel-etags
+(setq counsel-etags-tags-program "ctags -e -R") 
