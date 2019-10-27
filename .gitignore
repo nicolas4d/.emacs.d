@@ -3,3 +3,7 @@ auto-save-list
 eshell
 recentf
 smex-items
+projectile-bookmarks.eld
+projectile.cache
+tramp
+tmp

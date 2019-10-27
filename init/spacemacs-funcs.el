@@ -59,3 +59,32 @@ current window."
            (t (concat "/sudo:root@localhost:" fname))))))
   
   )
+
+(defun spacemacs/system-is-mac ()
+  (eq system-type 'darwin))
+(defun spacemacs/system-is-linux ()
+  (eq system-type 'gnu/linux))
+(defun spacemacs/system-is-mswindows ()
+  (eq system-type 'windows-nt))
+
+(defun spacemacs//open-in-external-app (file-path)
+  "Open `file-path' in external application."
+  (cond
+   ((spacemacs/system-is-mswindows) (w32-shell-execute "open" (replace-regexp-in-string "/" "\\\\" file-path)))
+   ((spacemacs/system-is-mac) (shell-command (format "open \"%s\"" file-path)))
+   ((spacemacs/system-is-linux) (let ((process-connection-type nil))
+                                  (start-process "" nil "xdg-open" file-path)))))
+
+(defun spacemacs/open-file-or-directory-in-external-app (arg)
+  "Open current file in external application.
+If the universal prefix argument is used then open the folder
+containing the current file by the default explorer."
+  (interactive "P")
+  (if arg
+      (spacemacs//open-in-external-app (expand-file-name default-directory))
+    (let ((file-path (if (derived-mode-p 'dired-mode)
+                         (dired-get-file-for-visit)
+                       buffer-file-name)))
+      (if file-path
+          (spacemacs//open-in-external-app file-path)
+        (message "No file associated to this buffer.")))))

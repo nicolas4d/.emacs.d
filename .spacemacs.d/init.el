@@ -38,7 +38,7 @@ values."
      ;; ----------------------------------------------------------------
      nicolas4d
      auto-completion
-     better-defaults
+     (better-defaults :variables better-defaults-move-to-end-of-code-first t)
      emacs-lisp
      ;;helm
      html
@@ -320,6 +320,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; fix why is spacemacs hanging on startup.
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+
+  ;; (setq elpa-of-cask (concat "~/.emacs.d/.cask/" (number-to-string emacs-major-version) "." (number-to-string emacs-minor-version) "/elpa")
+  ;;       package-user-dir elpa-of-cask)
   )
 
 (defun dotspacemacs/user-config ()

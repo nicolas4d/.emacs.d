@@ -36,3 +36,4 @@
 (global-set-key "\C-c L" 'org-insert-link-global)
 (global-set-key "\C-c o" 'org-open-at-point-global)
 (define-key org-mode-map (kbd "C-c t") 'org-todo)
+(define-key org-mode-map (kbd "C-c n") 'org-next-visible-heading)

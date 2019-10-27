@@ -1,8 +1,19 @@
 (when emacs-or-space
 
+  ;; (use-package 0blayout
+  ;;   :ensure t
+
+  ;;   ;; Optionally set default layout name
+  ;;   :init (setq-default 0blayout-default "my-default-layout-name")
+
+  ;;   ;; Load the mode
+  ;;   :config (0blayout-mode t)
+  ;;   (0blayout-add-keybindings-with-prefix "M-l")
+  ;;   )
+
   ;; projectile
   (projectile-mode +1)
-    
+  
   ;;yasnippet
   (require 'yasnippet)
   (yas-reload-all)
@@ -114,13 +125,6 @@
    recentf-max-menu-item 10
    recentf-max-saved-items 40
    )
-
-  ;; js2-mode
-  ;; add js to auto-mode-list
-  (setq auto-mode-alist
-        (append
-         '(("\\.js\\'" . js2-mode))
-         auto-mode-alist))
 
 ;;; ivy
   (ivy-mode 1)
@@ -282,7 +286,7 @@
 
       plantuml-jar-path
       (expand-file-name "/home/d/.spacemacs.d/plantuml.jar")
-)
+      )
 
 ;;; web-mode
 ;; set surffix
@@ -291,7 +295,6 @@
        '(("\\.js\\'" . js2-mode))
        '(("\\.html\\'" . web-mode))
        auto-mode-alist))
-
 ;;; web-mode ends here
 
 ;; counsel-etags

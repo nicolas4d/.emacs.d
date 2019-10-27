@@ -36,6 +36,10 @@
   (interactive)
   (find-file "~/.emacs.d/init/better-defaults.el"))
 
+(defun find-init-org()
+  (interactive)
+  (find-file "~/.emacs.d/init/org.el"))
+
 (defun find-spacemacs-init-file()
   "spacemacs init file"
   (interactive)

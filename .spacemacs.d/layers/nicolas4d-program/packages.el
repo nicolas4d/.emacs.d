@@ -92,9 +92,9 @@ Each entry is either:
   (use-package ac-etags
     :init))
 
-(defun nicolas4d-program/init-tags-company()
-  (use-package tags-company
-    :init
-    ))
+;; (defun nicolas4d-program/init-tags-company()
+;;   (use-package tags-company
+;;     :init
+;;     ))
 
 ;;; packages.el ends here
