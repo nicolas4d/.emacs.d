@@ -1,3 +1,19 @@
+;; project find file
+(defun find-file-with-projectile-or-counsel-git ()
+  (interactive)
+  (if (git-project-root)
+      (counsel-git)
+    (if (projectile-project-p)
+        (counsel-projectile-find-file)
+      (counsel-file-jump))))
+
+(defun git-project-root ()
+  "Return the project root for current buffer."
+  (let ((directory default-directory))
+    (locate-dominating-file directory ".git")))
+
+;; project find file ends here
+
 (defun occur-dwim ()
   "Call `occur' with a sane default."
   (interactive)
@@ -11,7 +27,7 @@
         regexp-history)
   (call-interactively 'occur))
 
-(defun copy-region-or-kill-char()
+(defun copy-region-or-delete-backward()
   (interactive)
   (if mark-active
       (kill-ring-save 0 0 t)

@@ -4,16 +4,19 @@
 
 (global-set-key (kbd "C-SPC f S") 'save-some-buffers)
 (global-set-key (kbd "C-SPC C-b") 'buffer-menu)
-(global-set-key (kbd "M-w") 'copy-region-or-kill-char)
+(global-set-key (kbd "M-w") 'copy-region-or-delete-backward)
 (define-key global-map (kbd "C-SPC f s") 'save-buffer)
-(global-set-key (kbd "C-SPC TAB") 'spacemacs/alternate-buffer)
+(define-key global-map (kbd "M-s") 'save-buffer)
+(global-set-key (kbd "C-<tab>") 'spacemacs/alternate-buffer)
 (global-set-key (kbd "C-SPC 1") 'spacemacs/toggle-maximize-buffer)
 (global-set-key (kbd "C-SPC w m") 'spacemacs/toggle-maximize-buffer)
 (global-set-key (kbd "C-SPC f E") 'spacemacs/sudo-edit)
 (global-set-key (kbd "C-SPC f o") 'spacemacs/open-file-or-directory-in-external-app)
 
 ;;; ivy
-(global-set-key (kbd "C-SPC b") 'ivy-switch-buffer)
+(global-set-key (kbd "C-SPC b b") 'ivy-switch-buffer)
+(global-set-key (kbd "C-SPC b k") 'kill-buffer)
+
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (define-key global-map (kbd "C-SPC f f") 'counsel-find-file)
@@ -21,14 +24,15 @@
 (define-key global-map (kbd "C-h v") 'counsel-describe-variable)
 (define-key global-map (kbd "C-h f") 'counsel-describe-function)
 (define-key global-map (kbd "M-y") 'counsel-yank-pop)
-(global-set-key (kbd "M-s i") 'counsel-imenu)
+(define-key prog-mode-map (kbd "C-c i") 'counsel-imenu)
 (define-key prog-mode-map (kbd "M-g e") 'counsel-etags-find-tag-at-point)
 
 ;; projectile
-(global-set-key (kbd "C-SPC p s") 'counsel-projectile-ag)
-(global-set-key (kbd "C-SPC p f") 'counsel-projectile-find-file)
-(global-set-key (kbd "C-SPC p p") 'counsel-projectile-switch-project)
-(global-set-key (kbd "C-SPC p d") 'counsel-projectile-find-dir)
+(global-set-key (kbd "M-p s") 'counsel-projectile-ag)
+(global-set-key (kbd "M-p f") 'find-file-with-projectile-or-counsel-git)
+(global-set-key (kbd "M-p p") 'counsel-projectile-switch-project)
+(global-set-key (kbd "M-p d") 'counsel-projectile-find-dir)
+(global-set-key (kbd "M-p o") 'projectile-multi-occur)
 
 (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
 (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
@@ -44,13 +48,13 @@
 (global-set-key (kbd "C-c d y") #'aya-expand)
 
 ;;iedit
-(global-set-key (kbd "M-s e") 'iedit-mode)
+(global-set-key (kbd "C-SPC i") 'iedit-mode)
+
+;;occur
+(global-set-key (kbd "C-SPC o") 'occur-dwim)
 
 ;;expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
-
-;;occur
-(global-set-key (kbd "M-s o") 'occur-dwim)
 
 ;;js2-refator
 (js2r-add-keybindings-with-prefix "C-c C-m")
@@ -85,6 +89,14 @@
 ;; mwim
 (global-set-key (kbd "C-a") 'mwim-beginning-of-code-or-line)
 (global-set-key (kbd "C-e") 'mwim-end-of-code-or-line)
+
+;; kmacro
+(global-set-key (kbd "C-SPC k s") 'kmacro-start-macro)
+(global-set-key (kbd "C-SPC k e") 'kmacro-end-macro)
+(global-set-key (kbd "C-SPC k c") 'kmacro-call-macro)
+(global-set-key (kbd "C-SPC k n") 'kmacro-cycle-ring-next)
+(global-set-key (kbd "C-SPC k p") 'kmacro-cycle-ring-previous)
+
 
 (when emacs-or-space
   (global-set-key "\C-w" 'spacemacs/backward-kill-word-or-region)
