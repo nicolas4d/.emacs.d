@@ -82,7 +82,10 @@ Each entry is either:
 
 (defun nicolas4d-program/init-counsel-etags ()
   (use-package counsel-etags
-    :init))
+    :init
+    :config ;; counsel-etags
+    (setq counsel-etags-tags-program "ctags -e -R")
+    ))
 
 (defun nicolas4d-program/init-helm-etags-plus()
   (use-package helm-etags-plus

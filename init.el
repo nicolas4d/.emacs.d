@@ -5,7 +5,7 @@
 (pallet-mode t)
 
 
-(defvar emacs-or-space t
+(defvar emacs-or-space nil
   "emacs if value is t.
 spacemacs if value is nil"
   )

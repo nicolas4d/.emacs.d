@@ -30,7 +30,8 @@
 ;;; Code:
 
 (defconst nicolas4d-defaults-packages
-  '()
+  '(youdao-dictionary
+    cdlatex)
   "The list of Lisp packages required by the nicolas4d-defaults layer.
 
 Each entry is either:
@@ -59,3 +60,11 @@ Each entry is either:
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
 ;;; packages.el ends here
+
+(defun nicolas4d-defaults/init-youdao-dictionary()
+  (use-package youdao-dictionary
+    :init))
+
+(defun nicolas4d-defaults/init-cdlatex()
+  (use-package cdlatex
+    :init))
