@@ -1,19 +1,5 @@
 (when emacs-or-space
 
-  ;; (use-package 0blayout
-  ;;   :ensure t
-
-  ;;   ;; Optionally set default layout name
-  ;;   :init (setq-default 0blayout-default "my-default-layout-name")
-
-  ;;   ;; Load the mode
-  ;;   :config (0blayout-mode t)
-  ;;   (0blayout-add-keybindings-with-prefix "M-l")
-  ;;   )
-
-  ;; projectile
-  (projectile-mode +1)
-  
   ;;yasnippet
   (require 'yasnippet)
   (yas-reload-all)

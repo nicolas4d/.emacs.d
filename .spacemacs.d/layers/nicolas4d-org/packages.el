@@ -75,7 +75,7 @@ Each entry is either:
         ;; Org 模式相关设定
         (require 'org-pomodoro)
         )
-      
+
       (setq
        org-file-apps (append '(("\\.jpg\\'" . "google-chrome-stable %s"))
                              '(("\\.png\\'" . "google-chrome-stable %s"))
@@ -89,28 +89,5 @@ Each entry is either:
       (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)   ; with AUCTeX LaTeX mode
       (add-hook 'latex-mode-hook 'turn-on-cdlatex)   ; with Emacs latex mode
       (add-hook 'org-mode-hook 'turn-on-cdlatex)
-
-      ;;keybindings
-      (global-set-key (kbd "C-c r") 'org-capture)
-      (global-set-key "\C-c L" 'org-insert-link-global)
-      (global-set-key "\C-c o" 'org-open-at-point-global)
-      (define-key org-mode-map (kbd "C-c l") 'org-insert-link)
-      (define-key org-mode-map (kbd "C-c t") 'org-todo)
-      (define-key org-mode-map (kbd "C-c n") 'org-next-visible-heading)
-      (define-key org-mode-map (kbd "C-c p") 'org-previous-visible-heading)
-      (define-key org-mode-map (kbd "C-c u") 'outline-up-heading)
-      (define-key org-mode-map (kbd "C-<tab>") nil)
-
-      (spacemacs/set-leader-keys-for-major-mode 'org-mode
-        "p" 'org-previous-visible-heading
-        "n" 'org-next-visible-heading
-        "u" 'outline-up-heading
-        "t" 'org-todo
-        "l" 'org-insert-link
-        )
-
-      (spacemacs/set-leader-keys
-        "oa" 'org-agenda
-        )
-)))
+    )))
 ;;; packages.el ends here

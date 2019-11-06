@@ -63,7 +63,8 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(pallet)
+   dotspacemacs-additional-packages '(pallet
+                                      yasnippet-snippets)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -311,17 +312,14 @@ before packages are loaded. If you are unsure, you should try in setting them in
 ‘dotspacemacs/user-config' first."
 
   ;; set emacs-china iso
-  (setq configuration-layer--elpa-archives
-        '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-          ("org-cn"   . "http://elpa.emacs-china.org/org/")
-          ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+  ;; (setq configuration-layer--elpa-archives
+  ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+  ;;         ("org-cn"   . "http://elpa.emacs-china.org/org/")
+  ;;         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
 
   ;; fix why is spacemacs hanging on startup.
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-
-  ;; (setq elpa-of-cask (concat "~/.emacs.d/.cask/" (number-to-string emacs-major-version) "." (number-to-string emacs-minor-version) "/elpa")
-  ;;       package-user-dir elpa-of-cask)
   )
 
 (defun dotspacemacs/user-config ()

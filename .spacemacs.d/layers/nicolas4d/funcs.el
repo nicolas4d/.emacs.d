@@ -60,3 +60,8 @@
         (indent-buffer)
         (message "Indent buffer.")))))
 ;;; indent ends here
+
+;; find website.org file
+(defun find-website-file()
+  (interactive)
+  (find-file "~/website.org"))
