@@ -1,4 +1,4 @@
-(defconst nicolas4d-program-packages
+(defconst nicolas4d-tags-packages
   '(
     ;;(etags-select :location (recipe :fetcher github :repo "emacsmirror/etags-select"))
     counsel-etags
@@ -8,7 +8,7 @@
     )
   )
 
-(defun nicolas4d-program/init-etags-select ()
+(defun nicolas4d-tags/init-etags-select ()
   (use-package etags-select
     :init
     (progn
@@ -24,24 +24,24 @@
       (spacemacs/set-leader-keys-for-major-mode 'js2-mode
         "gd" 'etags-select-find-tag-at-point))))
 
-(defun nicolas4d-program/init-counsel-etags ()
+(defun nicolas4d-tags/init-counsel-etags ()
   (use-package counsel-etags
     :init
     :config
     (setq counsel-etags-tags-program "ctags -e -R")
     ))
 
-(defun nicolas4d-program/init-helm-etags-plus()
+(defun nicolas4d-tags/init-helm-etags-plus()
   (use-package helm-etags-plus
     :init))
 
-(defun nicolas4d-program/init-ac-etags()
+(defun nicolas4d-tags/init-ac-etags()
   (use-package ac-etags
     :init))
 
-;; (defun nicolas4d-program/init-tags-company()
-;;   (use-package tags-company
-;;     :init
-;;     ))
+(defun nicolas4d-tags/init-tags-company()
+  (use-package tags-company
+    :init
+    ))
 
 ;;; packages.el ends here

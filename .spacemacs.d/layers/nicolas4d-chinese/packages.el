@@ -1,4 +1,4 @@
-(defconst nicolas4d-defaults-packages
+(defconst nicolas4d-chinese-packages
   '(youdao-dictionary
     )
 )
