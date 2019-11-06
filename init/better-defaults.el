@@ -171,14 +171,14 @@
 ;;; dired ends here
 
   ;;window-numbering
-  (window-numbering-mode 1)
+  ;;(window-numbering-mode 1)
 
   ;;;nodejs-repl
-  (require 'nodejs-repl)
+  ;; (require 'nodejs-repl)
 
-  ;; Find Executable Path on OS X
-  (when (memq window-system '(mac ns))
-    (exec-path-from-shell-initialize))
+  ;; ;; Find Executable Path on OS X
+  ;; (when (memq window-system '(mac ns))
+  ;;   (exec-path-from-shell-initialize))
   ;;;nodejs-repl
 
   ;; enable narrow

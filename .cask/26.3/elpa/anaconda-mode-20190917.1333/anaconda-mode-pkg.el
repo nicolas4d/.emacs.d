@@ -1,2 +1,0 @@
-;;; -*- no-byte-compile: t -*-
-(define-package "anaconda-mode" "20190917.1333" "Code navigation, documentation lookup and completion for Python" '((emacs "25") (pythonic "0.1.0") (dash "2.6.0") (s "1.9") (f "0.16.2") (posframe "0.1.0")) :commit "0849be8d4b97456af12133011d9287eb759337ec" :authors '(("Artem Malyshev" . "proofit404@gmail.com")) :maintainer '("Artem Malyshev" . "proofit404@gmail.com") :url "https://github.com/proofit404/anaconda-mode")
