@@ -6,6 +6,7 @@
 (depends-on "ace-link")
 (depends-on "ace-window")
 (depends-on "adaptive-wrap")
+(depends-on "ag")
 (depends-on "aggressive-indent")
 (depends-on "alert")
 (depends-on "anaconda-mode")

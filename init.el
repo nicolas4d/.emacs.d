@@ -15,7 +15,7 @@ spacemacs if value is nil"
 ;; load configurations
 (if emacs-or-space
     ;; emacs
-    (load-file "~/.emacs.d/init/emacs.el")
+    (load-file (concat user-emacs-directory "init/emacs.el"))
   ;; spacemacs
-  (load-file "~/.emacs.d/init/spacemacs.el")
+  (load-file (concat user-emacs-directory "init/spacemacs.el"))
 )
