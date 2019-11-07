@@ -1,7 +1,7 @@
 ;; plantuml
 (setq org-plantuml-jar-path
-      (expand-file-name "/home/d/.emacs.d/plantuml.jar")
+      (expand-file-name  (concat user-emacs-directory "plantuml.jar"))
 
       plantuml-jar-path
-      (expand-file-name "/home/d/.emacs.d/plantuml.jar")
+      org-plantuml-jar-path
       )
