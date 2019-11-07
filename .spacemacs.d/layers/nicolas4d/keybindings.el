@@ -1,5 +1,6 @@
 (global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-m") 'set-mark-command)
+(global-set-key (kbd "M-c") 'kmacro-call-macro)
 
 (spacemacs/set-leader-keys
   ;; kmacro
