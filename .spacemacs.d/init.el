@@ -37,7 +37,6 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      nicolas4d
-     auto-completion
      (better-defaults :variables better-defaults-move-to-end-of-code-first t)
      emacs-lisp
      ;;helm
