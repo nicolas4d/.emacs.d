@@ -409,9 +409,6 @@ disable #+BEGIN_SRC emacs-lisp
 ;;imenu
 (global-set-key (kbd "M-s i") 'counsel-imenu)
 
-;;occur
-(global-set-key (kbd "M-s o") 'occur-dwim)
-
 ;;js2-refator
 (js2r-add-keybindings-with-prefix "C-c C-m")
 

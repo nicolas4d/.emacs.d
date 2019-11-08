@@ -38,23 +38,23 @@
 ;;; init.el
 (defun find-init-file()
   (interactive)
-  (find-file "~/.emacs.d/init.el"))
+  (find-file (concat user-emacs-directory "init/init.el")))
 
 (defun find-init-keybindings()
   (interactive)
-  (find-file "~/.emacs.d/init/keybindings.el"))
+  (find-file (concat user-emacs-directory "init/keybindings.el")))
 
 (defun find-init-funcs()
   (interactive)
-  (find-file "~/.emacs.d/init/funcs.el"))
+  (find-file (concat user-emacs-directory "init/funcs.el")))
 
 (defun find-init-better-defaults()
   (interactive)
-  (find-file "~/.emacs.d/init/better-defaults.el"))
+  (find-file (concat user-emacs-directory "init/better-defaults.el")))
 
 (defun find-init-org()
   (interactive)
-  (find-file "~/.emacs.d/init/org.el"))
+  (find-file (concat user-emacs-directory "init/org.el")))
 
 (defun find-spacemacs-init-file()
   "spacemacs init file"

@@ -5,6 +5,7 @@
                                       nicolas4d-core
                                       nicolas4d-editing
                                       nicolas4d-html
+                                      nicolas4d-ivy
                                       nicolas4d-javascript
                                       nicolas4d-latex
                                       nicolas4d-layouts
