@@ -4,6 +4,7 @@
                                       nicolas4d-chinese
                                       nicolas4d-core
                                       nicolas4d-editing
+                                      nicolas4d-helm
                                       nicolas4d-html
                                       nicolas4d-ivy
                                       nicolas4d-javascript
