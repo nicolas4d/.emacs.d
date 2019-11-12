@@ -1,12 +1,12 @@
-(defun copy-to-user-emacs-directory (dir)
-  "copy yasnippet snippets directory to user-emacs-directory."
+(defun copy-to-ued-as-snippets (dir)
+  "copy directory to user-emacs-directory as snippets."
 
   (let ((new-snippets (concat user-emacs-directory "snippets")))
     (copy-directory dir new-snippets nil t t))
 
   (message "copy dir done"))
 
-;; (copy-to-user-emacs-directory yasnippet-snippets-dir)
+;; (copy-to-ued-as-snippets yasnippet-snippets-dir)
 
 (defun copy-snippets-to-ued()
   "copy snippets in yas/root-directory to user-emacs-directory"
@@ -21,7 +21,7 @@
 
       (setq snippets-eval-dir (eval snippets-dir))
       (if (file-exists-p  snippets-eval-dir) 
-          (copy-to-user-emacs-directory snippets-eval-dir)
+          (copy-to-ued-as-snippets snippets-eval-dir)
         )))
   (message "copy snippets done")
   )
@@ -80,7 +80,7 @@
 
 ;; (add-semicolon-to-snippet-key "~/.emacs.d/snippets/emacs-lisp-mode/setq")
 
-(defun add-semicolon (snippets-dir)
+(defun add-semicolon-to-all-snippets (snippets-dir)
   "add semicolon to snippet in directory"
   (let ((files (directory-files-recursion snippets-dir)))
 
@@ -92,4 +92,4 @@
     )
   (message "add semicolon done"))
 
-;; (add-semicolon "~/.emacs.d/snippets/")
+;; (add-semicolon-to-all-snippets "~/.emacs.d/snippets/")
