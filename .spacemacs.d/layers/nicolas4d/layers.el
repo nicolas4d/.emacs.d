@@ -1,8 +1,8 @@
 (configuration-layer/declare-layers '(
                                       nicolas4d-auto-completion
                                       nicolas4d-base
+                                      nicolas4d-better-defaults
                                       nicolas4d-chinese
-                                      nicolas4d-core
                                       nicolas4d-editing
                                       nicolas4d-helm
                                       nicolas4d-html
@@ -14,5 +14,18 @@
                                       nicolas4d-org
                                       nicolas4d-plantuml
                                       nicolas4d-search
+                                      nicolas4d-spell-checking
                                       nicolas4d-tags
+                                      emacs-lisp
+                                      python
+                                      c-c++
+                                      ivy
+                                      markdown
+                                      ranger
+                                      version-control
+                                      yaml
+                                      csv
+                                      sql
+                                      git
+                                      github
                                       ))

@@ -80,8 +80,6 @@
 (depends-on "fill-column-indicator")
 (depends-on "flx")
 (depends-on "flx-ido")
-(depends-on "flycheck")
-(depends-on "flycheck-pos-tip")
 (depends-on "flyspell-correct")
 (depends-on "flyspell-correct-ivy")
 (depends-on "fringe-helper")

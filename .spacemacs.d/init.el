@@ -37,28 +37,6 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      nicolas4d
-     (better-defaults :variables better-defaults-move-to-end-of-code-first t)
-     emacs-lisp
-     ;;helm
-     html
-     python
-     c-c++
-     ivy
-     markdown
-     org
-     ranger
-     spell-checking
-     syntax-checking
-     version-control
-     plantuml
-     yaml
-     csv
-     sql
-     (spacemacs-layouts :variables layouts-enable-autosave nil)
-     javascript
-     latex
-     git
-     github
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these

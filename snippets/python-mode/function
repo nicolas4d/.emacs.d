@@ -3,5 +3,5 @@
 # key: f;
 # group: definitions
 # --
-def ${1:fun}(${2:args}):
+def ${1:fun}(${2:var}):
     $0
