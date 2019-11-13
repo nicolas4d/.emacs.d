@@ -1,3 +1,6 @@
+;;; snippets
+;;; copy directory list in yas/root-directory to user-emacs-dirctory
+
 (defun copy-to-ued-as-snippets (dir)
   "copy directory to user-emacs-directory as snippets."
 
@@ -93,3 +96,5 @@
   (message "add semicolon done"))
 
 ;; (add-semicolon-to-all-snippets "~/.emacs.d/snippets/")
+
+;;; snippets ends here

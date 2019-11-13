@@ -69,7 +69,10 @@ Each entry is either:
 (defun nicolas4d-auto-completion/post-init-yasnippet ()
   (use-package yasnippet
     :config
-    (setq yas/root-directory
-           (list (concat user-emacs-directory "snippets")))
+    (setq
+     yas/root-directory-backup
+     yas/root-directory
+     yas/root-directory
+     (list (concat user-emacs-directory "snippets")))
     )
   )
