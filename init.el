@@ -2,10 +2,13 @@
 (require 'cask "/home/d/.cask/cask.el")
 (cask-initialize)
 
-;; pallet
+
+;;; pallet
+(package-install 'pallet)
+
 (require 'pallet)
 (pallet-mode t)
-
+;;; pallet ends here
 
 (defvar emacs-or-space nil
   "emacs if value is t.

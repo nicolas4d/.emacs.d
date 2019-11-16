@@ -12,7 +12,6 @@
                                       nicolas4d-layouts
                                       nicolas4d-mail
                                       nicolas4d-org
-                                      nicolas4d-package
                                       nicolas4d-plantuml
                                       nicolas4d-search
                                       nicolas4d-spell-checking
