@@ -69,7 +69,6 @@
 (depends-on "evil-search-highlight-persist")
 (depends-on "evil-surround")
 (depends-on "evil-tutor")
-(depends-on "evil-unimpaired")
 (depends-on "evil-visual-mark-mode")
 (depends-on "evil-visualstar")
 (depends-on "exec-path-from-shell")

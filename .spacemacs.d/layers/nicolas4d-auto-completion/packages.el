@@ -70,8 +70,10 @@ Each entry is either:
   (use-package yasnippet
     :config
     (setq
+     ;; backup yasnippet directories
      yas/root-directory-backup
      yas/root-directory
+     ;; set yasnippet directories
      yas/root-directory
      (list (concat user-emacs-directory "snippets")))
     )

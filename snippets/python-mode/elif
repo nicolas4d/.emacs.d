@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-;
+# name: elif
+# key: ef;
+# group : control structure
+# --
+elif ${1:cond}:
+    $0

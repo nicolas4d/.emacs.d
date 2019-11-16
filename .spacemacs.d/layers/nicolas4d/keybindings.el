@@ -1,7 +1,7 @@
 (global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-m") 'set-mark-command)
-(global-set-key (kbd "M-c") 'kmacro-call-macro)
 (global-set-key (kbd "C-r") 'repeat)
+(global-set-key (kbd "C-<tab>") 'spacemacs/alternate-buffer)
 
 (spacemacs/set-leader-keys
   ;; kmacro
@@ -13,4 +13,3 @@
   "mrn" 'kmacro-cycle-ring-next
   "mrp" 'kmacro-cycle-ring-previous
   )
-
