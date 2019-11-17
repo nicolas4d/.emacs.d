@@ -63,18 +63,11 @@ Each entry is either:
 ;;; packages.el ends here
 (defun nicolas4d-auto-completion/init-yasnippet-snippets()
   (use-package yasnippet-snippets
-    :init)
-  )
+    :init
+    ))
 
 (defun nicolas4d-auto-completion/post-init-yasnippet ()
   (use-package yasnippet
     :config
-    (setq
-     ;; backup yasnippet directories
-     yas/root-directory-backup
-     yas/root-directory
-     ;; set yasnippet directories
-     yas/root-directory
-     (list (concat user-emacs-directory "snippets")))
-    )
-  )
+    (push (concat user-emacs-directory "snippets") yas/root-directory)
+    ))
