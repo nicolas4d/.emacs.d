@@ -1,1 +1,76 @@
 (setq layouts-enable-autosave nil)
+
+;;; custom layout transient state and key bindings
+;; layouts transient state
+(spacemacs|transient-state-format-hint layouts
+  spacemacs--layouts-ts-full-hint
+  "\n\n
+ Go to^^^^^^                                  Actions^^
+ ─────^^^^^^────────────────────────────────  ───────^^──────────────────────────────────────────────────
+ [_0_.._9_]^^     nth/new layout              [_a_]^^   add buffer
+ [_C-0_.._C-9_]^^ nth/new layout              [_A_]^^   add all from layout
+ [_<tab>_]^^^^    last layout                 [_d_]^^   close current layout
+ [_b_]^^^^        buffer in layout            [_D_]^^   close other layout
+ [_h_]^^^^        default layout              [_r_]^^   remove current buffer
+ [_l_]^^^^        layout w/helm/ivy           [_R_]^^   rename current layout
+ [_L_]^^^^        layouts in file             [_s_/_S_] save all layouts/save by names
+ [_n_/_C-l_]^^    next layout                 [_t_]^^   show a buffer without adding it to current layout
+ [_N_/_p_/_C-h_]  prev layout                 [_x_]^^   kill current w/buffers
+ [_o_]^^^^        custom layout               [_X_]^^   kill other w/buffers
+ [_w_]^^^^        workspaces transient state  [_?_]^^   toggle help
+ [_cl_]^^^^       load custom layout          [_cs_]    save custom layout\n")
+
+(spacemacs|define-transient-state layouts
+        :title "Layouts Transient State"
+        :hint-is-doc t
+        :dynamic-hint (spacemacs//layouts-ts-hint)
+        :bindings
+        ;; need to exit in case number doesn't exist
+        ("?" spacemacs//layouts-ts-toggle-hint)
+        ("1" spacemacs/persp-switch-to-1 :exit t)
+        ("2" spacemacs/persp-switch-to-2 :exit t)
+        ("3" spacemacs/persp-switch-to-3 :exit t)
+        ("4" spacemacs/persp-switch-to-4 :exit t)
+        ("5" spacemacs/persp-switch-to-5 :exit t)
+        ("6" spacemacs/persp-switch-to-6 :exit t)
+        ("7" spacemacs/persp-switch-to-7 :exit t)
+        ("8" spacemacs/persp-switch-to-8 :exit t)
+        ("9" spacemacs/persp-switch-to-9 :exit t)
+        ("0" spacemacs/persp-switch-to-0 :exit t)
+        ("C-1" spacemacs/persp-switch-to-1)
+        ("C-2" spacemacs/persp-switch-to-2)
+        ("C-3" spacemacs/persp-switch-to-3)
+        ("C-4" spacemacs/persp-switch-to-4)
+        ("C-5" spacemacs/persp-switch-to-5)
+        ("C-6" spacemacs/persp-switch-to-6)
+        ("C-7" spacemacs/persp-switch-to-7)
+        ("C-8" spacemacs/persp-switch-to-8)
+        ("C-9" spacemacs/persp-switch-to-9)
+        ("C-0" spacemacs/persp-switch-to-0)
+        ("<tab>" spacemacs/jump-to-last-layout)
+        ("<return>" nil :exit t)
+        ("C-h" persp-prev)
+        ("C-l" persp-next)
+        ("a" persp-add-buffer :exit t)
+        ("A" persp-import-buffers :exit t)
+        ("d" spacemacs/layouts-ts-close)
+        ("D" spacemacs/layouts-ts-close-other :exit t)
+        ("h" spacemacs/layout-goto-default :exit t)
+        ("L" persp-load-state-from-file :exit t)
+        ("n" persp-next)
+        ("N" persp-prev)
+        ("o" spacemacs/select-custom-layout :exit t)
+        ("p" persp-prev)
+        ("r" persp-remove-buffer :exit t)
+        ("R" spacemacs/layouts-ts-rename :exit t)
+        ("s" persp-save-state-to-file :exit t)
+        ("S" persp-save-to-file-by-names :exit t)
+        ("t" persp-temporarily-display-buffer :exit t)
+        ("w" spacemacs/workspaces-transient-state/body :exit t)
+        ("x" spacemacs/layouts-ts-kill)
+        ("X" spacemacs/layouts-ts-kill-other :exit t)
+        ("cl" nicolas4d/load-my-layout :exit t)
+        ("cs" nicolas4d/save-my-layout :exit t)
+        )
+
+;;; custom layout transient state and key bindings ends here
