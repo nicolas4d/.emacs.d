@@ -2,11 +2,6 @@
 (setq-default abbrev-mode t)
 
 (define-abbrev-table 'global-abbrev-table '(
-                                            ;; Shifu
-                                            ("8zl" "zilongshanren")
-                                            ;; Tudi
-                                            ("8lxy" "lixinyang")
-                                            ;;nicols4d
                                             ("n4d" "nicolas4d")
                                             ))
 ;;; abbrev ends here
