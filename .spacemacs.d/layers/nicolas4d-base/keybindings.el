@@ -8,3 +8,8 @@
   ;; find website.org
   "fw" 'find-website-file
   )
+
+(spacemacs/set-leader-keys-for-major-mode 'prog-mode
+  ;; imenu
+  "ji" 'counsel-imenu
+  )
