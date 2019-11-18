@@ -85,9 +85,11 @@ Each entry is either:
        org-return-follows-link t
        )
 
-      ;; cdlatex
-      (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)   ; with AUCTeX LaTeX mode
-      (add-hook 'latex-mode-hook 'turn-on-cdlatex)   ; with Emacs latex mode
-      (add-hook 'org-mode-hook 'turn-on-cdlatex)
+      (spacemacs/set-leader-keys-for-minor-mode 'org-mode
+        "l" nil
+        "lt" 'org-toggle-latex-fragment
+        )
+
+
     )))
 ;;; packages.el ends here
