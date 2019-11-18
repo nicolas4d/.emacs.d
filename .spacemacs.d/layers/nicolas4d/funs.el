@@ -29,3 +29,8 @@
       (unset-proxy)
     (set-proxy)))
 ;;; proxy ends here
+
+;; find website.org file
+(defun find-website-file()
+  (interactive)
+  (find-file "~/website.org"))

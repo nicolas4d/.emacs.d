@@ -27,8 +27,3 @@
         regexp-history)
   (call-interactively 'occur))
 
-;; find website.org file
-(defun find-website-file()
-  (interactive)
-  (find-file "~/website.org"))
-
