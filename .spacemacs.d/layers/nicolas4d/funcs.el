@@ -1,3 +1,10 @@
+(defun nicolas4d/user-config ()
+  "for config my configurations.
+for excute in dotspacemacs/user-config."
+  ;; remove buffer's left ~
+  (global-vi-tilde-fringe-mode -1)
+  )
+
 ;;; proxy
 ;; my-proxy is my machine's proxy
 (setq my-proxy `http://127.0.0.1:1080)
