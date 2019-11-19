@@ -5,6 +5,8 @@
   "t" 'org-todo
   "l" 'org-insert-link
   "o" 'org-open-at-point
+  "l" nil
+  "lt" 'org-toggle-latex-fragment
   )
 
 (spacemacs/set-leader-keys

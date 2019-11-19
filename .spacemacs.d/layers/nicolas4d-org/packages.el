@@ -84,12 +84,5 @@ Each entry is either:
        org-agenda-files '("~/emacs/.org")
        org-return-follows-link t
        )
-
-      (spacemacs/set-leader-keys-for-minor-mode 'org-mode
-        "l" nil
-        "lt" 'org-toggle-latex-fragment
-        )
-
-
     )))
 ;;; packages.el ends here
