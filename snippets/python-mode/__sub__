@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-;
+# name: __sub__
+# key: sub;
+# group: dunder methods
+# --
+def __sub__(${1:var}):
+    ${}

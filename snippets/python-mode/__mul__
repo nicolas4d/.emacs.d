@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-;
+# name: __mul__
+# key: mul;
+# group: dunder methods
+# --
+def __mul__(${1:var}):
+    if ${} :
+       ${}

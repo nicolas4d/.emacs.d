@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-;
+# name: __add__
+# key: add;
+# group: dunder methods
+# --
+def __add__(${1:var}):
+    if ${} :
+       ${}
