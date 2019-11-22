@@ -41,3 +41,10 @@ for excute in dotspacemacs/user-config."
 (defun find-website-file()
   (interactive)
   (find-file "~/website.org"))
+
+(defun copy-picture-to-dir ()
+  "copyt ~/Pictures/* to copy-picture-to-dir."
+  (interactive)
+  (shell-command "mv ~/Pictures/* ~/python/DataStructuresAndAlgorithmsUsingPython/table/")
+  )
+
