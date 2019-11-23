@@ -16,7 +16,4 @@
 
   ;; buffer
   "bl" 'list-buffers
-
-  ;; xmodmap
-  "xm" 'nicolas4d/exec-xmodmap
   )
