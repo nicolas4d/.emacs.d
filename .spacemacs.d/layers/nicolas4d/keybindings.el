@@ -13,4 +13,7 @@
   "mv" 'kmacro-view-macro
   "mrn" 'kmacro-cycle-ring-next
   "mrp" 'kmacro-cycle-ring-previous
+
+  ;; buffer
+  "bl" 'list-buffers
   )
