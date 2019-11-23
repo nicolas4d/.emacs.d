@@ -2,7 +2,6 @@
 (require 'cask "/home/d/.cask/cask.el")
 (cask-initialize)
 
-
 ;;; pallet
 (package-install 'pallet)
 
