@@ -1,3 +1,17 @@
+(defun copy-picture-to-dir ()
+  "copyt ~/Pictures/* to copy-picture-to-dir."
+  (interactive)
+  (shell-command "mv ~/Pictures/* ~/python/DataStructuresAndAlgorithmsUsingPython/table/")
+  )
+
+(defun nicolas4d/exec-xmodmap ()
+  "execute xmodmap.
+
+change modifier keys."
+  (interactive)
+  (shell-command "xm")
+  )
+
 (defun nicolas4d/user-config ()
   "for config my configurations.
 for excute in dotspacemacs/user-config."
@@ -42,9 +56,5 @@ for excute in dotspacemacs/user-config."
   (interactive)
   (find-file "~/website.org"))
 
-(defun copy-picture-to-dir ()
-  "copyt ~/Pictures/* to copy-picture-to-dir."
-  (interactive)
-  (shell-command "mv ~/Pictures/* ~/python/DataStructuresAndAlgorithmsUsingPython/table/")
-  )
+
 
