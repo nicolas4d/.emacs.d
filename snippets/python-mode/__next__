@@ -5,6 +5,6 @@
 # --
 def __next__(self):
     if ${} :
-       ${}
+       $0
     else :
         raise StopIteration
