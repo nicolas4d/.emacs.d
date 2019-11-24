@@ -16,4 +16,7 @@
 
   ;; buffer
   "bl" 'list-buffers
+
+  ;; eshell
+  "se" 'eshell
   )
