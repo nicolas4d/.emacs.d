@@ -3,6 +3,7 @@
 (global-set-key (kbd "C-r") 'repeat)
 (global-set-key (kbd "C-<tab>") 'spacemacs/alternate-buffer)
 (global-set-key (kbd "M-c") 'kmacro-call-macro)
+(global-set-key (kbd "C-M-k") 'kill-paragraph)
 
 (spacemacs/set-leader-keys
   ;; kmacro
