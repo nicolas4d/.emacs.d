@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-;
+# name: ifee
+# key: ifee;
+# group : control structure
+# --
+if $1:
+    $2
+elif $3:
+    $4
+else:
+  $0
