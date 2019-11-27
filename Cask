@@ -22,7 +22,6 @@
 (depends-on "avy")
 (depends-on "bind-key")
 (depends-on "bind-map")
-(depends-on "cdlatex")
 (depends-on "chinese-word-at-point")
 (depends-on "clang-format")
 (depends-on "clean-aindent-mode")
