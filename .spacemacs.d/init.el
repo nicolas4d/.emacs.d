@@ -303,7 +303,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   (nicolas4d/user-config)
-  (nicolas4d/key-binding-prefixes)
+  (nicolas4d-base/user-config)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
