@@ -4,5 +4,4 @@
 # group: dunder methods
 # --
 def __mul__(${1:var}):
-    if ${} :
-       ${}
+    ${}
