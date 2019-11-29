@@ -17,6 +17,8 @@ change modifier keys."
 for excute in dotspacemacs/user-config."
   ;; remove buffer's left ~
   (global-vi-tilde-fringe-mode -1)
+
+  (nicolas4d-base/user-config)
   )
 
 ;;; proxy
