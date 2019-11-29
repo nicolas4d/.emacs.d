@@ -1,0 +1,89 @@
+#+TITLE:Preparing Lisp code for distribution
+* ^
+A “package” is a collection of one or more files.
+* Packaging Basics
+- simple package
+- multi-file package
+
+Each package has certain “attributes”:
+- Name
+- Version
+  -version-to-list
+- Brief description
+- Long description
+ ‘C-h P’ (‘describe-package’)
+- Dependencies
+  - install automatically
+
+1. install:
+  - package-install-file
+  - package menu
+  - content directory : 'NAME-VERSION'
+2. search autoload magic comments:
+  - ‘NAME-autoloads.el’ 
+  - Emacs then byte-compiles every Lisp file in the package.
+3. After installation:
+  - installed package is “loaded”
+  - package’s content directory to ‘load-path’
+  - evaluates the autoload definitions in ‘NAME-autoloads.el’.
+- Whenever Emacs starts up:
+  - calls the function ‘package-activate-all’
+  - This is done after loading the early init file, but before loading the
+    regular init file
+  - ‘package-enable-at-startup’
+
+-- Function: package-activate-all
+-- Command: package-initialize &optional no-activate
+* Simple Packages
+The file must conform to the Emacs Lisp library header conventions
+(*note Library Headers).
+
+#+BEGIN_SRC emacs-lisp
+     ;;; superfrobnicator.el --- Frobnicate and bifurcate flanges
+
+     ;; Copyright (C) 2011 Free Software Foundation, Inc.
+
+     ;; Author: J. R. Hacker <jrh@example.com>
+     ;; Version: 1.3
+     ;; Package-Requires: ((flange "1.0"))
+     ;; Keywords: multimedia, hypermedia
+     ;; URL: http://example.com/jrhacker/superfrobnicate
+
+     ...
+
+     ;;; Commentary:
+
+     ;; This package provides a minor mode to frobnicate and/or
+     ;; bifurcate any flanges you desire.  To activate it, just type
+     ...
+
+     ;;;###autoload
+     (define-minor-mode superfrobnicator-mode
+     ...
+#+END_SRC
+* Multi-file Packages
+* Package Archives
+package-archives
+
+package-x
+
+M-x load-library <RET> package-x <RET>
+
+gpg -ba -o FILE.sig FILE
+* Archive Web Server
+- archive-contents ::
+     Return a lisp form describing the archive contents.  The form is a
+     list of ’package-desc’ structures (see ‘package.el’), except the
+     first element of the list is the archive version.
+
+- <package name>-readme.txt ::
+     Return the long description of the package.
+
+- <file name>.sig ::
+     Return the signature for the file.
+
+- <file name> ::
+     Return the file.  This will be the tarball for a multi-file
+     package, or the single file for a simple package.
+
+* [[file:~/data/emacs/Info(C-h%20i)/Elisp/note.org][home]]

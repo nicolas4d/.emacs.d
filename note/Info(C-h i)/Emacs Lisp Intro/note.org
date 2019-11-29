@@ -1,0 +1,867 @@
+#+TITLE:An Introduction to Programming in Emacs Lisp
+* take a look
+** Emacs version 25.3.
+until emacs Initialization
+** emacs version 27.0.50
+* Preface
+** Why
+** On Reading this Text
+** Who You Are
+not written for expert programmer.
+** Lisp History
+‘cl.el’ adds many Common Lisp features to Emacs.
+** Note for Novices
+** Thank You
+* List Processing
+** Lisp stands for LISt Processing.
+** Lisp Lists
+*** ^
+#+BEGIN_SRC elisp
+'(rose violet daisy buttercup)
+#+END_SRC
+*** Numbers Lists
+both data and programs are represented the same way.
+'(this list has (a list inside of it))
+*** Lisp Atoms
+In a list, atoms are separated from each other by whitespace.
+
+() considered both an atom and a list at the same time.
+
+The printed representation of both atoms and lists are called
+“symbolic expressions” or, more concisely, “s-expressions”.
+
+Strings or numbers or symbols are different kind of atom.
+*** Whitespace in Lists
+*** Typing Lists
+<TAB>
+M-C-\
+** Run a Program
+evaluate == run
+'(...) do nothing.
+(...) function
+C-x C-e eval-last-sexp
+[[file:example/RunAProgram.el]]
+** Making Errors
+(this is an unquoted list) C-x C-e
+*Backtace buffer from bottom up
+q quit
+** Names & Definitions
+one set of instructions can be attached to several names.
+a symbol can have only one function definition attached to it at a time.
+** Lisp Interpreter
+*** lisp does when evaluate a list
+1. whether there is a quote before the list.
+2. looks at the first element in the list whether it has a function definition.
+3. the interpreter prints an error message.
+*** Complications
+- variable
+- special form
+- macros
+- innermost list first, work left to right.
+*** Byte Compiling
+.el .elc
+byte-compile-file
+** Evaluation
+*** “evaluates the expression”. 
+*** How the Interpreter Acts
+after evaluating an expression:
+- return value and perhaps carry out a side effect
+- produce an error message
+*** Evaluating Inner Lists
+evaluating inner lists first and outer lists.
+** Variables
+*** ^
+A symbol that has a value is often called a “variable”.
+A symbol can have both a function definition and a value attached to it at the
+same time.
+*** fill-column Example
+fill-column
+*** Void Function
+(fill-column)
+*** Void Variable
++
+** Arguments
+*** Data types
+(+ 2 2)
+(concat "abc" "def")
+(substring "The quick brown fox jumped." 16 19)
+*** Args as Variable or List
+(+ 2 fill-column)
+(concat "The " (number-to-string (+ 2 fill-column)) " red foxes.")
+(int-to-string 2)
+*** Variable Number of Arguments
+Some functions take any number of arguments.
+*** Wrong Type of Argument
+(+ 2 'hello)
+(wrong-type-argument number-or-marker-p hello)
+marker (a special object representing a buffer position)
+The ‘p’ stands for “predicate”.
+(zerop 1)
+(listp 3)
+(quote hello) == 'hello
+*** message
+(message "There are %d %s in the office!" fill-column "pink elephants")
+** set & setq
+*** function set and setq
+*** Using set
+(set 'flowers '(rose violet daisy buttercup))
+flowers
+'flowers
+
+when you use ‘set’, you need to quote both arguments to ‘set’, unless you
+want them evaluated.
+*** Using setq
+- This special form is just like ‘set’ except that the first argument is
+  quoted automatically,
+- ‘setq’ permits you to set several different variables to different values,
+  all in one expression.
+
+(setq carnivores '(lion tiger leopard))
+(setq trees '(pine fir oak maple)
+           herbivores '(gazelle antelope zebra))
+trees
+
+‘set’ and ‘setq’ make the symbol _point_ to the list.
+*** Counting
+(setq counter 0)                ; Let’s call this the initializer.
+(setq counter (+ counter 1))    ; This is the incrementer.
+counter                         ; This is the counter.
+* Practicing Evaluation
+** How to Evaluate
+Whenever you give an editing command to Emacs Lisp, you are evaluating an
+expression. this is how Emacs works.
+
+when you type keys emacs evaluate self-insert-command function.
+
+C-x C-e
+** Buffer Names
+(buffer-name)
+(buffer-file-name)
+
+The symbol ‘nil’ is from the Latin word for “nothing”; (In Lisp, ‘nil’ is
+  also used to mean “false” and is a synonym for the empty list, ‘()’.)
+
+C-u C-x C-e 
+** Getting Buffers
+(current-buffer)
+(other-buffer)
+** Switching Buffers
+(switch-to-buffer (other-buffer))
+(set-buffer (other-buffer))
+(switch-to-buffer (other-buffer (current-buffer) t))
+** Buffer Size & Locations
+(buffer-size)
+(point)
+(point-min)
+(point-max)
+* Writing Defuns
+** Primitive Functions
+“primitive” functions that are written in the C programming language.
+** defun(is macro)
+   (defun FUNCTION-NAME (ARGUMENTS...)
+       "OPTIONAL-DOCUMENTATION..."
+       (interactive ARGUMENT-PASSING-INFO)     ; optional
+       BODY...)
+** Install
+place the cursor after the last parenthesis and type ‘C-x C-e’.
+*** Effect of installation
+‘C-h f’ (‘describe-function’)
+*** Change a defun
+place the cursor after the last parenthesis and type ‘C-x C-e’.
+** Interactive
+‘interactive’ immediately after the documentation.
+*** Interactive multiply-by-seven
+     (defun multiply-by-seven (number)       ; Interactive version.
+       "Multiply NUMBER by seven."
+       (interactive "p")
+       (message "The result is %d" (* 7 number)))
+
+C-u [N] M-x multiply-by-seven
+*** multiply-by-seven in detail
+(interpreter "p")
+The ‘"p"’ tells Emacs to pass the prefix argument to the
+function and use its value for the argument of the function.
+** Interactive Options
+(interactive "p\ncZap to char: ")
+each part is separated from the next part by a ‘\n’, which is a newline.
+** Permanent Installation
+- .emacs
+- load
+- site-init.el
+** let
+*** Prevent confusion
+‘let’ creates a name for a “local variable” that overshadows any use of the
+same name outside the ‘let’ expression.
+
+‘let’ can create more than one variable at once.
+*** Parts of let Expression
+(let VARLIST BODY...)
+
+     (let ((VARIABLE VALUE)
+           (VARIABLE VALUE)
+           ...)
+       BODY...)
+*** Sample let Expression
+     (let ((zebra "stripes")
+           (tiger "fierce"))
+       (message "One kind of animal has %s and another is %s."
+                zebra tiger))
+
+*** Uninitialized let Variables
+nil
+** if
+*** if in more detail
+(if TRUE-OR-FALSE-TEST                          ;;if part
+    ACTION-TO-CARRY-OUT-IF-TEST-IS-TRUE)        ;;then part
+*** type-of-animal in detail
+(equal characteristic "fierce")
+** else
+(if TRUE-OR-FALSE-TEST                             ; if-part
+    ACTION-TO-CARRY-OUT-IF-THE-TEST-RETURNS-TRUE   ; then-part
+  ACTION-TO-CARRY-OUT-IF-THE-TEST-RETURNS-FALSE)   ; else-part
+** Truth & Falsehood
+“false” is ‘nil’. Anything else is “true”.
+*** nil explained
+1. empty list
+2. false
+
+nil same as ().
+t means true 
+** save-excursion
+*** Point and mark
+Save point, and current buffer; execute BODY; restore those things.
+*** Template for save-excursion
+     (save-excursion
+       BODY...)
+
+     (let VARLIST
+       (save-excursion
+         BODY...))
+* Buffer Walk Through
+** Finding More
+C-h f
+C-h v
+
+push-button
+xref-find-definitions == M-.
+
+files that contain Lisp code are conventionally called
+“libraries”.
+** simplified-beginning-of-buffer
+beginning-of-buffer == M-<
+#+BEGIN_SRC elisp
+(defun simplified-beginning-of-buffer ()
+       "Move point to the beginning of the buffer;
+     leave mark at previous position."
+       (interactive)
+       (push-mark)
+       (goto-char (point-min)))
+#+END_SRC
+C-x C-x exchange-point-and-mark
+** mark-whole-buffer
+mark-whole-buffer C-x h
+*** mark-whole-buffer overview
+*** Body of mark-whole-buffer
+C-u C-<SPC> typing twice go back to previous position.
+** append-to-buffer
+*** append-to-buffer overview
+insert-buffer-substring
+*** append interactive
+*** append-to-buffer body
+*** append save-excursion
+The ‘let*’ function enables Emacs to set each variable in its varlist in
+sequence, one after another.
+
+** Buffer Related Review
+** Buffer Exercises
+* More Complex
+** copy-to-buffer
+** insert-buffer
+*** insert-buffer code
+(interactive "*bInsert buffer: ")
+**** Read-only buffer
+ * read-only
+don't need newline(\n)
+**** b for interactive
+should be an existing buffer or else its name.  
+prompt you for the name of the buffer.
+*** insert-buffer interactive
+*** insert-buffer body
+*** if & or
+*** Insert or
+*** Insert let
+*** New insert-buffer
+** beginning-of-buffer
+*** ^
+C-u [N] M-<
+*** Optional Arguments
+&optional
+*** beginning-of-buffer opt arg
+**** Disentangle beginning-of-buffer
+     (if (BUFFER-IS-LARGE
+         DIVIDE-BUFFER-SIZE-BY-10-AND-MULTIPLY-BY-ARG
+       ELSE-USE-ALTERNATE-CALCULATION
+**** Large buffer case
+**** Small buffer case
+*** beginning-of-buffer complete
+\\[universal-argument]
+‘\\’ tells the Lisp interpreter to substitute whatever key is currently
+bound to the ‘[...]’.
+** Second Buffer Related Review
+** optional Exercise
+[[file:example/optional%20Exercise.el]]
+* Narrowing & Widening
+narrowing : focus on part of buffer, work without changing other parts.
+** Narrowing advantages
+‘narrow-to-region’ is ‘C-x n n’
+‘widen’ is ‘C-x n w’
+** save-restriction
+     (save-restriction
+       BODY... )
+
+     (save-excursion
+       (save-restriction
+         BODY...))
+
+       (save-restriction
+         (widen)
+         (save-excursion
+         BODY...))
+** what-line
+(what-line)
+** narrow Exercise
+[[file:example/narrowExercise.el]]
+* car cdr & cons
+** Strange Names
+cons abbreviation of "construct"
+car acronym of "Contents of the Address part of the Register"
+cdr acronym of "Contents of the Decrement part of the Register"
+** car & cdr
+(car '(rose violet daisy buttercup))
+(first '(rose violet daisy buttercup))
+
+(cdr '(rose violet daisy buttercup))
+(rest '(rose violet daisy buttercup))
+
+car and cdr is non-destructive
+** cons
+*** ^
+(cons 'pine '(fir oak maple))
+Like ‘car’ and ‘cdr’, ‘cons’ is non-destructive.
+*** Build a list
+(cons 'buttercup ())
+(cons 'buttercup nil)
+*** length
+     (length '(buttercup))
+** nthcdr
+(nthcdr 0 '(pine fir oak maple))
+(nthcdr 1 '(pine fir oak maple))
+** nth
+(nth 0 '("one" "two" "three"))
+(nth 1 '("one" "two" "three"))
+** setcar
+(setq animals '(antelope giraffe lion tiger))
+animals
+(setcar animals 'hippopotamus)
+animals
+** setcdr
+(setq domesticated-animals '(horse cow sheep goat))
+domesticated-animals
+(setcdr domesticated-animals '(cat dog))
+domesticated-animals
+** cons Exercise
+[[file:example/consExercise.el]]
+* Cutting & Storing Text
+** ^
+kill
+yank
+** Storing Text
+The list that holds the "kill" pieces of text is called the “kill ring”.
+** zap-to-char
+*** Complete zap-to-char
+[[file:example/zap-to-char%20body.el]]
+*** zap-to-char interactive
+the lower case ‘c’ indicates that ‘interactive’ expects a prompt and that
+the argument will be a character.
+*** zap-to-char body
+char-table-p
+aref
+[[file:example/zap-to-char%20body.el]]
+*** search-forward
+[[file:example/search-forward.el]]
+*** progn
+     (progn
+       BODY...)
+*** Summing up zap-to-char
+** kill-region
+*** Complete kill-region
+[[file:example/kill-region.el]]
+*** condition-case
+#+BEGIN_SRC elisp
+(condition-case
+       VAR
+       BODYFORM
+       ERROR-HANDLER...)
+#+END_SRC
+*** Lisp macro
+'when' macro is ‘if’ without the possibility of an else clause. 
+‘unless’ macro is an ‘if’ without a then clause
+** copy-region-as-kill
+*** Complete copy-region-as-kill
+[[file:example/copy-region-as-kill.el]]
+
+‘interprogram-cut-function’ function is ‘x-select-text’, which works with
+the windowing system’s equivalent of the Emacs kill ring.
+*** copy-region-as-kill body
+**** last-command & this-command
+eq test refrence
+equal test value
+**** kill-append function
+[[file:example/kill-append.el]]
+**** kill-new function
+[[file:example/kill-new.el]]
+(push string kill-ring)
+(add-to-list kill-ring string)
+** Digression into C
+[[file:example/delete-and-extract-region.c]]
+** defvar
+*** ^
+is special form.
+comes from “define variable”.
+1. sets the value of the variable only if the variable does not already have a
+   value.
+2. has a documentation string.
+*** See variable current value
+describe-variable C-h v
+*** defvar and asterisk
+(defvar var nil
+ "*documentation..."
+)
+you could use set-command to change the value.
+** cons & search-fwd Review
+** search Exercises
+* List Implementation
+** Lists diagrammed
+     bouquet
+          |
+          |     ___ ___      ___ ___      ___ ___
+           --> |___|___|--> |___|___|--> |___|___|--> nil
+                 |            |            |
+                 |            |            |
+                  --> rose     --> violet   --> buttercup
+** Symbols as Chest
+                 Chest of Drawers            Contents of Drawers
+
+                 __   o0O0o   __
+               /                 \
+              ---------------------
+             |    directions to    |            [map to]
+             |     symbol name     |             bouquet
+             |                     |
+             +---------------------+
+             |    directions to    |
+             |  symbol definition  |             [none]
+             |                     |
+             +---------------------+
+             |    directions to    |            [map to]
+             |    variable value   |             (rose violet buttercup)
+             |                     |
+             +---------------------+
+             |    directions to    |
+             |    property list    |             [not described here]
+             |                     |
+             +---------------------+
+             |/                   \|
+* Yanking
+** ^
+cut -> kill ring -> yank
+C-y yank immediately M-y one by one walk through the kill ring
+** Kill Ring Overview
+The kill ring is a list of textual strings.  
+yank C-y
+yank-pop M-y
+rotate-yank-pointer
+kill-ring-yank-pointer
+(insert (car kill-ring-yank-pointer))
+** kill-ring-yank-pointer
+‘kill-ring-yank-pointer’ points to the second clause of 'kill ring'
+** yank nthcdr Exercises
+1. 
+kill-ring
+kill-ring-max
+2.
+(setq number '(1 2 3 4 5 6 7 8 9))
+(car number)
+(car (nthcdr 1 number))
+* Loops & Recursion
+** ^
+for maxmize computer resources in recursive function to increase blow variables:
+max-specpdl-size
+max-lisp-eval-depth
+** while
+#+BEGIN_SRC elisp
+     (while TRUE-OR-FALSE-TEST
+       BODY...)
+#+END_SRC
+*** Looping with while
+always return nil or false, never return true.
+*** Loop Example
+(while TEST-WHETHER-LIST-IS-EMPTY
+       BODY...
+       SET-LIST-TO-CDR-OF-LIST)
+*** print-elements-of-list
+[[file:example/print-elements-of-list.el]]
+*** Incrementing Loop
+*** Incrementing Loop Details
+#+BEGIN_SRC elisp
+     SET-COUNT-TO-INITIAL-VALUE
+     (while (< count desired-number)         ; true-or-false-test
+       BODY...
+       (setq count (1+ count)))              ; incrementer
+#+END_SRC
+**** Incrementing Example
+                    *
+                   * *
+                  * * *
+                 * * * *
+**** Inc Example parts
+**** Inc Example altogether
+#+BEGIN_SRC elisp
+     (defun NAME-OF-FUNCTION (ARGUMENT-LIST)
+       "DOCUMENTATION..."
+       (let (VARLIST)
+         (while (TRUE-OR-FALSE-TEST)
+           BODY-OF-WHILE... )
+         ... ))                    ; Need final expression here.
+#+END_SRC
+[[file:example/triangle.el]]
+*** Decrementing Loop
+#+BEGIN_SRC elisp
+     (while (> counter 0)                    ; true-or-false-test
+       BODY...
+       (setq counter (1- counter)))          ; decrementer
+#+END_SRC
+**** Decrementing Example
+**** Dec Example parts
+**** Dec Example altogether
+[[file:example/triangle.el]]
+** dolist dotimes
+macros
+** Recursion
+different “instance”.
+*** Building Robots
+A function definition provides the blueprints for a robot.
+a recursive function “calls itself”.
+*** Recursive Definition Parts
+#+BEGIN_SRC elisp
+(defun NAME-OF-RECURSIVE-FUNCTION (ARGUMENT-LIST)
+       "DOCUMENTATION..."
+       (if DO-AGAIN-TEST
+         BODY...
+         (NAME-OF-RECURSIVE-FUNCTION
+              NEXT-STEP-EXPRESSION)))
+#+END_SRC
+*** Recursion with list
+[[file:example/print-elements-of-list.el]]
+*** Recursive triangle function
+[[file:example/triangle-recursive.el]]
+*** Recursion with cond
+#+BEGIN_SRC elisp
+     (cond
+      (FIRST-TRUE-OR-FALSE-TEST FIRST-CONSEQUENT)
+      (SECOND-TRUE-OR-FALSE-TEST SECOND-CONSEQUENT)
+      (THIRD-TRUE-OR-FALSE-TEST THIRD-CONSEQUENT)
+       ...)
+#+END_SRC
+[[file:example/triangle-using-cond.el]]
+*** Recursive Patterns
+**** Every
+[[file:example/square-each.el]]
+**** Accumulate
+[[file:example/add-elements.el]]
+**** Keep
+[[file:example/keep-three-letter-words.el]]
+*** No Deferment
+*** No deferment solution
+[[file:example/no-deferment-solution.el]]
+** Looping exercise
+[[file:example/loopingExercise.el]]
+* Regexp Search
+** ^
+The phrase “regular expression” is often written as “regexp”.
+** sentence-end
+in before gnu emacs 22 :
+     sentence-end
+          ⇒ "[.?!][]\"')}]*\\($\\|     \\|  \\)[
+     ]*"
+in after gnu emacs 22 :
+see function sentence-end
+** re-search-forward
+** forward-sentence
+*** M-e forward-sentence
+*** Complete forward-sentence
+[[file:example/forward-sentence.el]]
+*** fwd-sentence while loops
+*** fwd-sentence re-search
+** forward-paragraph
+*** forward-paragraph in brief
+#+BEGIN_SRC elisp
+     (defun forward-paragraph (&optional arg)
+       "DOCUMENTATION..."
+       (interactive "p")
+       (or arg (setq arg 1))
+       (let*
+           VARLIST
+         (while (and (< arg 0) (not (bobp)))     ; backward-moving-code
+           ...
+         (while (and (> arg 0) (not (eobp)))     ; forward-moving-code
+           ...
+#+END_SRC
+*** fwd-para let
+(setq fill-prefix "a")
+bbbbbbbbbbbbbbb bbbbbbbbbbbbbbb bbbbbbbbbbbbbb bbbbbbbbbbbbbb bbbbbbbbbbb
+a*****here is the important****bbbbbbbb
+when M-q newline start with a
+*** fwd-para while
+[[file:example/forward-paragraph_while.el]]
+** Regexp Review
+** re-search Exercises
+* Counting Words
+** Why Count Words
+** count-words-example
+*** Design count-words-example
+[[file:example/count-words-example-with-bugs.el]]
+*** Whitespace Bug
+[[file:example/count-words-example-no-bugs.el]]
+** recursive-count-words
+[[file:example/recursive-count-words.el]]
+** Counting Exercise
+* Words in a defun
+** Divide and Conquer
+[[info:eintr#Divide%20and%20Conquer][info:eintr#Divide and Conquer]]
+** Words and Symbols
+multiply-by-seven treated as one symbol.
+** Syntax
+Emacs treats different characters as belonging to different “syntax
+categories”.
+
+Syntax tables specify which characters belong to which categories.
+
+There are two ways to cause Emacs to count ‘multiply-by-seven’ as one symbol:
+1. modify the syntax table
+2. modify the regular expression.
+   "\\(\\w\\|\\s_\\)+[^ \t\n]*[ \t\n]*"
+** count-words-in-defun
+[[file:example/count-words-in-defun.el]]
+** Several defuns
+[[file:example/Several%20defuns.el]]
+** Find a File
+** lengths-list-file
+[[file:example/lengths-list-file.el]]
+** Several files
+*** lengths-list-many-files
+[[file:example/lengths-list-many-files.el]]
+*** append
+** Several files recursively
+[[file:example/recursive-lengths-list-many-files.el]]
+** Prepare the data
+*** Data for Display in Detail
+*** Sorting
+(sort '(4 8 21 17 33 7 21 7) '<)
+*** Files List
+[[file:example/files-in-below-directory.el]]
+*** Counting function definitions
+[[file:example/top-of-ranges.el]]
+* Readying a Graph
+** Columns of a graph
+graph-body-print
+M-x apropos
+M-x apropos RET print\|insert\|column RET’
+insert-rectangle
+(insert-rectangle '("first" "second" "third"))first
+                                              second
+                                              thirdnil
+M-: 
+
+(max  3 4 6 5 7 3)
+(apply 'max 3 4 7 3 '(4 8 5))
+
+[[file:example/columns-of-a-graph.el]]
+** graph-body-print
+[[file:example/graph-body-print.el]]
+** recursive-graph-body-print
+[[file:example/recursive-graph-body-print-internal.el]]
+** Printed Axes
+** Line Graph Exercise
+* Emacs Initialization
+** Default Configuration
+~/.emacs
+~/.emacs.el
+** Site-wide Init
+site-load.el
+site-init.el
+
+site-start.el
+.emacs
+default.el’, and the terminal type file
+
+(You can prevent interference from a terminal type file by setting
+‘term-file-prefix’ to ‘nil’.
+
+   The ‘INSTALL’ file that comes in the distribution contains
+descriptions of the ‘site-init.el’ and ‘site-load.el’ files.
+
+   The ‘loadup.el’, ‘startup.el’, and ‘loaddefs.el’ files control
+loading.  These files are in the ‘lisp’ directory of the Emacs
+distribution and are worth perusing.
+
+   The ‘loaddefs.el’ file contains a good many suggestions as to what to
+put into your own ‘.emacs’ file, or into a site-wide initialization
+file.
+** defcustom
+You can specify variables using ‘defcustom’ so that you and others can then
+use Emacs’s ‘customize’ feature to set their values.
+
+[[file:example/defcustom.el]]
+
+M-x customize
+
+‘defsubst’ defines an inline function. The syntax is just like that of
+‘defun’. 
+
+‘defconst’ defines a symbol as a constant. 
+** Beginning init File
+** Text and Auto-fill
+truncate-lines
+** Mail Aliases
+~/.mailrc:
+alias geo george@foobar.wiz.edu
+** Indent Tabs Mode
+‘setq-default’ command sets values only in buffers that do not have
+their own local values for the variable.
+** Keybindings
+global-set-key
+global-unset-key
+** Keymaps
+Emacs uses “keymaps” to record which keys call which commands.
+global-set-key sets current-global-map
+Mode-specific keymaps are bound using the ‘define-key’ function.
+** Loading Files
+load
+load-path
+(setq load-path (cons "~/emacs" load-path))
+load-library
+load-file
+** Autoload
+make the function available but not actually install it until it is first
+called. This is called “autoloading”.
+
+(autoload 'html-helper-mode
+       "html-helper-mode" "Edit HTML documents" t)
+** Simple Extension
+(cond
+      ((= 22 emacs-major-version)
+       ;; evaluate version 22 code
+       ( ... ))
+      ((= 23 emacs-major-version)
+       ;; evaluate version 23 code
+       ( ... )))
+** X11 Colors
+~/.emacs :
+...
+
+‘~/.Xresources’ :
+Emacs*foreground:   white
+Emacs*background:   darkblue
+Emacs*cursorColor:  white
+Emacs*pointerColor: white
+
+‘~/.xinitrc’ :
+xsetroot -solid Navy -fg white &
+** Miscellaneous
+** Mode Line
+** .emacs
+[[file:example/.emacs]]
+* Debugging
+** debuggers
+- debug
+- edebug
+** debug
+[[file:example/debug.el]]
+Read the ‘*Backtrace*’ buffer from the bottom up.
+** debug-on-entry
+M-x debug-on-entry <RET> triangle-bugged <RET>
+
+(triangle-bugged 5)
+*Backtrace*:
+d will evaluate expression one by one.
+
+M-x cancel-debug-on-entry <RET> triangle-bugged <RET>
+** debug-on-quit
+start ‘debug’ when C-g setting the variable ‘debug-on-quit’ to ‘t’.
+
+(debug)
+** edebug
+source level debugger. 
+[[file:example/triangle-recursively-bugged.el]]
+C-M-x (eval-defen)
+
+M-x edebug-defun <RET>
+<SPC> ' s  edebug-step-mode
+q
+C-x C-e to remove instrumentation
+** Debugging Exercises
+* Conclusion
+elisp to more
+M-.  xref-find-definitions
+C-h f’ (‘describe-function’) 
+* the-the
+#+BEGIN_SRC elisp
+(defun the-the ()
+       "Search forward for for a duplicated word."
+       (interactive)
+       (message "Searching for for duplicated words ...")
+       (push-mark)
+       ;; This regexp is not perfect
+       ;; but is fairly good over all:
+       (if (re-search-forward
+            "\\b\\([^@ \n\t]+\\)[ \n\t]+\\1\\b" nil 'move)
+           (message "Found duplicated word.")
+         (message "End of buffer")))
+#+END_SRC
+* Kill Ring
+** What the Kill Ring Does
+kill-ring-max
+kill-ring
+** current-kill
+*** ^
+‘current-kill’ function changes the element in the kill ring to which
+‘kill-ring-yank-pointer’ points.
+
+‘kill-new’ function sets ‘kill-ring-yank-pointer’ to point to the latest
+element of the kill ring.
+*** Code for current-kill
+[[file:example/current-kill.el]]
+
+(kill-new) sets :
+(setq kill-ring-yank-pointer kill-ring)
+*** Understanding current-kill
+**** Body of current-kill
+**** Digression concerning error
+"cancel" is better.
+**** Determining the Element
+[[file:example/mod.el]]
+** yank
+[[file:example/yank.el]] 
+the ‘prog1’ function returns the value of its first argument.
+** yank-pop
+[[file:example/yank-pop.el]]
+‘funcall’ calls its first argument as a function, passing remaining
+arguments to it.
+** ring file
+ring.el
+* Full Graph
+* Free Software and Free Manuals
+* GNU Free Documentation License
+* Index
+* About the Author

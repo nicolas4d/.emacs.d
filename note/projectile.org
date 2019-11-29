@@ -1,0 +1,46 @@
+#+TITLE: Projectile
+* Home
+Projectile: The Project Interaction Library for Emacs
+If you want to mark a folder manually as a project just create an empty .projectile file in it.
+* installation
+* Usage
+** Basic setup
+M-x projectile-discover-projects-in-directory
+** Basic Usage
+** Interactive Commands
+* Projects
+** Supported Project Types
+** Version Control Systems
+** File markers
+projectile's own .projectile
+** Adding Custom Project Types
+(projectile-register-project-type 'npm '("package.json")
+                  :compile "npm install"
+                  :test "npm test"
+                  :run "npm start"
+                  :test-suffix ".spec")
+
+*** Option	Documentation
+:compilation-dir	A path, relative to the project root, from where to run the tests and compilation commands.
+:compile	A command to compile the project.
+:configure	A command to configure the project. %s will be substituted with the project root.
+:run	A command to run the project.
+:src-dir	A path, relative to the project root, where the source code lives.
+:test	A command to test the project.
+:test-dir	A path, relative to the project root, where the test code lives.
+:test-prefix	A prefix to generate test files names.
+:test-suffix	A suffix to generate test files names.
+:related-files-fn	A function to specify test/impl/other files in a more flexible way.
+** Returning Projectile Commands from a function
+** Related file location
+** Related file custom function helper
+** Customizing project root files
+You can set the values of projectile-project-root-files, projectile-project-root-files-top-down-recurring, 
+projectile-project-root-files-bottom-up and projectile-project-root-files-functions to customize how project roots are identified.
+
+To customize project root files settings:
+M-x customize-group RET projectile RET
+* Configuration
+
+* references
+https://www.projectile.mx/en/latest/

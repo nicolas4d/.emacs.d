@@ -1,0 +1,143 @@
+* ^
+C-<chr> == CONTROL - <chr>
+M-<chr> == META || EDIT || ALT - <chr> == <ESC> <chr>
+
+C-x C-c	end the Emacs session
+C-g 	To quit a partially entered command
+
+C-v	Move forward one screenful
+M-v	Move backward one screenful
+
+C-l	Clear screen and redisplay all the text,
+	moving the text around the cursor
+	to the center of the screen.
+* basic cursor control
+c-f	move forward a character
+c-b	move backward a character
+
+m-f	move forward a word
+m-b	move backward a word
+
+c-n	move to next line
+c-p	move to previous line
+
+c-a	move to beginning of line
+c-e	move to end of line
+
+m-a	move back to beginning of sentence
+m-e	move forward to end of sentence
+
+m-<	moves to the beginning of the whole text
+m->	which moves to the end of the whole text
+
+c-u (digit) == m_(digit)  repeat-count
+c-u 8 c-v scrolls by 8 lines
+* if emacs stops responding
+c-g	stop a command
+* disabled commands
+试试 C-x C-l （这是一个被禁用的命令）
+然后用 n 来回答询问。
+* windows
+c-x 1	one window(i.e., kill all other windows).
+c-u 0 c-1   move to the top with cursor and content
+c-h k c-f   documentation on the c-f command.
+* inserting and deleting
+<del>        delete the character just before the cursor
+c-d   	     delete the next character after the cursor
+
+m-<del>      kill the word immediately before the cursor
+m-d	     kill the next word after the cursor
+
+c-k	     kill from the cursor position to end of line
+m-k	     kill to the end of the current sentence
+
+c-<spc>....c-<spc> c-w	 kills all the text between the two positions.
+
+"killing"	   can be reinserted
+"deleting"	   cannot be reinserted
+
+c-y	     yank the more recent kill
+m-y	     replaces that yanked text with the previous kill.
+	     c-u can giving m-y positive and negative arguments.
+* undo
+c-/	undo ==  c-_ == c-x u
+* files
+c-x c-f	find a file
+c-x c-s	save the file
+* buffers
+c-x c-b	list buffers
+c-x 1	to get rid of the buffer list.
+c-x b	switch to a buffer by name.
+c-x s	save some buffers
+* extending the command set
+c-x	character extend.  followed by one character.
+m-x	named command extend.  followed by a long name.
+
+c-z	exit emacs *temporarily* in gui,
+	"suspends" emacs in terminal
+
+"fg" or "%emacs"   resume emacs in the most common shells.
+
+m-x replace-string
+<tab>	completion.
+* auto save
+auto save file name has a # at the begginning and the end : "#hello.c#"
+m-x recover-file	by finding the file and recover the file
+* echo area
+"echo area"	area that typing multicharacter commands slowly, shows you
+* mode line
+"mode line"	above echo area
+major mode	like : fundamental, lisp mode, text mode
+
+m-x fundamental-mode
+m-x text-mode
+
+用 C-h m 可以查看当前主模式的文档。
+
+主模式之所以称之为“主（major）”模式，是因为同时还有“辅模式”（minor
+mode）存在。辅模式并不能替代主模式，而是提供一些辅助的功能。每个辅模式
+都可以独立地开启和关闭，跟其它辅模式无关，跟主模式也无关。所以你可以不
+使用辅模式，也可以只使用一个或同时使用多个辅模式。
+
+M-x auto-fill-mode:
+c-x f	chenge the margin. use : c-x u 20 c-x f
+m-q 	re-fill the paragraph
+* searching
+c-s	forward search
+c-r	reverse search
+* multiple windows
+c-x 2	splits the screen into two windows.up and bottom.
+c-m-v	scroll the other window.
+c-x o	mov the cursor to the bottom window.
+c-x 1	keep just one window--the window i am already in.
+c-x 4 c-f    specified file appear in the bottom window.the cursor goes there.
+* multiple frames
+m-x make-frame <return>.
+m-x delete-frame <return>.
+* recursive editing levels
+<esc> <esc> <esc>	that is an all-purpose "get out" command.
+* getting more help
+c-h	the help character
+== f1 == m-x help
+c-h c   serve as very brief documentation--sufficient
+c-h k	to get more information
+c-h f	describe a function. example : c-h f previous-line <return>.
+c-h v displays the documentation of variables. can customize emacs behavior.
+c-h a	command apropos.  type in a keyword and emacs will list
+		all the commands whose names contain that keyword.
+		these commands can all be invoked with meta-x.
+		for some commands, command apropos will also list a one
+		or two character sequence which runs the same command.
+c-h i	read included manuals (a.k.a. info).  this command puts
+		you into a special buffer called "*info*" where you
+		can read manuals for the packages installed on your system.
+		type m emacs <return> to read the emacs manual.
+		if you have never before used info, type ? and emacs
+		will take you on a guided tour of info mode facilities.
+		once you are through with this tutorial, you should
+		consult the emacs info manual as your primary documentation.
+* more features
+c-h r	help menu
+<tab>	completion
+* conclusion
+c-x c-c	exit emacs.

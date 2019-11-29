@@ -1,0 +1,13 @@
+#+TITLE:Threads
+* Basic Thread Functions
+-- Function: make-thread function &optional name
+[[file:example/Threads/make-thread.el][make-thread]]
+-- Function: threadp object
+[[file:example/Threads/threadp.el][threadp]]
+-- Function: current-thread
+(current-thread)
+-- Variable: main-thread
+* Mutexes
+* Condition Variables
+* The Thread List
+* [[file:~/data/emacs/Info(C-h%20i)/Elisp/note.org][home]]

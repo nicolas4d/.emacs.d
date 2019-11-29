@@ -1,0 +1,37 @@
+C-h h
+* 补全
+qt cang-autoconfig
+
+java ajoke
+
+bbyac 关键字不起 增强hippei
+
+yasnippet
+
+codegen
+
+getopts/getopt
+* 阅读源代码
+beagrep
+
+grep-beategs
+
+grep-funcall
+
+查看local 变量的定义
+
+查看local 变量的使用
+
+* 帮助
+** man 手册
+M-x man <RET> 查看 terminal command help
+
+perldoc
+
+** info
+
+** html- 交给firefox
+bhj-help-it
+
+* references
+https://www.bilibili.com/video/av3376647?from=search&seid=12086303806039016365

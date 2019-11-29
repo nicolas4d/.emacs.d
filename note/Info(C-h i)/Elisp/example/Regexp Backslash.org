@@ -1,0 +1,46 @@
+
+* \| : specifies an alternative
+[foo\|bar]
+foo bar
+
+\(\) limit the grouping power of \|
+* ‘\{M\}’ repeats the previous pattern 
+x\{5\}
+xxxxx
+xxxxxx
+* ‘\{M,N\}’
+* ‘\( ... \)’
+** \(foo\|bar\)x
+foox barx
+** ba\(na\)*
+‘ba’, ‘bana’, ‘banana’, ‘bananana’
+** ‘\DIGIT’
+* ‘\(?: ... \)’ 
+shy group or non-capturing or unnumbered groups
+* ‘\(?NUM: ... \)’
+“explicitly numbered group” construct.
+* ‘\DIGIT’
+matches the same text that matched the DIGITth occurrence of a grouping (‘\(
+... \)’) construct.
+\(.*\)\1
+* ‘\w’
+     matches any word-constituent character. 
+* ‘\W’
+     matches any character that is not a word constituent.
+* ‘\sCODE’
+matches any character whose syntax is CODE.  
+* ‘\SCODE’
+* ‘\cC’
+matches any character whose category is C.
+* ‘\CC’
+matches any character whose category is not C.
+* empty string but whether they match depends on the context
+‘\`’
+‘\'’
+‘\=’
+‘\b’
+‘\B’
+‘\<’
+‘\>’
+‘\_<’
+‘\_>’

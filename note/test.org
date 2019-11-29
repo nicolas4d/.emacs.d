@@ -1,0 +1,38 @@
+* emacs
+** environment
+emacs[version] -Q
+** teset function
+#+BEGIN_SRC emacs-lisp
+(defun write-letters(letters countOfLeters)
+  "write a count of letters times.
+this is for test emacs's performance"
+  (setq t2 (current-time))
+
+  (let ((count 0))
+    (while (< count countOfLeters)
+      (insert letters)
+      (setq count (1+ count))
+      ))
+  
+  (setq t1 (current-time))
+  
+  (print "take time is ")
+  (print (float-time (time-subtract t1 t2)))
+  )
+
+(write-letters "a" 100000)
+(write-letters "a" 10)
+#+END_SRC
+** test 
+(write-letters "a" 100000)
+*** GNU Emacs 27.0.50
+(write-letters "a" 10000)
+3.212506092 [2 times]
+*** spacemacs GNU Emacs 27.0.50
+0.871912133
+*** GNU Emacs 26.0.90
+0.401378041
+*** spacemacs GNU Emacs 26.0.90
+0.698903119
+*** GNU Emacs 25.3.1
+531.288471607

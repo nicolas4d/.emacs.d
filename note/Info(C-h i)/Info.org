@@ -1,0 +1,82 @@
+* Info : An Introduction
+** ^
+h : programmed instruction
+nn : "Advanced Info Commands"
+? : see a summary of all available commands.
+** 1 Getting Started
+*** 1.1 Starting Info on a Small Screen
+<SPC> : to move forward through the text and see another screenful.
+'S - <SPC>' : move back up
+Del : move back up.
+
+*** 1.2 How to use Info
+node : a node contains text describing a specific topic at a specific
+level of detail.
+n : next Node.
+
+*** 1.3 Returning to the Previous node
+p 
+
+*** 1.4 The Space, DEL, B and ^L commands
+<SPC> : next screen
+<BACKSPACE> : previous screen
+S - <SPC> : previous screen
+<SPC> and <BACKSPACE> also move between nodes.
+C-l : redisplay
+b : stands for beginning.
+? : displays a brief list of commands.
+
+*** 1.5 Invisible text in Emacs Info
+M-x visible-mode : make visible the invisible text.
+'Info-hide-note-references' to nil : Enabling visible mode permanently.
+
+**** 1.5.1 the ']' and '[' commands
+] : next node that into subnodes.
+[ : previous that into subnodes.
+
+*** 1.6 Menus and the 'm' commands
+m : go to a subnode via a menu.
+S-<TAB> : move to a previous subtopic line.
+**** 1.6.1 The 'u' command 
+u : this puts you at the menu subtopic line pointing.
+
+*** 1.7 Following Cross-References 
+f : follow a cross reference
+
+**** 1.7.1 The node reached by the cross reference in Info
+l : return to the node where the cross reference was.
+
+*** 1.8 Some intermediate Info commands
+l : retrace your steps.
+r : return you to the node you came from by typing 'l'.(info-history-forward)
+L : info-history
+d : info-directory
+t : moves to the 'Top'
+
+*** 1.9 Quitting Info
+q : Info-exit
+** 2 Advanced Info Commands
+C-q : quotes 
+
+*** 2.1 's' searches Info documents
+
+*** 2.2 'i' searches the indices for specific subjects
+, : one or more times to go through additional index entries which
+match your subject.
+i : also can searches command
+I : Info-virtual-virtual
+M-x info-apropos
+M-x index-apropos
+
+*** 2.3 'g' goes to a node by name
+*** 2.4 '1' - '9' choose a menu subtopic by its number
+*** 2.5 'M-n' creates a new independent Info buffer in Emacs
+M-n : runs the Emacs command 'clone-buffer' 
+C-u m or g : do so in a new finfo buffer which they select in another window.
+C-u 2 C-h i : numeric prefix argument for the 'C-h i'
+M-x info-display-manual
+
+*** 2.6 Emacs Info-mode Variables
+
+** 3 Further Reading
+you can use Texinfo to make printed manual e.g.

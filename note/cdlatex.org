@@ -1,0 +1,101 @@
+#+TITLE:cdlatex
+* VERSION: 4.7
+* Note
+* Introduction
+** spacemacs
+1. install latex layer
+2. install cdlatex
+   - because nedd acutex.el (it will be find in cdlatex.el)
+* Manual
+** Turn on CDLaTeX
+`M-x cdlatex-mode' 
+
+(add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)   ; with AUCTeX LaTeX mode
+(add-hook 'latex-mode-hook 'turn-on-cdlatex)   ; with Emacs latex mode
+* ABBREVIATIONS
+TAB :: Abbreviation expansion
+example :  ite + TAB
+C-c ? (cdlatex-command-help).
+** ENVIRONMENT
+Typing C-c {, which means cdlatex-environment, 
+
+the environment name: equ<TAB> expands into
+
+equ<TAB>
+ali<TAB>
+
+Use the command C-c - , which means cdlatex-item to insert.
+** MATH TEMPLATES
+frac<TAB>  \frac{}{} 
+lr(<TAB>   \left( \right)
+* MATHEMATICAL SYMBOLS
+"`a" inserts \alpha
+
+"`d" \delta
+"``d" \partial
+
+on-thy-fly help will pop up automatically.
+
+`cdlatex-math-symbol-alist'.
+** ACCENTS AND FONTS
+'
+** PAIR INSERTION of (), [], {}, and $$
+_' and ^' will insert "_{}" and "^{}", respectively, 
+** THE OVERLOADED TAB KEY
+* CONFIGURATION EXAMPLES
+Here is how you might configure CDLaTeX to provide environment templates
+(including automatic labels) for two theorem-like environments.
+
+   (setq cdlatex-env-alist
+      '(("axiom" "\\begin{axiom}\nAUTOLABEL\n?\n\\end{axiom}\n" nil)
+        ("theorem" "\\begin{theorem}\nAUTOLABEL\n?\n\\end{theorem}\n" nil)))
+
+The "AUTOLABEL" indicates the place where an automatic label should be
+inserted, using RefTeX. The question mark defines the position of the
+cursor after the template has been inserted into the buffer.
+
+You could also define your own keyword commands "axm" and "thr" to make the
+template insertion quicker (e.g. axm<TAB>' and thm'):
+
+ (setq cdlatex-command-alist
+  '(("axm" "Insert axiom env"   "" cdlatex-environment ("axiom") t nil)
+    ("thr" "Insert theorem env" "" cdlatex-environment ("theorem") t nil)))
+
+Here is how to add new math symbols to CDLaTeX's list: In order to put all
+rightarrow commands onto `>, >, ```>, and ````> (i.e. several backquotes
+followed by >) and all leftarrow commands onto '<, <, ```<, and ````<, you
+could do this in .emacs:
+
+   (setq cdlatex-math-symbol-alist
+ '((?< ("\\leftarrow" "\\Leftarrow" "\\longleftarrow" "\\Longleftarrow"))
+   (?> ("\\rightarrow" "\\Rightarrow" "\\longrightarrow" "\\Longrightarrow"))
+    ))
+
+To change the prefix key for math accents and font switching, you could do
+something like
+
+   (setq cdlatex-math-modify-prefix [f7])
+* KEY BINDINGS
+Here is the default set of keybindings from CDLaTeX. A menu is also installed.
+
+   $         cdlatex-dollar
+   (         cdlatex-pbb
+   {         cdlatex-pbb
+   [         cdlatex-pbb
+   |         cdlatex-pbb
+   <         cdlatex-pbb
+   ^         cdlatex-sub-superscript
+   _         cdlatex-sub-superscript
+
+   TAB       cdlatex-tab
+   C-c ?     cdlatex-command-help
+   C-c {     cdlatex-environment
+   C-c -     cdlatex-item
+   `         cdlatex-math-symbol
+   '         cdlatex-math-modify
+* FAQ
+`cdlatex-math-modify-prefix'.
+
+To insert a backquote into the buffer, use C-q `
+* refences
+https://github.com/cdominik/cdlatex

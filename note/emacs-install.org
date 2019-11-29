@@ -1,0 +1,112 @@
+* install emacs 
+** version 25.3
+*** produce .configure
+    ./autogen.sh 
+*** configure
+25.3version : ./configure --with-tiff=no
+*** Invoke the 'make' program
+make
+*** test emacs
+src/emacs -Q
+*** install
+sudo make install
+*** clean
+make clean
+*** first clean the source directories:
+make distclean
+*** cite
+download release version from github:https://github.com/emacs-mirror/emacs/releases 解压后，解压文件里的 install
+ http://blog.csdn.net/csfreebird/article/details/53844831
+** version 26.0.90
+*** install gtk3
+1、安装gcc/g++/gdb/make等基本编程工具:sudo apt-get install build-essential 
+2、安装GTK+3.0：sudo apt-get install libgtk-3-dev 
+3、安装pkg-config：sudo apt-get install pkg-config 
+4、安装帮助文件，方便查看帮助：sudo apt-get install devhelp (可以把dehelp固定在工具栏上)
+确认一下pkg-config版本 pkg-config –version 
+确认一下GTK+版本 pkg-config –modversion gtk+-3.0
+***** refences
+http://blog.csdn.net/singleyellow/article/details/74628428
+*** install webkitgtk+
+apt 上安装webkitgtk1 或者2
+*** install relavent pakage
+sudo apt-get install autoconf
+sudo apt install gtk* libxpm-dev libjpeg-dev libgif-dev libtinfo-dev
+*** produce .configure
+    ./autogen.sh 
+
+*** configure
+26version : ./configure --without-makeinfo --with-tiff=no --with-gnutls=no --with-mailutils --with-xwidgets --with-x --with-x-toolkit=gtk3 --with-modules
+25.3version : ./configure --with-tiff=no
+*** Invoke the 'make' program
+make
+*** test emacs
+src/emacs -Q
+*** install
+sudo make install
+*** clean
+make clean
+*** first clean the source directories:
+make distclean
+*** cite
+download release version from github:https://github.com/emacs-mirror/emacs/releases 解压后，解压文件里的 install
+ http://blog.csdn.net/csfreebird/article/details/53844831
+** version 27.0.50
+*** produce .configure
+    ./autogen.sh 
+*** configure
+./configure --prefix=/opt/emacs/27.0.50 --with-mailutils --imagemagick
+**** error
+Either install a suitable version of makeinfo, or re-run configure
+with the '--without-makeinfo' option to build without the manuals.
+sudo apt install texinfo
+
+sudo apt install libtiff5-dev
+sudo apt install libgnutls-dev
+*** Invoke the 'make' program
+make
+*** test emacs
+src/emacs -Q
+*** install
+sudo make install
+*** clean
+make clean
+*** first clean the source directories:
+make distclean
+*** set path
+**** emacsclient problem : set path to solve
+*** fix icon does'n working
+cd /opt/emacs/27.0.50/bin
+sudo cp emacs /usr/bin/emacs
+** emacs-26.3.50
+*** produce .configure
+    ./autogen.sh 
+*** configure
+./configure --prefix=/opt/emacs/26.3.50 --with-mailutils
+*** Invoke the 'make' program
+make
+*** test emacs
+src/emacs -Q
+*** install
+sudo make install
+*** clean
+make clean
+*** first clean the source directories:
+make distclean
+*** set path environment
+* input-chinese
+** 编辑/etc/environment文件。
+sudo gedit /etc/environment  
+在后面加上:
+LC_CTYPE="zh_CN.utf8"
+保存，重启计算机.
+** 如果计算机没有相关编码，请使用下面方法安装。
+*** one of the follows:
+sudo locale-gen zh_CN.GBK  
+sudo locale-gen zh_CN.GB2312  
+sudo locale-gen zh_CN.GB18030  
+*** let coding working:
+sudo dpkg-reconfigure locales  
+sudo locale-gen      
+** refrences
+http://blog.csdn.net/argansos/article/details/6870512

@@ -1,0 +1,1271 @@
+% Created 2019-09-01 日 12:47
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{nicolas4d}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={nicolas4d},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.0.50 (Org mode 9.1.11)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\#+TITLE Org Mode
+\section{introduction}
+\label{sec:org2054775}
+\subsection{Summary}
+\label{sec:orge830729}
+\subsection{Installation}
+\label{sec:org53aa450}
+\subsection{Activeation}
+\label{sec:org4de31b9}
+\subsection{Feedback}
+\label{sec:org702cfdd}
+\subsection{Typesetting conventions used in this manual}
+\label{sec:org0836ecf}
+keybindings
+C-c a org-agenda
+C-c c org-capture
+\section{Dcoument structure}
+\label{sec:orgd12febb}
+\subsection{\^{}}
+\label{sec:org797529e}
+Org is based on Outline mode
+\subsection{Outlines}
+\label{sec:orge0eea1a}
+<TAB>  org-cycle
+\subsection{Headlines}
+\label{sec:orge5cce70}
+stars * one or more
+org-footnote-section, which defaults to Footnotes
+org-cycle-separator-lines
+
+‘org-special-ctrl-a/e’, ‘org-special-ctrl-k’, ‘org-ctrl-k-protect-subtree’ 
+\subsection{Visibility cycling}
+\label{sec:org4ce4483}
+\subsubsection{Global and local cycling}
+\label{sec:org3e6facc}
+‘<TAB>’     (‘org-cycle’)
+‘S-<TAB>’     (‘org-global-cycle’)
+C-u <TAB>
+N + S-<TAB>   show level N 
+‘C-u C-u <TAB>’     (‘org-set-startup-visibility’)
+‘C-u C-u C-u <TAB>’     (‘outline-show-all’)
+‘C-c C-r’     (‘org-reveal’) in sparse trees or agenda commads
+‘C-c C-k’     (‘outline-show-branches’)
+N + ‘C-c <TAB>’     (‘outline-show-children’)
+N + ‘C-c C-x b’     (‘org-tree-to-indirect-buffer’)
+‘C-c C-x v’     (‘org-copy-visible’)
+\subsubsection{Initial visibility}
+\label{sec:org221532f}
+org-startup-folded
+
+per-file basis:
+VISIBILITY (*note Properties and Columns)
+‘C-u C-u <TAB>’     (‘org-set-startup-visibility’)
+
+org-agenda-inhibit-startup
+\subsubsection{Catching invisible edits}
+\label{sec:org838bed7}
+org-catch-invisible-edits
+\subsection{Motion}
+\label{sec:org7535c8e}
+‘C-c C-n’     (‘outline-next-visible-heading’)
+‘C-c C-p’     (‘outline-previous-visible-heading’)
+‘C-c C-f’     (‘org-forward-same-level’)
+‘C-c C-b’     (‘org-backward-same-level’)
+‘C-c C-u’     (‘outline-up-heading’)
+‘C-c C-j’     (‘org-goto’)
+\subsection{Structure editing}
+\label{sec:orgad8f5a6}
+ ‘M-<RET>’     (‘org-insert-heading’)
+ C-u C-u M-<RET>
+ ‘C-<RET>’     (‘org-insert-heading-respect-content’)
+ ‘M-S-<RET>’     (‘org-insert-todo-heading’) org-treat-insert-todo-heading-as-state-change
+ ‘C-S-<RET>’     (‘org-insert-todo-heading-respect-content’)
+ ‘<TAB>’     (‘org-cycle’)
+ ‘M-<left>’     (‘org-do-promote’)
+ ‘M-<right>’     (‘org-do-demote’)
+ ‘M-S-<left>’     (‘org-promote-subtree’)
+ ‘M-S-<right>’     (‘org-demote-subtree’)
+ ‘M-h’     (‘org-mark-element’)
+‘C-c @’     (‘org-mark-subtree’)
+‘C-c C-x C-w’     (‘org-cut-subtree’)
+‘C-c C-x M-w’     (‘org-copy-subtree’)
+‘C-c C-x C-y’     (‘org-paste-subtree’)
+‘C-y’     (‘org-yank’)
+‘C-c C-x c’     (‘org-clone-subtree-with-time-shift’) org-clone-subtree-with-time-shift
+‘C-c C-w’     (‘org-refile’)
+‘C-c \^{}’     (‘org-sort’)   C-u case-sensitve
+‘C-x n s’     (‘org-narrow-to-subtree’)
+‘C-x n b’     (‘org-narrow-to-block’)
+‘C-x n w’     (‘widen’)
+‘C-c *’     (‘org-toggle-heading’)
+org-M-RET-may-split-line
+\subsection{Sparse trees}
+\label{sec:orgfa977b5}
+‘C-c /’     (‘org-sparse-tree’)
+‘C-c / r’  or  ‘C-c / /’     (‘org-occur’)     C-c C-c disppear    with C-U 
+‘M-g n’  or  ‘M-g M-n’     (‘next-error’)
+‘M-g p’  or  ‘M-g M-p’     (‘previous-error’)
+
+org-agenda-custom-commands :
+(setq org-agenda-custom-commands
+           '(("f" occur-tree "FIXME")))
+
+ps-print-buffer-with-faces
+C-c C-e C-v
+
+org-show-context-detail
+org-remove-highlights-with-change
+\subsection{Plain lists}
+\label{sec:org947b3e0}
+\subsubsection{list}
+\label{sec:orgaed4ac0}
+\begin{itemize}
+\item Unordered: - + *
+\item Ordered: 1. 1) [@20]
+\item[{Description: unordered item}] description term
+\end{itemize}
+
+list must have same left indention.
+lists ends:
+\begin{enumerate}
+\item less or equally indented than items at top level.
+\item before tow blank lines.
+\end{enumerate}
+
+org-list-demote-modify-bullet
+org-list-indent-offset
+org-list-automatic-rules
+\subsubsection{list keybindings}
+\label{sec:org34f917a}
+\begin{itemize}
+\item ‘<TAB>’     (‘org-cycle’)    
+\begin{itemize}
+\item fold items
+\item new item with no text, change level
+\item org-cycle-include-plain-lists
+\end{itemize}
+\item ‘M-<RET>’     (‘org-insert-heading’)
+\item ‘M-S-<RET>’ checkbox
+\item ‘S-up’
+\item ‘S-down’
+\item ‘M-up’
+\item ‘M-down’
+\item ‘M-S-<LEFT>’
+\item ‘M-S-<RIGHT>’
+\begin{itemize}
+\item org-list-automatic-rules
+\end{itemize}
+\item ‘C-c C-c’ toggle checkbox
+\item ‘C-c -’ cycle bullets
+\begin{itemize}
+\item org-plain-list-ordered-item-terminator
+\item at active region all become list items.
+\item C-u region become single item.
+\item a normal line converted to a list item.
+\end{itemize}
+\item ‘C-c *’ to headline
+\item ‘C-c C-*’ whole plain list to subtree.
+\begin{itemize}
+\item checkbox become TODO
+\end{itemize}
+\item ‘S-<LEFT>/<RIGHT>’ cycles bullet 
+\begin{itemize}
+\item ‘org-support-shift-select’.
+\end{itemize}
+\item ‘C-c \^{}’ sort the plain list.
+\end{itemize}
+\subsubsection{FootnotesInfomation}
+\label{sec:org3c04905}
+\begin{itemize}
+\item '*' must indent
+\item org-plain-list-ordered-item-terminator
+\item org-list-allow-alphabetical
+\setcounter{enumi}{19}
+\item before checkbox
+\item org-M-RET-may-split-line
+\item org-list-use-circular-motion
+\item org-list-use-circular-motion
+\end{itemize}
+\subsection{Drawers}
+\label{sec:orgcfe4a3e}
+‘C-c C-x d’   ‘org-insert-drawer’
+'C-u C-c C-x d'    org-insert-property-drawer
+'C-M-i'  completion over drawer
+‘C-c C-z’ Add a time-stamped note
+‘org-export-with-drawers’
+‘org-export-with-properties’ 
+\subsection{Blocks}
+\label{sec:orge7957fa}
+‘org-hide-block-startup’ 
+or
+\subsection{The Orgstruct}
+\label{sec:org15fa10e}
+minor mode ‘orgstruct-mode’
+
+‘M-x orgstruct-mode <RET>’
+or
+in message mode :
+(add-hook 'message-mode-hook 'turn-on-orgstruct)
+(add-hook 'message-mode-hook 'turn-on-orgstruct++)
+
+orgstruct++-mode
+orgstruct-heading-prefix-regexp
+\subsection{Org syntax}
+\label{sec:orgde8eb12}
+\url{https://orgmode.org/worg/dev/org-syntax.html}
+org-lint  check syntax
+\section{Tables}
+\label{sec:orgf33bf5a}
+\subsection{Built-in table editor}
+\label{sec:orgb3ce69d}
+\subsubsection{\^{}}
+\label{sec:orgc03304f}
+<TAB> re-align and next field
+<RET> re-align and next row
+C-c C-c re-align
+\subsubsection{create table}
+\label{sec:orgd54618e}
+\begin{center}
+\begin{tabular}{lll}
+Name & Phone & Age\\
+\hline
+\end{tabular}
+\end{center}
+type <TAB>
+
+\begin{center}
+\begin{tabular}{lll}
+Name & Phone & Age\\
+\end{tabular}
+\end{center}
+type C-c <RET>
+\subsubsection{keybindings}
+\label{sec:org8bf0781}
+\begin{itemize}
+\item ‘C-c |     (org-table-create-or-convert-from-region)’
+\begin{itemize}
+\item convert region to table
+\item C-u ‘C-u’ forces CSV, ‘C-u C-u’ forces TAB, ‘C-u C-u C-u’ will prompt for a regular expression.
+\item no active region then just create
+\end{itemize}
+\item ‘C-c C-c     (org-table-align)’
+\item ‘C-c <SPC>     (org-table-blank-field)’
+\item ‘<TAB>     (org-table-next-field)’
+\item ‘S-<TAB>     (org-table-previous-field)’
+\item ‘<RET>     (org-table-next-row)’
+\item ‘M-a     (org-table-beginning-of-field)’
+\item ‘M-e     (org-table-end-of-field)’
+\item ‘M-<LEFT>     (org-table-move-column-left)’
+\item ‘M-<RIGHT>     (org-table-move-column-right)’
+\item ‘M-S-<LEFT>     (org-table-delete-column)’
+\item ‘M-S-<RIGHT>     (org-table-insert-column)’
+\item ‘M-<UP>     (org-table-move-row-up)’
+\item ‘M-<DOWN>     (org-table-move-row-down)’
+\item ‘M-S-<UP>     (org-table-kill-row)’
+\item ‘M-S-<DOWN>     (org-table-insert-row)’
+\item ‘C-c -     (org-table-insert-hline)’
+\item ‘C-c <RET>     (org-table-hline-and-move)’
+\begin{itemize}
+\item + C-c
+\end{itemize}
+\item ‘C-c C-x M-w     (org-table-copy-region)’
+\item ‘C-c C-x C-w     (org-table-cut-region)’
+\item ‘C-c C-x C-y     (org-table-paste-rectangle)’
+\item ‘M-<RET>     (org-table-wrap-region)’
+\begin{itemize}
+\item + C-u change the number of desired lines.
+\end{itemize}
+\item ‘C-c +     (org-table-sum)’
+\begin{itemize}
+\item inserted with C-y
+\end{itemize}
+\item ‘S-<RET>     (org-table-copy-down)’
+\begin{itemize}
+\item integer field values will be incremented. prefix 0 disable increment.
+\end{itemize}
+\item ‘C-c `     (org-table-edit-field)’
+\begin{itemize}
+\item in a separate window
+\item + C-u full visible
+\item + C-u C-u separate window follow the cursor.
+\end{itemize}
+\item ‘M-x org-table-import <RET>’
+\begin{itemize}
+\item import a file as a table. separator <TAB>
+\item + C-u determine the separator.
+\end{itemize}
+\item ‘C-c |     (org-table-create-or-convert-from-region)’
+\item ‘M-x org-table-export <RET>’
+\begin{itemize}
+\item ‘org-table-export-default-format’.‘TABLE\(_{\text{EXPORT}}\)\(_{\text{FILE}}\)’ and ‘TABLE\(_{\text{EXPORT}}\)\(_{\text{FORMAT}}\)’
+\end{itemize}
+\end{itemize}
+\subsubsection{footnoteInfo}
+\label{sec:orgd149ae1}
+(1) To insert a vertical bar into a table field, use ‘\(\vert{}\)’ or,
+inside a word ‘abc\(\vert{}\)def’.
+\subsection{Column width and alignment}
+\label{sec:orgb3d6ada}
+set width of a column:
+<N>
+inside field.
+
+C-c ` 
+
+‘org-startup-align-all-tables’ 
+per-file basis with:
+alignment:
+<r><c><l>
+\subsection{Column groups}
+\label{sec:org3e7ee2e}
+\begin{center}
+\begin{tabular}{r|rrr|rr|}
+N & N\(^{\text{2}}\) & N\(^{\text{3}}\) & N\(^{\text{4}}\) & \texttt{sqrt(n)} & \texttt{sqrt[4](N)}\\
+\hline
+1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular}
+\end{center}
+\subsection{Orgtbl mode}
+\label{sec:org03f4afb}
+‘M-x orgtbl-mode <RET>’.
+
+(add-hook 'message-mode-hook 'turn-on-orgtbl)
+\subsection{The spreadsheet}
+\label{sec:org24419f4}
+\subsubsection{References}
+\label{sec:org9e89aeb}
+\begin{enumerate}
+\item \^{}
+\label{sec:orgaf18a6f}
+C-c ?  coordinates of a field are.
+C-c \}  toggle the display of a grid.
+\item Field references
+\label{sec:org91fe00d}
+\begin{itemize}
+\item @ROW\$COLUMN
+\begin{itemize}
+\item column
+\begin{itemize}
+\item \$0 current
+\item \$1 \$2 \ldots{}
+\item \$+1 \ldots{}
+\item \$< first \$> last
+\item \$>>> third column from the right
+\end{itemize}
+\item row
+\begin{itemize}
+\item @0 current
+\item @1 \ldots{}
+\item @+1 \ldots{}
+\item @< @>
+\item @I first hline(horizontal separator)
+\item @II
+\item @-1
+\item @III+2
+\end{itemize}
+\end{itemize}
+\item references
+\begin{itemize}
+\item with unsigned numbers fixed.
+\item with signed numbers relative.
+\end{itemize}
+\end{itemize}
+\item Range references
+\label{sec:org22d0ec9}
+\ldots{}
+return a vector
+\item Field coordinates in formulas
+\label{sec:org374a196}
+@\# org-table-current-dline
+\$\# org-table-current-column
+\item Named references
+\label{sec:org5c6cc54}
+\$name
+org-table-formula-constants
+
+\$PROP\(_{\text{Xyz}}\)
+\begin{itemize}
+\item constants.el
+\begin{itemize}
+\item \$I \#+STARTUP  constSI
+\item cgs \#+STARTUP  constcgs
+\item constants-unit-system
+\end{itemize}
+\end{itemize}
+\item Remote references
+\label{sec:orgd9d132f}
+\begin{itemize}
+\item remote(NAME-OR-ID,REF)
+\begin{itemize}
+\item NAME ‘\#+NAME: Name’ line before the table.
+\item NAME @ROW\$COLUMN    this is indirection of NAME-OR-ID.
+\end{itemize}
+\end{itemize}
+\end{enumerate}
+\subsubsection{Formula syntax for Calc}
+\label{sec:org0dac23f}
+a/b*c  ==  a/(b*c)
+mode string after a semicolon.
+‘org-calc-default-modes’.
+\subsubsection{Formula syntax for Lisp}
+\label{sec:orgb50ecd8}
+'()
+\subsubsection{Durations and time values}
+\label{sec:orgb2b0f73}
+\subsubsection{Field and range formulas}
+\label{sec:org19fd4e8}
+\subsubsection{Column formulas}
+\label{sec:org18998f7}
+\subsubsection{Lookup functions}
+\label{sec:orge06a89b}
+\subsubsection{Editing and debugging formulas}
+\label{sec:org89143ff}
+\subsubsection{Updating the table}
+\label{sec:orga6d4922}
+\subsubsection{Advanced features}
+\label{sec:org3a1b23b}
+\subsection{Org-Plot}
+\label{sec:org4d8cb07}
+\subsubsection{Graphical plots using ‘Gnuplot’}
+\label{sec:orgcfcd711}
+\subsubsection{ASCII bar plots}
+\label{sec:org8a265ed}
+C-c " a
+M-x orgtbl-ascii-plot <RET>
+\section{Hyperlinks}
+\label{sec:org5c1fc01}
+\subsection{Link format}
+\label{sec:orgc50d120}
+[[link][description] ] or [[link] ]   erase ' '
+\subsection{Internal links}
+\label{sec:org081b1aa}
+\begin{itemize}
+\item ‘[ [\#my-custom-id]]’ link to ‘CUSTOM\(_{\text{ID}}\)’ property ‘my-custom-id’.
+\item \ref{org6f0e3cb} \hyperref[org6f0e3cb]{find my target}
+\begin{itemize}
+\item C-c C-o follow link
+\end{itemize}
+\end{itemize}
+\label{org6f0e3cb}
+search for headline
+
+C-c \&  previous position of mark ring.
+Radio targets C-c C-c on target
+\subsection{External links}
+\label{sec:org179efc9}
+[[string:someString] ]    no ' '
+\subsection{Handling links}
+\label{sec:orgb79d198}
+\begin{itemize}
+\item ‘C-c l     (org-store-link)’
+\item ‘C-c C-l     (org-insert-link)’
+\item ‘C-u C-c C-l’  link to file
+\item ‘C-u C-u C-c C-l’ link to file as absolute path
+\item ‘C-c C-l  (with cursor on existing link)’   edit
+\item ‘C-c C-o     (org-open-at-point)’
+\begin{itemize}
+\item + C-u  with emacs
+\item + C-u C-u  avoid with emacs
+\item org-link-frame-setup
+\end{itemize}
+\item ‘<RET>’
+\begin{itemize}
+\item org-return-follows-link
+\end{itemize}
+\item ‘C-c C-x C-v     (org-toggle-inline-images)’
+\begin{itemize}
+\item org-startup-with-inline-images
+\item ‘\#+STARTUP’ keywords ‘inlineimages’ and ‘noinlineimages’
+\end{itemize}
+\item ‘C-c \%     (org-mark-ring-push)’
+\item ‘C-c \&     (org-mark-ring-goto)’
+\item ‘C-c C-x C-n     (org-next-link)’
+\item ‘C-c C-x C-p     (org-previous-link)’
+\end{itemize}
+
+\subsection{Using links outside Org}
+\label{sec:orga450ba4}
+(global-set-key "\C-c L" 'org-insert-link-global)
+(global-set-key "\C-c o" 'org-open-at-point-global)
+\subsection{Link abbreviations}
+\label{sec:orgf86a0fd}
+[[linkword:tag][description] ]  with no blank
+(setq org-link-abbrev-alist
+ '()
+)
+\%s \%h \%(my-function)
+\url{http://www.google.com/search?q=OrgMode}
+
+(org-link-set-parameters ``type'' :complete \#'some-function)
+\subsection{Search options}
+\label{sec:org3d7e429}
+:: 
+
+\url{file:///home/d/code/main.c}
+\url{file:///home/d/xx.org}
+\url{file:///home/d/xx.org}
+[[\url{file:///home/d/xx.org}] ]
+\url{file:///home/d/xx.org}
+\url{}
+\subsection{Custom searches}
+\label{sec:org965afd2}
+‘org-create-file-search-functions’
+‘org-execute-file-search-functions’
+\section{{\bfseries\sffamily TODO} items}
+\label{sec:orgd4ca0b2}
+\subsection{{\bfseries\sffamily TODO} basics}
+\label{sec:org4102bb4}
+\begin{itemize}
+\item ‘C-c C-t     (org-todo)’
+\begin{itemize}
+\item ‘org-use-fast-todo-selection’
+\item ‘C-u C-c C-t’ prompt
+\end{itemize}
+\item ‘S-<RIGHT>  /  S-<LEFT>’ cycling
+\begin{itemize}
+\item ‘shift-selection-mode’
+\item ‘org-treat-S-cursor-todo-selection-as-state-change’
+\end{itemize}
+\item ‘C-c / t     (org-show-todo-tree)’  view TODO items
+\begin{itemize}
+\item C-c / T or C-u  specific TODO
+\item C-c N   show the tree Nth keyword in org-todo-keywords
+\end{itemize}
+\item ‘C-c a t     (org-todo-list)’
+\item ‘S-M-<RET>     (org-insert-todo-heading)’
+\end{itemize}
+org-todo-state-tags-triggers
+\subsection{{\bfseries\sffamily TODO} extensions}
+\label{sec:orgdc9d6f4}
+\subsubsection{\^{}}
+\label{sec:org298ded8}
+org-todo-keywords
+\subsubsection{Workflow states}
+\label{sec:org853f4a3}
+(setq org-todo-keywords
+   '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
+\subsubsection{{\bfseries\sffamily TODO} types}
+\label{sec:org05f7f6a}
+(setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
+\subsubsection{Multiple sets in one file}
+\label{sec:orge76d66a}
+(setq org-todo-keywords
+      '((sequence "TODO" "|" "DONE")
+        (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
+        (sequence "|" "CANCELED")))
+
+‘C-u C-u C-c C-t’
+‘C-S-<RIGHT>’
+‘C-S-<LEFT>’
+     These keys jump from one TODO subset to the next.
+‘S-<RIGHT>’
+‘S-<LEFT>’
+     walk through \uline{all} keywords from all.
+shift-selection-mode
+\subsubsection{Fast access to TODO states}
+\label{sec:orgbfe3480}
+     (setq org-todo-keywords
+           '((sequence "TODO(t)" "|" "DONE(d)")
+             (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
+             (sequence "|" "CANCELED(c)")))
+org-fast-tag-selection-include-todo
+\subsubsection{Per-file keywords}
+\label{sec:orgcdba399}
+or
+\#+TODO == \#SEQ\(_{\text{TODO}}\)
+
+M-<TAB> completion
+
+C-c C-c  make the changes known to org mode.
+\subsubsection{Faces for TODO keywords}
+\label{sec:org32296c3}
+org-todo 
+org-done
+
+(setq org-todo-keyword-faces
+           '(("TODO" . org-warning) ("STARTED" . "yellow")
+             ("CANCELED" . (:foreground "blue" :weight bold))))
+
+org-faces-easy-properties
+\subsubsection{dependencies}
+\label{sec:org477efcc}
+org-enforce-todo-dependencies  block done while children undone
+property ORDERED blocked until earlier siblings done.
+
+:ORDERED: t
+
+:NOBLOCKING: t
+
+‘C-c C-x o     (org-toggle-ordered-property)’
+‘C-u C-u C-u C-c C-t’ circumventing any state blocking
+
+org-depend.el  more complex dependency structures.
+\subsection{Progress logging}
+\label{sec:org94a6ea5}
+\subsubsection{{\bfseries\sffamily DONE} Closing items}
+\label{sec:org706325a}
+(setq org-log-done 'time)
+(setq org-log-done 'note)
+
+‘\#+STARTUP: logdone’
+‘\#+STARTUP: lognotedone’.
+\subsubsection{Tracking TODO state changes}
+\label{sec:org30de272}
+newest first.  org-log-states-order-reversed
+org-log-into-drawer
+LOGBOOK
+LOG\(_{\text{INTO}}\)\(_{\text{DRAWER}}\)
+
+‘!’ (for a timestamp) 
+‘@’ (for a note with timestamp)
+
+(setq org-todo-keywords
+    '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
+/!
+the note taken when entering the state, 
+a timestamp should be recorded when leaving the WAIT state.
+
+\begin{itemize}
+\item TODO Log each state with only a time
+:LOGGING: TODO(!) WAIT(!) DONE(!) CANCELED(!)
+\item TODO Only log when switching to WAIT, and when repeating
+:LOGGING: WAIT(@) logrepeat
+\item TODO No logging at all
+:LOGGING: nil
+\end{itemize}
+\subsubsection{Tracking your habits}
+\label{sec:org582f068}
+\begin{enumerate}
+\item {\bfseries\sffamily TODO} Shave
+\label{sec:org0d66577}
+‘org-habit-graph-column’
+‘org-habit-preceding-days’
+‘org-habit-following-days’
+‘org-habit-show-habits-only-for-today’
+\end{enumerate}
+\subsection{{\bfseries\sffamily TODO} Priorities}
+\label{sec:org1ec7b87}
+TODO [\#A] headline
+A B(without a cookie is treated like B) C
+org-priority-faces
+
+\begin{itemize}
+\item ‘C-c ,’   (‘org-priority’)
+\item ‘S-<UP>     (org-priority-up)’
+\item ‘S-<DOWN>     (org-priority-down)’
+\begin{itemize}
+\item org-priority-start-cycle-with-default
+\end{itemize}
+\end{itemize}
+
+‘org-highest-priority’
+‘org-lowest-priority’
+‘org-default-priority’
+\subsection{Breaking down tasks}
+\label{sec:org7c2d306}
+[/] [\%] overview
+C-c C-c update each time
+
+\begin{itemize}
+\item COOKIE\(_{\text{DATA}}\)
+\begin{itemize}
+\item ‘checkbox’
+\item ‘todo’
+\end{itemize}
+\end{itemize}
+
+‘org-hierarchical-todo-statistics’.  
+:COOKIE\(_{\text{DATA}}\): todo recursive
+
+automatically to done when children are done :
+(defun org-summary-todo (n-done n-not-done)
+       "Switch entry to DONE when all subentries are done, to TODO otherwise."
+       (let (org-log-done org-log-states)   ; turn off logging
+         (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+
+(add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+\subsection{Checkboxes}
+\label{sec:orgb574004}
+\begin{itemize}
+\item ‘C-c C-c     (org-toggle-checkbox)’
+\begin{itemize}
+\item C-u C-u +  [-]
+\end{itemize}
+\item ‘C-c C-x C-b     (org-toggle-checkbox)’
+\begin{itemize}
+\item C-u +  checkbox presence
+\item C-u C-u  [-]
+\item active region:
+\item cursor in a headline:
+\item no active:
+\end{itemize}
+\item ‘M-S-<RET>     (org-insert-todo-heading)’
+\item ‘C-c C-x o     (org-toggle-ordered-property)’
+\begin{itemize}
+\item org-track-ordered-property-with-tag
+\end{itemize}
+\item ‘C-c \#     (org-update-statistics-cookies)’
+\begin{itemize}
+\item C-u +  update the entire file
+\end{itemize}
+\end{itemize}
+\section{Tags}
+\label{sec:orgd83fbbe}
+\subsection{\^{}}
+\label{sec:org883b147}
+\subsection{Tag inheritance}
+\label{sec:org61b8022}
+org-tags-exclude-from-inheritance
+org-use-tag-inheritance
+org-tags-match-list-sublevels
+org-agenda-use-tag-inheritance
+\subsection{Setting tags}
+\label{sec:orgcb2de26}
+:tag
+M-<TAB> completion
+\begin{itemize}
+\item ‘C-c C-q     (org-set-tags-command)’
+\begin{itemize}
+\item org-tags-column
+\item C-u +  realign
+\end{itemize}
+\item ‘C-c C-c     (org-set-tags-command)’
+
+\item list of tags:
+\begin{itemize}
+\item dynamically: used in current buffer.
+\item globally: org-tag-alist
+\item given file:
+\item \#+TAGS: ::use dynamic taglist
+\end{itemize}
+\end{itemize}
+
+org-tag-persistent-alist
+\begin{itemize}
+\item fast tag selection:
+\begin{itemize}
+\item (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
+\item \#+TAGS: @work(w)  @home(h)  @tennisclub(t)  laptop(l)  pc(p)
+\item \#+TAGS: @work(w)  @home(h)  @tennisclub(t) \n laptop(l)  pc(p)
+\begin{itemize}
+\item \#+TAGS: @work(w)  @home(h)  @tennisclub(t)
+\end{itemize}
+\item \#+TAGS: \{ @work(w)  @home(h)  @tennisclub(t) \}  laptop(l)  pc(p)
+\end{itemize}
+\end{itemize}
+C-c C-c activate any changes
+
+mutually exclusive groups in the variable ‘org-tag-alist’,
+‘:startgroup’ ‘:endgroup’
+‘:newline’
+
+org-fast-tag-selection-single-key
+\subsection{Tag hierarchy}
+\label{sec:org348e898}
+(setq org-tag-alist '((:startgrouptag)
+                           ("GTD")
+                           (:grouptags)
+                           ("Control")
+                           ("Persp")
+                           (:endgrouptag)
+                           (:startgrouptag)
+                           ("Control")
+                           (:grouptags)
+                           ("Context")
+                           ("Task")
+                           (:endgrouptag)))
+mutually exclusive:
+‘org-tag-alist’:
+‘:startgroup’ ‘:endgroup’
+‘:startgrouptag’ \& ‘:endgrouptag’
+
+org-toggle-tags-groups
+org-group-tags
+\subsection{Tag searches}
+\label{sec:orgc537d96}
+\begin{itemize}
+\item ‘C-c / m  or  C-c $\backslash$     (org-match-sparse-tree)’
+\begin{itemize}
+\item + C-u ignore not TODO line
+\end{itemize}
+\item ‘C-c a m     (org-tags-view)’
+\item ‘C-c a M     (org-tags-view)’
+\end{itemize}
+\section{Properties and columns}
+\label{sec:org2c66813}
+\subsection{Property syntax}
+\label{sec:orgbff0698}
+Properties are key-value pairs.
+org-use-property-inheritance
+
+:xyz: one of :xyzALL:
+
+C-c C-c to activete this change.
+
+org-global-properties
+
+‘M-<TAB>     (pcomplete)’
+‘C-c C-x p     (org-set-property)’
+‘C-u M-x org-insert-drawer <RET>’
+‘C-c C-c     (org-property-action)’
+‘C-c C-c s     (org-set-property)’
+‘S-<RIGHT>     (org-property-next-allowed-value)’
+‘S-<LEFT>     (org-property-previous-allowed-value)’
+‘C-c C-c d     (org-delete-property)’
+‘C-c C-c D     (org-delete-property-globally)’
+‘C-c C-c c     (org-compute-property-at-point)’
+\subsection{Special properties}
+\label{sec:orgb23c3c1}
+\subsection{Property searches}
+\label{sec:orgf1cb5e3}
+‘C-c / m  or  C-c $\backslash$     (org-match-sparse-tree)’
+‘C-c a m     (org-tags-view)’
+‘C-c a M     (org-tags-view)’
+‘C-c / p’
+\subsection{Property inheritance}
+\label{sec:org84b3d43}
+org-use-property-inheritance
+hard code:
+‘COLUMNS’
+‘CATEGORY’
+‘ARCHIVE’
+‘LOGGING’
+\subsection{Column view}
+\label{sec:org87f789e}
+\subsubsection{Defining columns}
+\label{sec:orge6f7124}
+\begin{enumerate}
+\item Scope of column definitions
+\label{sec:org3333ef2}
+:COLUMNS: \%25ITEM \%TAGS \%PRIORITY \%TODO
+\item Column attributes
+\label{sec:org7b8d0d1}
+\%[WIDTH]PROPERTY[(TITLE)][\{SUMMARY-TYPE\}]
+\end{enumerate}
+\subsubsection{Using column view}
+\label{sec:org0719116}
+\begin{itemize}
+\item ‘C-c C-x C-c     (org-columns)’
+\begin{itemize}
+\item org-columns-default-format
+\item ‘r     (org-columns-redo)’
+\item ‘g     (org-columns-redo)’
+\item ‘q     (org-columns-quit)’
+\item ‘<LEFT> <RIGHT> <UP> <DOWN>’ move
+\item ‘S-<LEFT>/<RIGHT>’ swithc value
+\item ‘1..9,0’  select value
+\item ‘n     (org-columns-next-allowed-value)’
+\item ‘p     (org-columns-previous-allowed-value)’
+\item ‘e     (org-columns-edit-value)’
+\item ‘C-c C-c     (org-columns-set-tags-or-toggle)’
+\item ‘v     (org-columns-show-value)’
+\item ‘a     (org-columns-edit-allowed)’
+\item ‘<     (org-columns-narrow)’
+\item ‘>     (org-columns-widen)’
+\item ‘S-M-<RIGHT>     (org-columns-new)’
+\item ‘S-M-<LEFT>     (org-columns-delete)’
+\end{itemize}
+\end{itemize}
+\subsubsection{Capturing column view}
+\label{sec:orgfeeef3e}
+\begin{itemize}
+\item ‘:id’
+\begin{itemize}
+\item local
+\item global
+\item "ID"
+\begin{itemize}
+\item M-x org-id-copy <RET>
+\end{itemize}
+\end{itemize}
+\item ‘:hlines’
+\item ‘:vlines’
+\item ‘:maxlevel’
+\item ‘:maxlevel’
+\item ‘:indent’
+
+\item ‘C-c C-x i     (org-insert-columns-dblock)’
+\end{itemize}
+‘C-c C-c  or  C-c C-x C-u     (org-dblock-update)’
+‘C-u C-c C-x C-u     (org-update-all-dblocks)’
+
+org-collector
+\subsection{Property API}
+\label{sec:orgc9fa218}
+
+\section{Dates and times}
+\label{sec:orge6723d6}
+\subsection{Timestamps}
+\label{sec:org3d32a52}
+PLAIN TIMESTAMP; EVENT; APPOINTMENT
+\begin{itemize}
+\item Meet Peter at the movies
+\textit{<2006-11-01 三 19:15>}
+\end{itemize}
+TIMESTAMP WITH REPEATER INTERVAL
+\begin{itemize}
+\item Pick up Sam at school
+\textit{<2007-05-16 三 12:30 +1w>}
+\end{itemize}
+DIARY-STYLE SEXP ENTRIES
+\begin{itemize}
+\item 22:00-23:00 The nerd meeting on every 2nd Thursday of the month
+\textit{<\%\%(diary-float t 4 2)>}
+\end{itemize}
+TIME/DATE RANGE
+          ** Meeting in Amsterdam
+             \textit{<2004-08-23 一>--<2004-08-26 四>}
+INACTIVE TIMESTAMP
+\begin{itemize}
+\item Gillian comes late for the fifth time
+\textit{[2006-11-01 三]}
+\end{itemize}
+\subsection{Creating timestamps}
+\label{sec:orgbd5119a}
+\subsubsection{\^{}}
+\label{sec:org5b89c34}
+\begin{itemize}
+\item ‘C-c .     (org-time-stamp)’
+\begin{itemize}
+\item twice in succession, a time range is inserted.
+\end{itemize}
+\item ‘C-c !     (org-time-stamp-inactive)’
+\item ‘C-u C-c .’ date and time
+\item ‘C-u C-c !’ date and time
+\item ‘C-c C-c’ Normalize timestamp
+\item ‘C-c <     (org-date-from-calendar)’
+\item ‘C-c >     (org-goto-calendar)’
+\item ‘C-c C-o     (org-open-at-point)’
+\item ‘S-<LEFT>     (org-timestamp-down-day)’
+\item ‘S-<RIGHT>     (org-timestamp-up-day)’
+\item ‘S-<UP>     (org-timestamp-up)’
+\item ‘S-<DOWN>     (org-timestamp-down-down)’
+\item ‘C-c C-y     (org-evaluate-time-range)’
+\begin{itemize}
+\item with a prefix argument, insert result
+\end{itemize}
+\end{itemize}
+\subsubsection{The date/time prompt}
+\label{sec:org54dd5ee}
+3-2-5         ⇒ 2003-02-05
++0            ⇒ today
+
+‘parse-time-months’ and ‘parse-time-weekdays’.
+org-read-date-force-compatible-dates
+
+11am-1:15pm    ⇒ 11:00-13:15
+
+You can control the calendar fully from the minibuffer:
+     <RET>              Choose date at cursor in calendar.
+     mouse-1            Select date by clicking on it.
+     S-<RIGHT>/<LEFT>   One day forward/backward.
+     S-<DOWN>/<UP>      One week forward/backward.
+     M-S-<RIGHT>/<LEFT> One month forward/backward.
+     > / <              Scroll calendar forward/backward by one month.
+     M-v / C-v          Scroll calendar forward/backward by 3 months.
+     M-S-<DOWN>/<UP>    Scroll calendar forward/backward by one year.
+\subsubsection{Custom time format(not recomend)}
+\label{sec:org51c56b2}
+‘org-display-custom-times’
+‘org-time-stamp-custom-formats’
+‘C-c C-x C-t     (org-toggle-time-stamp-overlays)’
+\subsection{Deadlines and scheduling}
+\label{sec:org8cffed2}
+\subsubsection{\^{}}
+\label{sec:org1b20a56}
+DEADLINE
+org-deadline-warning-days
+org-agenda-skip-deadline-prewarning-if-scheduled
+SCHEDULED
+‘org-scheduled-delay-days’
+‘org-agenda-skip-scheduled-delay-if-deadline’
+\subsubsection{Inserting deadline/schedule}
+\label{sec:org7fe3b87}
+\begin{itemize}
+\item ‘C-c C-d     (org-deadline)’
+\begin{itemize}
+\item C-u +  remove
+\item org-log-redeadline
+\item ‘\#+STARTUP’ keywords ‘logredeadline’,‘lognoteredeadline’, and ‘nologredeadline’
+\end{itemize}
+\item ‘C-c C-s     (org-schedule)’
+\begin{itemize}
+\item C-u + remove
+\item org-log-reschedule
+\item ‘\#+STARTUP’ keywords ‘logreschedule’,‘lognotereschedule’, and ‘nologreschedule’
+\end{itemize}
+\item ‘C-c / d     (org-check-deadlines)’
+\begin{itemize}
+\item org-deadline-warning-days
+\item C-u + show all in file
+\item C-N + show N days
+\end{itemize}
+\item ‘C-c / b     (org-check-before-date)’
+\item ‘C-c / a     (org-check-after-date)’
+\end{itemize}
+‘org-schedule’
+‘org-deadline’
+\subsubsection{Repeated tasks}
+\label{sec:org3644891}
+‘DEADLINE:\textit{<2005-10-01 六 +1m -3d>}’
+\sout{+
+.}
+the variable ‘org-agenda-skip-scheduled-if-deadline-is-shown’ 
+‘repeated-after-deadline’
+C-c C-x c  copy subtree
+\subsection{Clocking work time}
+\label{sec:orgb2c5ab8}
+\subsubsection{{\bfseries\sffamily DONE} Clocking commands}
+\label{sec:org164453a}
+\begin{itemize}
+\item ‘C-c C-x C-i     (org-clock-in)’
+\begin{itemize}
+\item org-clock-into-drawer
+\begin{itemize}
+\item ‘CLOCK\(_{\text{INTO}}\)\(_{\text{DRAWER}}\)’ ‘LOG\(_{\text{INTO}}\)\(_{\text{DRAWER}}\)’
+\end{itemize}
+\item C-u + recently clocked tasks
+\item C-u C-u + mark as default task      letter 'd'
+\item C-u C-u C-u  continuous clocking
+\item CLOCK\(_{\text{MODELINE}}\)\(_{\text{TOTAL}}\)
+\end{itemize}
+\item ‘C-c C-x C-o     (org-clock-out)’
+\begin{itemize}
+\item org-log-note-clock-out
+\begin{itemize}
+\item ‘\#+STARTUP: lognoteclock-out’
+\end{itemize}
+\end{itemize}
+\item ‘C-c C-x C-x     (org-clock-in-last)’
+\begin{itemize}
+\item C-u + select
+\item C-u C-u continuous clocking
+\end{itemize}
+\item ‘C-c C-x C-e     (org-clock-modify-effort-estimate)’
+\item ‘C-c C-c  or  C-c C-y     (org-evaluate-time-range)’
+\item ‘C-S-<up/down>     (org-clock-timestamps-up/down)’
+\item ‘S-M-<up/down>     (org-timestamp-up/down)’
+\item ‘C-c C-t     (org-todo)’
+\item ‘C-c C-x C-q     (org-clock-cancel)’
+\item ‘C-c C-x C-j     (org-clock-goto)’
+\begin{itemize}
+\item ‘C-u’ + select task
+\end{itemize}
+\item ‘C-c C-x C-d     (org-clock-display)’
+\begin{itemize}
+\item ‘org-remove-highlights-with-change’)
+\item ‘C-c C-c’.
+\end{itemize}
+\end{itemize}
+\subsubsection{The clock table}
+\label{sec:org3d67950}
+\begin{itemize}
+\item ‘C-c C-x C-r     (org-clock-report)’
+\begin{itemize}
+\item in existing clock table just update it
+\item C-u first clock
+\end{itemize}
+\item ‘C-c C-c  or  C-c C-x C-u     (org-dblock-update)’
+\item ‘C-u C-c C-x C-u’
+\end{itemize}
+‘S-<LEFT>’
+‘S-<RIGHT>     (org-clocktable-try-shift)’
+
+org-clocktable-defaults
+org-clocktable-write-default
+\subsubsection{Resolving idle time}
+\label{sec:orge362076}
+\begin{enumerate}
+\item Resolving idle time
+\label{sec:orgf47cbaa}
+ org-clock-idle-time
+‘M-x org-resolve-clocks <RET>’ (or‘C-c C-x C-z’).
+k K s S C
+\item Continuous clocking
+\label{sec:orge9e4da5}
+org-clock-continuously
+three uiversal arguments with ‘org-clock-in’ and 
+two ‘C-u C-u’ with ‘org-clock-in-last’.
+\end{enumerate}
+\subsection{Effort estimates}
+\label{sec:org35bebb3}
+Effort estimates are stored in a special property ‘EFFORT’.
+‘C-c C-x e     (org-set-effort)’
+‘C-c C-x C-e     (org-clock-modify-effort-estimate)’
+\subsection{Timers}
+\label{sec:org46f5868}
+Relative timer and countdown timer.
+\begin{itemize}
+\item ‘C-c C-x 0     (org-timer-start)’
+\item ‘C-c C-x ;     (org-timer-set-timer)’
+\item ‘C-c C-x .     (org-timer)’
+\begin{itemize}
+\item C-u + relative timer restarted
+\end{itemize}
+\item ‘C-c C-x -     (org-timer-item)’
+\begin{itemize}
+\item C-u first reset the relative timer to 0.
+\end{itemize}
+\item ‘M-<RET>     (org-insert-heading)’
+\item ‘C-c C-x ,     (org-timer-pause-or-continue)’
+\item ‘C-c C-x \_     (org-timer-stop)’
+\end{itemize}
+\section{Capture - Refile - Archive}
+\label{sec:orgaa48992}
+\subsection{Capture}
+\label{sec:org78cb416}
+\subsubsection{\^{}}
+\label{sec:org7692ac2}
+org-capture.el org-capture-templates
+\subsubsection{Setting up capture}
+\label{sec:org84d9b94}
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+(define-key global-map "\C-cc" 'org-capture)
+\subsubsection{Using capture}
+\label{sec:org5a7057f}
+\begin{itemize}
+\item ‘C-c c     (org-capture)’ need to installl it.
+\begin{itemize}
+\item ‘C-u C-c c’ visit the capture
+\item ‘C-u C-u C-c c’ visit last capture
+\item C-0 + insert at current buffer.
+\end{itemize}
+\item ‘C-c C-c     (org-capture-finalize)’
+\begin{itemize}
+\item C-u jump
+\end{itemize}
+\item ‘C-c C-w     (org-capture-refile)’
+\begin{itemize}
+\item C-u passed on to the 'org-refile' command.
+\end{itemize}
+\item ‘C-c C-k     (org-capture-kill)’
+\end{itemize}
+org-capture-last-stored
+\subsubsection{Capture templates}
+\label{sec:org155f4c7}
+‘C-c c C’  ‘org-capture-templates’.
+\begin{enumerate}
+\item Template elements
+\label{sec:orgf25d2d2}
+\item Template expansion
+\label{sec:org39eb0fb}
+\item Templates in contexts
+\label{sec:org6686b9c}
+\end{enumerate}
+\subsection{Attachments\hfill{}\textsc{ATTACH}}
+\label{sec:org4d15241}
+‘C-c C-a     (org-attach)’
+\subsection{RSS feeds}
+\label{sec:org8f6083c}
+\subsection{Protocols}
+\label{sec:org97f16b0}
+\subsection{Refile and copy}
+\label{sec:org6a94f22}
+\subsection{Archiving}
+\label{sec:orga3023a3}
+\section{Agenda views}
+\label{sec:org61b061d}
+\section{Markup}
+\label{sec:org1bf9702}
+\subsection{Embedded \LaTeX{}}
+\label{sec:org27d5ef9}
+\LaTeX{} is widely used to typeset scientific documents.
+\subsubsection{\LaTeX{} fragments}
+\label{sec:org2de6f79}
+When exporting to HTML, Org can use either MathJax or transcode the math
+into images.
+
+sudo apt install transcode:
+\begin{itemize}
+\item Environments of any kind. \bengin appears in newline.
+\item Text within the usual \LaTeX{} math delimiters.
+\begin{itemize}
+\item \(no space\)
+\item use \(...\) when in doubt
+\end{itemize}
+\end{itemize}
+
+example:
+
+\begin{equation}
+x=\sqrt{b}
+\end{equation}
+
+\(a^2=b\) 
+\(b=2\)
+
+$$ a=+\sqrt{2} $$
+\[ a=-\sqrt{2} \].
+
+org-export-with-latex
+
+Do the right thing automatically (MathJax)
+
+\subsubsection{Previewing \LaTeX{} fragments}
+\label{sec:org90d8670}
+If you have a working \LaTeX{} installation and ‘dvipng’, ‘dvisvgm’ or
+‘convert’ installed.
+sudo apt install dvipng
+
+
+org-format-latex-options
+org-format-latex-header
+
+:scale
+:html-scale
+
+‘C-c C-x C-l’
+‘C-c C-c’
+\subsubsection{CDLaTeX mode}
+\label{sec:orgc703a2c}
+CDLaTeX mode is a minor mode that is normally used in combination with a
+major \LaTeX{} mode like AUCTeX in order to speed-up insertion of environments
+and math templates.
+\section{Exporting}
+\label{sec:org4929232}
+\section{Publishing}
+\label{sec:orgf4ad730}
+\section{Working with source code}
+\label{sec:orgc0a3521}
+\url{workingWithSourceCode.org}
+\section{Miscellaneous}
+\label{sec:org9c7a1d4}
+\section{Hacking}
+\label{sec:org0bc7696}
+\section{MobileOrg}
+\label{sec:org1725b44}
+\section{History and acknowledgments}
+\label{sec:org6e89321}
+\section{GNU Free Documentation License}
+\label{sec:org9f20bef}
+\section{Main Index}
+\label{sec:orgb7a6f92}
+\section{Key Index}
+\label{sec:orgabd180d}
+\section{Command and Function Index}
+\label{sec:org10878f9}
+\section{Variable Index}
+\label{sec:orgc9b516a}
+\end{document}

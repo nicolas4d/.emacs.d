@@ -1,0 +1,1917 @@
+#+TITLE: emacs
+* version 27.0.50
+* [[file:note/Intro.org][Intro]]
+* [[file:note/Screen.org][Screen]]
+* User Input : 2. Kinds of User Input
+<CTR><MATE>
+* Keys : 3. Keys
+if a key sequence invokes a command, wecall it a "complete key"
+if a key sequence isn't long enough to invoke a command, we call it a
+"prefix key"
+* commands : Keys and Commands
+commands : each command is a secial type of lisp "function".
+A "variable" is a name used to store a value.
+
+* Entering Emacs : 5. Entering Emacs
+you can run Emacs in the background with 'emacs &'.
+'inhibit-startup-screen' is non-'nil', Emacs does not display the
+startup screen.
+You can also force Emacs to display a file or directory at startup by
+setting the variable 'initial-buffer-choice' to a string naming that
+file or directory.
+
+* Exiting : 6. Exiting Emacs2
+'C-x C-c' kill Emacs ('save-buffers-kill-terminal').
+'confirm-kill-emacs'
+'yes-or-no-p'
+'M-x kill-emacs' : To kill Emacs without being prompted about saving.
+'C-z' : 'suspend-frame'. on a graphical display, this command
+"minimizes"("iconifies")
+'%emacs' : resume Emacs after suspending it with the shell.
+
+* Basic : 7 Basic Editing Commands
+'C-h t' : 'help-with-tutorial'
+
+** Inserting Text
+C-j inserts just a newline, without any auto-indentation.
+C-q followed by any non-graphic character
+C-q octal character code.
+read-quoted-char-radix
+** Changin the Location of Point
+󠁪*** 7.3 Erasing Text
+** Undoing Changes
+C-/  ====  C-x u ==== C-
+** Files
+** Help
+C-h k   describe-key
+** lank Lines
+C-o Insert a blank line after the cursor('open-line')
+C-x C-o Delete all but one of many consecutive blank line ('delete-blank-lines')
+** Continuation Lines
+** Cursor Position Information
+** Numeric Arguments
+** Repeating a Command
+C-x z
+* Minibuffer : 8 The Minibuffer
+** Basic Minibuffer
+** Minibuffers for File Names
+You can specify the parent directory with '..'
+'//' goto C:.  a double slash causes Emacs to ignore everything before.
+'~/' home directory.
+insert-default-directory
+** Editing in the Minibuffer
+** Completion
+*** Completion Example
+*** Completion Commands
+*** Completion Exit
+*** How Completion Alternatives Are Chosen
+** Minibuffer History
+M-p
+M-n
+M-r
+M-s
+** Repeating Minibuffer Commands
+C-x <ESC> <ESC>    can arg
+M-x list-command-history
+** Entering passwords
+every character you type is displayed as a dot.
+** Yes or No Prompts
+* M-x Running Commands by Name
+C-u ...  and M-x    to pass a numeric argument.
+M-x works by running the command 'execute-extended-command'
+** Help
+*** Help summary
+*** Documentation for a Key
+*** Help by Command or Variable Name
+*** Apropos
+What are the commands for working with files?
+*** Help Mode Commands
+*** Keyword Search for Packages
+*** Help for International Language Support
+*** Other Help Commands
+C-u [N] C-h i
+C-h l  view-lossage
+C-h e   message buffer
+C-h m   describe-mode
+*** Help Files
+*** Help on Active Text and Tooltips
+* Mark :  The Mark and the Region
+the text between point and the mark is called "the region"
+C-g  deactiveate the mark
+** Setting the Mark
+C- <SPC> == C-@
+C-x C-x     exchange-point-and-mark
+C-x C-u    upcase-region
+C-u C-<SPC>    jump back to C-<SPC> [C-<SPC>]
+
+S-<RIGHT> == S-C-F == S-C-n
+** Commands to Mark Textual Objects
+M-@ = mark-word
+C-M-@ = mark-sexp
+M-h = mark-paragraph
+C-M-h = mark-defun
+C-x C-p = mark-page
+C-x h = mark-whole-buffer
+** Operating on the Region
+C-w = kill
+M-w = copy
+C-x C-l = lower case
+C-x C-u = upper case
+C-u C-/ = undo
+M-%  = replace
+C-x <TAB> == C-M-\ = Indentation
+M-x fill-region
+M-$ = check spell
+C-x r s = copy to register
+
+use-empty-active-region
+backward-delete-char
+delete-forward-char
+mark-even-if-inactive
+M-x delete selection-mode
+** The Mark Ring
+Each buffer remembers previous locations of the mark, in the “mark
+ring”.
+C-<SPC> C-<SPC>   pushing mark outo mark ring.
+C-u C-<SPC>    pop mark
+** The Global Mark Ring
+global-mark-ring-max
+C-x C-<SPC> = pop-glbal-mark
+** Shift Selection
+shift-select-mode
+M-x transient-mark-mode
+C-<SPC> C-<SPC>  enable transient Mark mode just once.
+C-u C-x C-x    Exchange point and mark
+* Killing : Killing and Moving Text
+"killing" erasing text and copying it into the "kill ring".
+"yanking" bringing text from the kill ring back into the buffer.
+** Deletion and Killing
+kill ring is shared by all buffers.
+C-/ undo
+*** Deletion
+<DEL> == <BACKSPACE> = 'delete-backward-chard'
+<Delete> = 'delete-forward-char'
+'C-d' = delete-char
+M-\ = delete-horizontal-space
+M-<SPC> = just-one-space
+C-x C-o = delete-blank-lines
+M-^ = delete-indentation
+*** Killing by Lines
+C-k = kill-line
+C-S-backspace = kill-whole-line
+*** Other Kill Commands
+C-w = kill-region
+M-w = kill-ring-save
+M-d = kill-word
+M-<DEL> = backward-kill-word
+C-x <DEL> = backward-kill-sentence
+M-k = kill-sentence
+C-M-k = kill-sexp
+M-z CHAR = zap-to-char
+*** Options for Killing
+** Yanking
+C-y
+M-y
+C-M-w append-next-kill
+*** The Kill Ring
+kill-ring-max
+kill-ring
+*** Yanking Earlier Kills
+*** Appending Kills
+** "cut and Paste" Operations on Graphical Displays
+C-x <RET> x/X    coding system
+x-select-request-type    request data type
+*** Clipboard : Using the Clipboard
+save-interprogram-paste-before-kill
+yank-pop-change-selection
+select-enable-clipboard
+x-select-enable-clipboard-manager
+select-enable-primary
+mouse-drag-copy-region
+clipboard-kill-region
+clipboard-lill-ring-save
+*** Cut and Paste with Other Window Applications
+*** Secondary Selection
+** Accumulating Text
+M-x append-to-buffer
+M-x prepend-to-buffer
+M-x copy-to-buffer
+M-x insert-buffer
+M-x append-to-file
+** Rectangles
+‘C-x r k’ (‘kill-rectangle’).
+‘C-x r M-w’     (‘copy-rectangle-as-kill’).
+‘C-x r d’ (‘delete-rectangle’).
+‘C-x r y’     (‘yank-rectangle’).
+‘C-x r o’     (‘open-rectangle’).
+‘[C-u] C-x r N’     (‘rectangle-number-lines’).
+‘C-x r c’ (‘clear-rectangle’).
+‘M-x delete-whitespace-rectangle’
+‘C-x r t STRING <RET>’     (‘string-rectangle’).
+‘M-x string-insert-rectangle <RET> STRING <RET>’
+‘C-x <SPC>’ (‘rectangle-mark-mode’).
+
+'rectangle-exchange-point-and-mark'
+** CUA Bindings : CUA Bindings
+CUA : Common User Access
+'mark-even-if-inactive'
+'cua-enable-cua-keys'
+* Registers
+M-x view-register <RET> R
+register-preview-delay
+C-h request a preview window.
+** Saving Positiongs in Registers
+‘C-x r <SPC> R’     (‘point-to-register’).
+‘C-x r j R’     (‘jump-to-register’).
+** Saveing Text in Registers
+‘C-x r s R’ (‘copy-to-register’).
+‘C-x r i R’ (‘insert-register’).
+‘M-x append-to-register <RET> R’
+‘M-x prepend-to-register <RET> R’
+** Saving Rectangles in Registers
+‘C-x r r R’ (‘copy-rectangle-to-register’).
+‘C-x r i R’ (‘insert-register’).
+** Saving Window Configurations in Registers
+‘C-x r w R’ (‘window-configuration-to-register’).
+‘C-x r f R’ (‘frameset-to-register’).
+  Use ‘C-x r j R’ to restore a window or frame configuration.
+** Keeping Numbers in Registers
+‘C-u NUMBER C-x r n R’ (‘number-to-register’).
+‘C-u NUMBER C-x r + R’
+‘C-x r i R’  Insert the number from register R into the buffer.
+** Keeping File Names in Registers
+(set-register ?R '(file . NAME))
+C-x r j R
+** Keyboard Macro Registers
+C-x C-k x R   'kmacro-to-register'
+C-x r j R
+** Bookmarks
+‘C-x r m <RET>’
+     Set the bookmark for the visited file, at point.
+‘C-x r m BOOKMARK <RET>’
+     Set the bookmark named BOOKMARK at point (‘bookmark-set’).
+‘C-x r M BOOKMARK <RET>’
+     Like ‘C-x r m’, but don’t overwrite an existing bookmark.
+‘C-x r b BOOKMARK <RET>’
+     Jump to the bookmark named BOOKMARK (‘bookmark-jump’).
+‘C-x r l’
+     List all bookmarks (‘list-bookmarks’).‘C-h m’ in the bookmark
+  buffer for more information about its special editing commands.
+‘M-x bookmark-save’
+     Save all the current bookmark values in the default bookmark file.
+bookmark-save-flag
+bookmark-default-file
+bookmark-jump
+bookmark-search-size
+
+‘M-x bookmark-load <RET> FILENAME <RET>’
+     Load a file named FILENAME that contains a list of bookmark values.
+     You can use this command, as well as ‘bookmark-write’, to work with
+     other files of bookmark values in addition to your default bookmark
+     file.
+
+‘M-x bookmark-write <RET> FILENAME <RET>’
+     Save all the current bookmark values in the file FILENAME.
+
+‘M-x bookmark-delete <RET> BOOKMARK <RET>’
+     Delete the bookmark named BOOKMARK.
+
+‘M-x bookmark-insert-location <RET> BOOKMARK <RET>’
+     Insert in the buffer the name of the file that bookmark BOOKMARK
+     points to.
+
+‘M-x bookmark-insert <RET> BOOKMARK <RET>’
+     Insert in the buffer the _contents_ of the file that bookmark
+     BOOKMARK points to.
+
+* Display : Controlling the Display
+** Scrolling
+‘C-v’
+‘<next>’
+‘<PageDown>’
+     Scroll forward by nearly a full window (‘scroll-up-command’).
+‘M-v’
+‘<prior>’
+‘<PageUp>’
+     Scroll backward (‘scroll-down-command’).
+next-screen-context-lines
+scroll-error-top-bottom
+scroll-preserve-screen-position
+fast-but-imprecise-scrolling
+** Recentering
+‘C-l’ (‘recenter-top-bottom’).
+‘M-x recenter’
+‘C-M-l’     (‘reposition-window’).
+recenter-positions
+** Automatic Scrolling
+scroll-conservatively
+scroll-step
+scroll-up-aggressively
+scroll-down-aggressively
+** Horizontal Scrolling
+auto-hscroll-mode
+hscroll-margin
+hscroll-step
+‘C-x <’ (‘scroll-left’).
+‘C-x >’ (‘scroll-right’).
+** Narrowing
+‘C-x n n’ (‘narrow-to-region’).
+‘C-x n w’ (‘widen’).
+‘C-x n p’ (‘narrow-to-page’).
+‘C-x n d’ (‘narrow-to-defun’).
+** View Mode
+view mode is minor mode
+
+<SPC> S-<SPC> <DEL>
+q 'View-quit'
+e 'View-exit'
+
+M-x view-fuffer
+M-x view-file
+** Follow Mode
+C-x 3  ---->   M-x follow-mode
+** Text faces
+faces : display text in several different styles.
+M-x list-faces-display
+variable : frame-background-mode
+** Colors for Faces
+list-colors-display
+list-colors-sort
+M-x set-face-foreground
+M-x set-face-background
+** Standard Faces
+** Text Scale
+C-x C-(+/=)
+C-x C--
+C-x C-0
+
+text-scale-adjust
+text-scale-mode-step
+text-scale-set
+text-scale-mode
+** Font Lock mode
+is minor mode
+M-x font-lock-mode
+M-x global-font-lock-mode
+(global-font-lock-mode 0)
+(add-hook 'c-mode-hook 'font-lock-mode)
+M-x customize-group <RET> font-lock-faces <RET>
+fot-lock-maximum-decoration
+** Interactive Highlighting
+M-x highlight-changes-mode
+M-x hi-lock-mode
+M-x global-hi-lock-mode
+** Window Fringes
+M-x fringe-mode
+M-x set-fringe-style
+overflow-newline-into-fringe
+** Displaying Boundaries
+indicate-buffer-boundaries
+** Useless Whitespace
+show-trailing-whitespace
+M-x delete-trailing-whitespace
+delete-trailing-lines
+indicate-empty-lines
+M-x whitespace-mode
+wihitespace-style
+M-x global-whitespace-toggle-options
+** Selective Display
+set-selective-display
+selective-display-ellipses
+** Optional Mode Line Features
+M-x size-indication-mode
+M-x line-number-mode
+M-x column-number-mode
+line-number-display-limit
+line-number-display-limit-width
+M-x display-time
+display-time-24hr-format
+display-time-use-mail-icon
+display-time-mail-face
+display-time-mail-file
+display-time-mail-directory
+display-battery-mode
+battery-mode-line-format
+mode-line
+mode-line-inactive
+mode-line-in-non-selected-windows
+
+eol-mnemonic-unix
+eol-mnemonic-dos
+eol-mnemonic-mac
+eol-mnemonic-undecided
+** Text Display : How Text Is Displayed
+** Displayiing the Cursor
+visible-cursor
+cursor-type
+blink-cursor-blinks
+blink-cursor-mode
+blink-cursor-alist
+x-stretch-cursor
+cursor-in-non-selected-windows
+M-x hl-line-mode
+M-x global-hl-line-mode
+** Line Truncation
+M-x toggle-truncate-lines
+truncate-lines
+truncate-partial-width-windows
+** Visual Line Mode
+M-x visual-line-mode
+M-x Global-visual-line-mode
+M-x next-logical-line
+M-x previous-logical-line
+visual-line-fringe-indicators
+** Cusomization of Display
+visible-bell
+display-hourglass
+make-pointer-invisible
+underline-minimum-offset
+x-underline-minimum-offset
+overline-margin
+tty-suppress-bold-inverse-default-colors
+* Search : Searching and Replacement
+** Incremental Search
+‘C-s’
+     Incremental search forward (‘isearch-forward’).
+‘C-r’
+     Incremental search backward (‘isearch-backward’).
+*** Basics of Incremental Search
+C-g C-g or <ESC> <ESC> <ESC>
+*** Repeat Isearch : Repeating Incremental Search
+'lazy-highlight' 
+'isearch-lazy-highlight'
+C-s C-s / C-r C-r     search for the same string again.
+M-p M-n     move through the ring to pick a search string to reuse.
+search-ring-max
+M-e     to edit the current search string in the minibuffer.
+*** Isearch Yanking
+C-w isearch-yank-word-or-char
+M-s C-e isearch-yank-line
+C-y isearch-yank-kill
+M-y isearch-yank-pop
+C-M-w isearch-del-char
+C-M-y isearch-yank-char
+search-upper-case
+not-yanks
+*** Errors in Incremental Search
+C-g removes form the search string the characters that could not be foud.
+*** Special Input for Incremental Search
+M-c / M-s c    case sensitivity
+M-s i    isearch-toggle-invisible
+M-s <SPC>    To toggle lax space matching
+M-c / M-s c  To toggle case sensitiveity of the search
+M-s '         consider similar and equivalent character
+M-s i  isearch-toggle-invisible
+M-r / M-s r   isearch-toggle-regexp
+M-s _      To toggle symbol mode.
+C-j       newline character
+**** non ASCII
+C-q ...
+C-x 8 <RET> ...  Unicode name or code-point
+C-\ / C-^
+M-s o     isearch-occur
+M-%     query-replace / query-replace-regexp
+M-<TAB>    isearch-complete
+M-s h r     isearch-highlight-regexp
+M-s h u      unhighlight-regexp
+C-h C-h    iSearch-help-mapq
+*** Not Exiting Incremental Search
+search-exit-option
+**** prefix Arguments
+isearch-allow-prefix 
+isearch-allow-scroll
+**** Scrolling Commands
+isearch-allow-scroll
+C-x ^   enlarge-window
+*** Searching the Minibuffer
+C-s Searches forward to later pages
+C-r Searches backwards to earlier pages.
+** Nonincremental Search
+‘C-s <RET> STRING <RET>’     Search for STRING.
+‘C-r <RET> STRING <RET>’     Search backward for STRING.
+M-x search-forward
+M-x search-backward
+** Word Search
+A “word search” finds a sequence of words without regard to the type of
+punctuation between them.
+‘M-s w’
+     If incremental search is active, toggle word search mode
+     (‘isearch-toggle-word’); otherwise, begin an incremental forward
+     word search (‘isearch-forward-word’).
+‘M-s w <RET> WORDS <RET>’   word-serch-forward
+‘M-s w C-r <RET> WORDS <RET>’  word-search-backward
+** Symbol Search
+** Regular Expression Search
+‘C-M-s’ (‘isearch-forward-regexp’).
+‘C-M-r’ (‘isearch-backward-regexp’).
+regexp-search-ring-max
+M-s <SPC>  isearch-toggle-lax-whitespace
+search-whitespace-regexp
+M-s
+C-M-s <RET> re-search-forward
+C-MSR <RET> re-search-backward
+** Syntax of Regular Expressions
+.    matches any single character except a newline.
+'*'  match the preceding regular expression repetitively any number of times,
+     as many times as possible.
++    match the preceding expression at least once.
+?    match the preceding expression either once or not at all.
+'*,+,?'  with ? thwy will match as little as possible.
+\{N\}   the preceding regular expression must match exactly N times in a row.
+\{N,M\}
+[....]
+[a-z]
+'[[[[:alnum:]]]]'  character classes
+[]-]
+A-z   ill-defined
+[^ ... ]  complemented character set
+$    matches only at the end fo a line.
+\    1. quotes the special characters
+     2. introduces additional special constructs.
+** Backslash in Regular Expressions
+‘\|’    specifies an alternative.
+‘\( ... \)’
+‘\(?: ... \)’
+\`    matches the empty string 
+\'    
+\=     only at point.
+\b      matches the empty string, but only at the beginning or end of a word.
+\B
+\<
+\>
+\w  matches any word-constituent character
+\W
+\_< 
+\_>
+\sC
+\SC
+\CC
+** Regular Expression Example
+** Lax Matching During Searching
+search-whitespace-regexp
+M-s <SPC>  isearch-toggle-lax-whitespace
+search-whitespace-regexp
+search-upper-case
+case-fold-search
+M-c /  M-s c    isearch-toggle-case-fold
+M-x apropos-variable <RET> case-fold-search <RET>
+** Replacement Commands
+M-x replace-string
+M-% query-replace
+expand-regin-abbrevs
+*** Unconditional Replace
+‘M-x replace-string <RET> STRING <RET> NEWSTRING <RET>’
+C-u C-<SPC>
+*** Regexp Replacement
+‘M-x replace-regexp <RET> REGEXP <RET> NEWSTRING <RET>’
+‘\&’ in NEWSTRING stands for the entire match being replaced.
+‘\D’ in NEWSTRING, where D is a digit starting from 1, stands for whatever matched the Dth parenthesized grouping in REGEXP.  (This is called a “back reference”.)
+‘\#’ refers to the count of replacements already made in this command,as a decimal number.
+'\?' enter part of the replacement string by hand each time.
+*** Replace Commands and Lax Matches
+replace-lax-whitespace
+replace-regexp-lax-whitespace
+query-replace-regexp
+case-fold-search
+replace-char-fold
+replace-regexp
+*** Query Replace
+‘M-% STRING <RET> NEWSTRING <RET>’  query-replace
+     Replace some occurrences of STRING with NEWSTRING.
+‘C-M-% REGEXP <RET> NEWSTRING <RET>’ query-replace-regexp
+     Replace some matches for REGEXP with NEWSTRING.
+query-replace-from-to-separator
+query-replace-highlight
+lazy-highlight
+query-replace-lazy-highlight
+query-replace-regexp
+query-replace-show-replacement
+query-replace-skip-read-only
+** Other Search-and-Loop Commands
+M-x multi-isearch-buffers
+M-x multi-isearch-buffers-regexp
+M-x multi-isearch-files
+M-x multi-isearch-files-regexp
+M-x occur = M-s o = M-x list-matching-lines
+             Prompt for a regexp
+in occur mode:
+             list-matching-lines
+	     o and C-o display the match in another window
+	     C-x `  ('next-error')
+	     e    edit
+	     C-c C-c  return to Occur mode
+M-x multi-occur
+M-x multi-occur-in-matching-buffers
+M-x flush-lines
+M-x keep-lines
+** Tailoring Search to Your Needs
+search-default-mode
+search-highlight
+lazy-highlight
+isearch-lazy-highlight
+‘lazy-highlight-initial-delay’
+‘lazy-highlight-interval’
+‘lazy-highlight-max-at-a-time’
+search-nonincremental-instead
+isearch-hide-immediately
+search-slow-speed
+search-slow-window-lines
+* Fixit : Commands for Fixing Typos
+C-/ or C-x u or C-_
+** Undo
+‘C-/’
+‘C-x u’
+‘C-_’
+     Undo one entry in the current buffer’s undo records (‘undo’).
+M-x undo-only    this is like undo, but will not redo changes you have just undone.
+C-u C-/   select undo 
+undo-limit
+undo-strong-limit
+undo-outer-limit
+** Transposing Text
+‘C-t’ (‘transpose-chars’).
+‘M-t’ (‘transpose-words’).
+‘C-M-t’ (‘transpose-sexps’).
+‘C-x C-t’ (‘transpose-lines’).
+C-u 0 ...  transpose the character ending after point with the one ending after the mark.
+** Case Conversion
+‘M-- M-l’
+‘M-- M-u’
+‘M-- M-c’
+** Checking and Correctiong Spelling
+down loading the ispell.  not to do 
+* Keyboard Macros
+** Basic Keyboard Macro : Basic Use
+‘<F3>’     (‘kmacro-start-macro-or-insert-counter’).
+‘<F4>’     (‘kmacro-end-or-call-macro’).
+‘C-u <F3>’   Re-execute last keyboard macro, then append keys to its definition.
+‘C-u C-u <F3>’  Append keys to the last keyboard macro without re-executing it.
+‘C-x C-k r’     (‘apply-macro-to-region-lines’).
+kmacro-execute-before-append
+C-g keyboard-quit
+C-M-c  exit-recursive-edit
+
+C-x (  kmacro-start-macro
+C-x )  kmacro-end-macro
+C-x e  kmacro-end-and-call-macro
+** The Keyboard Macro Ring
+‘C-x C-k C-k’     (‘kmacro-end-or-call-macro-repeat’).
+‘C-x C-k C-n’     (‘kmacro-cycle-ring-next’).
+‘C-x C-k C-p’     (‘kmacro-cycle-ring-previous’).
+kmacro-ring-max
+** The Keyboard Macro Counter
+‘<F3>’ (‘kmacro-start-macro-or-insert-counter’).
+‘C-x C-k C-i’     (‘kmacro-insert-counter’).
+‘C-x C-k C-c’ (‘kmacro-set-counter’).
+‘C-x C-k C-a’     (‘kmacro-add-counter’).
+‘C-x C-k C-f’     (‘kmacro-set-format’).
+** Executing Macros with Variations
+** Naming and Saving Keyboard Macros
+‘C-x C-k n’ (‘kmacro-name-last-macro’).
+‘C-x C-k b’ (‘kmacro-bind-to-key’).
+‘M-x insert-kbd-macro’
+     Insert in the buffer a keyboard macro’s definition, as Lisp code.
+C-x C-k 0...9 a...z A...Z  reserved for your own keyboard macro bindings.
+** Editing a Keyboard Macro
+‘C-x C-k C-e’ or 'C-x C-k <RET>' (‘kmacro-edit-macro’).
+‘C-x C-k e NAME <RET>’ (‘edit-kbd-macro’).
+‘C-x C-k l’     (‘kmacro-edit-lossage’).
+** Stepwise Editing a Keyboard Macro
+'C-x C-k <SPC>' kmacro-step-edit-macro
+* File Handling
+** File Names
+completion-ignored-extensions
+default-directory
+insert-default-directory
+M-x pwd    see the value of 'default-directory'
+M-x cd     sets 'default-directory'
+~/    home directory
+$    used to substitute an environment variable into a file name.
+/:~
+** Visitingn Files
+‘C-x C-f’
+     Visit a file (‘find-file’).
+‘C-x C-r’
+     Visit a file for viewing, without allowing changes to it
+     (‘find-file-read-only’).
+‘C-x C-v’
+     Visit a different file instead of the one visited last
+     (‘find-alternate-file’).
+‘C-x 4 f’
+     Visit a file, in another window (‘find-file-other-window’).  Don’t
+     alter what is displayed in the selected window.
+‘C-x 5 f’
+     Visit a file, in a new frame (‘find-file-other-frame’).  Don’t
+     alter what is displayed in the selected frame.
+‘M-x find-file-literally’
+     Visit a file with no conversion of the contents.
+large-file-warning-threshold
+? * [...]  wildcards
+find-file-wildcards
+find-file-ren-dired
+C-x C-q     read-only-mode
+find-file-not-found-functions
+find-file-hook
+** Saving Files
+*** Save Commands : Commands for Saving Files
+‘C-x C-s’
+     Save the current buffer to its file (‘save-buffer’).
+‘C-x s’
+     Save any or all buffers to their files (‘save-some-buffers’).
+‘M-~’
+     Forget that the current buffer has been changed (‘not-modified’).
+     With prefix argument (‘C-u’), mark the current buffer as changed.
+‘C-x C-w’
+     Save the current buffer with a specified file name (‘write-file’).
+‘M-x set-visited-file-name’
+     Change the file name under which the current buffer will be saved.
+diff-buffer-with-file
+*** Backup : Backup Filesr
+make-backup-files
+vc-make-backup-files
+backup-enabel-predicate
+temporary-file-directory
+small-temporary-file-directory
+backup-directory-alist
+**** Single or Numbered Backups
+appending '~‘
+numbered backup file name : .~N~
+version-control    nil t never
+environment variable 'VERSION_CONTROL'
+make-backup-file-name-function
+**** Automatic Deletion of Backups
+kept-old-versions
+kept-new-versions
+delete-old-versions
+Dired's '.' delte old versions.
+**** Copying vs. Renaming
+backup-by-copying
+backup-by-copying-when-linked
+backup-by-copying-when-mismatch
+backup-by-copying-when-mismatch
+*** Customizing Saving of Files
+require-final-newline  t  visit  visit-save  nil
+require-final-newline
+write-region-inhibit-fsync
+*** Protection against Simultaneous Editing
+create-lockfiles
+ask-user-about-lock
+M-x diff-buffer-with-file
+*** Shadowing Files
+‘M-x shadow-initialize’
+     Set up file shadowing.
+‘M-x shadow-define-literal-group’
+     Declare a single file to be shared between sites.
+‘M-x shadow-define-regexp-group’
+     Make all files that match each of a group of files be shared
+     between hosts.
+‘M-x shadow-define-cluster <RET> NAME <RET>’
+     Define a shadow file cluster NAME.
+‘M-x shadow-copy-files’
+     Copy all pending shadow files.
+‘M-x shadow-cancel’
+     Cancel the instruction to shadow some files.
+*** Updating Time Stamps Automatically
+Time-stamp: <> / " "
+time-stamp
+before-save-hook
+M-x time-stamp
+** Reverting a Buffer
+M-x revert-buffer
+revert-without-query
+M-x auto-revert-mode
+auto-revert-interval
+M-x global-auto-revert-mode
+auto-revert-remote-files
+auto-revert-tail-mode
+auto-revert-verbose
+** Auto Reverting Non-File Buffer
+M-x auto-revert-mode
+global-auto-revert-non-file-buffers
+*** Auto Reverting the Buffer Menu
+*** Auto Reverting Dired buffers
+*** Adding Support for Auto-Reverting additional Buffers
+revert-buffer-function
+buffer-stale-funtion
+** Auto Save : Auto-Saving : Protection Against Disasters
+*** Auto Save Files
+auto-save file name is made by appending '#'.
+make-auto-save-file-name
+auto-save-file-name-p
+auto-save-file-name-transforms
+C-u 1 M-x auto-save-mode
+auto-save-visited-file-name
+delete-auto-save-files
+set-visited-file-name
+*** Controlling Auto-Saving
+auto-save-default
+auto-save-interval
+auto-save-timeout
+M-x do-auto-sava
+*** Recovering Data from Auto-Saves
+M-x recover-file <RET> foo.c <RET>
+M-x recover-session
+.saves-PID-HOSTNAME in the directory '~/.emacs.d/auto-save-list/'.
+auto-save-list-file-prefix
+** File Name Aliases
+find-file-suppress-same-file-warnings
+find-file-existing-other-name
+find-file-visit-truename
+find-file-exising-other-name
+directory-abbrev-alist
+     (("\\`/home/fsf" . "/fsf"))
+** File Directories
+‘C-x C-d DIR-OR-PATTERN <RET>’
+     Display a brief directory listing (‘list-directory’).
+‘C-u C-x C-d DIR-OR-PATTERN <RET>’
+     Display a verbose directory listing.
+‘M-x make-directory <RET> DIRNAME <RET>’
+     Create a new directory named DIRNAME.
+‘M-x delete-directory <RET> DIRNAME <RET>’
+     Delete the directory named DIRNAME.  If it isn’t empty, you will be
+     asked whether you want to delete it recursively.
+list-directory-brief-switches
+list-directory-verbose-switches
+directory-free-space-program
+directory-free-space-args
+delete-by-moving-to-trash
+** Comparing Files					
+M-x diff
+diff-switches
+M-x diff-backup
+M-x diff-buffer-with-file
+M-x compare-windows
+compare-ignore-case
+compare-ignore-whitespace
+M-x smerge-mode
+** Diff Mode		
+M-x diff
+M-x diff-mode
+diff-update-on-the-fly
+** Miscellaneous File Operations
+M-x delete-file
+M-x move-file-to-trash
+delete-by-moving-to-trash
+M-x vc-delete-file
+M-x copy-file
+M-x copy-directory
+M-x rename-file
+M-x vc-rename-file
+M-x add-name-to-file
+M-x insert-file    C-x i
+M-x insert-file-literally
+M-x find-file-literally
+M-x write-region
+M-x append-to-file
+write-region-inhibit-fsync
+M-x set-file-modes
+** Accessing Compressed Files
+M-x auto-compression-mode
+auto-compression-mode
+** File Archives
+A file whose name ends in ‘.tar’ is normally an “archive” made by the ‘tar’ program.
+'.tgz','.tar.Z','.tar.gz'    compressed archives-files
+** Remote Files
+     /HOST:FILENAME
+     /USER@HOST:FILENAME
+     /USER@HOST#PORT:FILENAME
+     /METHOD:USER@HOST:FILENAME
+     /METHOD:USER@HOST#PORT:FILENAME
+ange-ftp-default-user
+ange-ftp-make-backup-files
+auto-save-file-name-transforms
+ange-ftp-generate-anonymous-password
+user-mail-addressange-ftp-gateway-host
+ange-ftp-smart-gateway
+M-x finder-commentary <RET> ange-ftp <RET>
+** Quoted File Names
+/:
+** File Name Cache
+C-<TAB>  file-cache-minibuffer-complete
+‘M-x file-cache-add-directory <RET> DIRECTORY <RET>’
+     Add each file name in DIRECTORY to the file name cache.
+‘M-x file-cache-add-directory-using-find <RET> DIRECTORY <RET>’
+     Add each file name in DIRECTORY and all of its nested
+     subdirectories to the file name cache.
+‘M-x file-cache-add-directory-using-locate <RET> DIRECTORY <RET>’
+     Add each file name in DIRECTORY and all of its nested
+     subdirectories to the file name cache, using ‘locate’ to find them
+     all.
+‘M-x file-cache-add-directory-list <RET> VARIABLE <RET>’
+     Add each file name in each directory listed in VARIABLE to the file
+     name cache.  VARIABLE should be a Lisp variable whose value is a
+     list of directory names, like ‘load-path’.
+‘M-x file-cache-clear-cache <RET>’
+     Clear the cache; that is, remove all file names from it.
+file-cache-display
+** Convenience Features for Finding Files
+M-x recentf-mode
+recentf-save-list
+recent-fiel-list
+M-x recentf-edit-list
+M-x ffap
+image mode:
+C-c C-c image-toggle-display
+n image-next-file
+p image-previous-file
+image-toggle-animation
+image-animate-loop
+image-next-frame
+image-previous-frame
+F image-goto-frame
+'a +' image-increase-speed
+'a -' image-decrease-speed
+'a r' image-reverse-speed
+'a 0' image-reset-speed
+ImageMagick
+imagemagick-enabled-types
+imagemagick-enabled-types
+imagemagick-types-inhibit
+** Filesets
+filesets-init
+M-x filesets-add-buffer <RET> NAME <RET>
+M-x filesets-remove-buffer
+M-x filesets-edit
+M-x filesets-open
+M-x filesets-close
+M-x filesets-run-cmd
+* Buffers : Using Multiple Buffers
+'C-x m' a buffer is used to hold the text of the message.
+** Select Buffer : Creating and Selecting Buffers
+‘C-x b BUFFER <RET>’ (‘switch-to-buffer’).
+‘C-x 4 b BUFFER <RET>’     (‘switch-to-buffer-other-window’).
+‘C-x 5 b BUFFER <RET>’     (‘switch-to-buffer-other-frame’).
+‘C-x <LEFT>’ (‘previous-buffer’).
+‘C-x <RIGHT>’ (‘next-buffer’).
+‘C-u M-g M-g’
+‘C-u M-g g’
+     Read a number N and move to line N in the most recently selected
+     buffer other than the current buffer.
+
+** List Buffers : Listing Existing Buffers
+'C-x C-b' List-buffers
+. current
+% read-ony
+'*' modified
+C-u C-x C-b only buffers that are visiting files
+** Miscellaneous Buffer Operations
+‘C-x C-q’ (‘read-only-mode’).
+‘M-x rename-buffer <RET> NAME <RET>’
+‘M-x rename-uniquely’
+‘M-x view-buffer <RET> BUFFER <RET>’
+view-read-only
+M-x append-to-buffer
+M-x insert-buffer
+** Killing Buffers
+‘C-x k BUFNAME <RET>’ (‘kill-buffer’).
+‘M-x kill-some-buffers’
+‘M-x kill-matching-buffers’
+kill-buffer-hook
+M-x clean-buffer-list
+midnight-mode
+midnight-hook
+** Operating on Several Buffers
+‘M-x buffer-menu’
+‘M-x buffer-menu-other-window’
+‘d’ (‘Buffer-menu-delete’).
+‘C-d’     (‘Buffer-menu-delete-backwards’).
+‘s’ (‘Buffer-menu-save’).  
+‘x’ (‘Buffer-menu-execute’).
+‘u’     (‘Buffer-menu-unmark’).
+‘<DEL>’     (‘Buffer-menu-backup-unmark’).
+‘~’ (‘Buffer-menu-not-modified’). 
+‘%’     (‘Buffer-menu-toggle-read-only’). 
+‘t’ (‘Buffer-menu-visit-tags-table’).
+‘q’ (‘quit-window’).
+‘<RET>’
+‘f’ (‘Buffer-menu-this-window’).
+‘o’ (‘Buffer-menu-other-window’).
+‘C-o’     (‘Buffer-menu-switch-other-window’).
+‘1’     (‘Buffer-menu-1-window’).
+‘2’ (‘Buffer-menu-2-window’).
+‘b’ (‘Buffer-menu-bury’).
+‘m’ (‘Buffer-menu-mark’).
+‘v’ (‘Buffer-menu-select’).
+‘S’ (‘tabulated-list-sort’).
+‘T’     (‘Buffer-menu-toggle-files-only’). 
+ 'g'  revert-buffer
+** Indirect Buffers
+‘M-x make-indirect-buffer <RET> BASE-BUFFER <RET> INDIRECT-NAME <RET>’
+‘M-x clone-indirect-buffer <RET>’
+‘C-x 4 c’     (‘clone-indirect-buffer-other-window’).
+clone-indirect-buffer-hook
+* Buffer Convenience : Convenience Features and Customization of Buffer Handling
+** Uniquify : making Buffer Names Unique
+uniquify-buffer-name-style
+** Icomplete : Fast minibuffer selection
+M-x icomplete-mode 
+icomplete-mode
+C-j
+C-.
+C-,
+M-<TAB>
+** Buffer Menus : Customizing Buffer Menus
+M-x bs-show
+MBS mouse select buffer
+* Multiple Windows 
+** Basic Window : Concepts of Emacs Windows
+** Split Window : Splitting Windows
+‘C-x 2’     (‘split-window-below’).
+‘C-x 3’     (‘split-window-right’).
+‘C-mouse-2’     In the mode line of a window, split that window.
+truncate-lines
+truncate-partial-width-windows
+window-total-width
+window-resize-pixelwise
+** Other Window : Using Other Windows
+‘C-x o’ (‘other-window’).
+‘C-M-v’ (‘scroll-other-window’).
+mouse-autoselect-window
+** Displaying in Another Window
+‘C-x 4 b BUFNAME <RET>’     (‘switch-to-buffer-other-window’).
+‘C-x 4 C-o BUFNAME <RET>’     (‘display-buffer’).
+‘C-x 4 f FILENAME <RET>’     (‘find-file-other-window’). 
+‘C-x 4 d DIRECTORY <RET>’     (‘dired-other-window’).
+‘C-x 4 m’    (‘compose-mail-other-window’).
+‘C-x 4 .’     (‘xref-find-definitions-other-window’).
+‘C-x 4 r FILENAME <RET>’ (‘find-file-read-only-other-window’).  
+** Deleting and Resizing Windows
+‘C-x 0’ (‘delete-window’).
+‘C-x 1’     (‘delete-other-windows’).
+‘C-x 4 0’ (‘kill-buffer-and-window’). 
+‘C-x ^’ (‘enlarge-window’).
+‘C-x }’ (‘enlarge-window-horizontally’).
+‘C-x {’ (‘shrink-window-horizontally’).
+‘C-x -’     (‘shrink-window-if-larger-than-buffer’).
+‘C-x +’ (‘balance-windows’).
+** Displaying a Buffer in a Window
+pop-up-frams
+*** Window Choice : How 'display-buffer' works
+same-window-fuffer-names
+same-window-regexps
+pop-up-frames    t nil graphic-only
+split-height-threshold
+split-width-threshold
+*** Temporary Displays : Displaying non-editable buffers
+display-buffer-alist
+temp-buffer-resize-mode
+temp-buffer-max-height
+temp-buffer-max-width
+** Convenience Features for Window Handling
+Winner mode is a global minor mode that records the changes in the window configuration 
+M-x winner-mode
+winner-mode
+C-c left   winner-undo
+C-c right   winner-redo
+M-x follow-mode
+M-x windmove-right
+M-x windmove-default-keybindings
+S-right
+M-x compare-windows
+M-x scroll-all-mode
+* Frames and Graphical Displays
+C-x 5 0   To close just the selected frame.
+** Mouse Commands : Mouse Commands for Editing
+** Word and Line Mouse : Mouse Commands for Words and Lines
+** Mouse References : Following References with the Mouse
+** Mouse Clicks for menus
+** Mode Line Mouse Commands
+** Creating Frames
+‘C-x 5 2’ (‘make-frame-command’).
+‘C-x 5 b BUFNAME <RET>’     ‘switch-to-buffer-other-frame’.
+‘C-x 5 f FILENAME <RET>’ ‘find-file-other-frame’. 
+‘C-x 5 d DIRECTORY <RET>’ ‘dired-other-frame’.  
+‘C-x 5 m’     ‘compose-mail-other-frame’.
+‘C-x 5 .’     ‘xref-find-definitions-other-frame’,
+‘C-x 5 r FILENAME <RET>’ ‘find-file-read-only-other-frame’.  
+** Frame Commands
+‘C-x 5 0’ (‘delete-frame’).
+‘C-z’ (‘suspend-frame’).
+‘C-x 5 o’     Select another frame
+‘C-x 5 1’     Delete all frames on the current terminal, except the selected one.
+‘M-<F10>’     Toggle the maximization state of the current frame.  
+‘<F11>’     Toggle full-screen mode for the current frame.
+frame-resize-pixelwise
+emacsclient
+** Fonts
+Options->Set Default Font  ------>   Options->Save Optinos
+C-u C-x =  current font
+** Speedbar Frames
+M-x speedbar
+File Display mode:
+<RET>     inter or open
+<SPC>     expands
+U         Display parent direntory
+C         Copy
+D         delete
+R         Rename
+M         new directory
+
+b         switch to buffer display mode
+f         switch to file display mode
+** Multiple Displays
+M-x make-frame-on-display <RET> DISPLAY <RET>
+** Frame Parameters
+default-frame-alist
+initial-frame-alist
+** Scroll Bars
+M-x scroll-bar-mode
+M-x toggle-scroll-bar
+scroll-bar-mode
+verticalScrollBars
+scroll-bar-width
+scroll-bar-adjust-thumb-portion
+Scroll-bar face
+M-x horizontal-scroll-bar-mode
+M-x toggle-horizontal-scroll-bar
+HorizontalScrollBars
+scroll-bar-height
+** Window Dividers
+M-x window-divider-mode
+window-divider-default-places   bottom-only   right-only   t
+window-divider-default-bottom-width
+window-divider-default-right-width
+** Drag and Drop
+** Menu Bars
+M-x menu-bar-mode
+menu-bar-mode
+** Tool Bars
+M-x tool-bar-mode
+tool-bar-mode
+tool-bar-style
+tool-bar-position
+** Dialog Boxes : Using Dialog Boxes
+use-dialog-box
+use-file-dialog
+x-gtk-show-hidden-files
+x-gtk-file-dialog-help-text
+** Tooltips
+M-x tooltip-mode
+tooltip-mode
+‘tooltip-delay’
+‘tooltip-short-delay’
+‘tooltip-hide-delay’
+‘tooltip-x-offset’
+‘tooltip-y-offset’
+‘tooltip-frame-parameters’
+‘M-x customize-group <RET> tooltip <RET>’.
+x-gtk-use-system-tooltips
+** Mouse Avoidance
+make-pointer-invisible
+mouse-avoidance-mode
+** Non-Window Terminals
+M-x set-frame-name <RET> NAME <RET>
+M-x select-frame-by-name <RET>
+** Using a Mouse in Text Terminals
+* International Character Set Support
+'C-x 8'    Latin-1 characters
+** International Chars : Introdution to International Character Sets
+C-x 8 <RET>    insert-char
+   The prefix key ‘C-x <RET>’ is used for commands that pertain to
+multibyte characters, coding systems, and input methods.
+** Language Environments
+current-language-environment
+M-x set-language-environment
+language-info-alist
+C-h L LANG-ENV <RET>   describe-language-environment
+locale-charset-language-names
+locale-language-names
+set-local-environment
+locale-preferred-coding-systems
+set-language-environment-hook
+current-language-environment
+exit-language-invironment-hook
+** Input Methods
+** Selecting an Input Method 
+‘C-\’     (‘toggle-input-method’).
+‘C-x <RET> C-\ METHOD <RET>’     (‘set-input-method’).
+‘C-h I METHOD <RET>’
+‘C-h C-\ METHOD <RET>’ (‘describe-input-method’)
+‘M-x list-input-methods’     Display a list of all the supported input methods.
+current-input-method
+default-input-method
+set-language-environment
+set-language-environment-hook
+M-x quail-set-keyboard-layout
+M-x quail-show-key
+** Coding Systems
+C-x <RET> c CODINGSYSTEM <RET> C-x C-f FILENAME <RET>
+newline (Unix)
+carriage-return linefeed (DOS)
+and just carriage-return(Mac).
+‘C-h C CODING <RET>’ (‘describe-coding-system’).
+‘C-h C <RET>’     Describe the coding systems currently in use.
+‘M-x list-coding-systems’     Display a list of all the supported coding systems.
+ M-x find-file-literally
+** Recognizing Coding Systems
+     (modify-coding-system-alist 'file "\\.txt\\'" 'chinese-iso-8bit)
+inhibit-eol-conversion
+inhibit-iso-escape-detection
+auto-coding-alist
+auto-coding-regexp-alist
+auto-coding-functions
+** Specifying a File's Coding System
+C-x <RET> r  revert-buffer-with-coding-system
+file-codeing-system-alist
+** Output Coding : Choosing Coding Systems for Output
+set-buffer-file-coding-system
+M-x prefer-coding-system
+M-x set-language-environment
+sendmail-coding-system
+** Specifying a Coding System for File Text
+‘C-x <RET> f CODING <RET>’ (‘set-buffer-file-coding-system’).
+‘C-x <RET> c CODING <RET>’     (‘universal-coding-system-argument’).
+‘C-x <RET> r CODING <RET>’     (‘revert-buffer-with-coding-system’).
+‘M-x recode-region <RET> RIGHT <RET> WRONG <RET>’
+** Coding Systems for Interprocess Communication
+‘C-x <RET> x CODING <RET>’ (‘set-selection-coding-system’).
+‘C-x <RET> X CODING <RET>’     (‘set-next-selection-coding-system’).
+‘C-x <RET> p INPUT-CODING <RET> OUTPUT-CODING <RET>’(‘set-buffer-process-coding-system’).
+x-select-request-type
+** Coding Systems for File Names
+‘C-x <RET> F CODING <RET>’     (‘set-file-name-coding-system’).
+file-name-coding-system
+default-file-name-coding-system
+w32-unicode-filenames
+C-x C-w
+M-x recode-file-name
+** Coding Systems for Terminal I/O
+‘C-x <RET> t CODING <RET>’     (‘set-terminal-coding-system’).
+‘C-x <RET> k CODING <RET>’     (‘set-keyboard-coding-system’).
+keyboard-coding-system
+** Fontsets
+** Defining fontset
+** Modifying Fontsets
+** Undisplayable Characters
+** Unibyte Editing Mode
+M-x set-language-environment
+** Charsets
+** Bidirectional Editing 
+* Modes : Major and Minor Modes
+** Major Modes   
+  (setq-default major-mode 'text-mode)
+'C-h m' describe-mode
+** Minor Modes
+1. on/off
+2. prefix rugument -/0 off,  otherwise on
+3. in lisp code unconditionally on
+** Choosing File Modes
+1.     ; -*-Lisp-*-
+     ; -*- mode: Lisp;-*-
+     ; -*- mode: Lisp; eval: (auto-fill-mode 1); -*-
+#! ser as an executable shell command.
+magic string '\"
+2.magic-mode-alist
+     (REGEXP . MODE-FUNCTION)
+     (MATCH-FUNCTION . MODE-FUNCTION)
+3.auto-mode-alist
+     (REGEXP . MODE-FUNCTION)
+     (REGEXP MODE-FUNCTION FLAG)
+auto-mode-case-fold
+4.magic-fallback-mode-alist
+M-x normal-mode
+change-major-mode-with-file-name
+* Indentation
+indent-for-tab-command
+c-indent-line-or-region
+<TAB>
+     Insert whitespace, or indent the current line, in a
+     mode-appropriate way (‘indent-for-tab-command’).  If the region is
+     active, indent all the lines within it.
+C-q <TAB>
+** Indentation Commands
+‘C-M-o’ (‘split-line’).
+‘M-m’ (‘back-to-indentation’)
+‘M-i’     (‘tab-to-tab-stop’)
+‘M-x indent-relative’
+‘M-^’ (‘delete-indentation’).
+‘C-M-\’ (‘indent-region’).
+‘C-x <TAB>’
+** Tab Stops
+tab-stop-list
+M-x edit-tab-stops
+** Tabs vs. Spaces
+indent-tabs-mode
+M-x tabify
+M-x untabify
+** Convenience Features for Indentation
+tab-always-indent
+M-x electric-indent-mode
+M-x electric-indent-local-mode
+* Commands for Human Languages
+** Words
+‘M-f’ (‘forward-word’).
+‘M-b’ (‘backward-word’).
+‘M-d’ (‘kill-word’).
+‘M-<DEL>’ (‘backward-kill-word’).
+‘M-@’ (‘mark-word’).
+‘M-t’     (‘transpose-words’).
+** Sentences
+‘M-a’ (‘backward-sentence’).
+‘M-e’ (‘forward-sentence’).
+‘M-k’ (‘kill-sentence’).
+‘C-x <DEL>’     (‘backward-kill-sentence’).
+sentence-end-double-space
+sentence-end
+sentence-end-double-space
+** Paragraphs
+‘M-{’ (‘backward-paragraph’).
+‘M-}’ (‘forward-paragraph’).
+‘M-h’     (‘mark-paragraph’).
+paragraph-separate
+paragraph-start
+** Pages
+C-q C-l   
+‘M-x what-page’
+‘C-x [’ (‘backward-page’).
+‘C-x ]’ (‘forward-page’).
+‘C-x C-p’     (‘mark-page’).
+‘C-x l’ (‘count-lines-page’).
+page-delimiter
+** Quotaion Marks
+electric-quote-comment
+M-x electricc-quote-local-mode
+** Filling Text
+*** Auto Fill Mode
+‘M-x auto-fill-mode’
+     Enable or disable Auto Fill mode.
+‘<SPC>’
+‘<RET>’
+     In Auto Fill mode, break lines when appropriate.
+*** Explicit Fill Commands
+‘M-q’
+     Fill current paragraph (‘fill-paragraph’).
+‘C-x f’
+     Set the fill column (‘set-fill-column’).
+‘M-x fill-region’
+     Fill each paragraph in the region (‘fill-region’).
+‘M-x fill-region-as-paragraph’
+     Fill the region, considering it as one paragraph.
+‘M-o M-s’
+     Center a line.
+colon-double-space
+fill-nobreak-predicate
+fill-single-word-nobreak-p
+fill single-char-nobreak-p
+fill-french-nobreak-p
+*** The Fill Prefix
+‘C-x .’
+     Set the fill prefix (‘set-fill-prefix’).
+‘M-q’
+     Fill a paragraph using current fill prefix (‘fill-paragraph’).
+     C-o    inserts the fill prefix on new lines it creates.
+     M-^    delete the prefix
+‘M-x fill-individual-paragraphs’
+     Fill the region, considering each change of indentation as starting
+     a new paragraph.
+‘M-x fill-nonuniform-paragraphs’
+     Fill the region, considering only paragraph-separator lines as
+     starting a new paragraph.
+*** Adaptive Filling
+** Case : Case Conversion Commands
+‘M-l’     Convert following word to lower case (‘downcase-word’).
+‘M-u’     Convert following word to upper case (‘upcase-word’).
+‘M-c’     Capitalize the following word (‘capitalize-word’).
+‘C-x C-l’     Convert region to lower case (‘downcase-region’).
+‘C-x C-u’     Convert region to upper case (‘upcase-region’).
+** Text Mode
+M-x text-mode
+M-x paragraph-indent-text-mode
+M-x paragraph-indent-minor-mode
+M-<TAB>   ispell-complete-word
+text-mode-hook
+** Outline Mode
+M-x outline-mode
+text-mode-hook
+outline-mode-hook
+M-x outlin-minor-mode
+C-c   ===   C-c @
+outline-minor-mode-prefix
+*** Format of Outline
+outline-regexp
+outline-level
+*** Outline Motion Commands
+‘C-c C-n’     (‘outline-next-visible-heading’).
+‘C-c C-p’     (‘outline-previous-visible-heading’).
+‘C-c C-f’     (‘outline-forward-same-level’).
+‘C-c C-b’     (‘outline-backward-same-level’).
+‘C-c C-u’     (‘outline-up-heading’).
+*** Outline Visibility Commands
+‘C-c C-c’     (‘outline-hide-entry’).
+‘C-c C-e’     (‘outline-show-entry’).
+‘C-c C-d’     (‘outline-hide-subtree’).
+‘C-c C-s’     (‘outline-show-subtree’).
+‘C-c C-l’     (‘outline-hide-leaves’).
+‘C-c C-k’     (‘outline-show-branches’).
+‘C-c C-i’     (‘outline-show-children’).
+‘C-c C-t’     (‘outline-hide-body’).
+‘C-c C-a’     (‘outline-show-all’).
+‘C-c C-q’     (‘outline-hide-sublevels’).
+‘C-c C-o’     (‘outline-hide-other’).
+*** Viewing One Outline in Multiple Views
+M-x make-indirect-buffer
+*** Folding Editing
+commands not work....
+*** Org Mode
+# comment
+<TAB> org-cycle
+’S-<TAB>’ org-shifttab
+M-<up>    org-metaup
+M-<down>    org-metadown
+M-<left>    org-metaleft
+M-<right>   org-metaright
+*** Org Organizer : Ogr as an organizer
+C-c C-t    org-todo
+org-todo-keywords
+C-c C-s    org-schedule
+C-c C-d    org-deadline
+C-c [      org-agenda-file-to-front
+org-agenda-files
+M-x org-agenda
+*** Org as authoring system
+C-c C-e    org-export
+org-publish-project-alist
+** TeX Mode
+TeX : Plain TeX mode, LaTeX mode, DocTeX mode, SliTeX mode.
+tex-mode
+tex-default-mode
+M-x plain-tex-mode
+M-x latex-mode
+M-x slitex-mode
+M-x doctex-mode
+bibtex-mode
+RefTex is minor mode
+AUCTex package (not distributed with Emacs by default)
+*** TeX Edting : TeX Editing Commands
+‘"’
+     Insert, according to context, either ‘``’ or ‘"’ or ‘''’
+     (‘tex-insert-quote’).
+‘C-j’
+     Insert a paragraph break (two newlines) and check the previous
+     paragraph for unbalanced braces or dollar signs
+     (‘tex-terminate-paragraph’).
+‘M-x tex-validate-region’
+     Check each paragraph in the region for unbalanced braces or dollar
+     signs.
+‘C-c {’
+     Insert ‘{}’ and position point between them (‘tex-insert-braces’).
+‘C-c }’
+     Move forward past the next unmatched close brace (‘up-list’).
+*** LaTex Editing Commands
+‘C-c C-o’     (‘tex-latex-block’).
+‘C-c C-e’     (‘tex-close-latex-block’).
+latex-block-names
+latex-electric-env-pair-mode
+*** TeX Printing Commands
+*** TeX Mode Miscellany
+** SGML and HTML Modes
+‘C-c C-n’ (‘sgml-name-char’).
+‘C-c C-t’ (‘sgml-tag’).
+‘C-c C-a’     (‘sgml-attributes’).
+‘C-c C-f’ (‘sgml-skip-tag-forward’).
+‘C-c C-b’     (‘sgml-skip-tag-backward’)
+‘C-c C-d’     (‘sgml-delete-tag’)
+‘C-c ? TAG <RET>’ (‘sgml-tag-help’).
+‘C-c /’     (‘sgml-close-tag’)
+‘C-c 8’ (‘sgml-name-8bit-mode’).
+‘C-c C-v’ (‘sgml-validate’).
+‘C-c <TAB>’ (‘sgml-tags-invisible’).
+M-x nxml-mode ====  M-x xml-mode
+auto-mode-alist
+sgml-xml-mode
+
+** Nroff Mode
+M-x nroff-mode
+text-mode-hook
+nroff-mode-hook
+M-x electric-nroff-mode
+fucking this..............
+** Enriched Text
+is minor mode
+*** Enriched Mode
+M-x enriched-mode
+enriched-translations
+M-x rormat-decode-buffer
+*** Hard and Soft Newlines
+M-x use-hard-newline
+*** Editing Format Information
+‘Remove Face Properties’     (‘facemenu-remove-face-props’).
+‘Remove Text Properties’ (‘facemenu-remove-all’).
+‘Describe Properties’ (‘describe-text-properties’).
+‘Display Faces’ (‘list-faces-display’).  
+‘Display Colors’ (‘list-colors-display’).  
+*** Faces in Enriched Text
+*** Indentation in Enreched Text
+*** Enriched Justification
+**** Enriched Properties
+** Text Based Tables : Editing Text-based Tables
+M-x table-fixed-width-mode
+*** Table Definition : What is a Text-based Table?
+‘table-cell-vertical-char’
+‘table-cell-horizontal-chars’
+‘table-cell-intersection-char’
+*** Table Creation : Creating a Table
+M-x table-insert
+*** Table Recognition
+M-x table-recognize
+M-x table-unrecognize
+‘M-x table-recognize-region’
+‘M-x table-unrecognize-region’
+‘M-x table-recognize-table’
+‘M-x table-unrecognize-table’
+‘M-x table-recognize-cell’
+‘M-x table-unrecognize-cell’
+*** Commands for Table Cells
+M-x table-forward-cell
+M-x table-backward-cell
+M-x table-span-cell   right, left, above, below
+M-x table-split-cell
+M-x table-split-cell-vertically
+M-x table-split-cell-horizontally    split   left     right
+‘M-x table-heighten-cell’
+‘M-x table-shorten-cell’
+‘M-x table-widen-cell’
+‘M-x table-narrow-cell’
+*** Cell Justification
+M-x table-justify
+cell column row
+left, center, right, top, middle, bottom, none
+table-detect-cell-alignment
+*** Table Rows and Columns
+M-x table-insert-row
+M-x table-insert-column
+M-x table-delete-column
+M-x table-delete-row
+*** Converting Between Plain Text and Tables
+M-x table-capture
+M-x table-release
+*** Table Miscellany
+M-x table-query-dimension
+M-x table-insert-sequence
+M-x table-generate-source
+** Two-Column Editing
+‘<F2> 2’ or ‘C-x 6 2’ (‘2C-two-columns’)
+‘<F2> s’ or ‘C-x 6 s’ (‘2C-split’)
+‘<F2> b BUFFER <RET>’
+‘C-x 6 b BUFFER <RET>’     (‘2C-associate-buffer’).
+C-x 6 <RET> or <F2><RET>   2C-newline
+<F2> 1 or C-x 6 1  2C-merge
+<F2> d or C-x 6 d    2C-dissociate
+* Editing Programs
+** Program Modes : Major Modes for Programming Languages
+<TAB> <>  <DEL>
+prog-mode-hook
+** Top-Level Definitions, or Defuns
+*** Left Margin Paren/Convention
+open-paren-in-column-0-is-defun-start
+*** Moving by Defuns
+‘C-M-a’     (‘beginning-of-defun’).
+‘C-M-e’ (‘end-of-defun’).
+‘C-M-h’ (‘mark-defun’).
+*** Imenu
+M-x imenu
+imenu-add-menubar-index
+imenu-auto-rescan
+imenu-sort-function
+imenu--sort-by-name
+*** Which Function Mode
+M-x which-function-mode
+which-func-modes
+** Program Indent : Indentation for Programs
+*** Basic Indent : Basic Program Indentaion Commands
+‘<TAB>’ (‘indent-for-tab-command’).
+‘<RET>’     (‘newline’).
+open-paren-in-column-0-is-defun-start
+*** Multi-line Indent : Indentating Several Lines
+‘C-M-q’
+     Reindent all the lines within one parenthetical grouping.
+‘C-u <TAB>’
+     Shift an entire parenthetical grouping rigidly sideways so that its
+     first line is properly indented.
+‘M-x indent-code-rigidly’
+     Shift all the lines in the region rigidly sideways, but do not
+     alter lines that start inside comments and strings.
+indent-pp-sexp
+c-indent-exp
+*** Customizing Lisp Indentation
+lisp-indent-offset
+lisp-body-indent
+lisp-indent-function
+*** C Indent : Commands for C Indentation
+‘C-c C-q’ (‘c-indent-defun’).
+‘C-M-q’     (‘c-indent-exp’).
+‘<TAB>’ (‘c-indent-command’).
+   To reindent the whole current buffer, type ‘C-x h C-M-\’.
+   To reindent the current block, use ‘C-M-u C-M-q’. 
+*** Custom C Indent : Customizing C Indentation
+‘C-c . STYLE <RET>’
+     Select a predefined style STYLE (‘c-set-style’).
+‘gnu’, ‘k&r’, ‘bsd’, ‘stroustrup’, ‘linux’, ‘python’, ‘java’,
+‘whitesmith’, ‘ellemtel’, and ‘awk’.
+C-c .
+     (setq c-default-style
+           '((java-mode . "java")
+             (awk-mode . "awk")
+             (other . "gnu")))
+M-x java-mode
+M-x c-guess
+M-x c-guess-install
+** Parentheses : Commands for Editing with Parentheses
+M-x check-parens
+*** Expressions : Expressions with Balanced Parentheses
+‘C-M-f’ (‘forward-sexp’).
+‘C-M-b’ (‘backward-sexp’).
+‘C-M-k’ (‘kill-sexp’).
+‘C-M-t’ (‘transpose-sexps’).
+‘C-M-@’
+‘C-M-<SPC>’ (‘mark-sexp’).
+*** Moving in the Parenthesis Structure
+‘C-M-n’ (‘forward-list’).
+‘C-M-p’ (‘backward-list’).
+‘C-M-u’ (‘backward-up-list’).
+‘C-M-d’ (‘down-list’).
+*** Matching Parentheses
+blink-matching-paren
+blink-matching-delay
+blink-matching-paren-distance
+M-x show-paren-mode
+M-x customize-group <RET> paren-showing
+   • ‘electric-pair-preserve-balance’
+   • ‘electric-pair-delete-adjacent-pairs’
+   • ‘electric-pair-open-newline-between-pairs’
+   • ‘electric-pair-skip-whitespace’
+M-x electric-pair-mode
+M-x electric-pair-local-mode
+** Manipulating Comments
+*** Comment Commands
+‘M-;’ (‘comment-dwim’).  dwim : Do What I Mean
+‘C-x C-;’ (‘comment-line’).
+‘C-u M-;’ (‘comment-kill’).
+‘C-x ;’ (‘comment-set-column’).
+‘C-M-j’
+‘M-j’     (‘comment-indent-new-line’).
+‘M-x comment-region’
+‘C-c C-c’ (in C-like modes)
+     Add comment delimiters to all the lines in the region.
+comment-column
+c-indent-comment-alist
+c-indent-comment-syntactically-p
+*** Multi-Line Comments : Multiple Lines of Comments
+M-j or M-C-j   comment-indent-new-line
+comment-multi-line
+*** Options for Comments : Options Controlling Comments
+comment-start-skip
+comment-start
+comment-end
+comment-padding
+comment-multi-line
+comment-indent-function
+** Documentation : Documentation Lookup
+*** Info Lookup : Info Documentation Lookup
+C-h S info-lookup-symbol
+M-x info-lookup-file
+*** Man Page : Man Page Lookup
+on unix:
+M-x man   for more   C-h m
+TOPIC(SECTION)    SECTION TOPIC
+on like MS-Windows:
+M-x woman
+*** Lisp Doc : Emacs Lisp Documentation Lookup
+C-h f        describe-function
+C-h v        describe-variable
+M-x eldoc-mode
+M-x global-eldoc-mode
+** Hideshow : Hideshow Minor Mode
+M-x hs-minor-mode
+‘C-c @ C-h’ (‘hs-hide-block’).
+‘C-c @ C-s’ (‘hs-show-block’).
+‘C-c @ C-c’ (‘hs-toggle-hiding’).
+‘C-c @ C-M-h’ (‘hs-hide-all’).
+‘C-c @ C-M-s’ (‘hs-show-all’).
+‘C-c @ C-l’ (‘hs-hide-level’).
+‘hs-hide-comments-when-hiding-all’
+‘hs-isearch-open’
+** Symbol Completion : Completion for Sysbol Names
+C-M-i or M-<TAB> or <ESC><TAB>
+** MixedCase Words
+M-x glasses-mode  for more C-h P glasses <RET>
+subword mode
+superword mode
+** Semantic
+M-x semantic-mode
+‘C-c , j’ (‘semantic-complete-jump-local’).
+‘C-c , J’ (‘semantic-complete-jump’).
+‘C-c , <SPC>’     (‘semantic-complete-analyze-inline’)
+‘C-c , l’ (‘semantic-analyze-possible-completions’).
+** Misc for Program : Other Feature Useful for Editing Programs
+Prettify Symbols mode
+prettify-symbols-alist
+prettify-symbos-compose-predicate
+prettify-symbols-unprettify-at-point
+** C Mode : C and Related Mode
+*** Motion in C : C Mode Motion commands
+‘C-M-a’
+‘C-M-e’
+‘C-c C-u’
+‘C-c C-p’
+‘C-c C-n’
+‘M-a’     (‘c-beginning-of-statement’)
+‘M-e’     (‘c-end-of-statement’).
+*** Electric C : Electric C Characters
+C-c C-l    c-toggle-electric-state
+C-c C-a    c-toggle-auto-newline
+*** Hungry Delete : Hungry Delete Feature in C
+‘C-c C-<DEL>’
+‘C-c <DEL>’     (‘c-hungry-delete-backwards’).
+‘C-c C-d’
+‘C-c C-<Delete>’
+‘C-c <Delete>’     (‘c-hungry-delete-forward’).
+‘M-x c-toggle-hungry-state’ (‘c-toggle-hungry-state’)
+ The variable ‘c-hungry-delete-key’ controls whether the hungry-delete
+feature is enabled.
+*** Other C Commands : Other Commands for C Mode
+‘M-x c-context-line-break’
+          (defun my-bind-clb ()
+            (define-key c-mode-base-map "\C-m"
+                        'c-context-line-break))
+          (add-hook 'c-initialization-hook 'my-bind-clb)
+‘C-M-h’ (‘c-mark-function’).
+
+‘M-q’
+‘C-c C-e’     (‘c-macro-expand’)
+‘C-c C-\’ (‘c-backslash-region’)
+‘M-x cpp-highlight-buffer’
+‘C-c C-s’     (‘c-show-syntactic-information’)
+‘M-x cwarn-mode’
+‘M-x global-cwarn-mode’
+‘M-x hide-ifdef-mode’
+‘M-x ff-find-related-file’
+** TODO Asm Mode
+** TODO Fortran : Fortran mode
+* Building : Compiling and Testing Program
+** Compilation : Running Compilations under Emacs
+‘M-x compile’
+‘M-x recompile’
+‘M-x kill-compilation’
+compile-command
+compilation-scroll-output nil first-error
+compilation-always-kill
+compilation-environment
+** Complilation Mode
+compilation-auto-jump-to-first-error
+** Compilation Shell : Subshells for Compilation
+** Grep Searching : Searching with Grep under Emacs
+‘M-x grep’
+‘M-x lgrep’
+‘M-x grep-find’
+‘M-x find-grep’
+‘M-x rgrep’
+‘M-x zrgrep’
+‘M-x kill-grep’
+** Flymake : Finding Syntax Errors On The Fly
+** TODO Debuggers : Running Debuggers Under Emacs
+** Excuting Lisp Expressions
+Emacs Lisp mode : C-M-x
+Lisp Interaction mode : C-j
+Lisp mode : C-M-x
+** Lisp Libraries : Libraries of Lisp for Emacs
+M-x load-file
+"load path"
+M-x load-library
+load-prefer-newer
+load
+M-x load-library
+     (add-to-list 'load-path "/path/to/my/lisp/library")
+help-enable-auto-load
+load-dangerous-libraries
+** Lisp Eval : Evaluating Emacs Lisp Expressions
+M-x Emacs-lisp-mode
+‘M-:’ (‘eval-expression’).
+‘C-x C-e’ (‘eval-last-sexp’).
+‘C-M-x’ (in Emacs Lisp mode)
+‘M-x eval-defun’
+‘M-x eval-region’
+‘M-x eval-buffer’
+** Lisp Interaction : Lisp Interaction Buffers
+initial-scratch-message
+M-x ielm
+** External Lisp : Running an External Lisp
+* TODO Maintaining : Maintaining Large Programs
+** Version Control
+vs-handled-backends
+vc-refresh-state
+vs-state-refresh
+*** Introduction to VC
+* Abbreves
+** Abbrev Concepts
+M-x abbrev-mode
+** Defining Abbrevs
+‘C-x a g’ (‘add-global-abbrev’).
+‘C-x a l’     (‘add-mode-abbrev’).
+‘C-x a i g’     (‘inverse-add-global-abbrev’).
+‘C-x a i l’     (‘inverse-add-mode-abbrev’).
+‘M-x define-global-abbrev <RET> ABBREV <RET> EXP <RET>’
+‘M-x define-mode-abbrev <RET> ABBREV <RET> EXP <RET>’
+‘M-x kill-all-abbrevs’
+** Expanding Abbrevs : Controlling Abbrev Expansion
+abbre-all-caps
+‘M-'’     (‘abbrev-prefix-mark’).
+‘C-x a e’ (‘expand-abbrev’)
+‘M-x expand-region-abbrevs’
+** Examning and Editing Abbrevs
+‘M-x list-abbrevs’
+‘M-x edit-abbrevs’
+** Saving Abbrevs 
+‘M-x write-abbrev-file <RET> FILE <RET>’
+‘M-x read-abbrev-file <RET> FILE <RET>’
+‘M-x define-abbrevs’
+‘M-x insert-abbrevs’
+quietly-read-abbrev-file
+abbrev-file-name
+save-abbrevs
+** TODO Dynamic Abbrevs : Dynamic Abbrev Expansion
+** TODO Dabbrev Customization : Customization Dynamic Abbreviation
+* [[file:note/Dired.org][Dired]]
+* TODO Calendar/Diary : The Calendar and the Diary
+* Sending Mail
+** ^
+‘C-x m’ (‘compose-mail’).
+‘C-x 4 m’ (‘compose-mail-other-window’).
+‘C-x 5 m’ (‘compose-mail-other-frame’).
+‘C-c C-s’ (‘message-send’).
+‘C-c C-c’     (‘message-send-and-exit’).
+** Mail Format
+** Mail Headers
+** Mail Aliases
+~/.mailrc
+mail-personal-alias-file   
+alias Nick FULLADDRESSES
+     alias maingnu gnu@gnu.org local-gnu
+     alias jsmith "John Q. Smith <none@example.com>"
+source FILENAME
+M-x mail-abbrev-insert-alias
+** Mail Commands
+*** Mail Sending
+‘C-c C-c’     (‘message-send-and-exit’).
+‘C-c C-s’     (‘message-send’).
+message-kill-buffer-on-exit
+message-send-hook
+send-mail-function:
+sendmail-query-once
+smtpmail-send-in  smtpmail-smtp-server  ~/.aautoinfo
+sendmail-send-it
+mailclient-send-it  mailclient.el
+feedmail-sent-it
+sendmail-coding-system
+*** Header Editing
+‘C-c C-f C-t’ (‘message-goto-to’).
+‘C-c C-f C-s’ (‘message-goto-subject’).
+‘C-c C-f C-c’ (‘message-goto-cc’).
+‘C-c C-f C-b’ (‘message-goto-bcc’).
+‘C-c C-f C-r’ (‘message-goto-reply-to’).
+‘C-c C-f C-f’-goto-followup-to’).
+‘C-c C-f C-w’     (‘message-goto-fcc’).
+‘C-c C-b’ (‘message-goto-body’).
+‘<TAB>’ (‘message-tab’).
+*** Citing Mail
+‘C-c C-y’     (‘message-yank-original’).
+‘C-c C-q’     (‘message-fill-yanked-message’).
+message-yank-prefix
+message-yank-original
+mail-citation-hook
+*** Mail Miscellany
+C-c C-a        mml-attach-file
+mail-add-attachment
+content type
+description
+disposition inline attachment
+M-x ispell-message
+mail-yank-prefix
+text-mode-hook
+message-mode-hook
+message-setup-hook
+** Mail Signature
+message-signature
+~/.signature
+message-signature-file
+message-insert-signature
+mail mode:
+mail-signature
+mail-signature-file
+** Mail Amusements
+fortune-file
+forune-to-signature
+     (add-hook 'mail-setup-hook 'fortune-to-signature)
+** Mail Method : Mail-Composition Methods
+Message mode 
+mail mode
+MH-E mode
+mail-user-agent
+message-user-agnet message mode
+sendmail-user-agnet mail mode
+gnus-user-mode
+mh-e-user-mode
+read-mail-command
+
+* [[file:note/Rmail.org][Rmail]]
+

@@ -1,0 +1,277 @@
+#+TITLE:Reading Mail with Rmail
+* ^
+stores mail messages in Rmail files. 
+Rmail mode
+* Basics
+"primay Rmail file"       ~/RMAIL
+
+M-x ramil
+
+rmail-file-name
+
+message that is shown is called the “current message”.
+
+Messages are identified by consecutive integers which are their “message
+numbers”.
+
+- j move to a message by specifying its message number(not working)
+- s	rmail-expunge-and-save
+- To save the file without expunging, use ‘C-x C-s’.
+- q	rmail-quit
+-  ‘C-x s’ save Rmail file
+- b rmail-bury	buries the Rmail buffer and its summary
+* Scrolling
+‘<SPC>’ (‘scroll-up-command’).
+‘<DEL>’
+‘S-<SPC>’ (‘scroll-down-command’).
+‘.’ (‘rmail-beginning-of-message’).
+‘/’ (‘rmail-end-of-message’).
+* Motion
+‘n’ (‘rmail-next-undeleted-message’).
+‘p’     (‘rmail-previous-undeleted-message’).
+‘M-n’     (‘rmail-next-message’).
+‘M-p’     (‘rmail-previous-message’).
+‘C-c C-n’     (‘rmail-next-same-subject’).
+‘C-c C-p’ (‘rmail-previous-same-subject’).
+‘j’ (‘rmail-show-message’).
+‘>’ (‘rmail-last-message’).
+‘<’ (‘rmail-first-message’).
+‘M-s REGEXP <RET>’     (‘rmail-search’).
+‘- M-s REGEXP <RET>’
+* Deletion
+“Expunging” the Rmail file actually removes the deleted messages.
+
+‘d’     (‘rmail-delete-forward’).
+‘C-d’ (‘rmail-delete-backward’).
+‘u’ (‘rmail-undelete-previous-message’).
+‘x’ (‘rmail-expunge’).
+
+rmail-delete-message-hook
+
+A deleted message has the ‘deleted’ attribute, ‘deleted’ appears in the
+mode line
+* Inbox.
+places incoming mail for you in a file that we call your “inbox”.
+
+geting new mail:
+1. start up Rmail
+2. inbox
+3. movemail
+4. primary Rmail file
+
+g	 get new mail at any time.
+
+rmail-primary-inbox-list
+
+set-rmail-inbox-list
+
+separate Rmail files and inboxes:
+1. The inbox file format varies 
+2. danger of losing mail
+
+Rmail uses the standard ‘mbox’ format.
+rmail-mbox-format
+
+rmail-preserve-inbox
+
+In some cases, Rmail copies the new mail from the inbox file indirectly.
+* Files
+‘i FILE <RET>’ (‘rmail-input’).
+‘M-x set-rmail-inbox-list <RET> FILES <RET>’
+‘g’     (‘rmail-get-new-mail’).
+‘C-u g FILE <RET>’     Merge new mail from inbox file FILE.
+
+M-x rmail-input == C-u M-x rmail
+
+for menu select and out put:
+rmail-secondary-file-directory
+rmail-secondary-file-regexp
+
+rmail-inbox-list :: buffer-local
+* Output
+‘o FILE <RET>’     (‘rmail-output’).
+‘C-o FILE <RET>’ (‘rmail-output-as-seen’).
+‘w FILE <RET>’  rmail-output-body-to-file
+
+for menu:
+‘rmail-secondary-file-directory’ 
+‘rmail-secondary-file-regexp’
+
+with ‘o’ or ‘C-o’ gives message the ‘filed’ attribute.
+
+rmail-delete-after-output
+rmail-output-file-alist :: list elements has this form (REGEXP . NAME-EXP)
+
+rmail-automatic-folder-directives
+* Labels.
+various “labels” assigned to message as a means of classification.
+
+‘a LABEL <RET>’ (‘rmail-add-label’).
+‘k LABEL <RET>’     (‘rmail-kill-label’).
+‘C-M-n LABELS <RET>’     (‘rmail-next-labeled-message’).
+‘C-M-p LABELS <RET>’     (‘rmail-previous-labeled-message’).
+‘l LABELS <RET>’
+‘C-M-l LABELS <RET>’     (‘rmail-summary-by-labels’).
+* Attrs
+‘unseen’
+‘deleted’
+‘filed’
+‘answered’
+‘forwarded’
+‘edited’
+‘resent’
+‘retried’
+* Reply
+‘m’ (‘rmail-mail’).
+‘c’     (‘rmail-continue’).
+‘r’ (‘rmail-reply’).
+‘f’ (‘rmail-forward’).
+‘C-u f’ (‘rmail-resend’).
+‘M-m’     (‘rmail-retry-failure’).
+
+mail-dont-reply-to-names
+
+C-c C-y   which yanks in the message that you are replying.
+
+rmail-retry-ignored-headers
+rmai-ignored-headers
+rmail-enable-mime-composing
+
+M-x unforward-rmail-message
+
+ramil-mail-new-frame
+* Summary
+** ^
+“summary” is a buffer containing one line per message to give you an
+overview of the mail in an Rmail file.
+** Rmail Make Summary
+- ‘h’  (‘rmail-summary’).
+- ‘l LABELS <RET>’
+  - (‘rmail-summary-by-labels’)
+- ‘C-M-l LABELS <RET>’     
+  - (‘rmail-summary-by-labels’).
+- ‘C-M-r RCPTS <RET>’
+  - (‘rmail-summary-by-recipients’).
+- ‘C-M-t TOPIC <RET>’
+  - (‘rmail-summary-by-topic’).
+- ‘C-M-s REGEXP <RET>’
+  - (‘rmail-summary-by-regexp’).
+- ‘C-M-f SENDERS <RET>’
+  - (‘rmail-summary-by-senders’).
+
+rmail-summary-window-size
+rmail-summary-line-count-flag
+** Rmail Summary Edit
+rmail-summary-scroll-between-messages
+- M-u	rmail-summary-undelete-many
+- ‘n’ (‘rmail-summary-next-msg’).
+- ‘p’ (‘rmail-summary-previous-msg’).
+- ‘M-n’     (‘rmail-summary-next-all’).
+- ‘M-p’     (‘rmail-summary-previous-all’).
+- ‘>’     (‘rmail-summary-last-message’).
+- ‘<’     (‘rmail-summary-first-message’).
+- ‘j’
+  ‘<RET>’‘rmail-summary-goto-msg’)
+- ‘M-s PATTERN <RET>’ (‘rmail-summary-search’)
+- ‘C-M-n LABELS <RET>’     (‘rmail-summary-next-labeled-message’).
+- ‘C-M-p LABELS <RET>’ (‘rmail-summary-previous-labeled-message’).
+- ‘C-c C-n <RET>’ (‘rmail-summary-next-same-subject’)
+- ‘C-c C-p <RET>’ (‘rmail-summary-previous-same-subject’).
+rmail-redisplay-summary
+Q	rmail-summary-wipe
+q	rmail-summary-quit
+b	rmail-summary-bury
+* Sorting
+- ‘C-c C-s C-d’  ‘M-x rmail-sort-by-date’
+- ‘C-c C-s C-s’  ‘M-x rmail-sort-by-subject’
+- ‘C-c C-s C-a’  ‘M-x rmail-sort-by-author’
+- ‘C-c C-s C-r’  ‘M-x rmail-sort-by-recipient’
+- ‘C-c C-s C-c’  ‘M-x rmail-sort-by-correspondent’
+- ‘C-c C-s C-l’  ‘M-x rmail-sort-by-lines’
+- ‘C-c C-s C-k <RET> LABELS <RET>’
+  ‘M-x rmail-sort-by-labels <RET> LABELS <RET>’
+* Display.
+‘t’  (‘rmail-toggle-header’).
+rmail-ignored-headers
+rmail-nonignored-headers
+rmail-displayed-headers
+rmail-highlight
+rmail-highlighted-headers
+
+MIME (Multipurpose Internet Mail Extensions) displays each part with a
+ “tagline” :
+- ‘<RET>’   (‘rmail-mime-toggle-hidden’).
+- ‘<TAB>’     (‘rmail-mime-next-item’).
+- ‘S-<TAB>’  (‘rmail-mime-previous-item’).
+- ‘v’  (‘rmail-mime’).
+
+rmail-mime-prefer-html 
+rmail-enable-mime 
+‘M-x rmail-epa-decrypt’ 
+
+highlight and activate URLs:
+(add-hook 'rmail-show-message-hook 'goto-address-mode)
+C-c <RET>’ browse urls
+* Coding
+Rmail automatically decodes messages with 'charset=CHARSET'
+
+rmail-redecode-body
+rmail-file-coding-system
+* Editing
+e  rmail-edit-current-message
+C-c C-c  rmail-cease-edit
+‘C-c C-]’ (‘rmail-abort-edit’).
+
+Entering Rmail Edit mode runs the hook ‘text-mode-hook’; then it runs the
+hook ‘rmail-edit-mode-hook’. Returning to ordinary Rmail mode adds the
+attribute ‘edited’ to the message, if you have made any changes in it.
+* Digest
+A “digest message” is a message which exists to contain and carry several
+other messages.
+
+undigestify-rmail-message
+* Rot13
+rot13-other-window
+* Movemail
+‘movemail’ program moves your inbox to your Rmail file
+- GNU Mailutils version (--with-mailutils when insall). 
+  - support additional features and is more secure.
+  - accepts mailbox arguments in URL form
+    - PROTO://[USER[:PASSWORD]@]HOST-OR-FILE-NAME[:PORT]
+- Emacs-specific version (built in)
+  - not recommended
+    - does not support POP3 via TLS.
+
+rmail-movemail-program If it is ‘nil’, Rmail searches for ‘movemail’:
+1. listed in ‘rmail-movemail-search-path’, 
+2. exec-path
+3. exec-directory
+* Remote Mailboxes
+‘movemail’ work only with POP3, not with older versions.
+
+specify a POP3 inbox by using a POP3 “URL”.
+- pop://USERNAME@HOSTNAME:PORT
+- pop://USERNAME:PASSWORD@HOSTNAME:PORT
+- rmail-remote-password
+
+accessing remote mailboxes via IMAP.
+- imap://USERNAME[:PASSWORD]@HOSTNAME:PORT
+
+- password retrieve algorithm:
+  1. PASSWORD is present.
+  2. If the variable ‘rmail-remote-password-required’ is ‘nil’, Rmail
+     assumes no password is required.
+  3. If the variable ‘rmail-remote-password’ is non-‘nil’, its value is
+     used.
+  4. Otherwise, Rmail will ask you for the password to use.
+
+rmail-movemail-flags
+rmail-preserve-inbox
+
+messages by adding the ‘-r’ flag to ‘rmail-movemail-flags’.
+‘--tls’ flag to ‘rmail-movemail-flags’.
+* Other Mailbox Formats
+maildir:///var/spool/mail/in
+* references
+https://systems.cs.uoregon.edu/wiki/index.php?n=Help.EmailEmacsRMAIL
+* [[file:~/data/emacs/Info(C-h%20i)/Emacs/note.org][up]]

@@ -1,0 +1,128 @@
+#+TITLE:Dired
+* ^
+C-x C-d list-directory
+* Dired Enter : Entering Dired
+C-x d   dired
+C-x C-f DIR   dired
+dired-listing-switches
+dired-use-ls-dired
+unspecified
+C-x 4 d    dired-other- window
+C-x 5 d    dired-other- frame
+* Dired Navigation :            Navigation in the Dired Buffer
++------------------------+------------------------------+
+|<SPC> or                |down                          |
++------------------------+------------------------------+
+|p                       |up                            |
++------------------------+------------------------------+
+|<DEL>                   |move up and unflag            |
++------------------------+------------------------------+
+|j                       |dired-goto-file               |
++------------------------+------------------------------+
+| M-s f C-s              |dired-isearch-filenames       |
++------------------------+------------------------------+
+|M-s f M-C-s             |dired-isearch-filenams-regexp |
++------------------------+------------------------------+
+|dired-isearch-filenames |t  dwim                       |
++------------------------+------------------------------+
+* Dired Deletion : Deleting Files with Dired
+‘d’ (‘dired-flag-file-deletion’).
+‘u’ (‘dired-unmark’).
+‘<DEL>’ (‘dired-unmark-backward’).
+‘x’ (‘dired-do-flagged-delete’).
+dired-recursive-deletes
+delete-by-moving-to-trash
+* Flagging Many Flies at Once
+    ‘#’ (‘dired-flag-auto-save-files’)
+    ‘~’ (‘dired-flag-backup-files’) 
+    ‘.’ (period, ‘dired-clean-directory’)
+    ‘dired-kept-versions’
+    ‘kept-old-versions’.
+    ‘% &’ (‘dired-flag-garbage-files’)
+    ‘dired-garbage-files-regexp’
+    ‘% d’ (‘dired-flag-files-regexp’)
+* Dired Visiting : Visiting Files in Dired
+    ‘f’ (‘dired-find-file’)
+    ‘<RET>’
+    ‘e’
+    Equivalent to ‘f’.
+    ‘o’     (‘dired-find-file-other-window’)
+    ‘C-o’     (‘dired-display-file’).
+    ‘v’     (‘dired-view-file’)
+    ‘^’     (‘dired-up-directory’).
+* Marks vs Flags : Dired Marks vs. Flags
+* Operating on Files
+‘C NEW <RET>’ (‘dired-do-copy’)
+‘D’ (‘dired-do-delete’)
+‘R NEW <RET>’ (‘dired-do-rename’)
+‘H NEW <RET>’ (‘dired-do-hardlink’)
+‘S NEW <RET>’ (‘dired-do-symlink’).
+‘M MODESPEC <RET>’ (‘dired-do-chmod’)
+‘G NEWGROUP <RET>’     (‘dired-do-chgrp’).
+‘O NEWOWNER <RET>’     (‘dired-do-chown’)
+‘T TIMESTAMP <RET>’ (‘dired-do-touch’)
+‘P COMMAND <RET>’ (‘dired-do-print’)
+‘Z’ (‘dired-do-compress’)
+‘c’ (‘dired-do-compress-to’)
+‘:d’ (‘epa-dired-do-decrypt’)
+‘:v’     (‘epa-dired-do-verify’)
+‘:s’ (‘epa-dired-do-sign’)
+‘:e’ (‘epa-dired-do-encrypt’)
+‘L’ (‘dired-do-load’).  
+‘B’     (‘dired-do-byte-compile’)
+‘A REGEXP <RET>’     (‘dired-do-find-regexp’).
+‘Q REGEXP <RET> TO <RET>’     (‘dired-do-find-regexp-and-replace’).
+* TODO Shell Commands in Dired
+* Transforming File Name 
+‘% u’     (‘dired-upcase’)
+‘% l’     (‘dired-downcase’)
+‘% R FROM <RET> TO <RET>’
+‘% C FROM <RET> TO <RET>’
+‘% H FROM <RET> TO <RET>’
+‘% S FROM <RET> TO <RET>’
+* File Comparison with Dired
+=
+* Subdirectories in Dired
+ ‘i’ (‘dired-maybe-insert-subdir’):
+* Subdirectory Switches
+dired-undo
+M-x dired-reset-subdir-switches
+* Subdirectory Motion : Moving Over Subdirectories
+‘C-M-n’     (‘dired-next-subdir’).
+‘C-M-p’     (‘dired-prev-subdir’).
+‘C-M-u’ (‘dired-tree-up’).
+‘C-M-d’ (‘dired-tree-down’).
+‘<’ (‘dired-prev-dirline’).
+ ‘>’ (‘dired-prev-dirline’).
+* Hiding Subdirectories
+‘$’ (‘dired-hide-subdir’)
+‘M-$’ (‘dired-hide-all’)
+* Dired Updating : Updating the Dired Buffer
+‘g’ (‘revert-buffer’).
+‘l’ (‘dired-do-redisplay’).
+‘k’     (‘dired-do-kill-lines’).
+‘s’     (‘dired-sort-toggle-or-edit’).
+‘C-u s SWITCHES <RET>’ Refresh the Dired buffer using SWITCHES as‘dired-listing-switches’.
+* Dired and Find
+M-x find-grep-dired
+M-x find-name-dired
+M-x grep-find
+M-x find-dired
+find-ls-option
+M-x locate
+M-x locate-with-filter
+* Wdired : Editing the Dired Buffer
+C-x C-q     dired-toggle-read-only
+C-c C-c     wdired-finish-edit
+wdired-allow-to-change-permissions
+* TODO Image-Dired : Viewing Image Thumbnails in Dired
+* Other Dired Features
++      dired-create-directory
+M-s a C-s      dired-do-isearch
+M-s a M-C-s     dired-do-isearch-regexp
+W      dired-copy-filename-as-kill    C-w
+(      dired-hide-details-mode
+‘dired-hide-details-hide-symlink-targets
+‘dired-hide-details-hide-information-lines’
+M-x dired-compare-directories
+M-x dired-compare-directories <RET> (> mtime1 mtime2) <RET>

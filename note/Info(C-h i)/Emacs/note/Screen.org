@@ -1,0 +1,40 @@
+#+TITLE: 1 The Organization of the Screen
+* ^
+frame
+menu bar
+tool bar
+window ----  display buffer
+mode line
+echo area
+* 1.1 Point
+you should think of point as _between_ two characters.
+
+* 1.2 The Echo Area
+"echoing"
+"error message"
+C-x = : describing the character at point.
+"..." : commands that take a long time.
+"done" : commands that finished.
+"*Message*" : where informative echo area mesages are saved in a
+special buffer named.
+the echo area is also used to display the "minibuffer".
+* 1.3 The Mode Line
+"mode line" which describes what is going on in the current buffer.
+
+mode line format:
+      CS:CH-FR  BUF      POS LINE   (MAJOR MINOR)
+CS : Character set
+CH : like state of window .
+FR : frame name
+BUF : buffer name
+POS : positiong
+LINE :
+MAJOR :
+MINOR :
+
+* 1.4 The Menu Bar
+type ‘C-h k’, and then select the menu bar with the mouse in the
+usual way.
+<F10> : 'Menu-bar-open'
+
+* [[file:~/data/emacs/Info(C-h%20i)/Emacs/note.org][home]]

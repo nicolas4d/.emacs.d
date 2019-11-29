@@ -1,0 +1,96 @@
+* .
+- matches any single character
+a.b
+adb ajb aib ...
+* *
+- postfix operator
+- repetitively as many times as posiible
+o* (including no ‘o’s).
+o oo ooo oooo ...
+- smallest possible preceding expression.
+fo*
+f fo foo
+- construct by matching, immediately, as many repetitions as can be found.
+ca*ar
+caaar
+- *Warning:* Nested repetition operators can run for an indefinitely long time,
+  if they lead to ambiguous matching.
+\(x+y*\)*a
+\(x*\)*
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxz
+* +
+- postfix operator
+- at least once
+ca+r
+car caaaar
+* ?
+- postfix operator
+- either once or not at all
+ca?r
+car cr
+
+* ‘*?’, ‘+?’, ‘??’
+- These are “non-greedy” variants of the operators ‘*’, ‘+’ and ‘?’. the
+  non-greedy variants match the smallest possible substring
+c[ad]*a
+c[ad]*?a
+cdaaada
+* [ ... ]
+** character alternative
+c[ad]*r
+cr car cdr caddaar
+** include character range : -
+[a-z]
+[a-z$%]
+** case-fold-search
+** always represents a sequence in ASCII order
+** just special for ] - ^
+** for include ] - ^
+*** ] first character
+[]a]
+] 
+*** - first/last or after a range
+[]-]
+] -
+*** ^ not in the first
+** unibyte C multibyte C2 : [C-C2]
+C..?\377 C1...C2
+** character classes
+[ [:ascii:] ] note: no space
+* ‘[^ ... ]’ : complemented character alternative
+[^a-z0-9A-Z] 
+matches all characters except letters and digits.
+
+character classes
+[^[:ascii:]]
+* ^
+** when matching a buffer
+^ matches the empty string.
+^foo matches beginning fo the line.
+foo
+** When matching a string 
+‘^’ matches at the beginning of the string or after a newline character.
+** For historical compatibility reasons
+‘^’ can be used only at the beginning of the regular expression, 
+or after ‘\(’, ‘\(?:’ or ‘\|’.
+* $
+** end of the line
+x+$
+xxxxxxxxxxx
+** matching a string 
+‘$’ matches at the end of the string or before a newline character.
+** for historical compatibility reasons
+‘$’ can be used only at the end of the regular expression, or before ‘\)’ or
+     ‘\|’.
+* \
+**  ‘\’ quotes special characters
+‘\$’ is a regular expression
+** introduces additional special constructs
+* note
+*foo == \*foo
+
+[^\]’ (‘"[^\\]"’ for Lisp string syntax), which matches any single character
+except a backslash.
+
+The exact rules are that at the beginning of a regexp, ‘[’ is special
+and ‘]’ not.

@@ -1,0 +1,45 @@
+#+TITLE:Tips
+* Library Headers
+#+BEGIN_SRC emacs-lisp
+;;; foo.el --- Support for the Foo programming language
+
+     ;; Copyright (C) 2010-2019 Your Name
+
+     ;; Author: Your Name <yourname@example.com>
+     ;; Maintainer: Someone Else <someone@example.com>
+     ;; Created: 14 Jul 2010
+     ;; Keywords: languages
+     ;; URL: http://example.com/foo
+
+     ;; This file is not part of GNU Emacs.
+
+     ;; This file is free software...
+     ...
+     ;; along with this file.  If not, see <https://www.gnu.org/licenses/>.
+#+END_SRC
+
+;; HEADER-NAME:
+- ‘Author’
+    #+BEGIN_SRC emacs-lisp
+;; Author: Your Name <yourname@example.com>
+;;      Someone Else <someone@example.com>
+;;      Another Person <another@example.com>
+    #+END_SRC
+- ‘Maintainer’
+    This header has the same format as the Author header.
+- ‘Created’ :: create date , optional
+- ‘Version’
+- ‘Keywords’
+    - finder-by-keyword
+    - M-x checkdoc-package-keywords <RET>  not in finder-known-keywords
+    - checkdoc-package-keywords-flag
+- ‘Homepage’
+- ‘URL’
+- ‘Package-Version’ :: when Version can not parsed by version-to-list
+- ‘Package-Requires’
+  ;; Package-Requires: ((gnus "1.0") (bubbles "2.7.2") cl-lib (seq))
+1. ‘;;; Commentary:’ :: This begins introductory comments that explain how the
+     library works.
+2. ‘;;; Change Log:’ ::
+3. ‘;;; Code:’ ::
+4. ‘;;; FILENAME ends here’

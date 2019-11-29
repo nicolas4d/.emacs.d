@@ -1,0 +1,173 @@
+#+TITLE:Lisp Data Types
+* ^
+A Lisp “object” is a piece of data used and manipulated by Lisp programs.
+* Printed Representation
+Lisp printer function prin1.
+Lisp reader function read.
+hash notation :: #<objects name>
+* Comments
+;
+The ‘#@COUNT’ construct, which skips the next COUNT characters.
+* Programming Types
+** ^
+tow general categories of types:
+- to do with Lisp programming.
+- to do with Lisp editing.
+** Integer Type
+1
+** Floating-Point Type
+C data type ‘double’ to store the value
+
+‘1500.0’, ‘+15e2’, ‘15.0e+2’, ‘+1500000e-3’, and ‘.15e4’ 
+** Character Type
+   characters are represented by their character codes. 
+*** Basic Char Syntax
+read syntax:
+?Q => 81
+
+punctuation characters:
+?\a ⇒ 7                 ; control-g, ‘C-g’
+?\b ⇒ 8                 ; backspace, <BS>, ‘C-h’
+?\t ⇒ 9                 ; tab, <TAB>, ‘C-i’
+?\n ⇒ 10                ; newline, ‘C-j’
+?\v ⇒ 11                ; vertical tab, ‘C-k’
+?\f ⇒ 12                ; formfeed character, ‘C-l’
+?\r ⇒ 13                ; carriage return, <RET>, ‘C-m’
+?\e ⇒ 27                ; escape character, <ESC>, ‘C-[’
+?\s ⇒ 32                ; space character, <SPC>
+?\\ ⇒ 92                ; backslash character, ‘\’
+?\d ⇒ 127               ; delete character, <DEL>
+*** General Escape Syntax
+- Unicode names, if any.
+  (message "?\N{LATIN SMALL LETTER A WITH GRAVE}")
+- Unicode values. ?\N{U+X} ?\uXXXX ?\UXXXXXXXX
+  message "?\N{U+E0} ?\u00e0 ?\U000000E0")
+- hexadecimal character codes.
+  (message "?\x41 ?\x1 ?\xe0")
+- character code in octal.
+  (message "?\101 ?\001 ?\002")
+*** Ctl-Char Syntax
+?\^I ⇒ 9     ?\C-I ⇒ 9
+?\^? ⇒ 127     ?\C-? ⇒ 127  <DEL>
+*** Meta-Char Syntax
+\M-
+*** Other Char Bits
+\H- \s- \A-
+hyper super alt
+** Symbol Type
+A “symbol” in GNU Emacs Lisp is an object with a name.
+
+A symbol whose name starts with a colon (‘:’) is called a “keyword
+symbol”. 
+
+'##’ interned symbol whose name is an empty string. 
+
+‘#:FOO’ is uninterned symbol whose name is FOO.
+** Sequence Type
+A “sequence” is a Lisp object that represents an ordered set of elements.
+- lists ()===nil
+- arrays
+** Cons Cell Type
+*** ^
+“cons cell” is an object that consists of CAR slot and CDR slot.
+
+we refer to any structure made out of cons cells as a “list structure”.
+*** Box Diagrams
+ ---------------       ----------------       -------------------
+| car   | cdr   |     | car    | cdr   |     | car       | cdr   |
+| rose  |   o-------->| violet |   o-------->| buttercup |  nil  |
+|       |       |     |        |       |     |           |       |
+ ---------------       ----------------       -------------------
+*** Dotted Pair Notation
+(A . B)
+(A . (B . C))
+(A . B . C) //invalid
+*** Association List Type
+“association list” or “alist” is elements are cons cells. In each element,
+CAR is “key”, CDR is “associated "value".
+
+((rose . red) (lily . white) (buttercup . yellow))
+** Array Type
+“array” is composed of an arbitrary number of slots for holding or referring
+to other Lisp objects, arranged in a contiguous block of memory.
+
+- array : access element same time
+- list : access element last more the begin
+
+Emacs defines four types of array: 
+- strings
+- vectors
+- bool-vectors
+- char-tables.
+
+"zero-origin" indexing
+
+All Emacs Lisp arrays are one-dimensional.
+
+The array type is a subset of the sequence type
+** String Type
+“string” is an array of characters.
+*** Syntax for Strings
+The read syntax for a string is a double-quote, an arbitrary number of
+characters, and another double-quote, ‘"like this"’.
+*** Non-ASCII in Strings
+- multibyte :: multibyte strings store human-readable text
+- unibyte :: store raw bytes
+*** Nonprinting Characters
+\
+*** Text Props and Strings
+A string can hold properties for the characters it contains, in addition
+to the characters themselves. 
+
+#("foo bar" 0 3 (face bold) 3 4 nil 4 7 (face italic))
+** Vector Type
+A “vector” is a one-dimensional array of elements of any type. 
+[1 "two" (three)]
+** Char-Table Type
+A “char-table” is a one-dimensional array of elements of any type, indexed by
+character codes.
+#^
+#^^ sub-char-tables
+** Bool-Vector Type
+A “bool-vector” is a one-dimensional array whose elements must be ‘t’ or
+‘nil’.
+printed representation : #&
+(make-bool-vector 3 t)
+(make-bool-vector 3 nil)
+(equal #&3"\377" #&3"\007")
+** Hash Table Type
+A hash table is a very fast kind of lookup table, somewhat like an
+alist in that it maps keys to corresponding values, but much faster.
+(make-hash-table)
+** Function Type
+Lisp functions are executable code, just like functions in other programming
+languages.
+function is symbol 'lambda'
+funcall 
+apply
+** Macro Type
+A “Lisp macro” is a user-defined construct that extends the Lisp
+language.
+
+A Lisp macro has the form : CAR the symbol ‘macro’ CDR is a Lisp
+function object, including the ‘lambda’ symbol.
+** Primitive Function Type
+“primitive function” is a function callable from Lisp but written
+in the C programming language. 
+
+Primitive functions or “subrs(subroutine)” or “built-in functions”
+
+A primitive function that does not evaluate all its arguments is
+called a “special form”
+
+(symbol-function 'car)          
+(subrp (symbol-function 'car))  
+** Byte-Code Type
+
+** Autoload Type
+** Finalizer Type
+* Editing Types
+* Circular Objects
+* Type Predicates
+* Equality Predicates
+* [[file:~/data/emacs/Info(C-h%20i)/Elisp/note.org][home]]

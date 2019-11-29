@@ -1,0 +1,138 @@
+#+TITLE: Emacs Lisp
+- [[file:note/Introduction.org][Introduction]]
+- [[file:note/Lisp%20Data%20Types.org][Lisp Data Types]]
+* Numbers
+* Strings and Characters
+* Lists
+* Sequences Arrays Vectors
+* Records
+* Hash Tables
+* Symbols
+* Evaluation
+* Control Structures
+* Variables
+* Functions
+** Core Advising Primitives
+** Advising Named Functions
+(defun be-addvise ()
+  "be addvise"
+  (message "be-addvise")
+  )
+
+(defun advise ()
+  (message "advise")
+  )
+
+(advice-add 'be-addvise :after 'advise)
+
+(be-addvise)
+* Macros
+* Customization
+* Loading
+** Autoload
+autoload lets you register the existence of a function or macro, but put off
+loading the file that defines it. firset call function, looking up the
+documentation, completion of variable and function name will automatically loads
+the proper library.
+*** Autoload by Prefix
+describe-variable
+describe-function
+
+definition-prefixes
+register-definition-prefixes
+update-file-autoloads
+
+autoload-compute-prefixes
+*** When to Autoload
+- The most common items to autoload are the interactive entry points to a
+  library. for example, major-mode.
+- Variables usually don’t need to be autoloaded.
+- Don’t autoload a user option just so that a user can set it.
+- Never add an autoload _comment_ to silence a compiler warning in another file.
+*** ^
+set up an autoloaded function: 
+- by calling ‘autoload’
+- by writing a “magic” comment
+-- Function: autoload function filename &optional docstring interactive
+          type
+-- Function: autoloadp object
+
+A magic autoload comment (often called an “autoload cookie”) consists
+of ‘;;;###autoload’, on a line by itself, just before the real
+definition of the function in its autoloadable source file.
+* Byte Compilation
+* Debugging
+* Read and Print
+* Minibuffers
+* Command Loop
+** Reading Input
+The editor command loop reads key sequences using the function
+‘read-key-sequence’, which uses ‘read-event’.
+
+(read-key-sequence nil)
+*** Key Sequence Input
+*** Reading One Event
+*** Event Mod
+*** Invoking the Input Method
+*** Quoted Character Input
+*** Event Input Misc
+* Keymaps
+* Modes
+** Hooks
+**** Setting Hooks
+(add-hook 'lisp-interaction-mode-hook 'auto-fill-mode)
+-- Function: add-hook hook function &optional depth local
+-- Function: remove-hook hook function &optional local
+* Documentation
+* Files
+* Backups and Auto-Saving
+* Buffers
+* Windows
+* Frames
+* Positions
+* Markers
+* Text
+* Non-ASCII Characters
+* Searching and Matching
+* Syntax Tables
+* Abbrevs
+* [[file:note/Threads.org][Threads]]
+* Processes
+* Display
+* System Interface
+** Timers
+timer is a special object.
+
+-- Function: timerp object
+
+-- Command: run-at-time time repeat function &rest args
+#+BEGIN_SRC emacs-lisp
+  (defun message-d()
+    (message "d")
+    )
+
+  (setq cur-timer (run-at-time "1 sec" 2 'message-d))
+  (cancel-timer cur-timer)
+#+END_SRC
+
+-- Function: cancel-timer timer
+** Time of Day
+-- Function: current-time-string &optional time zone
+(current-time-string)
+-- Function: current-time
+(current-time)
+** Time Calculations
+ -- Function: time-subtract t1 t2
+(setq t2 (current-time))
+(setq t1 (current-time))
+(float-time (time-subtract t1 t2))
+* [[file:note/Packaging.org][Packaging]]
+* Antinews
+* GNU Free Documentation License
+* GPL
+* [[file:note/Tips.org][Tips]]
+* GNU Emacs Internals
+* Standard Errors
+* Standard Keymaps
+* Standard Hooks
+* Index

@@ -1,0 +1,60 @@
+#+TITLE Working with source code
+* Structure of code blocks
+src block:
+  #+NAME: <name>
+  #+BEGIN_SRC <language> <switches> <header arguments>
+       <body>
+  #+END_SRC
+
+<s + <TAB>
+
+iline code block:
+src_<language>{<body>}
+or
+src_<language>[<header arguments>]{<body>}
+* Editing source code
+‘C-c '’ edit
+‘C-x C-s’ save
+org-edit-src-auto-save-idle-delay
+org-edit-src-turn-on-auto-save
+
+org-src-mode:
+org-edit-structure
+‘org-src-lang-modes’
+‘org-src-window-setup’
+‘org-src-preserve-indentation’
+org-src-ask-before-returning-to-edit-buffer
+* Exporting code blocks
+:exports
+‘:exports code’
+‘:exports results’
+‘:exports both’
+‘:exports none’
+:eval never-export
+org-export-use-babel
+* Extracting source code
+** Header arguments
+‘:tangle no’
+‘:tangle yes’
+‘:tangle filename’
+** Functions
+‘C-c C-v t’ ‘org-babel-tangle’
+‘org-babel-tangle-file’ ‘C-c C-v f’.
+** Hooks
+‘org-babel-post-tangle-hook’
+** Jumping between code and Org
+org-babel-tangle-jump-to-org
+
+block header arguments: 
+‘padline’
+‘comments’
+* Evaluating code blocks
+‘C-c C-c’ or ‘C-c C-v e’ org-babel-execute-src-block
+* Library of Babel
+* Languages
+org-babel-load-languages
+* Header arguments
+* Results of evaluation
+* Noweb reference syntax
+* Key bindings and useful functions
+* Batch execution
