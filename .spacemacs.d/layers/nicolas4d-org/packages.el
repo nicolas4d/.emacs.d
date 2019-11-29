@@ -81,7 +81,7 @@ Each entry is either:
                              '(("\\.png\\'" . "google-chrome-stable %s"))
                              org-file-apps
                              )
-       org-agenda-files '("~/emacs/.org")
+       org-agenda-files '("~/.emacs.d/.org")
        org-return-follows-link t
        )
     )))
