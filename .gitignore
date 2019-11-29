@@ -12,3 +12,5 @@ spacemacs
 url
 transient
 abbrev_defs
+.org/
+.rmail
