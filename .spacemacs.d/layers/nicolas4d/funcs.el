@@ -58,5 +58,10 @@ for excute in dotspacemacs/user-config."
   (interactive)
   (find-file "~/website.org"))
 
+(defun find-miscellaneous()
+  "find miscellaneous"
+  (interactive)
+  (find-file "~/.data/ubuntu/miscellaneous/"))
+
 
 

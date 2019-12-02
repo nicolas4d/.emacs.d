@@ -4,7 +4,4 @@
 
   ;; occur
   "so" 'occur-dwim
-
-  ;; find website.org
-  "fw" 'find-website-file
   )
