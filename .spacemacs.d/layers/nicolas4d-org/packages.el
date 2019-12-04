@@ -83,6 +83,7 @@ Each entry is either:
                              )
        org-agenda-files '("~/.emacs.d/.org")
        org-return-follows-link t
+       org-startup-with-latex-preview t
        )
     )))
 ;;; packages.el ends here
