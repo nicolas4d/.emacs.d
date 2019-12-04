@@ -9,5 +9,4 @@
                                         try-expand-line
                                         try-complete-lisp-symbol-partially
                                         try-complete-lisp-symbol)
-      company-minimum-prefix-length 1
       )
