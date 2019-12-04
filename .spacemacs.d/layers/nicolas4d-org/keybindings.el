@@ -3,10 +3,9 @@
   "n" 'org-next-visible-heading
   "u" 'outline-up-heading
   "t" 'org-todo
-  "l" 'org-insert-link
   "o" 'org-open-at-point
   "l" nil
-  "lt" 'org-toggle-latex-fragment
+  "l" 'org-toggle-latex-fragment
   )
 
 (spacemacs/set-leader-keys
