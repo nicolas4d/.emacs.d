@@ -1,7 +1,7 @@
 (defun nicolas4d/copy-picture-to-dir ()
   "copyt ~/Pictures/* to dir that I worked Now."
   (interactive)
-  (shell-command "mv ~/Pictures/* ~/python/DataStructuresAndAlgorithmsUsingPython/")
+  (shell-command "mv ~/Pictures/* ~/python/Data-Structures-and-Algorithms-Using-Python/")
   )
 
 (defun nicolas4d/exec-xmodmap ()
