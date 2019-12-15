@@ -23,6 +23,6 @@
   "se" 'eshell
 
   ;; file
-  "f SPC w" 'find-website-file
-  "f SPC m" 'find-miscellaneous
+  "f w" 'find-website-file
+  "f m" 'find-miscellaneous
   )
