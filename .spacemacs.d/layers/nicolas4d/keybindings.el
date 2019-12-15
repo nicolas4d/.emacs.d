@@ -5,6 +5,7 @@
 (global-set-key (kbd "M-c") 'kmacro-call-macro)
 (global-set-key (kbd "C-M-k") 'kill-paragraph)
 (global-set-key (kbd "M-l") 'move-to-window-line-top-bottom)
+(global-set-key (kbd "C-j") 'end-of-line-and-new-line-and-indent)
 
 (spacemacs/set-leader-keys
   ;; kmacro
