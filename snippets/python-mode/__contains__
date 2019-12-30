@@ -3,5 +3,5 @@
 # key: cont;
 # group: dunder methods
 # --
-def __contains__(self, el):
+def __contains__(self, ${1:el}):
     $0
