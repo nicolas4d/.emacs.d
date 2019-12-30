@@ -1,0 +1,51 @@
+* Auto-YASnippet
+* Installation instructions
+  (global-set-key (kbd "H-w") #'aya-create)
+  (global-set-key (kbd "H-y") #'aya-expand)
+  
+  I also like to bind this, instead of using TAB to expand yasnippets:
+
+  (global-set-key (kbd "C-o") #'aya-open-line)
+* Usage
+** A basic example
+   Suppose we want to write:
+
+   count_of_red = get_total("red");
+   count_of_blue = get_total("blue");
+   count_of_green = get_total("green");
+
+   We write a template, using ~ to represent variables that we want to replace:
+
+   count_of_~red = get_total("~red");
+
+   Call aya-create with point on this line, and the template is converted to a value we want:
+
+   count_of_red = get_total("red");
+
+   Then call aya-expand and you can 'paste' additional instances of the template. Yasnippet is active, so you can tab between placeholders as usual.
+
+   count_of_red = get_total("red");
+   count_of_ = get_total("");
+*** exercise
+    count_of_red = get_total("red")
+    count_of_d = get_total("d")
+
+** Inline text
+   ~ replaces the symbol after it. If you want to replace arbitrary text, use
+   Emacs-style backticks:
+
+   `red'_total = get_total("`red'_values");
+*** exercise
+    red_total = get_total("red_values")
+    blue_total = get_total("blue_values")
+** Multiple placeholders
+** JavaScript - aya-create-one-line:
+** Generating comments
+** Mixed case templates
+* Functions
+** aya-create
+** aya-expand
+** aya-open-line
+** aya-persist-snippet
+* references
+  https://github.com/abo-abo/auto-yasnippet
