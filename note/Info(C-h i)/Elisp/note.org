@@ -14,62 +14,62 @@
 * Functions
 ** Core Advising Primitives
 ** Advising Named Functions
-(defun be-addvise ()
-  "be addvise"
-  (message "be-addvise")
-  )
+   (defun be-addvise ()
+   "be addvise"
+   (message "be-addvise")
+   )
 
-(defun advise ()
-  (message "advise")
-  )
+   (defun advise ()
+   (message "advise")
+   )
 
-(advice-add 'be-addvise :after 'advise)
+   (advice-add 'be-addvise :after 'advise)
 
-(be-addvise)
+   (be-addvise)
 * Macros
 * Customization
 * Loading
 ** Autoload
-autoload lets you register the existence of a function or macro, but put off
-loading the file that defines it. firset call function, looking up the
-documentation, completion of variable and function name will automatically loads
-the proper library.
+   autoload lets you register the existence of a function or macro, but put off
+   loading the file that defines it. firset call function, looking up the
+   documentation, completion of variable and function name will automatically loads
+   the proper library.
 *** Autoload by Prefix
-describe-variable
-describe-function
+    describe-variable
+    describe-function
 
-definition-prefixes
-register-definition-prefixes
-update-file-autoloads
+    definition-prefixes
+    register-definition-prefixes
+    update-file-autoloads
 
-autoload-compute-prefixes
+    autoload-compute-prefixes
 *** When to Autoload
-- The most common items to autoload are the interactive entry points to a
-  library. for example, major-mode.
-- Variables usually don’t need to be autoloaded.
-- Don’t autoload a user option just so that a user can set it.
-- Never add an autoload _comment_ to silence a compiler warning in another file.
+    - The most common items to autoload are the interactive entry points to a
+      library. for example, major-mode.
+    - Variables usually don’t need to be autoloaded.
+    - Don’t autoload a user option just so that a user can set it.
+    - Never add an autoload _comment_ to silence a compiler warning in another file.
 *** ^
-set up an autoloaded function: 
-- by calling ‘autoload’
-- by writing a “magic” comment
--- Function: autoload function filename &optional docstring interactive
-          type
--- Function: autoloadp object
+    set up an autoloaded function: 
+    - by calling ‘autoload’
+    - by writing a “magic” comment
+    -- Function: autoload function filename &optional docstring interactive
+    type
+    -- Function: autoloadp object
 
-A magic autoload comment (often called an “autoload cookie”) consists
-of ‘;;;###autoload’, on a line by itself, just before the real
-definition of the function in its autoloadable source file.
+    A magic autoload comment (often called an “autoload cookie”) consists
+    of ‘;;;###autoload’, on a line by itself, just before the real
+    definition of the function in its autoloadable source file.
 * Byte Compilation
 * Debugging
 * Read and Print
 * Minibuffers
 * Command Loop
 ** Reading Input
-The editor command loop reads key sequences using the function
-‘read-key-sequence’, which uses ‘read-event’.
+   The editor command loop reads key sequences using the function
+   ‘read-key-sequence’, which uses ‘read-event’.
 
-(read-key-sequence nil)
+   (read-key-sequence nil)
 *** Key Sequence Input
 *** Reading One Event
 *** Event Mod
@@ -80,9 +80,72 @@ The editor command loop reads key sequences using the function
 * Modes
 ** Hooks
 **** Setting Hooks
-(add-hook 'lisp-interaction-mode-hook 'auto-fill-mode)
--- Function: add-hook hook function &optional depth local
--- Function: remove-hook hook function &optional local
+     (add-hook 'lisp-interaction-mode-hook 'auto-fill-mode)
+     -- Function: add-hook hook function &optional depth local
+     -- Function: remove-hook hook function &optional local
+** Minor Modes
+*** 
+    A “minor mode” provides optional features that users may enable or disable
+    independently of the choice of major mode. Minor modes can be enabled
+    individually or in combination.A “minor mode” provides optional features that
+    users may enable or disable independently of the choice of major mode. Minor
+    modes can be enabled individually or in combination.
+
+    - Variable: minor-mode-list :: The value of this variable is a list of all
+         minor mode commands.
+*** Minor Mode Conventions
+    The easiest way to follow "minor mode conventions" is to use the macro
+    ‘define-minor-mode’.
+    - Define a variable whose name ends in ‘-mode’.
+    - Define a command, called the “mode command”, whose name is the same as the
+      mode variable.
+    - Add an element to ‘minor-mode-alist’ for each minor mode, if you want to
+      indicate the minor mode in the mode line.
+      (MODE-VARIABLE STRING)
+*** Keymaps and Minor Modes
+    To set up a keymap for a minor mode, add an element to the alist
+    ‘minor-mode-map-alist’.
+*** Defining Minor Modes
+    - Macro: define-minor-mode mode doc [init-value [lighter [keymap]]]
+      keyword-args... body...
+
+      #+begin_src emacs-lisp :tangle yes
+    (define-minor-mode hungry-mode
+       "Toggle Hungry mode.
+     Interactively with no argument, this command toggles the mode.
+     A positive prefix argument enables the mode, any other prefix
+     argument disables it.  From Lisp, argument omitted or nil enables
+     the mode, `toggle' toggles the state.
+
+     When Hungry mode is enabled, the control delete key
+     gobbles all preceding whitespace except the last.
+     See the command \\[hungry-electric-delete]."
+      ;; The initial value.
+      nil
+      ;; The indicator for the mode line.
+      " Hungry"
+      ;; The minor mode bindings.
+      '(([C-backspace] . hungry-electric-delete))
+      :group 'hunger)
+
+      (define-minor-mode hungry-mode
+       "Toggle Hungry mode.
+     ...rest of documentation as before..."
+      ;; The initial value.
+      :init-value nil
+      ;; The indicator for the mode line.
+      :lighter " Hungry"
+      ;; The minor mode bindings.
+      :keymap
+      '(([C-backspace] . hungry-electric-delete)
+        ([C-M-backspace]
+         . (lambda ()
+             (interactive)
+             (hungry-electric-delete t))))
+      :group 'hunger)
+      #+end_src
+    - Macro: define-globalized-minor-mode global-mode mode turn-on
+      keyword-args...
 * Documentation
 * Files
 * Backups and Auto-Saving
@@ -101,31 +164,31 @@ The editor command loop reads key sequences using the function
 * Display
 * System Interface
 ** Timers
-timer is a special object.
+   timer is a special object.
 
--- Function: timerp object
+   -- Function: timerp object
 
--- Command: run-at-time time repeat function &rest args
-#+BEGIN_SRC emacs-lisp
+   -- Command: run-at-time time repeat function &rest args
+   #+BEGIN_SRC emacs-lisp
   (defun message-d()
     (message "d")
     )
 
   (setq cur-timer (run-at-time "1 sec" 2 'message-d))
   (cancel-timer cur-timer)
-#+END_SRC
+   #+END_SRC
 
--- Function: cancel-timer timer
+   -- Function: cancel-timer timer
 ** Time of Day
--- Function: current-time-string &optional time zone
-(current-time-string)
--- Function: current-time
-(current-time)
+   -- Function: current-time-string &optional time zone
+   (current-time-string)
+   -- Function: current-time
+   (current-time)
 ** Time Calculations
- -- Function: time-subtract t1 t2
-(setq t2 (current-time))
-(setq t1 (current-time))
-(float-time (time-subtract t1 t2))
+   -- Function: time-subtract t1 t2
+   (setq t2 (current-time))
+   (setq t1 (current-time))
+   (float-time (time-subtract t1 t2))
 * [[file:note/Packaging.org][Packaging]]
 * Antinews
 * GNU Free Documentation License
