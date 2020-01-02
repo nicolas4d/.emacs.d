@@ -11,6 +11,7 @@
                                       nicolas4d-latex
                                       nicolas4d-layouts
                                       nicolas4d-mail
+                                      nicolas4d-minor-mode
                                       nicolas4d-org
                                       nicolas4d-package
                                       nicolas4d-plantuml
