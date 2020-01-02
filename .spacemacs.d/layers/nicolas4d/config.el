@@ -6,3 +6,5 @@
 
 ;;选中的文字，编辑覆盖
 (delete-selection-mode 1)
+
+(nicolas4d-minor-mode)
