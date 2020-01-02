@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-;
-# name: __lt__
-# key: lt;
+# name: __gt__
+# key: gt;
 # group: dunder methods
 # --
-def __lt__(${1:var}):
+def __gt__(${1:var}):
     ${}

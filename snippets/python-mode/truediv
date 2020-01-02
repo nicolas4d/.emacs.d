@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-;
-# name: __lt__
-# key: lt;
+# name: __truediv__
+# key: tdiv;
 # group: dunder methods
 # --
-def __lt__(${1:var}):
+def __truediv__(${1:var}):
     ${}
