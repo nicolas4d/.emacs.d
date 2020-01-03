@@ -20,6 +20,7 @@
   "bl" 'list-buffers
 
   ;; file
-  "f w" 'find-website-file
-  "f m" 'find-miscellaneous
+  "fw" 'find-website-file
+  "fm" 'find-miscellaneous
+  "fel" 'find-layers
   )

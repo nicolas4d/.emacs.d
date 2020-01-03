@@ -49,6 +49,12 @@ for excute in dotspacemacs/user-config."
   (interactive)
   (find-file "~/.data/ubuntu/miscellaneous/"))
 
+(defun find-layers ()
+  "find my own layer cinfiguration directory."
+  (interactive)
+  (find-file (concat user-emacs-directory ".spacemacs.d/layers/"))
+  )
+
 (defun end-of-line-and-new-line-and-indent ()
   "end of current line and go new line and indent."
   (interactive)
