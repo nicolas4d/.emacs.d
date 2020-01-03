@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-;
+# name: __ge__
+# key: ge;
+# group: dunder methods
+# --
+def __ge__(${1:var}):
+    ${}
