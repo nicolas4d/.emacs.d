@@ -3,5 +3,5 @@
 # key: if;
 # group : control structure
 # --
-if $0 :
-    
+if $1 :
+    $0
