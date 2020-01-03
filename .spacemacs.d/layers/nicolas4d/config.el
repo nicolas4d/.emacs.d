@@ -1,10 +1,6 @@
-;; close auto save
-(setq auto-save-default nil)
-
-;;禁止备份文件的生成
-(setq make-backup-files nil)
-
-;;选中的文字，编辑覆盖
-(delete-selection-mode 1)
-
-(nicolas4d-minor-mode)
+(setq
+ auto-save-default nil
+ make-backup-files nil
+ delete-selection-mode t
+ nicolas4d-minor-mode t
+ )
