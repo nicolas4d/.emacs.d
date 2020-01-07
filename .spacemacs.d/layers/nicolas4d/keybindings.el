@@ -23,4 +23,5 @@
   "fw" 'find-website-file
   "fm" 'find-miscellaneous
   "fel" 'find-layers
+  "fs" 'find-sis-event
   )

@@ -49,6 +49,11 @@ for excute in dotspacemacs/user-config."
   (interactive)
   (find-file "~/.data/ubuntu/miscellaneous/"))
 
+(defun find-sis-event()
+  "find chrome extension sis event file"
+  (interactive)
+  (find-file "~/Chrome/Extentions/sis001/js/event.js"))
+
 (defun find-layers ()
   "find my own layer cinfiguration directory."
   (interactive)
