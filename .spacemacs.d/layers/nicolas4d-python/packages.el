@@ -65,5 +65,15 @@ Each entry is either:
   (use-package python
     :config
     (defun python-default ()
-      (local-set-key (kbd "C-j") nil))
+      (setq mode-name "Python"
+            tab-width python-tab-width
+            fill-column python-fill-column)
+      (when (version< emacs-version "24.5")
+        ;; auto-indent on colon doesn't work well with if statement
+        ;; should be fixed in 24.5 and above
+        (setq electric-indent-chars (delq ?: electric-indent-chars)))
+      (setq-local comment-inline-offset 2)
+      (spacemacs/python-annotate-pdb)
+      ;; make C-j work the same way as RET
+      (local-set-key (kbd "C-j") 'newline-and-indent))
     ))
