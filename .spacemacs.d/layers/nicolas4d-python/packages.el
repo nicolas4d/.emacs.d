@@ -74,6 +74,5 @@ Each entry is either:
         (setq electric-indent-chars (delq ?: electric-indent-chars)))
       (setq-local comment-inline-offset 2)
       (spacemacs/python-annotate-pdb)
-      ;; make C-j work the same way as RET
-      (local-set-key (kbd "C-j") 'newline-and-indent))
+      (local-set-key (kbd "C-j") 'end-of-line-and-new-line-and-indent))
     ))
