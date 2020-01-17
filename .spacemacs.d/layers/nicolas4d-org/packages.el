@@ -85,5 +85,5 @@ Each entry is either:
        org-return-follows-link t
        org-startup-with-latex-preview t
        )
-    )))
+      )))
 ;;; packages.el ends here
