@@ -5,3 +5,5 @@
   ;; occur
   "so" 'occur-dwim
   )
+
+(define-key dired-mode-map (kbd "M-u") 'dired-up-directory)
