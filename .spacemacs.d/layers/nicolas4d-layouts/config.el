@@ -18,7 +18,7 @@
  [_N_/_p_/_C-h_]  prev layout                 [_x_]^^   kill current w/buffers
  [_o_]^^^^        custom layout               [_X_]^^   kill other w/buffers
  [_w_]^^^^        workspaces transient state  [_?_]^^   toggle help
- [_SPC l_]^^^^    load custom layout          [_SPC s_]^save custom layout\n")
+ [_SPC l_]^^^^    load my layout          [_SPC s_]^save my layout\n")
 
 (spacemacs|define-transient-state layouts
         :title "Layouts Transient State"
