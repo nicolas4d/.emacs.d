@@ -7,3 +7,4 @@
   )
 
 (define-key dired-mode-map (kbd "b") 'dired-up-directory)
+(define-key dired-mode-map (kbd "e") 'spacemacs/open-file-or-directory-in-external-app)
