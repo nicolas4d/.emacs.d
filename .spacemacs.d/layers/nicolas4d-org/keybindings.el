@@ -10,6 +10,7 @@
 
 (spacemacs/set-leader-keys
   "oa" 'org-agenda
+  "of" 'org-cycle-agenda-files
   )
 
 ;; unset keys
