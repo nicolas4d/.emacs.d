@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: c++
+# key: cpp;
+# --
+#+begin_src c++
+$0
+#+end_src
