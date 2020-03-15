@@ -60,6 +60,12 @@ for excute in dotspacemacs/user-config."
   (find-file (concat user-emacs-directory ".spacemacs.d/layers/"))
   )
 
+(defun find-ssr-cinfig ()
+  "find shadowsocks config.json file."
+  (interactive)
+  (find-file "~/.local/share/shadowsocksr/config.json")
+  )
+
 (defun end-of-line-and-new-line-and-indent ()
   "end of current line and go new line and indent."
   (interactive)

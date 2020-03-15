@@ -9,6 +9,8 @@
 (global-set-key (kbd "M-l") 'move-to-window-line-top-bottom)
 (global-set-key (kbd "C-j") 'end-of-line-and-new-line-and-indent)
 
+(keyboard-translate ?\C-h ?\C-?)
+
 (spacemacs/set-leader-keys
   ;; kmacro
   "ms" 'kmacro-start-macro
@@ -26,5 +28,7 @@
   "fw" 'find-website-file
   "fm" 'find-miscellaneous
   "fel" 'find-layers
-  "f SPC s" 'find-sis-event
+  "fs" 'nil
+  "fse" 'find-sis-event
+  "fsc" 'find-ssr-cinfig
   )
