@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: xml
+# key: xml;
+# --
+#+begin_src xml
+$0
+#+end_src

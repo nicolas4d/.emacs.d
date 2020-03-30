@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-;
+# name: Img source
+# key: img;
+# --
+[[file:../img/${1:link}]]
