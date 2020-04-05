@@ -7,6 +7,7 @@
 
 (global-set-key (kbd "C-M-k") 'kill-paragraph)
 (global-set-key (kbd "C-j") 'end-of-line-and-new-line-and-indent)
+(global-unset-key (kbd "C-<SPC>"))
 
 (keyboard-translate ?\C-h ?\C-?)
 

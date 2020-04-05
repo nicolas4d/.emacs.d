@@ -12,6 +12,7 @@
   ;; (shell-command "mv ~/Pictures/* /home/d/python/PyWebScraping/img/")
   ;; (shell-command "mv ~/Pictures/* /home/d/python/Scrapy/img/")
   ;; (shell-command "mv ~/Pictures/* /home/d/Chrome/Extentions/Chrome扩展及应用开发（首发版）/img/")
+  ;; (shell-command "mv ~/Pictures/* /home/d/.emacs.d/note/yasnippet/img/")
   )
 
 (defun nicolas4d/exec-xmodmap ()

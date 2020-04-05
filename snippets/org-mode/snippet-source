@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: snippet-source
+# key: sn;
+# --
+#+begin_src snippet
+$0
+#+end_src
