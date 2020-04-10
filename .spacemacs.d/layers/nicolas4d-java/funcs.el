@@ -2,7 +2,7 @@
 
 (setq
  java-import-case-import "import"
- java-import-case-namespace "namespace"
+ java-import-case-package "package"
  java-import-case-none "none")
 
 (defun java-import (class-name)
@@ -16,8 +16,8 @@
         (search-backward java-import-case-import 0 t)
         (java-import-indent java-import-case-import))
        (and
-        (search-backward java-import-case-namespace 0 t)
-        (java-import-indent java-import-case-namespace))
+        (search-backward java-import-case-package 0 t)
+        (java-import-indent java-import-case-package))
        (and
         (java-import-indent java-import-case-none)))
       (yas-expand-snippet (concat "import " class-name))))
@@ -29,7 +29,7 @@
       (progn
         (end-of-line)
         (newline-and-indent)))
-  (if (string= args java-import-case-namespace)
+  (if (string= args java-import-case-package)
       (progn
         (end-of-line)
         (newline-and-indent)

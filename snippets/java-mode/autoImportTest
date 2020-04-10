@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: autoimport
-# key: ai;
+# name: autoImportTest
+# key: ait;
 # --
 Test$0
 `
