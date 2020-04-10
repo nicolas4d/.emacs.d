@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: autoimport
+# key: ai;
+# --
+Test$0
+`
+(java-import "Test.test.test;")
+`

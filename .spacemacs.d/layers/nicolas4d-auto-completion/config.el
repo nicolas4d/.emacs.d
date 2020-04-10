@@ -10,3 +10,7 @@
                                         try-complete-lisp-symbol-partially
                                         try-complete-lisp-symbol)
       )
+
+;; yasnippet
+;; suppress when change currunt buffer
+(add-to-list 'warning-suppress-types '(yasnippet backquote-change))

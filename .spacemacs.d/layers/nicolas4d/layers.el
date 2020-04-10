@@ -7,6 +7,7 @@
                                       nicolas4d-helm
                                       nicolas4d-html
                                       nicolas4d-ivy
+                                      nicolas4d-java
                                       nicolas4d-javascript
                                       nicolas4d-latex
                                       nicolas4d-layouts
