@@ -19,5 +19,4 @@ spacemacs if value is nil"
     ;; emacs
     (load-file (concat user-emacs-directory "init/emacs.el"))
   ;; spacemacs
-  (load-file (concat user-emacs-directory "init/spacemacs.el"))
-)
+  (load-file (concat user-emacs-directory "init/spacemacs.el")))

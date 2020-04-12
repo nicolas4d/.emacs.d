@@ -31,4 +31,7 @@
   "fs" 'nil
   "fse" 'find-sis-event
   "fsc" 'find-ssr-cinfig
+
+  ;; info
+  "ho" 'info
   )

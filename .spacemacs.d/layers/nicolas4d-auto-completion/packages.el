@@ -31,7 +31,8 @@
 
 (defconst nicolas4d-auto-completion-packages
   '(yasnippet
-    yasnippet-snippets)
+    ;; yasnippet-snippets
+    )
   "The list of Lisp packages required by the nicolas4d-layer-template layer.
 
 Each entry is either:
@@ -61,10 +62,10 @@ Each entry is either:
 
 
 ;;; packages.el ends here
-(defun nicolas4d-auto-completion/init-yasnippet-snippets()
-  (use-package yasnippet-snippets
-    :init
-    ))
+;; (defun nicolas4d-auto-completion/init-yasnippet-snippets()
+;;   (use-package yasnippet-snippets
+;;     :init
+;;     ))
 
 (defun nicolas4d-auto-completion/post-init-yasnippet ()
   (use-package yasnippet

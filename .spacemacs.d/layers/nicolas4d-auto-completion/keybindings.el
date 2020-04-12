@@ -1,4 +1,4 @@
-;; yasnippet
+;;; yasnippet
 (define-key yas-minor-mode-map (kbd "<tab>") nil)
 (define-key yas-minor-mode-map (kbd "SPC") yas-maybe-expand)
 
