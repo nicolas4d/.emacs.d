@@ -1,0 +1,235 @@
+* 4.5 Comparison of Characters and Strings
+* -- Function: char-equal character1 character2
+  This function returns ‘t’ if the arguments represent the same
+  character, ‘nil’ otherwise.  This function ignores differences in
+  case if ‘case-fold-search’ is non-‘nil’.
+
+  (char-equal ?x ?x)
+  ⇒ t
+  (let ((case-fold-search nil))
+  (char-equal ?x ?X))
+  ⇒ nil
+
+* -- Function: string= string1 string2
+  This function returns ‘t’ if the characters of the two strings
+  match exactly.  Symbols are also allowed as arguments, in which
+  case the symbol names are used.  Case is always significant,
+  regardless of ‘case-fold-search’.
+
+  This function is equivalent to ‘equal’ for comparing two strings
+  (*note Equality Predicates::).  In particular, the text properties
+  of the two strings are ignored; use ‘equal-including-properties’ if
+  you need to distinguish between strings that differ only in their
+  text properties.  However, unlike ‘equal’, if either argument is
+  not a string or symbol, ‘string=’ signals an error.
+
+  (string= "abc" "abc")
+  ⇒ t
+  (string= "abc" "ABC")
+  ⇒ nil
+  (string= "ab" "ABC")
+  ⇒ nil
+
+  For technical reasons, a unibyte and a multibyte string are ‘equal’
+  if and only if they contain the same sequence of character codes
+  and all these codes are either in the range 0 through 127 (ASCII)
+  or 160 through 255 (‘eight-bit-graphic’).  However, when a unibyte
+  string is converted to a multibyte string, all characters with
+  codes in the range 160 through 255 are converted to characters with
+  higher codes, whereas ASCII characters remain unchanged.  Thus, a
+  unibyte string and its conversion to multibyte are only ‘equal’ if
+  the string is all ASCII.  Character codes 160 through 255 are not
+  entirely proper in multibyte text, even though they can occur.  As
+  a consequence, the situation where a unibyte and a multibyte string
+  are ‘equal’ without both being all ASCII is a technical oddity that
+  very few Emacs Lisp programmers ever get confronted with.  *Note
+  Text Representations::.
+
+* -- Function: string-equal string1 string2
+  ‘string-equal’ is another name for ‘string=’.
+
+* -- Function: string-collate-equalp string1 string2 &optional locale
+  ignore-case
+  This function returns ‘t’ if STRING1 and STRING2 are equal with
+  respect to collation rules.  A collation rule is not only
+  determined by the lexicographic order of the characters contained
+  in STRING1 and STRING2, but also further rules about relations
+  between these characters.  Usually, it is defined by the LOCALE
+  environment Emacs is running with.
+
+  For example, characters with different coding points but the same
+  meaning might be considered as equal, like different grave accent
+  Unicode characters:
+
+  (string-collate-equalp (string ?\uFF40) (string ?\u1FEF))
+  ⇒ t
+
+  The optional argument LOCALE, a string, overrides the setting of
+  your current locale identifier for collation.  The value is system
+  dependent; a LOCALE ‘"en_US.UTF-8"’ is applicable on POSIX systems,
+  while it would be, e.g., ‘"enu_USA.1252"’ on MS-Windows systems.
+
+  If IGNORE-CASE is non-‘nil’, characters are converted to lower-case
+  before comparing them.
+
+  To emulate Unicode-compliant collation on MS-Windows systems, bind
+  ‘w32-collate-ignore-punctuation’ to a non-‘nil’ value, since the
+  codeset part of the locale cannot be ‘"UTF-8"’ on MS-Windows.
+
+  If your system does not support a locale environment, this function
+  behaves like ‘string-equal’.
+
+  Do _not_ use this function to compare file names for equality, as
+  filesystems generally don’t honor linguistic equivalence of strings
+  that collation implements.
+
+* -- Function: string< string1 string2
+  This function compares two strings a character at a time.  It scans
+  both the strings at the same time to find the first pair of
+  corresponding characters that do not match.  If the lesser
+  character of these two is the character from STRING1, then STRING1
+  is less, and this function returns ‘t’.  If the lesser character is
+  the one from STRING2, then STRING1 is greater, and this function
+  returns ‘nil’.  If the two strings match entirely, the value is
+  ‘nil’.
+
+  Pairs of characters are compared according to their character
+  codes.  Keep in mind that lower case letters have higher numeric
+  values in the ASCII character set than their upper case
+  counterparts; digits and many punctuation characters have a lower
+  numeric value than upper case letters.  An ASCII character is less
+  than any non-ASCII character; a unibyte non-ASCII character is
+  always less than any multibyte non-ASCII character (*note Text
+  Representations::).
+
+  (string< "abc" "abd")
+  ⇒ t
+  (string< "abd" "abc")
+  ⇒ nil
+  (string< "123" "abc")
+  ⇒ t
+
+  When the strings have different lengths, and they match up to the
+  length of STRING1, then the result is ‘t’.  If they match up to the
+  length of STRING2, the result is ‘nil’.  A string of no characters
+  is less than any other string.
+
+  (string< "" "abc")
+  ⇒ t
+  (string< "ab" "abc")
+  ⇒ t
+  (string< "abc" "")
+  ⇒ nil
+  (string< "abc" "ab")
+  ⇒ nil
+  (string< "" "")
+  ⇒ nil
+
+  Symbols are also allowed as arguments, in which case their print
+  names are compared.
+
+* -- Function: string-lessp string1 string2
+  ‘string-lessp’ is another name for ‘string<’.
+
+* -- Function: string-greaterp string1 string2
+  This function returns the result of comparing STRING1 and STRING2
+  in the opposite order, i.e., it is equivalent to calling
+  ‘(string-lessp STRING2 STRING1)’.
+
+* -- Function: string-collate-lessp string1 string2 &optional locale
+  ignore-case
+  This function returns ‘t’ if STRING1 is less than STRING2 in
+  collation order.  A collation order is not only determined by the
+  lexicographic order of the characters contained in STRING1 and
+  STRING2, but also further rules about relations between these
+  characters.  Usually, it is defined by the LOCALE environment Emacs
+  is running with.
+
+  For example, punctuation and whitespace characters might be ignored
+  for sorting (*note Sequence Functions::):
+
+  (sort '("11" "12" "1 1" "1 2" "1.1" "1.2") 'string-collate-lessp)
+  ⇒ ("11" "1 1" "1.1" "12" "1 2" "1.2")
+
+  This behavior is system-dependent; e.g., punctuation and whitespace
+  are never ignored on Cygwin, regardless of locale.
+
+  The optional argument LOCALE, a string, overrides the setting of
+  your current locale identifier for collation.  The value is system
+  dependent; a LOCALE ‘"en_US.UTF-8"’ is applicable on POSIX systems,
+  while it would be, e.g., ‘"enu_USA.1252"’ on MS-Windows systems.
+  The LOCALE value of ‘"POSIX"’ or ‘"C"’ lets ‘string-collate-lessp’
+  behave like ‘string-lessp’:
+
+  (sort '("11" "12" "1 1" "1 2" "1.1" "1.2")
+  (lambda (s1 s2) (string-collate-lessp s1 s2 "POSIX")))
+  ⇒ ("1 1" "1 2" "1.1" "1.2" "11" "12")
+
+  If IGNORE-CASE is non-‘nil’, characters are converted to lower-case
+  before comparing them.
+
+  To emulate Unicode-compliant collation on MS-Windows systems, bind
+  ‘w32-collate-ignore-punctuation’ to a non-‘nil’ value, since the
+  codeset part of the locale cannot be ‘"UTF-8"’ on MS-Windows.
+
+  If your system does not support a locale environment, this function
+  behaves like ‘string-lessp’.
+
+* -- Function: string-version-lessp string1 string2
+  This function compares strings lexicographically, except it treats
+  sequences of numerical characters as if they comprised a base-ten
+  number, and then compares the numbers.  So ‘foo2.png’ is “smaller”
+  than ‘foo12.png’ according to this predicate, even if ‘12’ is
+  lexicographically “smaller” than ‘2’.
+
+* -- Function: string-prefix-p string1 string2 &optional ignore-case
+  This function returns non-‘nil’ if STRING1 is a prefix of STRING2;
+  i.e., if STRING2 starts with STRING1.  If the optional argument
+  IGNORE-CASE is non-‘nil’, the comparison ignores case differences.
+
+* -- Function: string-suffix-p suffix string &optional ignore-case
+  This function returns non-‘nil’ if SUFFIX is a suffix of STRING;
+  i.e., if STRING ends with SUFFIX.  If the optional argument
+  IGNORE-CASE is non-‘nil’, the comparison ignores case differences.
+  #+begin_src emacs-lisp :tangle yes
+    (string-suffix-p "org" "semple.org")
+  #+end_src
+* -- Function: compare-strings string1 start1 end1 string2 start2 end2
+  &optional ignore-case
+  This function compares a specified part of STRING1 with a specified
+  part of STRING2.  The specified part of STRING1 runs from index
+  START1 (inclusive) up to index END1 (exclusive); ‘nil’ for START1
+  means the start of the string, while ‘nil’ for END1 means the
+  length of the string.  Likewise, the specified part of STRING2 runs
+  from index START2 up to index END2.
+
+  The strings are compared by the numeric values of their characters.
+  For instance, STR1 is considered less than STR2 if its first
+  differing character has a smaller numeric value.  If IGNORE-CASE is
+  non-‘nil’, characters are converted to upper-case before comparing
+  them.  Unibyte strings are converted to multibyte for comparison
+  (*note Text Representations::), so that a unibyte string and its
+  conversion to multibyte are always regarded as equal.
+
+  If the specified portions of the two strings match, the value is
+  ‘t’.  Otherwise, the value is an integer which indicates how many
+  leading characters agree, and which string is less.  Its absolute
+  value is one plus the number of characters that agree at the
+  beginning of the two strings.  The sign is negative if STRING1 (or
+  its specified portion) is less.
+
+* -- Function: assoc-string key alist &optional case-fold
+  This function works like ‘assoc’, except that KEY must be a string
+  or symbol, and comparison is done using ‘compare-strings’.  Symbols
+  are converted to strings before testing.  If CASE-FOLD is
+  non-‘nil’, KEY and the elements of ALIST are converted to
+  upper-case before comparison.  Unlike ‘assoc’, this function can
+  also match elements of the alist that are strings or symbols rather
+  than conses.  In particular, ALIST can be a list of strings or
+  symbols rather than an actual alist.  *Note Association Lists::.
+* 
+  See also the function ‘compare-buffer-substrings’ in *note Comparing
+  Text::, for a way to compare text in buffers.  The function
+  ‘string-match’, which matches a regular expression against a string, can
+  be used for a kind of string comparison; see *note Regexp Search::.
+

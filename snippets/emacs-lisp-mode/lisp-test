@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-;
+# name: lisp-test
+# key: lt;
+# --
+(defun lisp-test ()
+(insert "d")
+)

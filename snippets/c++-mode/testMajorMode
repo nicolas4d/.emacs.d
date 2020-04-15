@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: testMajorMode;
+# key: tmm;
+# --
+`major-mode`

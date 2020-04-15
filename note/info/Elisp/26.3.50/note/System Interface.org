@@ -1,0 +1,9 @@
+* 
+  Getting the user id, system type, environment variables, and other such things.
+* 40 Operating System Interface
+  This chapter is about starting and getting out of Emacs, access to
+  values in the operating system environment, and terminal input, output.
+
+  *Note Building Emacs::, for related information.  *Note Display::,
+  for additional operating system status information pertaining to the
+  terminal and the screen.

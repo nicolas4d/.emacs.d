@@ -1,21 +1,27 @@
-#+TITLE: nicolas4d-layer-template layer
+#+TITLE: nicolas4d-java layer
 
 # The maximum height of the logo should be 200 pixels.
-[[img/nicolas4d-layer-template.png]]
+[[img/nicolas4d-java.png]]
 
 # TOC links should be GitHub style anchors.
 * Table of Contents                                        :TOC_4_gh:noexport:
 - [[#description][Description]]
+  - [[#features][Features:]]
 - [[#install][Install]]
 - [[#key-bindings][Key bindings]]
 
 * Description
-This layer does wonderful things:
-  - thing01
+This layer adds support for something.
+
+** Features:
+  - Autocomplete
+  - Lint
+  - Refactor
+  - ...
 
 * Install
 To use this configuration layer, add it to your =~/.spacemacs=. You will need to
-add =nicolas4d-layer-template= to the existing =dotspacemacs-configuration-layers= list in this
+add =nicolas4d-java= to the existing =dotspacemacs-configuration-layers= list in this
 file.
 
 * Key bindings
@@ -23,6 +29,7 @@ file.
 | Key Binding | Description    |
 |-------------+----------------|
 | ~SPC x x x~ | Does thing01   |
+
 # Use GitHub URLs if you wish to link a Spacemacs documentation file or its heading.
 # Examples:
 # [[https://github.com/syl20bnr/spacemacs/blob/master/doc/VIMUSERS.org#sessions]]

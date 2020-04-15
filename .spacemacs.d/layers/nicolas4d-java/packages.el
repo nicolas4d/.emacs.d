@@ -1,6 +1,6 @@
-;;; packages.el --- nicolas4d-layer-template layer packages file for Spacemacs.
+;;; packages.el --- nicolas4d-java layer packages file for Spacemacs.
 ;;
-;; Copyright (c) 2012-2017 Sylvain Benner & Contributors
+;; Copyright (c) 2012-2018 Sylvain Benner & Contributors
 ;;
 ;; Author: nicolas4d <nicolas4d@foxmail.com>
 ;; URL: https://github.com/syl20bnr/spacemacs
@@ -18,20 +18,20 @@
 ;;
 ;;
 ;; Briefly, each package to be installed or configured by this layer should be
-;; added to `nicolas4d-layer-template-packages'. Then, for each package PACKAGE:
+;; added to `nicolas4d-java-packages'. Then, for each package PACKAGE:
 ;;
 ;; - If PACKAGE is not referenced by any other Spacemacs layer, define a
-;;   function `nicolas4d-layer-template/init-PACKAGE' to load and initialize the package.
+;;   function `nicolas4d-java/init-PACKAGE' to load and initialize the package.
 
 ;; - Otherwise, PACKAGE is already referenced by another Spacemacs layer, so
-;;   define the functions `nicolas4d-layer-template/pre-init-PACKAGE' and/or
-;;   `nicolas4d-layer-template/post-init-PACKAGE' to customize the package as it is loaded.
+;;   define the functions `nicolas4d-java/pre-init-PACKAGE' and/or
+;;   `nicolas4d-java/post-init-PACKAGE' to customize the package as it is loaded.
 
 ;;; Code:
 
-(defconst nicolas4d-layer-template-packages
-  '()
-  "The list of Lisp packages required by the nicolas4d-layer-template layer.
+(defconst nicolas4d-java-packages
+  '(java-imports)
+  "The list of Lisp packages required by the nicolas4d-java layer.
 
 Each entry is either:
 
@@ -58,5 +58,19 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
+(defun nicolas4d-java/init-java-imports ()
+  (use-package java-imports
+    :init
+    ;; (progn
+    ;;   ;; whatever you want to bind it to
+    ;;   (define-key java-mode-map (kbd "M-I") 'java-imports-add-import-dwim)
+
+    ;;   ;; See customization below for where to put java imports
+    ;;   (setq java-imports-find-block-function
+    ;;         'java-imports-find-place-sorted-block)
+
+    ;;   (add-hook 'java-mode-hook 'java-imports-scan-file)
+    ;;   )
+    ))
 
 ;;; packages.el ends here
