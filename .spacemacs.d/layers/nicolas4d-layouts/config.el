@@ -78,7 +78,7 @@
   ("w" spacemacs/workspaces-transient-state/body :exit t)
   ("x" spacemacs/layouts-ts-kill)
   ("X" spacemacs/layouts-ts-kill-other :exit t)
-  ("SPC l" nicolas4d/load-my-layout :exit t)
-  ("SPC s" nicolas4d/save-my-layout :exit t))
+  ("SPC l" nicolas4d/load-my-layouts :exit t)
+  ("SPC s" nicolas4d/save-my-layouts :exit t))
 
 ;;; custom layout transient state and key bindings ends here

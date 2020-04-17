@@ -8,7 +8,7 @@
                           tellme-elisp-keyword-list
                           tellme-elisp-full-code
                           tellme-elisp-go-place
-                          tellme-new-snippet-elisp)
+                          tellme-elisp-new-snippet)
                          (java-mode ("import")
                                     tellme-already-coded-java-p)
                          (python-mode ("import")
@@ -109,6 +109,7 @@ code : using this to concatenate file name."
           "/"
           code)
   )
+
 ;;; For elisp
 
 (defun tellme-elisp-full-code (code)
@@ -125,7 +126,7 @@ keyword is for general purpose and extension."
   (newline-and-indent)
   )
 
-(defun tellme-new-snippet-elisp ()
+(defun tellme-elisp-new-snippet ()
   "New snippet for emacs lisp for use Tellme."
   (save-excursion
     (let (code)
@@ -133,14 +134,14 @@ keyword is for general purpose and extension."
       ;; Find code
       (while (search-forward-regexp
               (concat "(" tellme-elisp-keyword-require " '") nil t)
-        (setq code (tellme-code-elisp))
+        (setq code (tellme-elisp-code))
         ;; File exist?
         (unless (file-exists-p (tellme-snippet-file-name code))
           ;; Craete file to insert contents if file is not exist.
-          (tellme-new-snippet-file-elisp code)))))
+          (tellme-elisp-new-snippet-file code)))))
   (yas-reload-all))
 
-(defun tellme-code-elisp ()
+(defun tellme-elisp-code ()
   "Get code for emacs lisp mode."
   (let (startPoint
         endPoint)
@@ -150,7 +151,7 @@ keyword is for general purpose and extension."
     (setq endPoint (point))
     (buffer-substring-no-properties startPoint endPoint)))
 
-(defun tellme-new-snippet-file-elisp (code)
+(defun tellme-elisp-new-snippet-file (code)
   "Create snippet file and write contents.
 
 code :: the key to file name and file contents."
@@ -211,11 +212,11 @@ code :: the key to file name and file contents."
   (tellme-snippet-file-name "snippet-name")
 
   (progn
-    (tellme-new-snippet-file-elisp "tellme-test")
+    (tellme-elisp-new-snippet-file "tellme-test")
     (yas-reload-all)
     )
 
-  (tellme-code-elisp)
+  (tellme-elisp-code)
 
   (require 'tellme-test)
   tellme-test
@@ -223,11 +224,9 @@ code :: the key to file name and file contents."
 
   (concat "^(" tellme-elisp-keyword-require " '")
 
-  (tellme-new-snippet-elisp)
+  (tellme-elisp-new-snippet)
   (tellme-new-snippet)
   )
-
-
 ;;; test ends here
 
 ;;; ends here Tellme

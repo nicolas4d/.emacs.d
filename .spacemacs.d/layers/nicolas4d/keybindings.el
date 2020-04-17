@@ -1,3 +1,5 @@
+(keyboard-translate ?\C-h ?\C-?)
+
 (global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-m") 'set-mark-command)
 (global-set-key (kbd "C-<tab>") 'spacemacs/alternate-buffer)
@@ -6,7 +8,7 @@
 (global-set-key (kbd "C-M-k") 'kill-paragraph)
 (global-set-key (kbd "C-j") 'end-of-line-and-new-line-and-indent)
 (global-unset-key (kbd "C-<SPC>"))
-(keyboard-translate ?\C-h ?\C-?)
+(define-key dired-mode-map (kbd "r") 'dired-do-rename)
 
 (spacemacs/set-leader-keys
   ;; layout

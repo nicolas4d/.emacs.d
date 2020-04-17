@@ -52,8 +52,30 @@
 ** [[file:note/Variables.org][Variables]]
    Using symbols in programs to stand for values.
 ** [[file:note/Functions.org][Functions]]
-   A function is a Lisp program
-   that can be invoked from other functions.
+   A function is a Lisp program that can be invoked from other functions.
+*** What Is a Function::          Lisp functions vs. primitives; terminology.
+*** Lambda Expressions::          How functions are expressed as Lisp objects.
+*** Function Names::              A symbol can serve as the name of a function.
+*** Defining Functions::          Lisp expressions for defining functions.
+*** Calling Functions::           How to use an existing function.
+*** Mapping Functions::           Applying a function to each element of a list, etc.
+*** Anonymous Functions::         Lambda expressions are functions with no names.
+*** Generic Functions::           Polymorphism, Emacs-style.
+*** Function Cells::              Accessing or setting the function definition
+    of a symbol.
+*** Closures::                    Functions that enclose a lexical environment.
+*** Advising Functions::          Adding to the definition of a function.
+    #+begin_src emacs-lisp :tangle yes      (defun my-trace ()
+    #+end_src
+*** Obsolete Functions::          Declaring functions obsolete.
+*** Inline Functions::            Functions that the compiler will expand inline.
+*** Declare Form::                Adding additional information about a function.
+*** Declaring Functions::         Telling the compiler that a function is defined.
+*** Function Safety::             Determining whether a function is safe to call.
+*** Related Topics::              Cross-references to specific Lisp primitives
+    that have a special bearing on how functions work.
+
+
 ** [[file:note/Macros.org][Macros]]
    Macros are a way to extend the Lisp language.
 ** [[file:note/Customization.org][Customization]]
@@ -113,7 +135,7 @@
 **** Internals of Kill Ring:: Variables that hold kill ring data.
 *** Undo::             Undoing changes to the text of a buffer.
 *** Maintaining Undo:: How to enable and disable undo information.
-                        How to control how much information is kept.
+    How to control how much information is kept.
 *** Filling::          Functions for explicit filling.
 *** Margins::          How to specify margins for filling commands.
 *** Adaptive Fill::    Adaptive Fill mode chooses a fill prefix from context.
@@ -125,10 +147,10 @@
 *** Text Properties::  Assigning Lisp property lists to text characters.
 *** Substitution::     Replacing a given character wherever it appears.
 *** Registers::        How registers are implemented.  Accessing the text or
-                       **position stored in a register.
+    **position stored in a register.
 *** Transposition::    Swapping two portions of a buffer.
 *** Replacing::        Replacing the text of one buffer with the text
-                       **of another buffer.
+    **of another buffer.
 *** Decompression::    Dealing with compressed data.
 *** Base 64::          Conversion to or from base 64 encoding.
 *** Checksum/Hash::    Computing cryptographic hashes.
@@ -144,11 +166,7 @@
 *** Regular Expressions::   Describing classes of strings.
 **** Syntax of Regexps::       Rules for writing regular expressions.
 ***** Regexp Special::Special characters in regular expressions.
-      #+begin_src emacs-lisp :tangle yes
-        (re-search-forward "^" nil t)
-        (re-search-forward "^a" nil t)
-        a
-      #+end_src
+      
 ***** Char Classes::        Character classes used in regular expressions.
 ***** Regexp Backslash::    Backslash-sequences in regular expressions.
 **** Regexp Example::          Illustrates regular expression syntax.
@@ -158,7 +176,7 @@
 *** Regexp Search::         Searching for a match for a regexp.
 *** POSIX Regexps::         Searching POSIX-style for the longest match.
 *** Match Data::            Finding out which part of the text matched,
-                            after a string or regexp search.
+    after a string or regexp search.
 *** Search and Replace::    Commands that loop, searching and replacing.
 *** Standard Regexps::      Useful regexps for finding sentences, pages,...
 ** [[file:note/Syntax Tables.org][Syntax Tables]]
