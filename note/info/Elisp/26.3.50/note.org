@@ -33,8 +33,10 @@
 *** Formatting Strings::        ‘format’: Emacs’s analogue of ‘printf’.
 *** Case Conversion::           Case conversion functions.
 *** Case Tables::               Customizing case conversion.
-** [[file:note/Lists.org][Lists]]
-   Lists, cons cells, and related functions.
+** [[file:note/Lists.org][Lists]] :: Lists, cons cells, and related functions.
+*** Association Lists::   A list can represent a finite relation or mapping.
+    #+begin_src emacs-lisp :tangle yes
+    #+end_src
 ** [[file:note/Sequences Arrays Vectors.org][Sequences Arrays Vectors]]
    Lists, strings and vectors are called sequences.
    Certain functions act on any kind of sequence.
@@ -66,7 +68,36 @@
 *** Closures::                    Functions that enclose a lexical environment.
 *** Advising Functions::          Adding to the definition of a function.
     #+begin_src emacs-lisp :tangle yes      (defun my-trace ()
+      (defun my-tracing-function (proc string)
+        (message "Proc %S received %S" proc string))
+
+      (add-function :before (process-filter PROC) #'my-tracing-function)
     #+end_src
+**** Core Advising Primitives::    Primitives to manipulate advice.
+     #+begin_src emacs-lisp :tangle yes
+       (defun my-add-function ()
+         (message "my-add-fuction"))
+
+       (my-add-function)
+
+       (defun my-be-add-function ()
+         (message "my-be-add-function"))
+
+       (my-be-add-function)
+
+       (setq my-be-var 'my-be-add-function)
+       (add-function :before my-be-var #'my-add-function)
+       (funcall my-be-var)
+       (remove-function my-be-var #'my-add-function)
+
+
+       (advice-add 'my-be-add-function :before 'my-add-function)
+       (advice-remove 'my-be-add-function 'my-add-function)
+       (my-be-add-function)
+     #+end_src
+**** Advising Named Functions::    Advising named functions.
+**** Advice combinators::          Ways to compose advice.
+**** Porting old advice::          Adapting code using the old defadvice.
 *** Obsolete Functions::          Declaring functions obsolete.
 *** Inline Functions::            Functions that the compiler will expand inline.
 *** Declare Form::                Adding additional information about a function.

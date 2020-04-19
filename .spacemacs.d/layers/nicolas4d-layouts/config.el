@@ -1,5 +1,5 @@
 (setq layouts-enable-autosave nil)
-
+(advice-add 'save-buffers-kill-terminal :before #'nicolas4d/save-all-layouts)
 ;;; custom layout transient state and key bindings
 
 ;; layouts transient state

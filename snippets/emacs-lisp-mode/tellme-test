@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: tellme-test
-# key: tellme-test;
-# --
-tellme-test`
-(tellme "tellme-test")
-`

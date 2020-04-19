@@ -33,5 +33,4 @@
                                       sql
                                       git
                                       github
-                                      java
                                       ))

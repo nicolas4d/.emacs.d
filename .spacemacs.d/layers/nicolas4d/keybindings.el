@@ -1,5 +1,3 @@
-(keyboard-translate ?\C-h ?\C-?)
-
 (global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-m") 'set-mark-command)
 (global-set-key (kbd "C-<tab>") 'spacemacs/alternate-buffer)
