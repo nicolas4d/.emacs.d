@@ -1,4 +1,4 @@
-;;; Tellme
+;;;; Tellme
 
 (setq
  ;; Define keyword
@@ -114,20 +114,21 @@ code is going to be codes code."
 (defun tellme-new-snippet ()
   "New snippet to use."
   (interactive)
-  (let* (snippet-variable-list snippet-list create-p need-reload-yas)
-    ;; support major mode?
-    (when (tellme-support-major-mode-p)
-      ;; search buffer for code list
-      (setq snippet-list (tellme-snippet-search))
-      ;; new snippets
-      (dolist (snippet-variable-list snippet-list)
-        (setq create-p (tellme-new-snippet-file snippet-variable-list))
-        (when (and create-p (not need-reload-yas))
-          (setq need-reload-yas t)))
-      (if need-reload-yas
-          ;; reload yas
-          (yas-reload-all)
-        (message "Not found cod to new snippet.")))))
+  (save-excursion
+    (let* (snippet-variable-list snippet-list create-p need-reload-yas)
+      ;; support major mode?
+      (when (tellme-support-major-mode-p)
+        ;; search buffer for code list
+        (setq snippet-list (tellme-snippet-search))
+        ;; new snippets
+        (dolist (snippet-variable-list snippet-list)
+          (setq create-p (tellme-new-snippet-file snippet-variable-list))
+          (when (and create-p (not need-reload-yas))
+            (setq need-reload-yas t)))
+        (if need-reload-yas
+            ;; reload yas
+            (yas-reload-all)
+          (message "Not found cod to new snippet."))))))
 
 (defun tellme-snippet-file-name (code)
   "Create snippet full file name.
@@ -255,8 +256,7 @@ keyword is for general purpose and extension."
     (
      '(concat "(" tellme-elisp-keyword-require " '.*)")
      '(progn
-        (let* ((ret ())
-               cur-code)
+        (let* ((ret ()) cur-code)
           (setq cur-code (substring code 10 -1))
           (push cur-code ret)
           (push cur-code ret)
@@ -326,4 +326,4 @@ Returns ((expression)(rules))."
   )
 ;;; Ends here for java
 
-;;; ends here Tellme
+;;;; ends here Tellme
