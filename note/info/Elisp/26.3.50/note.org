@@ -34,9 +34,30 @@
 *** Case Conversion::           Case conversion functions.
 *** Case Tables::               Customizing case conversion.
 ** [[file:note/Lists.org][Lists]] :: Lists, cons cells, and related functions.
+*** Cons Cells::How lists are made out of cons cells.
+    #+begin_src emacs-lisp :tangle yes
+      (setq n-test (list "sdf" 'sdfsdf))
+      (consp  n-test)
+      (consp (list "sdf" 'sdfsdf))
+      (atom n-test)
+      (atom nil)
+      (listp )
+    #+end_src
+*** List-related Predicates::        Is this object a list?  Comparing two lists.
+*** List Elements::       Extracting the pieces of a list.
+*** Building Lists::      Creating list structure.
+*** List Variables::      Modifying lists stored in variables.
+*** Modifying Lists::     Storing new pieces into an existing list.
+*** Sets And Lists::      A list can represent a finite mathematical set.
 *** Association Lists::   A list can represent a finite relation or mapping.
     #+begin_src emacs-lisp :tangle yes
+      (setq trees '((pine . cones) (oak . acorns) (maple . seeds)))
+      ⇒ ((pine . cones) (oak . acorns) (maple . seeds))
+      (assq 'pine trees)
+      ⇒ (pine . cones)
+      (cdr (assq 'pine trees))
     #+end_src
+*** Property Lists::      A list of paired elements.
 ** [[file:note/Sequences Arrays Vectors.org][Sequences Arrays Vectors]]
    Lists, strings and vectors are called sequences.
    Certain functions act on any kind of sequence.
@@ -201,9 +222,10 @@
 ***** Char Classes::        Character classes used in regular expressions.
 ***** Regexp Backslash::    Backslash-sequences in regular expressions.
 **** Regexp Example::          Illustrates regular expression syntax.
-**** Regexp Functions::        Functions for operating on regular expressions.
-
-
+**** Regexp Functions::Functions for operating on regular expressions.
+     #+begin_src emacs-lisp :tangle yes
+       (regexp-quote "sdf\"sdf\"")
+     #+end_src
 *** Regexp Search::         Searching for a match for a regexp.
 *** POSIX Regexps::         Searching POSIX-style for the longest match.
 *** Match Data::            Finding out which part of the text matched,

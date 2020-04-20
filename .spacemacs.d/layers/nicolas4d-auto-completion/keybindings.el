@@ -10,7 +10,6 @@
   "yv" 'yas-visit-snippet-file
   "yo" 'yas-tryout-snippet
   "yr" 'yas-reload-all
-  "ym" 'tellme-new-snippet
 
   ;; auto-yasnippet
   "yac" #'aya-create

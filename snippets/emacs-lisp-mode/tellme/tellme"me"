@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: tellme"me"
+# key: tellme"me";
+# group: tellme
+# --
+tellme"me"`(tellme '(tellme"me"))`

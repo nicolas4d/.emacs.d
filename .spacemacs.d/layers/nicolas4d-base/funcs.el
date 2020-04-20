@@ -86,4 +86,3 @@
         spacemacs/key-binding-prefixes)
   ;;; customize key binding prefixes ends here
   )
-

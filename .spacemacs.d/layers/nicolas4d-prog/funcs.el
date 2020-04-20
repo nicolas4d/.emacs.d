@@ -2,9 +2,10 @@
 
 (setq
  ;; Define keyword
+ ;; For emacs lisp
  tellme-elisp-keyword-require "require"
  tellme-elisp-keyword-list '(tellme-elisp-keyword-require)
-
+ ;; For java
  tellme-java-keyword-import "import"
  tellme-java-keyword-package "package"
  tellme-java-keyword-none "none"
@@ -26,10 +27,7 @@
                           tellme-java-go-place
                           tellme-java-to-be-found-code
                           tellme-java-code-rules)
-
-                         (python-mode ("import"))
-
-                         (c++-mode ("include")))
+                         )
  ;; Define callbacks
  tellme-keyword-list nil
  tellme-full-code-func nil
@@ -38,20 +36,32 @@
  tellme-code-rules-function nil
  )
 
-(defun tellme(code)
+(defun tellme(code-list)
   "Adds needs codes for program file. using with yasnippet.
 
 code :: going to be code.
 example :
 emacs-lisp require package.
 java program language's import class-name."
-  ;; Support major mode?
-  (when (tellme-support-major-mode-p)
-    ;; Is already coded if support?
-    (unless (tellme-code-p code)
-      ;; code if not coded.
-      (tellme-code code)))
+  (let* ((code (tellme-list-to-string code-list)))
+    ;; Support major mode?
+    (when (tellme-support-major-mode-p)
+      ;; Is already coded if support?
+      (unless (tellme-code-p code)
+        ;; code if not coded.
+        (tellme-code code))))
   nil)
+
+(defun tellme-list-to-string (code-list)
+  "List to string.
+
+example : (tell \"me\") to \"tellme\""
+  (let* ((ret ""))
+    (dolist (cur code-list)
+      (if (symbolp cur)
+          (setq ret (concat ret (concat (symbol-name cur))))
+        (setq ret (concat ret "\"" cur "\""))))
+    ret))
 
 (defun tellme-support-major-mode-p ()
   "Is support current major mode.
@@ -104,28 +114,39 @@ code is going to be codes code."
 (defun tellme-new-snippet ()
   "New snippet to use."
   (interactive)
-  (let* (snippet-variable-list snippet-list)
+  (let* (snippet-variable-list snippet-list create-p need-reload-yas)
     ;; support major mode?
     (when (tellme-support-major-mode-p)
       ;; search buffer for code list
       (setq snippet-list (tellme-snippet-search))
       ;; new snippets
       (dolist (snippet-variable-list snippet-list)
-        (tellme-new-snippet-file snippet-variable-list)
-        )
-      ))
-  ;; reload yas
-  (yas-reload-all))
+        (setq create-p (tellme-new-snippet-file snippet-variable-list))
+        (when (and create-p (not need-reload-yas))
+          (setq need-reload-yas t)))
+      (if need-reload-yas
+          ;; reload yas
+          (yas-reload-all)
+        (message "Not found cod to new snippet.")))))
 
 (defun tellme-snippet-file-name (code)
   "Create snippet full file name.
 
 code is using this to concatenate file name."
-  (concat yas--default-user-snippets-dir
-          "/"
-          (symbol-name major-mode)
-          "/"
-          code))
+  (let* (dir file)
+    (setq dir (concat yas--default-user-snippets-dir
+                      "/"
+                      (symbol-name major-mode)
+                      "/tellme")
+          file (concat yas--default-user-snippets-dir
+                       "/"
+                       (symbol-name major-mode)
+                       "/tellme/"
+                       code))
+    (unless (file-exists-p dir)
+      (dired-create-directory dir)
+      )
+    file))
 
 (defun tellme-snippet-search ()
   "Search code that using at create snippets in current buffer.
@@ -170,24 +191,28 @@ snippet-variable-list :
          (key (nth 1 snippet-variable-list))
          (text (nth 2 snippet-variable-list))
          (code (nth 3 snippet-variable-list))
+         snippet-content file-name ret)
 
-         ;; Construct contents
-         (snippet-content (concat "# -*- mode: snippet -*-\n"
-                                  "# name: " name "\n"
-                                  "# key: " key ";\n"
-                                  "# --\n"
-                                  text"`\n"
-                                  "(tellme \"" code "\")\n"
-                                  "`")))
+    (setq file-name (tellme-snippet-file-name name))
+    (unless (file-exists-p file-name)
+      (setq ret t)
 
-    (with-temp-file (tellme-snippet-file-name name)
-      ;; Insert contents.
-      (insert snippet-content)
-      )
-
-    (message (concat "snippet "
-                     (tellme-snippet-file-name name)
-                     " created successed."))))
+      (with-temp-file file-name
+        ;; Construct contents
+        (setq snippet-content (concat "# -*- mode: snippet -*-\n"
+                                      "# name: " name "\n"
+                                      "# key: " key ";\n"
+                                      "# group: tellme\n"
+                                      "# --\n"
+                                      text"`(tellme '(" code "))"
+                                      "`"))
+        ;; Insert contents.
+        (insert snippet-content)
+        )
+      (message (concat "snippet "
+                       (tellme-snippet-file-name name)
+                       " created successed.")))
+    ret))
 
 (defun tellme-previous-end-new-indent-line ()
   (previous-line)

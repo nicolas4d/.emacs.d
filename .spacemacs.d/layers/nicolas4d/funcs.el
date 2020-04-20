@@ -3,8 +3,6 @@
 for excute in dotspacemacs/user-config."
   ;; remove buffer's left ~
   (global-vi-tilde-fringe-mode -1)
-
-  (nicolas4d-base/user-config)
   )
 
 ;;; proxy
@@ -39,6 +37,7 @@ for excute in dotspacemacs/user-config."
     (set-proxy)))
 ;;; proxy ends here
 
+;;; files
 ;; find website.org file
 (defun find-website-file()
   (interactive)
@@ -65,6 +64,8 @@ for excute in dotspacemacs/user-config."
   (interactive)
   (find-file "~/.local/share/shadowsocksr/config.json")
   )
+
+;;; End here files
 
 (defun end-of-line-and-new-line-and-indent ()
   "end of current line and go new line and indent."
