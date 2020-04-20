@@ -20,6 +20,16 @@
  tellme-cpp-keyword-list '(tellme-cpp-keyword-include
                            tellme-cpp-keyword-none)
 
+ ;; Python
+ tellme-python-keyword-import "import"
+ tellme-python-keyword-from "from"
+ tellme-python-keyword-path "#!"
+ tellme-python-keyword-none "none"
+ tellme-python-keyword-list '(tellme-python-keyword-import
+                              tellme-python-keyword-from
+                              tellme-python-keyword-path
+                              tellme-python-keyword-none)
+
  ;; Define mode's information
  tellme-mode-info-list '((emacs-lisp-mode
                           tellme-elisp-keyword-list
@@ -37,7 +47,15 @@
                           tellme-cpp-keyword-list
                           tellme-cpp-go-place
                           tellme-cpp-to-be-found-code
-                          tellme-cpp-code-rules))
+                          tellme-cpp-code-rules)
+
+                         (python-mode
+                          tellme-python-keyword-list
+                          tellme-python-go-place
+                          tellme-python-to-be-found-code
+                          tellme-python-code-rules)
+
+                         )
 
  ;; Define callbacks
  tellme-keyword-list nil
@@ -60,8 +78,6 @@ java program language's import class-name."
         ;; code if not coded.
         (tellme-code code))))
   nil)
-
-
 
 (defun tellme-list-to-string (code-list)
   "List to string.
@@ -101,7 +117,8 @@ code is going to be find."
   (let* (ret found-code-list found-code)
     (setq found-code-list (funcall (eval 'tellme-to-be-found-code-func) code))
     (dolist (found-code found-code-list)
-      (when (search-backward found-code 0 t)
+      (when (search-backward-regexp (concat found-code "\\( \\|$\\)+")
+                                    0 t)
         (setq ret t)))
     ret))
 
@@ -144,15 +161,9 @@ code is going to be codes code."
 
 code is using this to concatenate file name."
   (let* (dir file)
-    (setq dir (concat yas--default-user-snippets-dir
-                      "/"
-                      (symbol-name major-mode)
-                      "/tellme")
-          file (concat yas--default-user-snippets-dir
-                       "/"
-                       (symbol-name major-mode)
-                       "/tellme/"
-                       code))
+    (setq dir (concat yas--default-user-snippets-dir "/"
+                      (symbol-name major-mode) "/tellme")
+          file (concat dir "/" code))
     (unless (file-exists-p dir)
       (dired-create-directory dir)
       )
@@ -394,5 +405,88 @@ Returns ((expression)(rules))."
           (push class-name ret) ; name
           ret)))))
 ;;; Ends here for c++
+
+;;; For python
+(defun tellme-python-to-be-found-code (code)
+  "Create code list to be found. "
+  (list code))
+
+(defun tellme-python-go-place (keyword)
+  "Go to the palce where going to be code.
+
+Find place by keyword. "
+  (let* ((curKeywordValue (eval keyword) )
+         ret)
+    (if (or (eq curKeywordValue tellme-python-keyword-import)
+            (eq curKeywordValue tellme-python-keyword-from))
+        (progn
+          (when (search-backward-regexp (concat "\\("
+                                                tellme-python-keyword-import
+                                                "\\|"
+                                                tellme-python-keyword-from
+                                                "\\)")
+                                        nil t )
+            (tellme-end-new-indent-line)
+            (setq ret t))))
+    (if (eq curKeywordValue tellme-python-keyword-path)
+        (progn
+          (when (search-backward tellme-python-keyword-path nil t)
+            (tellme-end-new-new-indent)
+            (setq ret t))))
+    (if (eq curKeywordValue tellme-python-keyword-none)
+        (progn
+          (beginning-of-buffer)
+          (setq ret t)))
+    ret))
+
+(defun tellme-python-code-rules ()
+  "Java regular expression for search and extract code rulse.
+
+Returns (((expression)(rules))...)."
+  '(
+    (
+     '(concat "^" tellme-python-keyword-from " .*$")
+     '(progn
+        (let* ((ret ()) class-code class-text class-key class-name
+               split-string-list)
+
+          (setq split-string-list (split-string code " "))
+
+          (setq class-code (substring code 6 -1))
+          (setq class-text (nth 3 split-string-list))
+          (setq class-key (downcase class-text))
+          (setq class-name (concat (nth 1 split-string-list)
+                                   "."
+                                   class-text))
+
+          (push (tellme-encode code) ret) ; code
+          (push class-text ret) ; text
+          (push class-key ret) ; key
+          (push class-name ret) ; name
+          ret))
+     )
+    (
+     '(concat "^" tellme-python-keyword-import " .*$")
+     '(progn
+        (let* ((ret ()) class-code class-text class-key class-name
+               split-string-list)
+
+          (setq split-string-list (split-string code " "))
+
+          (setq class-code (nth 1 split-string-list))
+          (setq class-text class-code)
+          (setq class-key (downcase class-text))
+          (setq class-name class-code)
+
+          (push (tellme-encode code) ret) ; code
+          (push class-text ret) ; text
+          (push class-key ret) ; key
+          (push class-name ret) ; name
+          ret))
+     )
+    )
+
+  )
+;;; ends here for python
 
 ;;;; ends here Tellme

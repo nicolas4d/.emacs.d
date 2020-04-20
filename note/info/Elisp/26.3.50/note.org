@@ -218,9 +218,12 @@
 *** Regular Expressions::   Describing classes of strings.
 **** Syntax of Regexps::       Rules for writing regular expressions.
 ***** Regexp Special::Special characters in regular expressions.
-      
 ***** Char Classes::        Character classes used in regular expressions.
 ***** Regexp Backslash::    Backslash-sequences in regular expressions.
+      #+begin_src emacs-lisp :tangle yes
+        (re-search-forward "\\(foo\\|bar\\)x" nil t)
+        foox barx
+      #+end_src
 **** Regexp Example::          Illustrates regular expression syntax.
 **** Regexp Functions::Functions for operating on regular expressions.
      #+begin_src emacs-lisp :tangle yes

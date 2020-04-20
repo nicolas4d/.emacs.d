@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: tellme
+# key: tellme;
+# group: tellme
+# --
+tellme`(tellme "import+tellme")`

@@ -1,3 +1,25 @@
+
+;;python
+(setq code "from tellme import tm")
+
+(progn
+  (search-forward-regexp "\\(import\\|package\\)" nil t)
+  (search-forward-regexp "\\(import\\|from\\)" nil t)
+  import from
+  import package
+
+  
+  (search-backward (concat "\\("
+                           tellme-python-keyword-import
+                           "\\|"
+                           tellme-python-keyword-from
+                           "\\)")
+                   nil t )
+  )
+
+(search-forward-regexp "$" nil t)
+
+
 #include <tellme>
 #include "tellme.h"
 
@@ -5,9 +27,9 @@ tellme
 tell
 ;; c++
 (progn
- (shell-command "rm -r ~/.emacs.d/snippets/c++-mode/tellme")
- (yas-reload-all)
- )
+  (shell-command "rm -r ~/.emacs.d/snippets/c++-mode/tellme")
+  (yas-reload-all)
+  )
 
 
 import tellme.tm;
