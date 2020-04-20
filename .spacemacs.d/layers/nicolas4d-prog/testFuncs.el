@@ -1,158 +1,209 @@
+;;; python
+(defun test-tell-new-snippet-python ()
+  (with-current-buffer-window
+   "*scratch*"
+   nil
+   nil
 
-;;python
-(setq code "from tellme import tm")
+   (python-mode)
 
-(progn
-  (search-forward-regexp "\\(import\\|package\\)" nil t)
-  (search-forward-regexp "\\(import\\|from\\)" nil t)
-  import from
-  import package
+   (dolist (cur-import (list "from tellme import tm"
+                             "import tm"))
+     ;; New snippets from ... import
+     (beginning-of-buffer)
+     (kill-line 10)
+     (insert cur-import)
+     (tellme-new-snippet)
 
-  
-  (search-backward (concat "\\("
-                           tellme-python-keyword-import
-                           "\\|"
-                           tellme-python-keyword-from
-                           "\\)")
-                   nil t )
+     ;; test case : none
+     (beginning-of-buffer)
+     (kill-line 10)
+     (insert "tm;")
+     (yas-expand)
+
+     ;; test case : coded
+     (beginning-of-buffer)
+     (kill-line 10)
+     (insert cur-import)
+     (newline)
+     (insert "tm;")
+     (yas-expand)
+
+     ;; test case : import
+     (beginning-of-buffer)
+     (kill-line 10)
+     (insert "import some")
+     (newline-and-indent)
+     (insert "tm;")
+     (yas-expand)
+
+     ;; test case : from
+     (beginning-of-buffer)
+     (kill-line 10)
+     (insert "from some import some")
+     (newline-and-indent)
+     (insert "tm;")
+     (yas-expand)
+
+     ;; test case : path
+     (beginning-of-buffer)
+     (kill-line 10)
+     (insert "#!some")
+     (newline-and-indent)
+     (insert "tm;")
+     (yas-expand)
+
+     ;; clean
+     (shell-command "rm -r ~/.emacs.d/snippets/python-mode/tellme")
+     (yas-reload-all))))
+
+(when nil
+  (test-tell-new-snippet-python)
+
   )
 
-(search-forward-regexp "$" nil t)
+;;; c++
+(defun test-tell-new-snippet-cpp ()
+  (with-current-buffer-window
+   "*scratch*"
+   nil
+   nil
 
+   (c++-mode)
 
-#include <tellme>
-#include "tellme.h"
+   ;; New snippets
+   (insert "#include \"tellme.h\"")
+   (tellme-new-snippet)
 
-tellme
-tell
-;; c++
-(progn
-  (shell-command "rm -r ~/.emacs.d/snippets/c++-mode/tellme")
-  (yas-reload-all)
+   ;; test case : none
+   (beginning-of-buffer)
+   (kill-line 100)
+   (insert "tellme;")
+   (yas-expand)
+
+   ;; test case : coded
+   (beginning-of-buffer)
+   (kill-line 100)
+   (insert "#include \"tellme.h\"")
+   (newline-and-indent)
+   (insert "tellme;")
+   (yas-expand)
+
+   ;; test case : include
+   (beginning-of-buffer)
+   (kill-line 100)
+   (insert "#include some")
+   (newline-and-indent)
+   (insert "tellme;")
+   (yas-expand)
+
+   ;; clean
+   (shell-command "rm -r ~/.emacs.d/snippets/c++-mode/tellme")
+   (yas-reload-all)))
+
+(when nil
+  (test-tell-new-snippet-cpp)
+
   )
 
+;;; java test
+(defun test-tell-new-snippet-java ()
+  (with-current-buffer-window
+   "*scratch*"
+   nil
+   nil
 
-import tellme.tm;
-tm
+   (java-mode)
+   ;; Insert import statement.
+   (beginning-of-buffer)
+   (insert "import tellme.tm;")
+   ;; new snippet
+   (tellme-new-snippet)
+   ;; Delete statement.
+   (beginning-of-buffer)
+   (kill-line)
 
-;; java test
+   ;; Test case : none
+   (insert "tm;")
+   (yas-expand)
+   (sleep-for 10)
 
+   ;; Test case : coded
+   (backward-word)
+   (newline-and-indent)
+   (end-of-line)
+   (insert ";")
+   (yas-expand)
 
+   ;; Test case : package
+   (beginning-of-buffer)
+   (kill-line 10)
 
-(progn
-  (shell-command "rm -r ~/.emacs.d/snippets/java-mode/tellme")
-  (yas-reload-all)
+   (insert "package;")
+   (newline-and-indent)
+   (insert "tm;")
+   (yas-expand)
+
+   ;; Test case : import
+   (beginning-of-buffer)
+   (kill-line 10)
+
+   (insert "import;")
+   (newline-and-indent)
+   (insert "tm;")
+   (yas-expand)
+
+   ;; clean
+   (shell-command "rm -r ~/.emacs.d/snippets/java-mode/tellme")
+   (yas-reload-all)
+   )
   )
 
-(with-current-buffer (current-buffer)
-  (ignore-errors
-    (java-mode)
-    (newline)
-    (newline)
-    (insert "import tellme.Test;")
-    (tellme-new-snippet)
-    )
-  (emacs-lisp-mode))
+(when nil
+  (test-tell-new-snippet)
 
-;; test emacs-lisp
-(setq mode-info-list
-      '(emacs-lisp-mode
-        tellme-elisp-keyword-list
-        tellme-elisp-full-code
-        tellme-elisp-go-place
-        tellme-elisp-new-snippet
-        tellme-elisp-find-code
-        tellme-elisp-regexp-list
-        (((eval (concat "(" tellme-elisp-keyword-require " '.*)"))
-          . (substring code 10 -1)))
-        ))
-
-(tellme-keyword-list (nth 0 tellme-mode-info-list))
-(tellme-support-major-mode-p)
-(tellme-code "code" mode-info-list)
-(tellme "code")
-
-(tellme-elisp-code-rules)
-
-(setq code-rules (funcall (eval 'tellme-code-rules-function)))
-(setq tell-test (eval (eval (car (car code-rules)))))
-(search-forward-regexp tell-test nil t)
-(eval (eval (car (cdr (car code-rules)))))
-(tellme-snippet-search)
-(tellme-new-snippet)
-
-(progn
-  (shell-command "rm -r ~/.emacs.d/snippets/emacs-lisp-mode/tellme")
-  (yas-reload-all)
   )
 
-(progn
+;;; test emacs-lisp
+(defun test-tellme-new-snippet-elisp ()
+  (with-current-buffer-window
+   "*scratch*"
+   nil
+   nil
 
+   (emacs-lisp-mode)
 
-  (require 'tellme-test)
-  tellme-test
+   (setq test-require (tellme-encode "(require 'tellme)"))
+   (dolist (cur-require (list test-require))
 
-  (require 'tellme"me")
-  tellme"me"
+     (setq cur-require (tellme-decode cur-require))
 
-  (tellme-encode " \"")
-  (tellme-decode "+%")
+     ;; new snippet
+     (beginning-of-buffer)
+     (kill-line 10)
+     (insert cur-require)
+     (tellme-new-snippet)
+
+     ;; Test case : none
+     (beginning-of-buffer)
+     (kill-line 10)
+     (insert "tellme;")
+     (yas-expand)
+
+     ;; test case : coded
+     (beginning-of-buffer)
+     (kill-line 10)
+     (insert cur-require)
+     (newline-and-indent)
+     (insert "tellme;")
+     (yas-expand)
+
+     ;; clean
+     (shell-command "rm -r ~/.emacs.d/snippets/emacs-lisp-mode/tellme")
+     (yas-reload-all))))
+
+(when nil
+  (test-tellme-new-snippet-elisp)
+
   )
-
-
-
-(if '()
-    (insert "i")
-  )
-
-(setq tm '(tellme -me))
-(insert (symbol-name tm))
-;; 32 space 43 +
-(insert 32) 
-
-
-
-(setq code-list '(tellme"me"))
-(tellme-list-to-string code-list)
-
-
-
-(progn
-  (setq cur-regexp (concat "(" tellme-elisp-keyword-require " '.*)"))
-  (search-forward-regexp cur-regexp nil t)
-  (setq endPoint (point))
-  (search-backward-regexp cur-regexp nil t)
-  (setq startPoint (point))
-  (search-forward-regexp cur-regexp nil t)
-  (setq code (buffer-substring-no-properties startPoint endPoint))
-  )
-
-(progn
-  (setq cur-ret nil)
-  (setq cur-code nil)
-  (setq cur-code (substring code 10 -1))
-  (push cur-code cur-ret)
-  (push cur-code cur-ret)
-  (push cur-code cur-ret)
-  (push code cur-ret)
-  )
-
-
-
-
-(tellme-escape-for-write "abcd\"")
-(string "sds\"df" "")
-(mapconcat 'identity (split-string "sds\"df" "") "")
-
-(regexp-quote (regexp-quote "\""))
-
-(setq tellme-test (list "d"))
-(append "dd" tellme-test)
-
-(append (string 66) ())
-
-
-
-(string-to-list "abc\"def")
-
 

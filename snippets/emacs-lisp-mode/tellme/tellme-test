@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: tellme-test
-# key: tellme-test;
-# group: tellme
-# --
-tellme-test`(tellme "(require+'tellme-test)")`

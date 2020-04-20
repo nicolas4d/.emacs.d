@@ -53,9 +53,7 @@
                           tellme-python-keyword-list
                           tellme-python-go-place
                           tellme-python-to-be-found-code
-                          tellme-python-code-rules)
-
-                         )
+                          tellme-python-code-rules))
 
  ;; Define callbacks
  tellme-keyword-list nil
@@ -117,7 +115,8 @@ code is going to be find."
   (let* (ret found-code-list found-code)
     (setq found-code-list (funcall (eval 'tellme-to-be-found-code-func) code))
     (dolist (found-code found-code-list)
-      (when (search-backward-regexp (concat found-code "\\( \\|$\\)+")
+      (when (search-backward-regexp (concat
+                                     found-code "\\( \\|$\\)+")
                                     0 t)
         (setq ret t)))
     ret))
@@ -130,8 +129,10 @@ code is going to be codes code."
     (let* ((keyword nil)
            (keyword-list (eval tellme-keyword-list)))
       (dolist (keyword keyword-list)
+        (message "1 tellme-code code %s" code)
         ;; Coding depend on keyword case.
         (when (funcall (eval 'tellme-go-place-func) keyword)
+          (message "2 tellme-code code %s" code)
           (insert code)
           (throw 'break nil)))))
   nil)
@@ -198,6 +199,20 @@ each atom on each snippet."
           )))
     ret-snippet-list))
 
+(defun tellme-snippet-variable-list (name key text code)
+  "Create list using for new snippet.
+
+1. name is the snippet's name.
+2. key is the snippet's key.
+3. text is the snippet's text that will be write in the current point.
+4. code that will be coded."
+  (let* (ret)
+    (push (tellme-encode code) ret) ; code
+    (push text ret) ; text
+    (push key ret) ; key
+    (push name ret) ; name
+    ret))
+
 (defun tellme-new-snippet-file (snippet-variable-list)
   "Create snippet file and write contents.
 
@@ -206,11 +221,6 @@ snippet-variable-list :
 2. key is the snippet's key.
 3. text is the snippet's text that will be write in the current point.
 4. code that will be coded."
-  (message "message start")
-  (message (nth 0 snippet-variable-list))
-  ;;(message "sdf" (nth 3 snippet-variable-list) "sdf")
-  (message "message end")
-
   (let* ((name (nth 0 snippet-variable-list))
          (key (nth 1 snippet-variable-list))
          (text (nth 2 snippet-variable-list))
@@ -260,10 +270,12 @@ Decode + to space."
     ;; 32 is space and 43 is +
     (subst-char-in-string 43 32 cur-code)))
 
-(defun tellme-previous-end-new-indent-line ()
-  (previous-line)
-  (end-of-line)
-  (newline-and-indent)
+(defun tellme-beginning-new-previous-line ()
+  (ignore-errors
+    (beginning-of-line)
+    (newline-and-indent)
+    (previous-line)
+    )
   )
 
 (defun tellme-end-new-indent-line ()
@@ -283,15 +295,11 @@ Decode + to space."
   "Create code list to be found. Using with code."
   (list code))
 
-(defun tellme-elisp-full-code (code)
-  "Get full-code for emacs lisp using with code."
-  code)
-
 (defun tellme-elisp-go-place (keyword)
   "Go to the place where going to be code.
 
 keyword is for general purpose and extension."
-  (tellme-previous-end-new-indent-line)
+  (tellme-beginning-new-previous-line)
   t)
 
 (defun tellme-elisp-code-rules ()
@@ -302,18 +310,13 @@ keyword is for general purpose and extension."
      '(progn
         (let* ((ret ()) cur-code)
           (setq cur-code (substring code 10 -1))
-          (push (tellme-encode code) ret)
-          (push cur-code ret)
-          (push cur-code ret)
-          (push cur-code ret)))
-     )
-    )
-  )
-
+          (tellme-snippet-variable-list cur-code
+                                        cur-code
+                                        cur-code
+                                        code))))))
 ;;; Ends here for elisp
 
 ;;; For java
-
 (defun tellme-java-to-be-found-code (code)
   "Create code list to be found. "
   (list code))
@@ -354,12 +357,10 @@ Returns ((expression)(rules))."
           (setq class-text (car (last (split-string class-code "\\."))))
           (setq class-key (downcase class-text))
           (setq class-name class-code)
-
-          (push (tellme-encode code) ret) ; code
-          (push class-text ret) ; text
-          (push class-key ret) ; key
-          (push class-name ret) ; name
-          ret)))))
+          (tellme-snippet-variable-list class-name
+                                        class-key
+                                        class-text
+                                        code))))))
 ;;; Ends here for java
 
 ;;; For c++
@@ -398,12 +399,10 @@ Returns ((expression)(rules))."
           (setq class-text (first (split-string class-code "\\.")))
           (setq class-key (downcase class-text))
           (setq class-name class-code)
-
-          (push (tellme-encode code) ret) ; code
-          (push class-text ret) ; text
-          (push class-key ret) ; key
-          (push class-name ret) ; name
-          ret)))))
+          (tellme-snippet-variable-list class-name
+                                        class-key
+                                        class-text
+                                        code))))))
 ;;; Ends here for c++
 
 ;;; For python
@@ -458,14 +457,11 @@ Returns (((expression)(rules))...)."
           (setq class-name (concat (nth 1 split-string-list)
                                    "."
                                    class-text))
-
-          (push (tellme-encode code) ret) ; code
-          (push class-text ret) ; text
-          (push class-key ret) ; key
-          (push class-name ret) ; name
-          ret))
-     )
-    (
+          (tellme-snippet-variable-list class-name
+                                        class-key
+                                        class-text
+                                        code)))
+     )(
      '(concat "^" tellme-python-keyword-import " .*$")
      '(progn
         (let* ((ret ()) class-code class-text class-key class-name
@@ -477,16 +473,10 @@ Returns (((expression)(rules))...)."
           (setq class-text class-code)
           (setq class-key (downcase class-text))
           (setq class-name class-code)
-
-          (push (tellme-encode code) ret) ; code
-          (push class-text ret) ; text
-          (push class-key ret) ; key
-          (push class-name ret) ; name
-          ret))
-     )
-    )
-
-  )
+          (tellme-snippet-variable-list class-name
+                                        class-key
+                                        class-text
+                                        code))))))
 ;;; ends here for python
 
 ;;;; ends here Tellme

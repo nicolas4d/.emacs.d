@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: tellme
-# key: tellme;
-# group: tellme
-# --
-tellme`(tellme "#include+<tellme>")`

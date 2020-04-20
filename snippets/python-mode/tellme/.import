@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: .import
-# key: import;
-# group: tellme
-# --
-import`(tellme "from+lib+import+funs")`
