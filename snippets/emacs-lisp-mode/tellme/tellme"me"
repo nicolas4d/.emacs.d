@@ -3,4 +3,4 @@
 # key: tellme"me";
 # group: tellme
 # --
-tellme"me"`(tellme '(tellme"me"))`
+tellme"me"`(tellme "(require+'tellme%me%)")`

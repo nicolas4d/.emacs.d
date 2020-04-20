@@ -3,4 +3,4 @@
 # key: tellme-test;
 # group: tellme
 # --
-tellme-test`(tellme '(tellme-test))`
+tellme-test`(tellme "(require+'tellme-test)")`

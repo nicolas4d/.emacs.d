@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: sdf)"
-# key: sdf)";
-# group: tellme
-# --
-sdf)"`(tellme '(sdf)"))`

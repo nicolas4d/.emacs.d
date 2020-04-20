@@ -1,3 +1,37 @@
+#include <tellme>
+#include "tellme.h"
+
+tellme
+tell
+;; c++
+(progn
+ (shell-command "rm -r ~/.emacs.d/snippets/c++-mode/tellme")
+ (yas-reload-all)
+ )
+
+
+import tellme.tm;
+tm
+
+;; java test
+
+
+
+(progn
+  (shell-command "rm -r ~/.emacs.d/snippets/java-mode/tellme")
+  (yas-reload-all)
+  )
+
+(with-current-buffer (current-buffer)
+  (ignore-errors
+    (java-mode)
+    (newline)
+    (newline)
+    (insert "import tellme.Test;")
+    (tellme-new-snippet)
+    )
+  (emacs-lisp-mode))
+
 ;; test emacs-lisp
 (setq mode-info-list
       '(emacs-lisp-mode
@@ -30,17 +64,30 @@
   (yas-reload-all)
   )
 
+(progn
 
 
-(require 'tellme-test)
-tellme-test
+  (require 'tellme-test)
+  tellme-test
 
-(require 'tellme"me")
-tellme"me"
+  (require 'tellme"me")
+  tellme"me"
+
+  (tellme-encode " \"")
+  (tellme-decode "+%")
+  )
+
+
 
 (if '()
     (insert "i")
-)
+  )
+
+(setq tm '(tellme -me))
+(insert (symbol-name tm))
+;; 32 space 43 +
+(insert 32) 
+
 
 
 (setq code-list '(tellme"me"))
@@ -58,9 +105,15 @@ tellme"me"
   (setq code (buffer-substring-no-properties startPoint endPoint))
   )
 
-
-(setq tellme-test "(require 'sdf)")
-(substring tellme-test  10 -1)
+(progn
+  (setq cur-ret nil)
+  (setq cur-code nil)
+  (setq cur-code (substring code 10 -1))
+  (push cur-code cur-ret)
+  (push cur-code cur-ret)
+  (push cur-code cur-ret)
+  (push code cur-ret)
+  )
 
 
 
@@ -81,13 +134,3 @@ tellme"me"
 (string-to-list "abc\"def")
 
 
-;; java test
-(with-current-buffer (current-buffer)
-  (ignore-errors
-    (java-mode)
-    (newline)
-    (newline)
-    (insert "import tellme.Test;")
-    (tellme-new-snippet)
-    )
-  (emacs-lisp-mode))

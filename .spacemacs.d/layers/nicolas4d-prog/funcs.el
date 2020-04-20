@@ -5,6 +5,7 @@
  ;; For emacs lisp
  tellme-elisp-keyword-require "require"
  tellme-elisp-keyword-list '(tellme-elisp-keyword-require)
+
  ;; For java
  tellme-java-keyword-import "import"
  tellme-java-keyword-package "package"
@@ -13,37 +14,45 @@
                             tellme-java-keyword-package
                             tellme-java-keyword-none)
 
+ ;; For c++
+ tellme-cpp-keyword-include "#include"
+ tellme-cpp-keyword-none "none"
+ tellme-cpp-keyword-list '(tellme-cpp-keyword-include
+                           tellme-cpp-keyword-none)
+
  ;; Define mode's information
  tellme-mode-info-list '((emacs-lisp-mode
                           tellme-elisp-keyword-list
-                          tellme-elisp-full-code
                           tellme-elisp-go-place
                           tellme-elisp-to-be-found-code
                           tellme-elisp-code-rules)
 
                          (java-mode
                           tellme-java-keyword-list
-                          tellme-java-full-code
                           tellme-java-go-place
                           tellme-java-to-be-found-code
                           tellme-java-code-rules)
-                         )
+
+                         (c++-mode
+                          tellme-cpp-keyword-list
+                          tellme-cpp-go-place
+                          tellme-cpp-to-be-found-code
+                          tellme-cpp-code-rules))
+
  ;; Define callbacks
  tellme-keyword-list nil
- tellme-full-code-func nil
  tellme-go-place-func nil
  tellme-to-be-found-code-func nil
- tellme-code-rules-function nil
- )
+ tellme-code-rules-function nil )
 
-(defun tellme(code-list)
+(defun tellme(encode)
   "Adds needs codes for program file. using with yasnippet.
 
 code :: going to be code.
 example :
 emacs-lisp require package.
 java program language's import class-name."
-  (let* ((code (tellme-list-to-string code-list)))
+  (let* ((code (tellme-decode encode)))
     ;; Support major mode?
     (when (tellme-support-major-mode-p)
       ;; Is already coded if support?
@@ -51,6 +60,8 @@ java program language's import class-name."
         ;; code if not coded.
         (tellme-code code))))
   nil)
+
+
 
 (defun tellme-list-to-string (code-list)
   "List to string.
@@ -74,14 +85,12 @@ Return t if support. Return nil if not support."
         ;; Configure current mode callbacks.
         (setq tellme-keyword-list
               (nth 1 mode-info-list)
-              tellme-full-code-func
-              (nth 2 mode-info-list)
               tellme-go-place-func
-              (nth 3 mode-info-list)
+              (nth 2 mode-info-list)
               tellme-to-be-found-code-func
-              (nth 4 mode-info-list)
+              (nth 3 mode-info-list)
               tellme-code-rules-function
-              (nth 5 mode-info-list)
+              (nth 4 mode-info-list)
               ret t)))
     ret))
 
@@ -106,14 +115,14 @@ code is going to be codes code."
       (dolist (keyword keyword-list)
         ;; Coding depend on keyword case.
         (when (funcall (eval 'tellme-go-place-func) keyword)
-          (setq full-code (funcall (eval 'tellme-full-code-func) code))
-          (insert full-code)
+          (insert code)
           (throw 'break nil)))))
   nil)
 
 (defun tellme-new-snippet ()
   "New snippet to use."
   (interactive)
+
   (save-excursion
     (let* (snippet-variable-list snippet-list create-p need-reload-yas)
       ;; support major mode?
@@ -185,10 +194,13 @@ snippet-variable-list :
 1. name is the snippet's name.
 2. key is the snippet's key.
 3. text is the snippet's text that will be write in the current point.
-4. code that will be coded.
-"
-  (let* (snippet-content
-         (name (nth 0 snippet-variable-list))
+4. code that will be coded."
+  (message "message start")
+  (message (nth 0 snippet-variable-list))
+  ;;(message "sdf" (nth 3 snippet-variable-list) "sdf")
+  (message "message end")
+
+  (let* ((name (nth 0 snippet-variable-list))
          (key (nth 1 snippet-variable-list))
          (text (nth 2 snippet-variable-list))
          (code (nth 3 snippet-variable-list))
@@ -205,7 +217,7 @@ snippet-variable-list :
                                       "# key: " key ";\n"
                                       "# group: tellme\n"
                                       "# --\n"
-                                      text"`(tellme '(" code "))"
+                                      text"`(tellme \"" code "\")"
                                       "`"))
         ;; Insert contents.
         (insert snippet-content)
@@ -214,6 +226,28 @@ snippet-variable-list :
                        (tellme-snippet-file-name name)
                        " created successed.")))
     ret))
+
+(defun tellme-encode (code)
+  "Encode code.
+
+Encode \" to -.
+Encode space to +."
+  (let* (cur-code)
+    ;; 37 is % and 34 is "
+    (setq cur-code (subst-char-in-string 34 37 code))
+    ;; 32 is space and 43 is +
+    (subst-char-in-string 32 43 cur-code)))
+
+(defun tellme-decode (code)
+  "Decode code.
+
+Encode - to \".
+Decode + to space."
+  (let* (cur-code)
+    ;; 45 is - and 37 is %
+    (setq cur-code (subst-char-in-string 37 34 code))
+    ;; 32 is space and 43 is +
+    (subst-char-in-string 43 32 cur-code)))
 
 (defun tellme-previous-end-new-indent-line ()
   (previous-line)
@@ -236,12 +270,11 @@ snippet-variable-list :
 
 (defun tellme-elisp-to-be-found-code (code)
   "Create code list to be found. Using with code."
-  (list (tellme-elisp-full-code code)))
+  (list code))
 
 (defun tellme-elisp-full-code (code)
   "Get full-code for emacs lisp using with code."
-  (concat "(" tellme-elisp-keyword-require " '" code ")")
-  )
+  code)
 
 (defun tellme-elisp-go-place (keyword)
   "Go to the place where going to be code.
@@ -258,7 +291,7 @@ keyword is for general purpose and extension."
      '(progn
         (let* ((ret ()) cur-code)
           (setq cur-code (substring code 10 -1))
-          (push cur-code ret)
+          (push (tellme-encode code) ret)
           (push cur-code ret)
           (push cur-code ret)
           (push cur-code ret)))
@@ -272,12 +305,7 @@ keyword is for general purpose and extension."
 
 (defun tellme-java-to-be-found-code (code)
   "Create code list to be found. "
-  (list (tellme-java-full-code code)))
-
-(defun tellme-java-full-code (code)
-  "Get java full-code."
-  (concat tellme-java-keyword-import " " code ";")
-  )
+  (list code))
 
 (defun tellme-java-go-place (keyword)
   "Go to the palce where going to be code.
@@ -316,14 +344,55 @@ Returns ((expression)(rules))."
           (setq class-key (downcase class-text))
           (setq class-name class-code)
 
-          (push class-code ret) ; code
+          (push (tellme-encode code) ret) ; code
           (push class-text ret) ; text
           (push class-key ret) ; key
           (push class-name ret) ; name
-          ret))
-     )
-    )
-  )
+          ret)))))
 ;;; Ends here for java
+
+;;; For c++
+(defun tellme-cpp-to-be-found-code (code)
+  "Create code list to be found. "
+  (list code))
+
+(defun tellme-cpp-go-place (keyword)
+  "Go to the palce where going to be code.
+
+Find place by keyword. "
+  (let* ((curKeywordValue (eval keyword) )
+         ret)
+    (if (eq curKeywordValue tellme-cpp-keyword-include)
+        (progn
+          (when (search-backward tellme-cpp-keyword-include nil t)
+            (tellme-end-new-indent-line)
+            (setq ret t))))
+    (if (eq curKeywordValue tellme-cpp-keyword-none)
+        (progn
+          (beginning-of-buffer)
+          (setq ret t)))
+    ret))
+
+(defun tellme-cpp-code-rules ()
+  "Java regular expression for search and extract code rulse.
+
+Returns ((expression)(rules))."
+  '(
+    (
+     '(concat "^" tellme-cpp-keyword-include " .*[\">]")
+     '(progn
+        (let* ((ret ()) class-code class-text class-key class-name)
+
+          (setq class-code (substring code 10 -1))
+          (setq class-text (first (split-string class-code "\\.")))
+          (setq class-key (downcase class-text))
+          (setq class-name class-code)
+
+          (push (tellme-encode code) ret) ; code
+          (push class-text ret) ; text
+          (push class-key ret) ; key
+          (push class-name ret) ; name
+          ret)))))
+;;; Ends here for c++
 
 ;;;; ends here Tellme

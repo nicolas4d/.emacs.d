@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: Tellme.tm
+# name: tellme.tm
 # key: tm;
 # group: tellme
 # --
-tm`(tellme '(Tellme.tm))`
+tm`(tellme "import+tellme.tm;")`
