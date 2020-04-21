@@ -64,16 +64,5 @@ Each entry is either:
 
 (defun nicolas4d-python/post-init-python()
   (use-package python
-    :config
-    (defun python-default ()
-      (setq mode-name "Python"
-            tab-width python-tab-width
-            fill-column python-fill-column)
-      (when (version< emacs-version "24.5")
-        ;; auto-indent on colon doesn't work well with if statement
-        ;; should be fixed in 24.5 and above
-        (setq electric-indent-chars (delq ?: electric-indent-chars)))
-      (setq-local comment-inline-offset 2)
-      (spacemacs/python-annotate-pdb)
-      (local-set-key (kbd "C-j") 'end-of-line-and-new-line-and-indent))
-    ))
+    :config))
+
