@@ -1,7 +1,6 @@
 ;;;; Tellme
-
 (setq
- ;; Define keyword
+ ;;; Define keyword
  ;; For emacs lisp
  tellme-elisp-keyword-require "require"
  tellme-elisp-keyword-list '(tellme-elisp-keyword-require)
@@ -59,12 +58,12 @@
  tellme-keyword-list nil
  tellme-go-place-func nil
  tellme-to-be-found-code-func nil
- tellme-code-rules-function nil )
+ tellme-code-rules-function nil)
 
 (defun tellme(encode)
   "Adds needs codes for program file. using with yasnippet.
 
-code :: going to be code.
+encode is code that encoded.
 example :
 emacs-lisp require package.
 java program language's import class-name."
@@ -76,17 +75,6 @@ java program language's import class-name."
         ;; code if not coded.
         (tellme-code code))))
   nil)
-
-(defun tellme-list-to-string (code-list)
-  "List to string.
-
-example : (tell \"me\") to \"tellme\""
-  (let* ((ret ""))
-    (dolist (cur code-list)
-      (if (symbolp cur)
-          (setq ret (concat ret (concat (symbol-name cur))))
-        (setq ret (concat ret "\"" cur "\""))))
-    ret))
 
 (defun tellme-support-major-mode-p ()
   "Is support current major mode.
@@ -124,7 +112,7 @@ code is going to be find."
 (defun tellme-code (code)
   "Code.
 
-code is going to be codes code."
+code is going to be codes."
   (catch 'break
     (let* ((keyword nil)
            (keyword-list (eval tellme-keyword-list)))
@@ -477,6 +465,7 @@ Returns (((expression)(rules))...)."
                                         class-key
                                         class-text
                                         code))))))
+
 ;;; ends here for python
 
 ;;;; ends here Tellme

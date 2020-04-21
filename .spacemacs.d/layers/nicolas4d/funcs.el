@@ -73,3 +73,13 @@ for excute in dotspacemacs/user-config."
   (end-of-line)
   (newline-and-indent)
   )
+
+(defun nicolas4d/list-to-string (list)
+  "List to string.
+list is elisp list"
+  (let* ((ret ""))
+    (dolist (cur list)
+      (if (symbolp cur)
+          (setq ret (concat ret (concat (symbol-name cur))))
+        (setq ret (concat ret "\"" cur "\""))))
+    ret))
