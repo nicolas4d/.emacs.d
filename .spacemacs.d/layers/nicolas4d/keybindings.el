@@ -4,7 +4,7 @@
 (global-set-key (kbd "M-x") nil)
 (global-set-key (kbd "M-x") 'kmacro-call-macro)
 (global-set-key (kbd "C-M-k") 'kill-paragraph)
-(global-set-key (kbd "C-j") 'end-of-line-and-new-line-and-indent)
+(global-set-key (kbd "C-j") 'end-new-line-indent)
 (global-unset-key (kbd "C-<SPC>"))
 (define-key dired-mode-map (kbd "r") 'dired-do-rename)
 

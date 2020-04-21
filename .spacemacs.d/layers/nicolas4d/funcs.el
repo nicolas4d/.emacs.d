@@ -41,38 +41,35 @@ for excute in dotspacemacs/user-config."
 ;; find website.org file
 (defun find-website-file()
   (interactive)
-  (find-file "~/website.org"))
+  (find-file (concat user-home-directory "website.org")))
 
 (defun find-miscellaneous()
   "find miscellaneous"
   (interactive)
-  (find-file "~/.data/ubuntu/miscellaneous/"))
+  (find-file (concat user-home-directory ".data/ubuntu/miscellaneous/")))
 
 (defun find-sis-event()
   "find chrome extension sis event file"
   (interactive)
-  (find-file "~/Chrome/Extentions/sis001/js/event.js"))
+  (find-file (concat user-home-directory "Chrome/Extentions/sis001/js/event.js")))
 
 (defun find-layers ()
   "find my own layer cinfiguration directory."
   (interactive)
-  (find-file (concat user-emacs-directory ".spacemacs.d/layers/"))
-  )
+  (find-file (concat dotspacemacs-directory "layers/")))
 
 (defun find-ssr-cinfig ()
   "find shadowsocks config.json file."
   (interactive)
-  (find-file "~/.local/share/shadowsocksr/config.json")
-  )
+  (find-file (concat user-home-directory ".local/share/shadowsocksr/config.json")))
 
 ;;; End here files
 
-(defun end-of-line-and-new-line-and-indent ()
+(defun end-new-line-indent ()
   "end of current line and go new line and indent."
   (interactive)
   (end-of-line)
-  (newline-and-indent)
-  )
+  (newline-and-indent))
 
 (defun nicolas4d/list-to-string (list)
   "List to string.
