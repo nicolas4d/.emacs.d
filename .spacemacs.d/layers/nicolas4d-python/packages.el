@@ -64,5 +64,7 @@ Each entry is either:
 
 (defun nicolas4d-python/post-init-python()
   (use-package python
-    :config))
+    :config
+    (with-eval-after-load 'python-mode
+      (define-key python-mode-map (kbd "C-j") 'end-new-line-indent))))
 
