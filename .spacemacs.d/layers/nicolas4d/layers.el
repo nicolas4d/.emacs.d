@@ -32,6 +32,7 @@
                                       yaml
                                       csv
                                       sql
-                                      git
+                                      (git :variables
+                                           git-magit-status-fullscreen t)
                                       github
                                       ))
