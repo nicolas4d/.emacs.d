@@ -1,4 +1,4 @@
-;; project find file
+;;; project find file
 (defun find-file-with-projectile-or-counsel-git ()
   (interactive)
   (if (git-project-root)
