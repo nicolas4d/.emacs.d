@@ -1,9 +1,9 @@
 (setq layouts-enable-autosave nil)
 
+(advice-add 'dotspacemacs/user-config :after #'nicolas4d/load-my-layouts)
 (advice-add 'save-buffers-kill-terminal :before #'nicolas4d/save-all-layouts)
 
 ;;; custom layout transient state and key bindings
-
 ;; layouts transient state
 (spacemacs|transient-state-format-hint layouts
   spacemacs--layouts-ts-full-hint
@@ -82,5 +82,4 @@
   ("X" spacemacs/layouts-ts-kill-other :exit t)
   ("SPC l" nicolas4d/load-my-layouts :exit t)
   ("SPC s" nicolas4d/save-my-layouts :exit t))
-
 ;;; custom layout transient state and key bindings ends here
