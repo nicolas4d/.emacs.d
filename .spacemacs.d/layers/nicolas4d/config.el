@@ -9,3 +9,4 @@
 (delete-selection-mode t)
 
 (advice-add 'dotspacemacs/user-config :after #'nicolas4d/user-config)
+
