@@ -3,5 +3,5 @@
 
 (spacemacs/set-leader-keys
   ;; iedit
-  "ei" 'iedit-mode
+  "si" 'iedit-mode
   )
