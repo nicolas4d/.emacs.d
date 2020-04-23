@@ -31,6 +31,7 @@
 
 (defconst nicolas4d-search-packages
   '(ag
+    helm-ag
     )
   "The list of Lisp packages required by the nicolas4d-search layer.
 
@@ -65,3 +66,12 @@ Each entry is either:
 (defun nicolas4d-search/init-ag()
   (use-package ag
     :init))
+
+(defun nicolas4d-search/init-helm-ag()
+  (use-package helm-ag
+    :init
+    :config
+    (spacemacs/set-leader-keys
+      "sh" 'helm-ag
+      "ps" 'helm-ag-project-root
+      )))
