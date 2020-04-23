@@ -31,6 +31,7 @@
 
 (defconst nicolas4d-search-packages
   '(ag
+    ripgrep
     helm-ag
     )
   "The list of Lisp packages required by the nicolas4d-search layer.
@@ -65,6 +66,10 @@ Each entry is either:
 
 (defun nicolas4d-search/init-ag()
   (use-package ag
+    :init))
+
+(defun nicolas4d-search/init-ripgrep()
+  (use-package ripgrep
     :init))
 
 (defun nicolas4d-search/init-helm-ag()

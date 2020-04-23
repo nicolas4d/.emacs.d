@@ -31,7 +31,6 @@
 
 (defconst nicolas4d-python-packages
   '()
-  ;; '(python :location built-in)
   "The list of Lisp packages required by the nicolas4d-layer-template layer.
 
 Each entry is either:
