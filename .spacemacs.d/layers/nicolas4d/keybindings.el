@@ -32,7 +32,5 @@
   "fse" 'find-sis-event
   "fsc" 'find-ssr-cinfig
 
-  "ds" 'eshell
   "ho" 'info
-  "dc" 'calendar
   )

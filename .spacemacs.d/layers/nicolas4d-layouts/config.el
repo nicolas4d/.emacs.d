@@ -52,12 +52,11 @@
  [_l_]^^^^        layout w/helm/ivy           [_r_]^^   remove current buffer
  [_n_/_C-l_]^^    next layout                 [_R_]^^   rename current layout
  [_N_/_p_/_C-h_]  prev layout                 [_s_/_S_] save all layouts/save by names
- [_o_]^^^^        custom layout               [_t_]^^   show a buffer without adding it to current layout
+ [_SPC_]^^^^        custom layout               [_t_]^^   show a buffer without adding it to current layout
  [_w_]^^^^        workspaces transient state  [_x_]^^   kill current w/buffers
  ^^^^^^                                       [_X_]^^   kill other w/buffers
  ^^^^^^                                       [_<_/_>_] move layout left/right
- ^^^^^^                                       [_?_]^^   toggle help
- [_SPC l_]^^^^    load my layout              [_SPC s_]^^ save my layout\n")
+ ^^^^^^                                       [_?_]^^   toggle help")
 
 (spacemacs|define-transient-state layouts
   :title "Layouts Transient State"
@@ -104,7 +103,7 @@
   ("l" spacemacs/persp-perspectives :exit t)
   ("n" persp-next)
   ("N" persp-prev)
-  ("o" spacemacs/select-custom-layout :exit t)
+  ("SPC" spacemacs/select-custom-layout :exit t)
   ("p" persp-prev)
   ("r" persp-remove-buffer :exit t)
   ("R" spacemacs/layouts-ts-rename :exit t)
@@ -113,7 +112,5 @@
   ("t" persp-temporarily-display-buffer :exit t)
   ("w" spacemacs/workspaces-transient-state/body :exit t)
   ("x" spacemacs/layouts-ts-kill)
-  ("X" spacemacs/layouts-ts-kill-other :exit t)
-  ("SPC l" nicolas4d/load-my-layouts :exit t)
-  ("SPC s" nicolas4d/save-my-layouts :exit t))
+  ("X" spacemacs/layouts-ts-kill-other :exit t))
 ;;; custom layout transient state and key bindings ends here
