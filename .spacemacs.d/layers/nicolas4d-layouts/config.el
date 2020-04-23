@@ -1,6 +1,6 @@
 (setq layouts-enable-autosave nil)
 
-(advice-add 'dotspacemacs/user-config :after #'nicolas4d/load-my-layouts)
+;; (advice-add 'dotspacemacs/user-config :after #'nicolas4d/load-my-layouts)
 (advice-add 'save-buffers-kill-terminal :before #'nicolas4d/save-all-layouts)
 
 ;;; custom layout transient state and key bindings
