@@ -20,6 +20,7 @@
                                       nicolas4d-search
                                       nicolas4d-spell-checking
                                       nicolas4d-tags
+                                      nicolas4d-navigation
                                       emacs-lisp
                                       python
                                       c-c++
