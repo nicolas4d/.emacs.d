@@ -3,6 +3,40 @@
 ;; (advice-add 'dotspacemacs/user-config :after #'nicolas4d/load-my-layouts)
 (advice-add 'save-buffers-kill-terminal :before #'nicolas4d/save-all-layouts)
 
+;; Custom my layouts
+(with-eval-after-load 'persp-mode
+  (spacemacs|define-custom-layout "@AI"
+    :binding "a"
+    :body
+    (progn
+      ;; hook to add all el buffers to the layout
+      (defun spacemacs-layouts/add-el-buffer-to-persp ()
+        (find-file (concat user-home-directory "ai/note.org")))))
+
+  (spacemacs|define-custom-layout "@Python"
+    :binding "p"
+    :body
+    (progn
+      ;; hook to add all el buffers to the layout
+      (defun spacemacs-layouts/add-el-buffer-to-persp ()
+        (find-file (concat user-home-directory "python/note.org")))))
+
+  (spacemacs|define-custom-layout "@DP"
+    :binding "d"
+    :body
+    (progn
+      ;; hook to add all el buffers to the layout
+      (defun spacemacs-layouts/add-el-buffer-to-persp ()
+        (find-file (concat user-home-directory "DesignPatterns/note.org")))))
+
+  (spacemacs|define-custom-layout "@Android"
+    :binding "i"
+    :body
+    (progn
+      ;; hook to add all el buffers to the layout
+      (defun spacemacs-layouts/add-el-buffer-to-persp ()
+        (find-file (concat user-home-directory "android/note.org"))))))
+
 ;;; custom layout transient state and key bindings
 ;; layouts transient state
 (spacemacs|transient-state-format-hint layouts
