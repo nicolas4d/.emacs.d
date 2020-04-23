@@ -224,6 +224,7 @@
 (depends-on "ranger")
 (depends-on "request")
 (depends-on "restart-emacs")
+(depends-on "ripgrep")
 (depends-on "rtags")
 (depends-on "s")
 (depends-on "sass-mode")
