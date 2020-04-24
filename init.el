@@ -20,4 +20,3 @@ spacemacs if value is nil"
     (load-file (concat user-emacs-directory "init/emacs.el"))
   ;; spacemacs
   (load-file (concat user-emacs-directory "init/spacemacs.el")))
-(put 'narrow-to-page 'disabled nil)
