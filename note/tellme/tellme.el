@@ -1,13 +1,14 @@
-;;; tellme.el
-;; Author: nicolas4d <nicolas4d@foxmail.com>
-;; Version: 0.1
-;; Package-Requires: ((yasnippet "1.0"))
-;; Keywords: import package
-;; URL: 
-;;; Commentary:
-;; this package provides import class or package for program language.
+;;; tellme.el --- add import or package for program.
 
-;;; code
+;; Author: nicolas4d
+;; Maintainer: nicolas4d
+;; Version: 0.1
+;; Package-Requires: ((yasnippet))
+;; Homepage: homepage
+;; Keywords: keywords
+
+;;; Code:
+
 (setq
  ;;; Define keyword
  ;; For emacs lisp
@@ -179,7 +180,7 @@ code is using this to concatenate file name."
 
 Returns snippet list using with create snippets,
 each atom on each snippet."
-  (let (code startPoint endPoints code-rules
+  (let (code startPoint endPoint code-rules
              cur-regexp snippet-variable-list code
              (ret-snippet-list ()))
 
@@ -189,7 +190,7 @@ each atom on each snippet."
       (setq cur-regexp (eval (eval (car cur-rule))))
 
       (save-excursion
-        (beginning-of-buffer)
+        (goto-char (point-min))
 
         ;; make snippet list
         (while (search-forward-regexp cur-regexp nil t)
@@ -283,7 +284,8 @@ Decode + to space."
   (ignore-errors
     (beginning-of-line)
     (newline-and-indent)
-    (previous-line)
+    (forward-line -1)
+    (indent-for-tab-command)
     )
   )
 
@@ -354,7 +356,7 @@ Find place by keyword. "
             (setq ret t))))
     (if (eq curKeywordValue tellme-java-keyword-none)
         (progn
-          (beginning-of-buffer)
+          (goto-char (point-min))
           (setq ret t)))
     ret))
 
@@ -399,7 +401,7 @@ Find place by keyword. "
             (setq ret t))))
     (if (eq curKeywordValue tellme-cpp-keyword-none)
         (progn
-          (beginning-of-buffer)
+          (goto-char (point-min))
           (setq ret t)))
     ret))
 
@@ -455,7 +457,7 @@ Find place by keyword. "
             (setq ret t))))
     (if (eq curKeywordValue tellme-python-keyword-none)
         (progn
-          (beginning-of-buffer)
+          (goto-char (point-min))
           (setq ret t)))
     ret))
 
@@ -501,6 +503,6 @@ Returns (((expression)(rules))...)."
                                         code))))))
 ;;; ends here for python
 
-;;;; ends here Tellme
-
 (provide 'tellme)
+
+;;; tellme.el ends here
