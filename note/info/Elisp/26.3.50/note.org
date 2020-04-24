@@ -239,8 +239,20 @@
    The syntax table controls word and list parsing.
 ** [[file:note/Abbrevs.org][Abbrevs]]
    How Abbrev mode works, and its data structures.
-** [[file:note/Threads.org][Threads]]
-   Concurrency in Emacs Lisp.
+** [[file:note/Threads.org][Threads]]::Concurrency in Emacs Lisp.
+*** Basic Thread Functions::      Basic thread functions.
+    #+begin_src emacs-lisp :tangle yes
+      (defun test-make-thread-function ()
+        (message "test-make-thread-function message!"))
+
+      (make-thread 'test-make-thread-function "test-make-thread-function")
+
+      (make-thread (lambda ()
+                     (message "lambda message" ))
+                   "make-thread lambda")
+    #+end_src
+*** Mutexes::                     Mutexes allow exclusive access to data.
+*** Condition Variables::         Inter-thread events.
 ** [[file:note/Processes.org][Processes]]
    Running and communicating with subprocesses.
 ** [[file:note/Display.org][Display]]
