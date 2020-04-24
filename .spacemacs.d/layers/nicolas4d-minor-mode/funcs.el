@@ -26,9 +26,5 @@ change modifier keys."
 (defun nicolas4d/trash-empty ()
   "Clean files in trash."
   (interactive)
-  (make-thread
-   (lambda ()
-     (shell-command (concat "rm -r " user-home-directory "trash/*"))
-     (shell-command (concat "rm -r " user-home-directory ".data/ubuntu/miscellaneous/trash/*"))
-     (message "trash files excuted"))
-   "nicolas4d/trash"))
+  (async-shell-command (concat "rm -r " user-home-directory "trash/*"))
+  (async-shell-command (concat "rm -r " user-home-directory ".data/ubuntu/miscellaneous/trash/*")))
