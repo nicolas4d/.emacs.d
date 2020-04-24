@@ -1,7 +1,6 @@
 (define-minor-mode nicolas4d-minor-mode
   "Toggle nicolas4d-minor-mode."
-  :global t
-  )
+  :global t)
 
 (defun nicolas4d/copy-picture-to-dir ()
   "copyt ~/Pictures/* to dir that I worked Now."
@@ -31,5 +30,5 @@ change modifier keys."
    (lambda ()
      (shell-command (concat "rm -r " user-home-directory "trash/*"))
      (shell-command (concat "rm -r " user-home-directory ".data/ubuntu/miscellaneous/trash/*"))
-     (message "trash files done!"))
+     (message "trash files excuted"))
    "nicolas4d/trash"))

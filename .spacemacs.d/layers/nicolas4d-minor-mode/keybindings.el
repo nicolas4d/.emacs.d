@@ -5,4 +5,5 @@
   "ym" 'tellme-new-snippet
   "es" 'eshell
   "cd" 'calendar
-  "ft" 'nicolas4d/trash-empty)
+  "ft" 'nicolas4d/trash-empty
+  )
