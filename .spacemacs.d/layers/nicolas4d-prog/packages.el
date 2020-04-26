@@ -68,4 +68,5 @@ Each entry is either:
 ;;   (use-package tellme
 ;;     :init
 ;;     (load-library (concat user-emacs-directory "note/tellme/tellme.el"))))
+
 (load-library (concat user-emacs-directory "note/tellme/tellme.el"))

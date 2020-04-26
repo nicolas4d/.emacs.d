@@ -31,12 +31,19 @@
         ;; hook to add all el buffers to the layout
           (find-file-existing (concat user-home-directory "python/note.org"))))
 
-    (spacemacs|define-custom-layout "@DP"
+    (spacemacs|define-custom-layout "@DesignPatterns"
       :binding "d"
       :body
       (progn
         ;; hook to add all el buffers to the layout
-          (find-file-existing (concat user-home-directory "DesignPatterns/note.org"))))
+        (find-file-existing (concat user-home-directory "DesignPatterns/note.org"))))
+
+    (spacemacs|define-custom-layout "@resume"
+      :binding "r"
+      :body
+      (progn
+        ;; hook to add all el buffers to the layout
+        (find-file-existing (concat user-home-directory "resume/resume-d.tex"))))
 
     (spacemacs|define-custom-layout "@Android"
       :binding "i"

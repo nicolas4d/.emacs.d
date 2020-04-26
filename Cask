@@ -255,6 +255,7 @@
 (depends-on "vi-tilde-fringe")
 (depends-on "visual-fill-column")
 (depends-on "volatile-highlights")
+(depends-on "w3m")
 (depends-on "web-beautify")
 (depends-on "web-completion-data")
 (depends-on "web-mode")

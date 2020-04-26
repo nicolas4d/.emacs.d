@@ -22,9 +22,3 @@
 change modifier keys."
   (interactive)
   (shell-command "xm"))
-
-(defun nicolas4d/trash-empty ()
-  "Clean files in trash."
-  (interactive)
-  (async-shell-command (concat "rm -r " user-home-directory "trash/*"))
-  (async-shell-command (concat "rm -r " user-home-directory ".data/ubuntu/miscellaneous/trash/*")))

@@ -82,7 +82,7 @@ sudo cp emacs /usr/bin/emacs
 *** produce .configure
     ./autogen.sh 
 *** configure
-./configure --prefix=/opt/emacs/26.3.50 --with-mailutils
+./configure --prefix=/opt/emacs/26.3.50 --with-mailutils --with-libxml2 
 *** Invoke the 'make' program
 make
 *** test emacs
