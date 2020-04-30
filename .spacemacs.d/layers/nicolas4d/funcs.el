@@ -51,7 +51,7 @@ for excute in dotspacemacs/user-config."
 (defun find-sis-event()
   "find chrome extension sis event file"
   (interactive)
-  (find-file (concat user-home-directory "Chrome/Extentions/sis001/js/event.js")))
+  (find-file (concat user-home-directory "workspaces/sis/js/event.js")))
 
 (defun find-layers ()
   "find my own layer cinfiguration directory."
