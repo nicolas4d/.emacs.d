@@ -3,4 +3,5 @@
   (interactive)
   (org-edit-special)
   (indent-region-or-buffer)
+  (newline-and-indent)
   (org-edit-src-exit))
