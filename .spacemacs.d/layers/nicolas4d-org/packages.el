@@ -86,5 +86,11 @@ Each entry is either:
        org-startup-with-latex-preview t
        org-startup-with-inline-images nil
        )
+
+      (defun set-org-fill-colomn ()
+        (setq fill-column 100))
+
+      (add-hook 'org-mode-hook 'set-org-fill-colomn)
+
       )))
 ;;; packages.el ends here

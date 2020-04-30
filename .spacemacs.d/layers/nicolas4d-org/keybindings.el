@@ -6,6 +6,7 @@
   "o" 'org-open-at-point
   "l" nil
   "l" 'org-toggle-latex-fragment
+  "si" 'nicolas4d/org-source-indent
   )
 
 (spacemacs/set-leader-keys
