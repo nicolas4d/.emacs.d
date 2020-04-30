@@ -45,6 +45,13 @@
         ;; hook to add all el buffers to the layout
         (find-file-existing (concat user-home-directory "resume/resume-d.tex"))))
 
+    (spacemacs|define-custom-layout "@Linux"
+      :binding "l"
+      :body
+      (progn
+        ;; hook to add all el buffers to the layout
+        (find-file-existing (concat user-home-directory "Linux/note.org"))))
+
     (spacemacs|define-custom-layout "@Android"
       :binding "i"
       :body
