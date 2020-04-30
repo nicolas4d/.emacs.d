@@ -3,7 +3,8 @@
   "xm" 'nicolas4d/exec-xmodmap
   "fc" 'nicolas4d/copy-picture-to-dir
   "ym" 'tellme-new-snippet
-  "es" 'eshell
+  "se" 'eshell
+  "sm" 'man
   "cd" 'calendar
   "mr" 'rmail
   )

@@ -12,8 +12,10 @@
   ;; (shell-command "mv ~/Pictures/* /home/d/python/Scrapy/img/")
   ;; (shell-command "mv ~/Pictures/* /home/d/Chrome/Extentions/Chrome扩展及应用开发（首发版）/img/")
   ;; (shell-command "mv ~/Pictures/* /home/d/.emacs.d/note/yasnippet/img/")
-  (shell-command "mv ~/Pictures/* /home/d/android/docs/guide/img/")
+  ;; (shell-command "mv ~/Pictures/* /home/d/android/docs/guide/img/")
   ;; (shell-command "mv ~/Pictures/* /home/d/Linux/ubuntu/img/")
+  ;; (shell-command "mv ~/Pictures/* /home/d/Linux/LinuxKernelDevelopment/img/")
+  (shell-command "mv ~/Pictures/* /home/d/grub/GRUB-2-bootloader-Full-tutorial/img/")
   )
 
 (defun nicolas4d/exec-xmodmap ()
