@@ -15,4 +15,5 @@
   "fsc" 'find-ssr-cinfig
   "fc" 'nicolas4d/copy-picture-to-dir
 
+  "y" 'youdao-dictionary-search-at-point
   )
