@@ -3,20 +3,17 @@
   :global t)
 
 (defun nicolas4d/copy-picture-to-dir ()
-  "copyt ~/Pictures/* to dir that I worked Now."
+  "copyt ~/Pictures/* to default-directory/img/."
   (interactive)
-  ;; (shell-command "mv ~/Pictures/* /home/d/DesignPatterns/DesignPatterns-GOF/img/")
-  ;; (shell-command "mv ~/Pictures/* /home/d/python/Problem-Solving-with-Algorithms-and-Data-Structures-using-Python/")
-  ;; (shell-command "mv ~/Pictures/* /home/d/android/Head-First-Android-Development/img/")
-  ;; (shell-command "mv ~/Pictures/* /home/d/python/PyWebScraping/img/")
-  ;; (shell-command "mv ~/Pictures/* /home/d/python/Scrapy/img/")
-  ;; (shell-command "mv ~/Pictures/* /home/d/Chrome/Extentions/Chrome扩展及应用开发（首发版）/img/")
-  ;; (shell-command "mv ~/Pictures/* /home/d/.emacs.d/note/yasnippet/img/")
-  ;; (shell-command "mv ~/Pictures/* /home/d/android/docs/guide/img/")
-  ;; (shell-command "mv ~/Pictures/* /home/d/Linux/ubuntu/img/")
-  ;; (shell-command "mv ~/Pictures/* /home/d/Linux/LinuxKernelDevelopment/img/")
-  (shell-command "mv ~/Pictures/* /home/d/grub/GRUB-2-bootloader-Full-tutorial/img/")
-  )
+  (let* ((img-directory (concat default-directory
+                         "img/")))
+    (unless (file-exists-p img-directory)
+      (dired-create-directory img-directory))
+
+    (shell-command (concat
+                    "mv ~/Pictures/* "
+                    img-directory
+                    ))))
 
 (defun nicolas4d/exec-xmodmap ()
   "execute xmodmap.
@@ -24,3 +21,31 @@
 change modifier keys."
   (interactive)
   (shell-command "xm"))
+
+;;; files
+;; find website.org file
+(defun find-website-file()
+  (interactive)
+  (find-file (concat user-home-directory "website.org")))
+
+(defun find-miscellaneous()
+  "find miscellaneous"
+  (interactive)
+  (find-file (concat user-home-directory ".data/ubuntu/miscellaneous/")))
+
+(defun find-sis-event()
+  "find chrome extension sis event file"
+  (interactive)
+  (find-file (concat user-home-directory "workspaces/sis/js/event.js")))
+
+(defun find-layers ()
+  "find my own layer cinfiguration directory."
+  (interactive)
+  (find-file (concat dotspacemacs-directory "layers/")))
+
+(defun find-ssr-cinfig ()
+  "find shadowsocks config.json file."
+  (interactive)
+  (find-file (concat user-home-directory ".local/share/shadowsocksr/config.json")))
+
+;;; End here files
