@@ -37,34 +37,6 @@ for excute in dotspacemacs/user-config."
     (set-proxy)))
 ;;; proxy ends here
 
-;;; files
-;; find website.org file
-(defun find-website-file()
-  (interactive)
-  (find-file (concat user-home-directory "website.org")))
-
-(defun find-miscellaneous()
-  "find miscellaneous"
-  (interactive)
-  (find-file (concat user-home-directory ".data/ubuntu/miscellaneous/")))
-
-(defun find-sis-event()
-  "find chrome extension sis event file"
-  (interactive)
-  (find-file (concat user-home-directory "workspaces/sis/js/event.js")))
-
-(defun find-layers ()
-  "find my own layer cinfiguration directory."
-  (interactive)
-  (find-file (concat dotspacemacs-directory "layers/")))
-
-(defun find-ssr-cinfig ()
-  "find shadowsocks config.json file."
-  (interactive)
-  (find-file (concat user-home-directory ".local/share/shadowsocksr/config.json")))
-
-;;; End here files
-
 (defun end-new-line-indent ()
   "end of current line and go new line and indent."
   (interactive)

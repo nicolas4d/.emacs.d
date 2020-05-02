@@ -23,13 +23,5 @@
   ;; buffer
   "bl" 'list-buffers
 
-  ;; file
-  "fw" 'find-website-file
-  "fm" 'find-miscellaneous
-  "fel" 'find-layers
-  "fs" 'nil
-  "fse" 'find-sis-event
-  "fsc" 'find-ssr-cinfig
-
   "ho" 'info
   )
