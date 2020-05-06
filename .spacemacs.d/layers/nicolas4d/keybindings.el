@@ -24,4 +24,6 @@
   "bl" 'list-buffers
 
   "ho" 'info
+
+  "y" 'youdao-dictionary-search-at-point
   )

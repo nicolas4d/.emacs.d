@@ -50,7 +50,18 @@
       :body
       (progn
         ;; hook to add all el buffers to the layout
-        (find-file-existing (concat user-home-directory "Linux/note.org"))))
+        (find-file-existing (concat user-home-directory "linux/note.org"))))
+
+    (spacemacs|define-custom-layout "@V"
+      :binding "v"
+      :body
+      (progn
+        ;; hook to add all el buffers to the layout
+        (find-file-existing (concat user-home-directory "workspaces/sis/js/event.js"))
+        (split-window-right)
+        (find-file-existing (concat user-home-directory "website.org"))
+        (split-window-right)
+        (find-miscellaneous)))
 
     (spacemacs|define-custom-layout "@Android"
       :binding "i"
