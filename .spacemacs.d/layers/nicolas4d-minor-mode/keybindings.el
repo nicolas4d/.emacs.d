@@ -10,6 +10,7 @@
   ;; file
   "fw" 'find-website-file
   "fm" 'find-miscellaneous
+  "ft" 'trash-file
   "fel" 'find-layers
   "fse" 'find-sis-event
   "fsc" 'find-ssr-cinfig

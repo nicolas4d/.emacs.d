@@ -6,7 +6,7 @@
   "copyt ~/Pictures/* to default-directory/img/."
   (interactive)
   (let* ((img-directory (concat default-directory
-                         "img/")))
+                                "img/")))
     (unless (file-exists-p img-directory)
       (dired-create-directory img-directory))
 
@@ -47,5 +47,18 @@ change modifier keys."
   "find shadowsocks config.json file."
   (interactive)
   (find-file (concat user-home-directory ".local/share/shadowsocksr/config.json")))
+
+(defun trash-file ()
+  "Trash file."
+  (interactive)
+  (let* ((trash-command (concat
+                         "cd ~/trash; "
+                         "rm -rf *; "
+                         "rm -f .*; "
+                         "cd ~/.data/trash; "
+                         "rm -rf *; "
+                         "rm -f .*; "
+                         )))
+    (async-shell-command trash-command nil nil)))
 
 ;;; End here files
