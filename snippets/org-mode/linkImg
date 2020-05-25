@@ -2,4 +2,4 @@
 # name: Img source
 # key: img;
 # --
-[[file:img/${1:`(progn (yank) (nicolas4d/copy-picture-to-dir) nil)`}]]$0
+[[file:img/${1:`(nicolas4d/copy-picture-to-dir)`}]]$0

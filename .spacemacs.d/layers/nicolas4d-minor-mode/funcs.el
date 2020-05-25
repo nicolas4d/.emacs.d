@@ -3,17 +3,36 @@
   :global t)
 
 (defun nicolas4d/copy-picture-to-dir ()
-  "copyt ~/Pictures/* to default-directory/img/."
+  "copy picture to default-directory/img/.
+
+picture name is first of yank list."
   (interactive)
-  (let* ((img-directory (concat default-directory
-                                "img/")))
+
+  (let* (start-point
+         enp-point
+         pic-name
+         (img-directory (concat default-directory"img/")))
+
+    ;; Get picture name.
+    (progn
+      (setq start-point (point))
+      (yank)
+      (setq end-point (point))
+      (setq pic-name (buffer-substring-no-properties start-point end-point))
+      )
+
+    ;; Make sure directory.
     (unless (file-exists-p img-directory)
       (dired-create-directory img-directory))
 
-    (shell-command (concat
-                    "mv ~/Pictures/* "
-                    img-directory
-                    ))))
+    ;; Move picture.
+    (shell-command (concat "cd ~/; "
+                           "mv \""
+                           (concat pic-name)
+                           "\""
+                           " "
+                           img-directory)))
+  nil)
 
 (defun nicolas4d/exec-xmodmap ()
   "execute xmodmap.
