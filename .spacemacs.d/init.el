@@ -207,7 +207,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
-   dotspacemacs-emacs-leader-key "M-l"
+   dotspacemacs-emacs-leader-key "C-SPC"
 
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
@@ -215,7 +215,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
    ;; (default "C-M-m")
-   dotspacemacs-major-mode-emacs-leader-key "M-j"
+   dotspacemacs-major-mode-emacs-leader-key "M-SPC"
 
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs `C-i', `TAB' and `C-m', `RET'.
