@@ -26,7 +26,7 @@ picture name is first of yank list."
       (dired-create-directory img-directory))
 
     ;; Move picture.
-    (shell-command (concat "cd ~/; "
+    (shell-command (concat "cd ~/Pictures; "
                            "mv \""
                            (concat pic-name)
                            "\""
@@ -46,11 +46,6 @@ change modifier keys."
 (defun find-website-file()
   (interactive)
   (find-file (concat user-home-directory "website.org")))
-
-(defun find-miscellaneous()
-  "find miscellaneous"
-  (interactive)
-  (find-file (concat user-home-directory ".data/ubuntu/miscellaneous/")))
 
 (defun find-sis-event()
   "find chrome extension sis event file"

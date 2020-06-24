@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: java.test.it
+# key: it;
+# group: tellme
+# --
+it`(tellme "import+java.test.it;")`

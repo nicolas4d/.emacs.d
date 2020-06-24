@@ -11,3 +11,6 @@
 (advice-add 'dotspacemacs/user-config :after #'nicolas4d/user-config)
 
 (put 'narrow-to-page 'disabled nil)
+
+
+

@@ -116,3 +116,5 @@ https://www.spacjer.com/blog/2018/03/02/why-is-my-emacs-slow/
 (source "melpa" "http://elpa.emacs-china.org/melpa/")
 (source "org" "http://elpa.emacs-china.org/org/")
 * http://ergoemacs.org/emacs/emacs.html
+* slow profiler
+  https://www.spacjer.com/blog/2018/03/02/why-is-my-emacs-slow/

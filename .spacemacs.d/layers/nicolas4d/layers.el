@@ -16,6 +16,7 @@
                                       nicolas4d-package
                                       nicolas4d-plantuml
                                       nicolas4d-prog
+                                      nicolas4d-cc-mode
                                       nicolas4d-python
                                       nicolas4d-search
                                       nicolas4d-spell-checking

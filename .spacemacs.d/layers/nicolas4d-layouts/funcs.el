@@ -52,30 +52,31 @@
         ;; hook to add all el buffers to the layout
         (find-file-existing (concat user-home-directory "linux/note.org"))))
 
-    (spacemacs|define-custom-layout "@uEmacs"
-      :binding "u"
-      :body
-      (progn
-        ;; hook to add all el buffers to the layout
-        (find-file-existing (concat user-home-directory "uemacs/note.org"))))
-
-    (spacemacs|define-custom-layout "@V"
-      :binding "v"
-      :body
-      (progn
-        ;; hook to add all el buffers to the layout
-        (find-file-existing (concat user-home-directory "workspaces/sis/js/event.js"))
-        (split-window-right)
-        (find-file-existing (concat user-home-directory "website.org"))
-        (split-window-right)
-        (find-miscellaneous)))
-
     (spacemacs|define-custom-layout "@Spacemacs"
       :binding "e"
       :body
       (progn
         ;; hook to add all el buffers to the layout
         (find-layers)))
+
+    (spacemacs|define-custom-layout "@cc++"
+      :binding "c"
+      :body
+      (progn
+        ;; hook to add all el buffers to the layout
+        (find-file-existing (concat user-home-directory "cc++/note.org"))))
+
+    (spacemacs|define-custom-layout "@v"
+      :binding "v"
+      :body
+      (progn
+        ;; hook to add all el buffers to the layout
+        (find-file-existing (concat user-home-directory "workspaces/sis/js/event.js"))
+        (split-window-horizontally)
+        (find-file-existing (concat user-home-directory "website.org"))
+        (split-window-horizontally)
+        (find-file-existing (concat user-home-directory ".data/ubuntu/miscellaneous"))
+        ))
 
     (spacemacs|define-custom-layout "@Android"
       :binding "i"
