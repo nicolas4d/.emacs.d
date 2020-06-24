@@ -134,6 +134,7 @@
 (depends-on "highlight-parentheses")
 (depends-on "hl-todo")
 (depends-on "ht")
+(depends-on "html2org")
 (depends-on "htmlize")
 (depends-on "hungry-delete")
 (depends-on "hydra")
