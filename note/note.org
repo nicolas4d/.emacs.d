@@ -1,120 +1,124 @@
 #+TITLE:note
 * dired mode
 ** unique buffer
- (put 'dired-find-alternate-file 'disabled nil)
- ;; 主动加载 Dired Mode
- ;; (require 'dired)
- ;; (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
- ;; 延迟加载
- (with-eval-after-load 'dired
-     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+   (put 'dired-find-alternate-file 'disabled nil)
+   ;; 主动加载 Dired Mode
+   ;; (require 'dired)
+   ;; (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
+   ;; 延迟加载
+   (with-eval-after-load 'dired
+   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 ** references
- https://blog.csdn.net/u011729865/article/details/52422391
+   https://blog.csdn.net/u011729865/article/details/52422391
 * org mode
 ** er/save-org-mode-excursion: Symbol’s function definition is void: org-outline-overlay-data
-reinstall
+   reinstall
 ** It's gonn be slow if  a outline has too many content.
 ** change open image method
-M+X customize-variable
-(setq org-file-apps (append '(("\\.png\\'" . "google-chrome-stable %s")) org-file-apps))
+   M+X customize-variable
+   (setq org-file-apps (append '(("\\.png\\'" . "google-chrome-stable %s")) org-file-apps))
 ** 实现org-mode中的自动换行
- (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+   (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 *** references
-  https://www.jianshu.com/p/918449c6696c
+    https://www.jianshu.com/p/918449c6696c
 ** export --- apply: Wrong type argument: listp
-for dir in "$HOME/.em acs.d/elpa/org-"*
-do find $dir -name "*.elc" -delete
-done
+   for dir in "$HOME/.em acs.d/elpa/org-"*
+   do find $dir -name "*.elc" -delete
+   done
 
-for dir in "$HOME/.emacs.d/.cask/26.3/elpa/org-"*
-do find $dir -name "*.elc" -delete
-done
+   for dir in "$HOME/.emacs.d/.cask/26.3/elpa/org-"*
+   do find $dir -name "*.elc" -delete
+   done
 *** references
-https://github.com/syl20bnr/spacemacs/issues/6296
+    https://github.com/syl20bnr/spacemacs/issues/6296
 * source
-www.melpa.org
-;;'("melpa" . "http://melpa.org/packages/") t)
-'("melpa" . "http://elpa.emacs-china.org/melpa/") t)
+  www.melpa.org
+  ;;'("melpa" . "http://melpa.org/packages/") t)
+  '("melpa" . "http://elpa.emacs-china.org/melpa/") t)
 
 * proxy
-https://emacs-china.org/t/topic/2808/24
+  https://emacs-china.org/t/topic/2808/24
 * Emacs收发email
 ** init file 添加
-;;发送email
-(setq send-mail-function (quote smtpmail-send-it))
-(setq smtpmail-smtp-server "smtp.qq.com")
-(setq smtpmail-smtp-service 25)
-(setq user-full-name “小白”) ;;设置自己用户名
-(setq user-mail-address "123456@qq.com”) ;;设置自己的邮箱
+   ;;发送email
+   (setq send-mail-function (quote smtpmail-send-it))
+   (setq smtpmail-smtp-server "smtp.qq.com")
+   (setq smtpmail-smtp-service 25)
+   (setq user-full-name “小白”) ;;设置自己用户名
+   (setq user-mail-address "123456@qq.com”) ;;设置自己的邮箱
 ** ~/.authinfo添加
- 格式：machine 发件服务器 login 自己的邮箱 port 25 password 自己的邮箱密码  
- 以QQ邮箱为例：
- machine smtp.qq.com login 123456@qq.com port 25 password 123456
+   格式：machine 发件服务器 login 自己的邮箱 port 25 password 自己的邮箱密码  
+   以QQ邮箱为例：
+   machine smtp.qq.com login 123456@qq.com port 25 password 123456
 ** 创建邮件签名文件
- # touch ~/.signature
+   # touch ~/.signature
 ** 收发邮件命令
-<1>发送邮件
+   <1>发送邮件
    M-x mail
-<2>发送邮件
+   <2>发送邮件
    C-c C-s 
-<3>发送并退出
+   <3>发送并退出
    C-c C-c 
-<4>抄送邮件
+   <4>抄送邮件
    C-c C-f C-c (注意不管是发送或抄送发送多人时，邮箱与邮箱账号之间必须加空格!)
-<5>插入文本
+   <5>插入文本
    C-x i
-<6>给邮件加上签名
+   <6>给邮件加上签名
    C-c C-w
-<7>Emacs接收邮件
+   <7>Emacs接收邮件
    在.emacs配置
    (setq rmail-file-name “~/Mail/inbox.rmail")
    //邮件读取
    M-x rmail
  
-<8>接收邮件快捷键命令
-快捷键	命令	         功能
-SPACE	scroll-up	卷屏，查看此消息的下一个画面
-DEL	scroll-down	卷屏，查看此消息的上一个画面
-.	rmail-beginning-of-message	移动到此消息的开头
-n	rmail-next-undeleted-message	移动到下一条消息
-p	rmail-previous-undeleted-message	移动到上一条消息
-<	rmail-first-message	移动到第一条消息
->	rmail-last-message	移动到最后一条消息
-j	rmail-show-message	如果这个命令的前面有一个数字n,跳到第n条消息
-g	refresh	刷新,获取新邮件
+   <8>接收邮件快捷键命令
+   快捷键	命令	         功能
+   SPACE	scroll-up	卷屏，查看此消息的下一个画面
+   DEL	scroll-down	卷屏，查看此消息的上一个画面
+   .	rmail-beginning-of-message	移动到此消息的开头
+   n	rmail-next-undeleted-message	移动到下一条消息
+   p	rmail-previous-undeleted-message	移动到上一条消息
+   <	rmail-first-message	移动到第一条消息
+   >	rmail-last-message	移动到最后一条消息
+   j	rmail-show-message	如果这个命令的前面有一个数字n,跳到第n条消息
+   g	refresh	刷新,获取新邮件
  
-d	rmail-delete-forward	给邮件加上待删除标记，然后移动到下一个
-C-d	rmail-delete-backward	给邮件加上待删除标记，然后移动到上一个
-ESC n	rmail-next-message	移动到下一条消息；不管它是否已经加上待删除标记
-ESC p	rmail-previous-message	移动到上一条消息；不管它是否已经加上待删除标记
-u	rmail-undelete-previous-message	去掉邮件消息上的待删除标记
-x	rmail-expunge	删除已经加有待删除标记的全部消息
-s	rmail-expunge-and-save	删除加有待删除标记的消息并保存RMAIL文件
+   d	rmail-delete-forward	给邮件加上待删除标记，然后移动到下一个
+   C-d	rmail-delete-backward	给邮件加上待删除标记，然后移动到上一个
+   ESC n	rmail-next-message	移动到下一条消息；不管它是否已经加上待删除标记
+   ESC p	rmail-previous-message	移动到上一条消息；不管它是否已经加上待删除标记
+   u	rmail-undelete-previous-message	去掉邮件消息上的待删除标记
+   x	rmail-expunge	删除已经加有待删除标记的全部消息
+   s	rmail-expunge-and-save	删除加有待删除标记的消息并保存RMAIL文件
 ** references
-https://blog.csdn.net/u010164190/article/details/77600933
+   https://blog.csdn.net/u010164190/article/details/77600933
 * ' and list in elisp
-' not woring sometimes insdead of list
-[[file:note/emacs-install.org]]
-#+BEGIN_SRC emacs-lisp
-(setq org-display-internal-link-with-indirect-buffer nil)
-#+END_SRC
+  ' not woring sometimes insdead of list
+  [[file:note/emacs-install.org]]
+  #+BEGIN_SRC emacs-lisp
+    (setq org-display-internal-link-with-indirect-buffer nil)
+  #+END_SRC
 
 * hold control
-emacs memorize the control key , and hold.
-like spacemacs space in evil-normal-mode.
+  emacs memorize the control key , and hold.
+  like spacemacs space in evil-normal-mode.
 *** solved
-use system's "sticky keys".
+    use system's "sticky keys".
 * sticky
-https://www.emacswiki.org/emacs/StickyModifiers
+  https://www.emacswiki.org/emacs/StickyModifiers
 * slow
-disable global-linum-mode
+  disable global-linum-mode
 ** refrences
-https://www.spacjer.com/blog/2018/03/02/why-is-my-emacs-slow/
+   https://www.spacjer.com/blog/2018/03/02/why-is-my-emacs-slow/
 * elmp
 ** cask and spacemacs
-(source "gnu" "http://elpa.emacs-china.org/gnu/")
-(source "melpa" "http://elpa.emacs-china.org/melpa/")
-(source "org" "http://elpa.emacs-china.org/org/")
+   (source "gnu" "http://elpa.emacs-china.org/gnu/")
+   (source "melpa" "http://elpa.emacs-china.org/melpa/")
+   (source "org" "http://elpa.emacs-china.org/org/")
 * http://ergoemacs.org/emacs/emacs.html
 * slow profiler
   https://www.spacjer.com/blog/2018/03/02/why-is-my-emacs-slow/
+* open windows' text 乱码
+  Windows使用的是gb18030。
+
+  https://www.cnblogs.com/www-helloworld-com/p/10202934.html

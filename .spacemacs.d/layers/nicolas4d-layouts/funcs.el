@@ -66,6 +66,13 @@
         ;; hook to add all el buffers to the layout
         (find-file-existing (concat user-home-directory "cc++/note.org"))))
 
+    (spacemacs|define-custom-layout "@Java"
+      :binding "j"
+      :body
+      (progn
+        ;; hook to add all el buffers to the layout
+        (find-file-existing (concat user-home-directory "java/note.org"))))
+
     (spacemacs|define-custom-layout "@v"
       :binding "v"
       :body
@@ -77,6 +84,20 @@
         (split-window-horizontally)
         (find-file-existing (concat user-home-directory ".data/ubuntu/miscellaneous"))
         ))
+
+    (spacemacs|define-custom-layout "@sql"
+      :binding "s"
+      :body
+      (progn
+        (find-file-existing (concat user-home-directory "sql/note.org"))))
+
+    (spacemacs|define-custom-layout "@zf"
+      :binding "z"
+      :body
+      (progn
+        (find-file-existing (concat user-home-directory ".data/zhengfangsoft/note.org"))
+        (split-window-horizontally)
+        (find-file-existing (concat user-home-directory ".data/zhengfangsoft/journal/note.org"))))
 
     (spacemacs|define-custom-layout "@Android"
       :binding "i"

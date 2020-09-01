@@ -62,6 +62,11 @@ change modifier keys."
   (interactive)
   (find-file (concat user-home-directory ".local/share/shadowsocksr/config.json")))
 
+(defun find-miscellaneous ()
+  "find shadowsocks config.json file."
+  (interactive)
+  (find-file (concat user-home-directory ".data/ubuntu/miscellaneous")))
+
 (defun trash-file ()
   "Trash file."
   (interactive)

@@ -13,6 +13,7 @@
   "fel" 'find-layers
   "fse" 'find-sis-event
   "fsc" 'find-ssr-cinfig
+  "fm" 'find-miscellaneous
   "fc" 'nicolas4d/copy-picture-to-dir
 
   "db" 'docbook-find-file
