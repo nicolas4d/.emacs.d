@@ -122,3 +122,5 @@
   Windows使用的是gb18030。
 
   https://www.cnblogs.com/www-helloworld-com/p/10202934.html
+* 保存为dos格式
+https://blog.csdn.net/cuma2369/article/details/107668023

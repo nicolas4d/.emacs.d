@@ -12,5 +12,7 @@
 
 (put 'narrow-to-page 'disabled nil)
 
+(electric-pair-mode 1)
+
 
 

@@ -1,0 +1,3 @@
+[submodule "note/yas-h"]
+	path = note/yas-h
+	url = git@github.com:nicolas4d/tellme.git

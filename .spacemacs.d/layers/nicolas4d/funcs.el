@@ -43,12 +43,21 @@ for excute in dotspacemacs/user-config."
   (end-of-line)
   (newline-and-indent))
 
-(defun nicolas4d/list-to-string (list)
+(defun nicolas4d/list-to-string (list seperator)
   "List to string.
 list is elisp list"
   (let* ((ret ""))
     (dolist (cur list)
-      (if (symbolp cur)
-          (setq ret (concat ret (concat (symbol-name cur))))
-        (setq ret (concat ret "\"" cur "\""))))
+      ;; when string is symbol.
+      (when (and (not (string= cur ""))
+                 (symbolp cur))
+        (progn
+          (message cur)
+          (setq ret (concat ret (concat (symbol-name cur)) seperator))))
+      ;; when just is string.
+      (when (not (string= cur ""))
+        (setq ret (concat ret cur seperator))))
+    ;; remove last seperator.
+    (when (not (string= cur ""))
+      (setq ret (substring ret 0 -1)))
     ret))

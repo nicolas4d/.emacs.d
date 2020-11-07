@@ -1,53 +1,29 @@
-;;; java import
-(setq
- java-import-case-import "import"
- java-import-case-package "package"
- java-import-case-none "none"
- )
-
-(defvar java-import-find-func 'java-import-find
-  "What function to use to find place.")
-
-(defun java-import (class-name)
-  "add import class for java mode."
+(defun java-package-add-package ()
+  "Add package for java file according directory name's src."
   (interactive)
-  (if (search-backward class-name 0 t)
-      nil
-    (progn
-      ;;(java-import-find)
-      (funcall java-import-find-func)
-      (yas-expand-snippet (concat "import " class-name))))
+  
+  (let* ((file-name)
+         (package-string)
+         (cur)
+         (file-name-list))
+    ;; Get file-name.
+    (setq file-name (buffer-file-name))
+    (setq file-name-list (split-string file-name "/"))
+    ;; Build package string.
+    (while (setq cur (pop file-name-list))
+      (when (string= cur "src")
+        (progn
+          (setq package-string
+                (concat "package "
+                        (substring
+                         (nicolas4d/list-to-string file-name-list ".") 0 -5)
+                        ";"
+                        )))))
+
+    (beginning-of-buffer)
+
+    ;; Insert package string.
+    (insert package-string)
+    (newline-and-indent)
+    )
   nil)
-
-(defun java-import-find ()
-  "Find place where to place the import statement."
-  (or
-   (and
-    (search-backward java-import-case-import 0 t)
-    (java-import-find-place java-import-case-import))
-   (and
-    (search-backward java-import-case-package 0 t)
-    (java-import-find-place java-import-case-package))
-   (and
-    (java-import-find-place java-import-case-none)))
-  )
-
-(defun java-import-find-place (args)
-  "Find place where to place the import statement.
-
-args :: depend on this key word to find place."
-  (if (string= args java-import-case-import)
-      (progn
-        (end-of-line)
-        (newline-and-indent)))
-  (if (string= args java-import-case-package)
-      (progn
-        (end-of-line)
-        (newline-and-indent)
-        (newline-and-indent)))
-  (if (string= args java-import-case-none)
-      (progn
-        (beginning-of-buffer)))
-  t)
-
-;;; end of java import

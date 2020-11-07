@@ -69,4 +69,4 @@ Each entry is either:
 ;;     :init
 ;;     (load-library (concat user-emacs-directory "note/tellme/tellme.el"))))
 
-(load-library (concat user-emacs-directory "note/tellme/tellme.el"))
+(load-library (concat user-emacs-directory "note/yas-h/yas-h.el"))
