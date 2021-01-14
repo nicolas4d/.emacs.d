@@ -1,7 +1,8 @@
 # -*- mode: snippet -*-;
 # name: toString
-# key: toStr;
+# key: toString;
 # --
+@Override
 public String toString() {
        $0
 }

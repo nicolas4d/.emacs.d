@@ -52,12 +52,14 @@ list is elisp list"
       (when (and (not (string= cur ""))
                  (symbolp cur))
         (progn
-          (message cur)
           (setq ret (concat ret (concat (symbol-name cur)) seperator))))
       ;; when just is string.
       (when (not (string= cur ""))
         (setq ret (concat ret cur seperator))))
     ;; remove last seperator.
-    (when (not (string= cur ""))
+    (unless (or (string= ret "")
+                (string= seperator ""))
       (setq ret (substring ret 0 -1)))
     ret))
+
+;; (nicolas4d/list-to-string (list "sdfa" "b") "")

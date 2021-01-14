@@ -3,26 +3,34 @@
   (interactive)
 
   (let* ((file-name)
-         (package-string)
+         (package-string "")
          (cur)
-         (file-name-list))
+         (dir-name-list))
     ;; Get file-name.
     (setq file-name (buffer-file-name))
-    (setq file-name-list (split-string file-name "/"))
+    (setq dir-name-list (butlast (split-string file-name "/")))
     ;; Build package string.
-    (while (setq cur (pop file-name-list))
-      (when (string= cur "src")
+    (while (setq cur (pop dir-name-list))
+      (when (or (string= cur "java"))
         (progn
           (setq package-string
                 (concat "package "
-                        (substring
-                         (nicolas4d/list-to-string file-name-list ".") 0 -5)
+                        (nicolas4d/list-to-string dir-name-list ".")
                         ";"
                         )))))
-    (beginning-of-buffer)
-    ;; search package string.
-    (when (not (search-forward package-string nil t))
-      ;; Insert package string.
-      (insert package-string)
-      (newline-and-indent)))
+
+    (unless (string= package-string "")
+      (save-excursion
+        (beginning-of-buffer)
+        ;; search package string.
+        (when (not (search-forward package-string nil t))
+          ;; Insert package string.
+          (insert package-string)
+          (newline-and-indent)))))
+
+  (end-of-line)
+  (newline-and-indent)
+  (newline-and-indent)
   nil)
+
+;;(setq dir-name-list '("test" "cn" "itcast" "test"))

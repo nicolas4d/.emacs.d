@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Thread.currentThread().getName()
+# key: ctname;
+# --
+Thread.currentThread().getName()

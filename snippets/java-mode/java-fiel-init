@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: java-file-init
+# key: java;
+# --
+`(java-package-add-package)`
+public class ${1:`(file-name-base
+(or (buffer-file-name)
+(buffer-name)))`} {
+$0
+}

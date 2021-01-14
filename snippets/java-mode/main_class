@@ -1,10 +1,10 @@
 # -*- mode: snippet -*-;
 # contributor: L. Guruprasad <lgp171188@gmail.com>
-# name: main_class
-# key: mcls;
+# name: main_class_file
+# key: mfile;
 # --
 class `(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))` {
-public static void main(String[] args){
+public static void main(String[] args) throws Exception{
        $0
        }
 }

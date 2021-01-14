@@ -11,3 +11,15 @@
   ;; 延迟加载
   (with-eval-after-load 'dired
     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)))
+
+
+(defun nicolas4d/toggle-dired-dwim-target ()
+  "toggle dired-dwim-target value. in t and nil."
+  (interactive)
+  (if dired-dwim-target
+      (progn
+        (setq dired-dwim-target nil)
+        (message "dired-dwim-target toggled to nil"))
+    (progn
+      (setq dired-dwim-target t)
+      (message "dired-dwim-target toggled to t"))))

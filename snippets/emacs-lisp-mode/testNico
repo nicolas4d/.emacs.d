@@ -1,0 +1,34 @@
+(defun yas-new-snippet-test (&optional no-template)
+  "Pops a new buffer for writing a snippet.
+
+Expands a snippet-writing snippet, unless the optional prefix arg
+NO-TEMPLATE is non-nil."
+  (interactive "P")
+  (let ((guessed-directories (yas--guess-snippet-directories))
+        (yas-selected-text (or yas-selected-text
+                               (and (region-active-p)
+                                    (buffer-substring-no-properties
+                                     (region-beginning) (region-end))))))
+
+    (switch-to-buffer yas-new-snippet-buffer-name)
+    (erase-buffer)
+    (kill-all-local-variables)
+    (snippet-mode)
+    (yas-minor-mode 1)
+    (set (make-local-variable 'yas--guessed-modes)
+         (mapcar (lambda (d) (yas--table-mode (car d)))
+                 guessed-directories))
+    (set (make-local-variable 'default-directory)
+         (car (cdr (car guessed-directories))))
+    (if (and (not no-template) yas-new-snippet-default)
+        (yas-expand-snippet yas-new-snippet-default))))
+
+
+(setq guessed-directories (yas--guess-snippet-directories))
+(set (make-local-variable 'yas--guessed-modes)
+     (mapcar (lambda (d) (yas--table-mode (car d)))
+             guessed-directories))
+(set (make-local-variable 'default-directory)
+     (car (cdr (car guessed-directories))))
+yas--guessed-modes
+default-directory

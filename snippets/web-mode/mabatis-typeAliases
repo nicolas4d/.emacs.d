@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: mabatis-typeAliases
+# key: mbta;
+# --
+<typeAliases>
+  <typeAlias alias="${1:alias}" type="${2:type}"/>$0
+</typeAliases>

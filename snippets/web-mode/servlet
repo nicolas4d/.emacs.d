@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: servlet
+# key: serv;
+# --
+<servlet>
+  <servlet-name>$1</servlet-name>
+  <servlet-class>$2</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>$3</servlet-name>
+  <url-pattern>$0</url-pattern>
+</servlet-mapping>

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: document.getElementsByName
+# key: dgetes;
+# --
+document.getElementsByName

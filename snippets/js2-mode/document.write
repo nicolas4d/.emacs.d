@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: document.write
+# key: docw;
+# --
+document.write($0);

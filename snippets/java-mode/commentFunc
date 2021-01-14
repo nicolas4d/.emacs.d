@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: commentFunc
-# key: cof;
-# --
-/**
- * ${1:}
- * @author ${0:}
- */

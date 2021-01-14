@@ -1,7 +1,8 @@
 # -*- mode: snippet; require-final-newline: nil -*-;
 # name: getter
-# key: g;
+# key: getter;
 # --
 public ${1:int} get${2:Field}() {
-       return ${3:field};
+$2
+return this.`(downcase "`$2`")`;
 }

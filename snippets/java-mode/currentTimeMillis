@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: currentTimeMillis 
+# key: ctm;
+# --
+System.currentTimeMillis()

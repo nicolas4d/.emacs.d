@@ -69,4 +69,5 @@ Each entry is either:
 ;;     :init
 ;;     (load-library (concat user-emacs-directory "note/tellme/tellme.el"))))
 
-(load-library (concat user-emacs-directory "note/yas-h/yas-h.el"))
+(load-library (concat user-emacs-directory "note/dc-yasnippet/dc-yasnippet.el"))
+(advice-add 'save-buffer :before 'dc-yasnippet-new-snippet)

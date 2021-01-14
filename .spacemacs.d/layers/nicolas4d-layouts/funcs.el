@@ -71,7 +71,7 @@
       :body
       (progn
         ;; hook to add all el buffers to the layout
-        (find-file-existing (concat user-home-directory "java/note.org"))))
+        (find-file-existing (concat user-home-directory ".workspaces/IdeaProjects"))))
 
     (spacemacs|define-custom-layout "@v"
       :binding "v"
@@ -80,7 +80,7 @@
         ;; hook to add all el buffers to the layout
         (find-file-existing (concat user-home-directory "workspaces/sis/js/event.js"))
         (split-window-horizontally)
-        (find-file-existing (concat user-home-directory "website.org"))
+        (find-file-existing (concat user-home-directory ".website.org"))
         (split-window-horizontally)
         (find-file-existing (concat user-home-directory ".data/ubuntu/miscellaneous"))
         ))

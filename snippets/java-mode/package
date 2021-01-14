@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: package; 
-# key: pkg;
-# --
-`(java-package-add-package)`

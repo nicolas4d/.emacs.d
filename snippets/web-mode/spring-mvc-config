@@ -1,0 +1,38 @@
+# -*- mode: snippet -*-
+# name: spring-mvc
+# key: springmvc;
+# --
+<!-- 配置自动扫描的包 -->
+<context:component-scan base-package="com.atguigu.crowd.mvc"/>
+
+<!-- 配置视图解析器 -->
+<!-- 拼接公式→前缀+逻辑视图+后缀=物理视图 -->
+<!-- @RequestMapping("/xxx/xxx")
+public String xxx() {
+// 这个返回值就是逻辑视图
+return "target";
+}
+物理视图是一个可以直接转发过去的地址
+物理视图："/WEB-INF/"+"target"+".jsp" 转发路径："/WEB-INF/target.jsp"
+-->
+<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<!-- 前缀：附加到逻辑视图名称前 -->
+<property name="prefix" value="/WEB-INF/"/>
+<!-- 后缀：附加到逻辑视图名称后 -->
+<property name="suffix" value=".jsp"/>
+</bean>
+
+<!-- 启用注解驱动 -->
+<mvc:annotation-driven/>
+
+<!-- 配置基于XML的异常映射 -->
+<bean id="simpleMappingExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+<!-- 配置异常类型和具体视图页面的对应关系 -->
+<property name="exceptionMappings">
+<props>
+<!-- key属性指定异常全类名 -->
+<!-- 标签体中写对应的视图（这个值要拼前后缀得到具体路径） -->
+<prop key="java.lang.Exception">system-error</prop>
+</props>
+</property>
+</bean>

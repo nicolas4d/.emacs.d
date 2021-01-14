@@ -2,5 +2,5 @@
 # name: new
 # key: new;
 # --
-${1:Type} ${2:obj} = new ${3:Constr}(${4:args});
+${1:Type} ${2:obj} = new ${3:$1}(${4:args});
 $0

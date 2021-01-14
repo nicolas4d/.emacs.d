@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: commentDocument
+# key: cod;
+# --
+/**
+ * ${1:}
+ *
+ * @author ${0:}
+ *
+ */
