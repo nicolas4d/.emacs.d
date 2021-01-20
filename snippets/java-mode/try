@@ -5,6 +5,6 @@
 try {
     $0
 }
-catch (${1:Throwable e}) {
+catch (${1:Exception e}) {
       ${2:e.printStackTrace();}
 }

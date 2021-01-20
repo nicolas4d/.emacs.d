@@ -36,7 +36,7 @@
                                       (git :variables
                                            git-magit-status-fullscreen t)
                                       github
-
+                                      nginx
                                       ;; nicolas4d-test-layout-2
                                       ;; nicolas4d-test-layout-1
                                       ))

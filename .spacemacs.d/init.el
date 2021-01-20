@@ -40,7 +40,6 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      nicolas4d
-     nginx
      )
 
    ;; List of additional packages that will be installed without being
@@ -52,7 +51,10 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(w3m
                                       html2org
-                                      autodisass-java-bytecode)
+                                      autodisass-java-bytecode
+                                      vue-html-mode
+                                      vue-mode
+                                      )
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
