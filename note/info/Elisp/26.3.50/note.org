@@ -258,9 +258,18 @@
 ** [[file:note/Display.org][Display]]
    Features for controlling the screen display.
 ** [[file:note/System Interface.org][System Interface]]
-   Getting the user id, system type, environment
-   variables, and other such things.
+*** File Notifications::  File notifications.
+    #+begin_src emacs-lisp :tangle yes
+      (defun test-file-notify-callback(event)
+        (message "file created")
+        )
+      (file-notify-add-watch
+       "~/tmp"
+       '(change attribute-change)
+       'test-file-notify-callback)
 
+      (file-notify-rm-watch descriptor 'file-notify-add-watch)
+    #+end_src
 ** [[file:note/Packaging.org][Packaging]]
    Preparing Lisp code for distribution.
 * Appendices
