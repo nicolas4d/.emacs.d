@@ -66,7 +66,7 @@
     (if nicolas4d/notify-bind-buffer
         (progn
           (setq nicolas4d/notify-bind-buffer nil)
-          (message "unbind buffer %s" (buffer-name)))
+          (message "unbind buffer"))
       (progn
         (setq ret (setq nicolas4d/notify-bind-buffer (current-buffer)))
         (message "Bind buffer %s"  (buffer-name))))))
