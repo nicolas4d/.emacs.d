@@ -7,6 +7,11 @@
 (global-unset-key (kbd "C-<SPC>"))
 (define-key dired-mode-map (kbd "r") 'dired-do-rename)
 
+;; downcase lowercase
+(unbind-key (kbd "M-l"))
+(global-set-key (kbd "M-l l") 'downcase-word)
+(global-set-key (kbd "M-l c") 'string-inflection-lower-camelcase)
+
 (spacemacs/set-leader-keys
   ;; layout
   "<tab>" 'spacemacs/jump-to-last-layout
