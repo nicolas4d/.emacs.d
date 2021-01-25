@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: element-ui_get
+# key: euiget;
+# --
+this.$http({
+  url: this.$http.adornUrl(\`${0:uri}\`),
+  method: \`get\`,
+params: this.$http.adornParams({})
+}).then(({ data }) => {
+});

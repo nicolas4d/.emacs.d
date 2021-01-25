@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-;
 # name: Img source
-# key: img;
+# key: i;
 # --
-[[file:img/${1:`(nicolas4d/move-image-to-default-dir-img)`}]]$0
+[[file:img/`(nicolas4d/move-image-to-default-dir-img)`]]
+$0
