@@ -8,8 +8,7 @@
   "l" 'org-toggle-latex-fragment
   "si" 'nicolas4d/org-source-indent
   "fa" 'org-footnote-action
-  "Tnpp" 'nicolas4d/toggle-notify-picture-dir-add-file
-  "Tnpv" 'nicolas4d/toggle-notify-bind-buffer
+  "Tnp" 'nicolas4d/toggle-notify-picture-dir-add-file
   )
 
 (spacemacs/set-leader-keys

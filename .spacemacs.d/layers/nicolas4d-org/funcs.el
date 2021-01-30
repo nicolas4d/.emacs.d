@@ -27,7 +27,10 @@
             (file-notify-add-watch
              "~/Pictures"
              '(change attribute-change)
-             'nicolas4d/notify-picture-dir-add-file-callback)))
+             'nicolas4d/notify-picture-dir-add-file-callback))
+      (progn
+        (setq nicolas4d/notify-bind-buffer (current-buffer))
+        (message "Bind buffer %s"  (buffer-name))))
     (message "notify!")))
 
 ;; (nicolas4d/toggle-notify-picture-dir-add-file)
@@ -38,6 +41,9 @@
     (progn
       (file-notify-rm-watch nicolas4d/notify-picture-dir-add-file-descriptor)
       (setq nicolas4d/notify-picture-dir-add-file-descriptor nil)
+      (progn
+        (setq nicolas4d/notify-bind-buffer nil)
+        (message "Unbind notify buffer "))
       (message "remove notify!"))))
 
 (advice-add 'save-buffers-kill-terminal
@@ -60,17 +66,6 @@
             (current-buffer))
           (end-of-buffer)
           (yas-expand-snippet (yas-lookup-snippet "Img source")))))))
-
-(defun nicolas4d/toggle-notify-bind-buffer ()
-  (interactive)
-  (let((ret))
-    (if nicolas4d/notify-bind-buffer
-        (progn
-          (setq nicolas4d/notify-bind-buffer nil)
-          (message "unbind buffer"))
-      (progn
-        (setq ret (setq nicolas4d/notify-bind-buffer (current-buffer)))
-        (message "Bind buffer %s"  (buffer-name))))))
 
 ;; (nicolas4d/toggle-notify-bind-buffer)
 
