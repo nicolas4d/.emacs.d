@@ -78,23 +78,21 @@ Each entry is either:
 
       (setq
        org-file-apps (append
-                       '(("\\.png\\'" . default))
+                      '(("\\.png\\'" . default))
+                      '(("\\.jpg\\'" . default))
                       ;; '(("\\.png\\'" . "xdg-open %s")) ;;not working
-                      ;; '(("\\.jpg\\'" . "google-chrome-stable %s"))
-                      ;; '(("\\.png\\'" . "google-chrome-stable %s"))
                       org-file-apps
                       )
-       
+
        org-agenda-files '("~/.emacs.d/.org")
        org-return-follows-link t
        org-startup-with-latex-preview t
        org-startup-with-inline-images nil
        ;; org-file-apps-defaults-gnu '((remote . emacs) (system . mailcap) (t . mailcap))
        )
-      ;; (setq shell-file-name "/usr/bin/bash")
       ;; (setq shell-file-name "/bin/bash")
       ;; (setq org-file-apps (cdr org-file-apps))
-      
+
       (defun set-org-fill-colomn ()
         (setq fill-column 100))
 
