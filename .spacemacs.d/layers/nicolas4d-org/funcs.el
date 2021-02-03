@@ -64,7 +64,6 @@
           (if nicolas4d/notify-bind-buffer 
               (purpose-select-buffer nicolas4d/notify-bind-buffer)
             (current-buffer))
-          (end-of-buffer)
           (yas-expand-snippet (yas-lookup-snippet "Img source")))))))
 
 ;; (nicolas4d/toggle-notify-bind-buffer)
