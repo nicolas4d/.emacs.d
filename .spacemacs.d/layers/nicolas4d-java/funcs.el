@@ -1,5 +1,9 @@
-(defun java-package-add-package ()
-  "Add package for java file according directory name's src."
+(defun java-package-add-package (rootDirectory)
+  "Add package for java file according file path.
+
+rootDirectory : is the root of source.
+example : /home/d/src/com/person/Hello.java.
+package is com.person."
   (interactive)
 
   (let* ((file-name)
@@ -11,7 +15,7 @@
     (setq dir-name-list (butlast (split-string file-name "/")))
     ;; Build package string.
     (while (setq cur (pop dir-name-list))
-      (when (or (string= cur "java"))
+      (when (or (string= cur rootDirectory))
         (progn
           (setq package-string
                 (concat "package "
@@ -33,4 +37,12 @@
   (newline-and-indent)
   nil)
 
-;;(setq dir-name-list '("test" "cn" "itcast" "test"))
+(defun java-packages-src-as-root ()
+  (interactive)
+  (java-package-add-package "src"))
+
+(defun java-packages-java-as-root ()
+  (interactive)
+  (java-package-add-package "java"))
+
+
