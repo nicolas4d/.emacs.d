@@ -1,4 +1,21 @@
-(defun java-package-add-package (rootDirectory)
+(defvar java-package-root-directory "java"
+  "set java mode root directory as this variable.")
+
+(defun java-package-src-as-root ()
+  (interactive)
+  (setq java-package-root-directory "src")
+  (message "java root set as src"))
+
+;; (java-package-src-as-root)
+
+(defun java-package-java-as-root ()
+  (interactive)
+  (setq java-package-root-directory "java")
+  (message "java root set as java"))
+
+;; (java-package-java-as-root)
+
+(defun java-package-add-package ()
   "Add package for java file according file path.
 
 rootDirectory : is the root of source.
@@ -15,7 +32,7 @@ package is com.person."
     (setq dir-name-list (butlast (split-string file-name "/")))
     ;; Build package string.
     (while (setq cur (pop dir-name-list))
-      (when (or (string= cur rootDirectory))
+      (when (or (string= cur java-package-root-directory))
         (progn
           (setq package-string
                 (concat "package "
@@ -31,18 +48,6 @@ package is com.person."
           ;; Insert package string.
           (insert package-string)
           (newline-and-indent)))))
-
-  (end-of-line)
-  (newline-and-indent)
-  (newline-and-indent)
   nil)
-
-(defun java-packages-src-as-root ()
-  (interactive)
-  (java-package-add-package "src"))
-
-(defun java-packages-java-as-root ()
-  (interactive)
-  (java-package-add-package "java"))
 
 
