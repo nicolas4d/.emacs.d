@@ -58,19 +58,19 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
-(defun nicolas4d-java/init-java-imports ()
-  (use-package java-imports
-    :init
-    ;; (progn
-    ;;   ;; whatever you want to bind it to
-    ;;   (define-key java-mode-map (kbd "M-I") 'java-imports-add-import-dwim)
+;; (defun nicolas4d-java/init-java-imports ()
+;;   (use-package java-imports
+;;     :init
+;;     ;; (progn
+;;     ;;   ;; whatever you want to bind it to
+;;     ;;   (define-key java-mode-map (kbd "M-I") 'java-imports-add-import-dwim)
 
-    ;;   ;; See customization below for where to put java imports
-    ;;   (setq java-imports-find-block-function
-    ;;         'java-imports-find-place-sorted-block)
+;;     ;;   ;; See customization below for where to put java imports
+;;     ;;   (setq java-imports-find-block-function
+;;     ;;         'java-imports-find-place-sorted-block)
 
-    ;;   (add-hook 'java-mode-hook 'java-imports-scan-file)
-    ;;   )
-    ))
+;;     ;;   (add-hook 'java-mode-hook 'java-imports-scan-file)
+;;     ;;   )
+;;     ))
 
 ;;; packages.el ends here

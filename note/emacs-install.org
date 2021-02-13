@@ -51,11 +51,12 @@
 *** cite
     download release version from github:https://github.com/emacs-mirror/emacs/releases 解压后，解压文件里的 install
     http://blog.csdn.net/csfreebird/article/details/53844831
-** version 27.0.50
+** version 27.1
 *** produce .configure
     ./autogen.sh 
 *** configure
-    ./configure --prefix=/opt/emacs/27.0.50 --with-mailutils --imagemagick
+    sudo apt install libncurses-dev
+    ./configure --prefix=/opt/emacs/27.1 --with-mailutils --with-xpm=ifavailable --with-jpeg=ifavailable --with-gif=ifavailable --with-tiff=ifavailable --with-gnutls=ifavailable
 **** error
      Either install a suitable version of makeinfo, or re-run configure
      with the '--without-makeinfo' option to build without the manuals.

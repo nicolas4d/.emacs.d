@@ -123,4 +123,15 @@
 
   https://www.cnblogs.com/www-helloworld-com/p/10202934.html
 * 保存为dos格式
-https://blog.csdn.net/cuma2369/article/details/107668023
+  https://blog.csdn.net/cuma2369/article/details/107668023
+
+* spacemacs spacelpa
+  Args out of range: tar-data spacelpa-0.300.tar.gz, 513, 234451831318
+
+  $ cd ~/.emacs.d/.cache/stable-elpa/25.3.1
+  $ tar -xzvf spacelpa-0.300.tar.gz
+  $ echo -n "0.300" > version
+
+  delete newline in the version file.
+
+

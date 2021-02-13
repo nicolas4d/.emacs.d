@@ -16,3 +16,6 @@ abbrev_defs
 .rmail
 note/tags-company
 note/tellme
+.lsp-session-v1
+workspace/
+note/dc-yasnippet

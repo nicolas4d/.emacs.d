@@ -1,13 +1,5 @@
-;; cask
-(require 'cask "/home/d/.cask/cask.el")
-(cask-initialize)
-
-;;; pallet
-(package-install 'pallet)
-
-(require 'pallet)
-(pallet-mode t)
-;;; pallet ends here
+;; (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+;;                          ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
 (defvar emacs-or-space nil
   "emacs if value is t.

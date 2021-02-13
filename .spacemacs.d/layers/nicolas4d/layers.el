@@ -13,7 +13,6 @@
                                       nicolas4d-mail
                                       nicolas4d-minor-mode
                                       nicolas4d-org
-                                      nicolas4d-package
                                       nicolas4d-plantuml
                                       nicolas4d-prog
                                       nicolas4d-project
@@ -23,6 +22,7 @@
                                       nicolas4d-spell-checking
                                       nicolas4d-tags
                                       nicolas4d-navigation
+                                      nicolas4d-lsp
                                       emacs-lisp
                                       python
                                       c-c++
@@ -37,6 +37,9 @@
                                            git-magit-status-fullscreen t)
                                       github
                                       nginx
+                                      lsp
+                                      java
                                       ;; nicolas4d-test-layout-2
                                       ;; nicolas4d-test-layout-1
+                                      ;; nicolas4d-package
                                       ))

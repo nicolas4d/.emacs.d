@@ -5,7 +5,6 @@
   "se" 'eshell
   "sm" 'man
   "cd" 'calendar
-  "mr" 'rmail
 
   ;; file
   "fw" 'find-website-file

@@ -3,6 +3,11 @@
 for excute in dotspacemacs/user-config."
   ;; remove buffer's left ~
   (global-vi-tilde-fringe-mode -1)
+
+  (require 'autodisass-java-bytecode)
+
+  (require 'lsp-java)
+  (add-hook 'java-mode-hook #'lsp)
   )
 
 ;;; proxy

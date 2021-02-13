@@ -71,7 +71,9 @@
       :body
       (progn
         ;; hook to add all el buffers to the layout
-        (find-file-existing (concat user-home-directory ".workspaces/IdeaProjects"))))
+        ;; (find-file-existing (concat user-home-directory ".workspaces/IdeaProjects")))
+        (find-file-existing (concat user-home-directory ".java")))
+      )
 
     (spacemacs|define-custom-layout "@v"
       :binding "v"

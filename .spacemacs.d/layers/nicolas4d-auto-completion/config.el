@@ -15,4 +15,7 @@
 ;; suppress when change currunt buffer
 (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
 
-(global-company-mode)
+(with-eval-after-load 'company
+  (global-company-mode)
+    )
+
