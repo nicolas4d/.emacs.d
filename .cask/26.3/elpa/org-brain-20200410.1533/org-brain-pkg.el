@@ -1,2 +1,0 @@
-;;; -*- no-byte-compile: t -*-
-(define-package "org-brain" "20200410.1533" "Org-mode concept mapping" '((emacs "25.1") (org-plus-contrib "9.2")) :commit "82f0649d102790d558976eb6c5a2765b1a5c4352" :keywords '("outlines" "hypermedia") :authors '(("Erik Sjöstrand" . "sjostrand.erik@gmail.com")) :maintainer '("Erik Sjöstrand" . "sjostrand.erik@gmail.com") :url "http://github.com/Kungsgeten/org-brain")
