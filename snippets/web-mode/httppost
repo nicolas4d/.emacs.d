@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: httppost
+# key: httppost;
+# --
+this.$http({
+url: this.$http.adornUrl("${0:url}"),
+method: "post",
+data: this.$http.adornData(data, false)
+}).then(({ data }) => {
+});

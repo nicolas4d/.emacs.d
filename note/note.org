@@ -135,3 +135,15 @@
   delete newline in the version file.
 
 
+
+* eclipse.jdt.ls
+  jdt-language-server-0.58.0-202006300926.tar.gz
+  版本功能多 对于java1.8
+
+  jdt-language-server-0.8.0-201711090453.tar.gz
+  jdt-language-server-0.7.0-201711020443.tar.gz
+  功能少 java1.8
+  
+  jdt-language-server-0.68.0-202101202016.tar.gz
+  无法创建链接 java1.8
+  

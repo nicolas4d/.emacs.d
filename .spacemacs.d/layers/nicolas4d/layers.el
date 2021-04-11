@@ -2,7 +2,7 @@
                                       nicolas4d-auto-completion
                                       nicolas4d-base
                                       nicolas4d-better-defaults
-                                      nicolas4d-chinese
+                                      ;;nicolas4d-chinese
                                       nicolas4d-editing
                                       nicolas4d-html
                                       nicolas4d-ivy
@@ -22,12 +22,13 @@
                                       nicolas4d-spell-checking
                                       nicolas4d-tags
                                       nicolas4d-navigation
-                                      nicolas4d-lsp
+                                      nicolas4d-misc
+                                      vimscript
                                       emacs-lisp
                                       python
                                       c-c++
                                       ivy
-                                      markdown
+                                      ;; markdown
                                       ranger
                                       version-control
                                       yaml
@@ -37,8 +38,12 @@
                                            git-magit-status-fullscreen t)
                                       github
                                       nginx
+
                                       lsp
-                                      java
+                                      (java :variables
+                                            java-backend 'lsp)
+                                      nicolas4d-lsp
+
                                       ;; nicolas4d-test-layout-2
                                       ;; nicolas4d-test-layout-1
                                       ;; nicolas4d-package

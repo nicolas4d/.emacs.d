@@ -5,7 +5,6 @@
 (global-set-key (kbd "C-M-k") 'kill-paragraph)
 (global-set-key (kbd "C-j") 'end-new-line-indent)
 (global-unset-key (kbd "C-<SPC>"))
-(define-key dired-mode-map (kbd "r") 'dired-do-rename)
 
 ;; downcase lowercase
 (unbind-key (kbd "M-l"))
@@ -14,7 +13,7 @@
 
 (spacemacs/set-leader-keys
   ;; layout
-  "<tab>" 'spacemacs/jump-to-last-layout
+  "<tab>" 'ivy-switch-buffer
 
   ;; kmacro
   "ms" 'kmacro-start-macro
@@ -30,5 +29,20 @@
 
   "ho" 'info
 
-  "y" 'youdao-dictionary-search-at-point
+  "fw" 'find-website-file
+  "yy" 'youdao-dictionary-search-at-point
+
+  "xm" 'nicolas4d/exec-xmodmap
+
+  ;; file
+  "fm" 'find-miscellaneous
+  "fe <SPC> l" 'find-layers
+  "f <SPC> se" 'find-sis-event
+  "f <SPC> sc" 'find-ssr-cinfig
+  "f <SPC> c" 'nicolas4d/copy-picture-to-dir
+  "fdc" 'find-dc-yasnippet
+  )
+
+(evil-define-key '(normal motion) global-map
+  "\C-e" 'mwim-end-of-code-or-line
   )

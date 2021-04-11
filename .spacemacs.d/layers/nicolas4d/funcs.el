@@ -1,18 +1,21 @@
 (defun nicolas4d/user-config ()
   "for config my configurations.
 for excute in dotspacemacs/user-config."
+  ;; evil-escape custom
+  (setq-default evil-escape-key-sequence "  ")
+  (setq-default evil-escape-delay 0.2)
+
   ;; remove buffer's left ~
   (global-vi-tilde-fringe-mode -1)
 
   (require 'autodisass-java-bytecode)
 
-  (require 'lsp-java)
-  (add-hook 'java-mode-hook #'lsp)
+  (hybrid-mode)
   )
 
 ;;; proxy
 ;; my-proxy is my machine's proxy
-(setq my-proxy `http://127.0.0.1:1080)
+(setq my-proxy `http://127.0.0.1:8118)
 
 (defun show-proxy ()
   "Show http/https proxy."
@@ -68,3 +71,78 @@ list is elisp list"
     ret))
 
 ;; (nicolas4d/list-to-string (list "sdfa" "b") "")
+
+(defun nicolas4d/do-nothing ()
+  "Do nothing."
+  (interactive)
+  )
+
+;;
+(defun nicolas4d/move-image-to-default-dir-img ()
+  "Copy picture to default-directory/img/.
+
+Image is the latest image in ~/Pictures/."
+  (interactive)
+
+  (let* ((ret nil)
+         (latest-imgae nil)
+         (pic-dir (concat user-home-directory "Pictures/"))
+         (img-directory (concat default-directory "img/")))
+
+    (if (> (length (directory-files-recursion pic-dir)) 0)
+        (progn
+          ;; Get latest image name.
+          (setq latest-imgae (car (directory-files-recursion pic-dir)))
+          ;; Make sure directory exists.
+          (unless (file-exists-p img-directory)
+            (dired-create-directory img-directory))
+
+          ;; Move picture.
+          (dired-rename-file latest-imgae img-directory t)
+
+          (setq ret (url-file-nondirectory latest-imgae)))
+      (message "No image!"))
+    ret))
+
+;; (nicolas4d/move-image-to-default-dir-img)
+;; (setq latest-imgae (car (directory-files-recursion "~/Pictures/")))
+;; (dired-rename-file (concat default-directory "file") "newname" t)
+
+(defun nicolas4d/exec-xmodmap ()
+  "execute xmodmap.
+
+change modifier keys."
+  (interactive)
+  (shell-command "xm"))
+
+;;; files
+;; find website.org file
+(defun find-website-file()
+  (interactive)
+  (find-file (concat user-home-directory ".website.org")))
+
+(defun find-sis-event()
+  "find chrome extension sis event file"
+  (interactive)
+  (find-file (concat user-home-directory ".workspaces/chromeExtention/sis/js/event.js")))
+
+(defun find-layers ()
+  "find my own layer cinfiguration directory."
+  (interactive)
+  (find-file (concat dotspacemacs-directory "layers/")))
+
+(defun find-ssr-cinfig ()
+  "find shadowsocks config.json file."
+  (interactive)
+  (find-file (concat user-home-directory ".local/share/shadowsocksr/config.json")))
+
+(defun find-miscellaneous ()
+  "find shadowsocks config.json file."
+  (interactive)
+  (find-file (concat user-home-directory ".data/ubuntu/miscellaneous")))
+
+(defun find-dc-yasnippet ()
+  (interactive)
+  (find-file (concat user-home-directory ".emacs.d/note/dc-yasnippet/dc-yasnippet.el")))
+
+;;; End here files

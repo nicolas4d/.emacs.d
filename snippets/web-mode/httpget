@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: httpget
+# key: httpget;
+# --
+this.$http({
+url: this.$http.adornUrl("${0:url}"),
+method: "get",
+params: this.$http.adornParam({})
+}).then(({ data }) => {
+});

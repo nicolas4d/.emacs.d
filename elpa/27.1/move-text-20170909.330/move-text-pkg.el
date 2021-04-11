@@ -1,0 +1,2 @@
+;;; Generated package description from /home/d/.emacs.d/elpa/27.1/move-text-20170909.330/move-text.el  -*- no-byte-compile: t -*-
+(define-package "move-text" "20170909.330" "Move current line or region with M-up or M-down." 'nil :commit "bfc255110ad05732a43cf25d6a0e3b4a6710b58c" :authors '(("Jason Milkins" . "jasonm23@gmail.com")) :maintainer '("Jason Milkins" . "jasonm23@gmail.com") :keywords '("edit") :url "https://github.com/emacsfodder/move-text")

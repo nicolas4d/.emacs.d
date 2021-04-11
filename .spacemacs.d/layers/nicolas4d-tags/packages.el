@@ -39,9 +39,9 @@
   (use-package ac-etags
     :init))
 
-(defun nicolas4d-tags/init-tags-company()
-  (use-package tags-company
-    :init
-    ))
+;; (defun nicolas4d-tags/init-tags-company()
+;;   (use-package tags-company
+;;     :init
+;;     ))
 
 ;;; packages.el ends here

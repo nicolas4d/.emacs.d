@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: thymeleaf-xmlns
+# key: nsth;
+# --
+xmlns:th="http://www.thymeleaf.org"

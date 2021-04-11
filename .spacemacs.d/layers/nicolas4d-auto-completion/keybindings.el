@@ -2,7 +2,7 @@
 (define-key yas-minor-mode-map (kbd "<tab>") nil)
 (define-key yas-minor-mode-map (kbd "SPC") yas-maybe-expand)
 
-(spacemacs/set-leader-keys-for-minor-mode 'yas/minor-mode
+(spacemacs/set-leader-keys
   ;; yasnippet
   "yi" 'yas-insert-snippet
   "yn" 'yas-new-snippet

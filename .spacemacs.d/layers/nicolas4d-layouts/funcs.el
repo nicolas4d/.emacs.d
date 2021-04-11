@@ -1,4 +1,4 @@
-(defun* nicolas4d/load-my-layouts()
+(defun nicolas4d/load-my-layouts()
   (interactive)
   (ignore-errors
     (spacemacs//activate-persp-mode)
@@ -8,7 +8,7 @@
   (interactive)
   (persp-save-state-to-file (concat persp-save-dir "d-layout")))
 
-(defun* nicolas4d/save-all-layouts (&optional ARG)
+(defun nicolas4d/save-all-layouts (&optional ARG)
   "save all layouts"
   (interactive)
   (persp-save-state-to-file (concat persp-save-dir "d")))
@@ -71,8 +71,9 @@
       :body
       (progn
         ;; hook to add all el buffers to the layout
-        ;; (find-file-existing (concat user-home-directory ".workspaces/IdeaProjects")))
-        (find-file-existing (concat user-home-directory ".java")))
+        (find-file-existing (concat user-home-directory ".workspaces/IdeaProjects/ShangGuiGu/gulimall/note.org"))
+        ;; (find-file-existing (concat user-home-directory ".java"))
+        )
       )
 
     (spacemacs|define-custom-layout "@v"

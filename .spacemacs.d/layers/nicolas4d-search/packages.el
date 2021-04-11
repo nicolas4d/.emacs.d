@@ -76,7 +76,5 @@ Each entry is either:
   (use-package helm-ag
     :init
     :config
-    (with-eval-after-load 'auto-highlight-symbol
-      (spacemacs/set-leader-keys
-        "sh" 'helm-ag
-        "ps" 'helm-ag-project-root))))
+    )
+  )
