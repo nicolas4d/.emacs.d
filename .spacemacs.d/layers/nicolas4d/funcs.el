@@ -141,8 +141,4 @@ change modifier keys."
   (interactive)
   (find-file (concat user-home-directory ".data/ubuntu/miscellaneous")))
 
-(defun find-dc-yasnippet ()
-  (interactive)
-  (find-file (concat user-home-directory ".emacs.d/note/dc-yasnippet/dc-yasnippet.el")))
-
 ;;; End here files

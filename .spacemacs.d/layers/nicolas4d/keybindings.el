@@ -40,7 +40,6 @@
   "f <SPC> se" 'find-sis-event
   "f <SPC> sc" 'find-ssr-cinfig
   "f <SPC> c" 'nicolas4d/copy-picture-to-dir
-  "fdc" 'find-dc-yasnippet
   )
 
 (evil-define-key '(normal motion) global-map
