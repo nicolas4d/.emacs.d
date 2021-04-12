@@ -36,10 +36,10 @@
 
   ;; file
   "fm" 'find-miscellaneous
-  "fe <SPC> l" 'find-layers
-  "f <SPC> se" 'find-sis-event
-  "f <SPC> sc" 'find-ssr-cinfig
-  "f <SPC> c" 'nicolas4d/copy-picture-to-dir
+  "ofel" 'find-layers
+  "ofse" 'find-sis-event
+  "ofsc" 'find-ssr-cinfig
+  "ofc" 'nicolas4d/copy-picture-to-dir
   )
 
 (evil-define-key '(normal motion) global-map

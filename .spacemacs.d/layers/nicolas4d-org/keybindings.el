@@ -11,10 +11,5 @@
   "Tn" 'nicolas4d/toggle-notify-picture-dir-add-file
   )
 
-(spacemacs/set-leader-keys
-  "oa" 'org-agenda
-  "of" 'org-cycle-agenda-files
-  )
-
 ;; unset keys
 (define-key org-mode-map (kbd "C-<tab>") nil)
