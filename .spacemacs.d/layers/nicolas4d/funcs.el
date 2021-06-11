@@ -119,7 +119,7 @@ change modifier keys."
 ;; find website.org file
 (defun find-website-file()
   (interactive)
-  (find-file (concat user-home-directory ".website.org")))
+  (find-file (concat user-home-directory ".4D/.website.org")))
 
 (defun find-sis-event()
   "find chrome extension sis event file"
@@ -139,6 +139,6 @@ change modifier keys."
 (defun find-miscellaneous ()
   "find shadowsocks config.json file."
   (interactive)
-  (find-file (concat user-home-directory ".data/ubuntu/miscellaneous")))
+  (find-file (concat user-home-directory ".4D/data/backup/miscellaneous")))
 
 ;;; End here files

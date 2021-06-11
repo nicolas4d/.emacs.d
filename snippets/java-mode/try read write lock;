@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: try read write lock;
+# key: trylock;
+# --
+${1:lock}.lock();
+
+try {
+      $0
+}
+catch (Exception e) {
+      e.printStackTrace();
+}finally{
+      $1.unlock();
+}

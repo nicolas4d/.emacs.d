@@ -4,7 +4,7 @@
     counsel-etags
     ;;helm-etags-plus
     ;;ac-etags
-    (tags-company :location (recipe :fetcher github :repo "nicolas4d/tags-company"))
+    ;; (tags-company :location (recipe :fetcher github :repo "nicolas4d/tags-company")) ;; Stop the update. and don't use anymore.
     )
   )
 

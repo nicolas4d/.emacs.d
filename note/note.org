@@ -134,8 +134,6 @@
 
   delete newline in the version file.
 
-
-
 * eclipse.jdt.ls
   jdt-language-server-0.58.0-202006300926.tar.gz
   版本功能多 对于java1.8
@@ -146,4 +144,10 @@
   
   jdt-language-server-0.68.0-202101202016.tar.gz
   无法创建链接 java1.8
-  
+* open in terminal 
+emacs -nw
+
+https://blog.csdn.net/cuma2369/article/details/107667517  
+* emacs 环境变量文件，存在则不更新。
+  比如在ubuntu上产生的，在plasma上就不会产生新的，plasma的环境变量文件。
+

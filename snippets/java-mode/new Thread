@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: new Thread
+# key: newth;
+# --
+new Thread( () -> {
+    $0
+}, "${1:Thread Name}").start();

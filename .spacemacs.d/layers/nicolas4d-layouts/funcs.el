@@ -11,7 +11,9 @@
 (defun nicolas4d/save-all-layouts (&optional ARG)
   "save all layouts"
   (interactive)
-  (persp-save-state-to-file (concat persp-save-dir "d")))
+  (when (functionp 'persp-save-state-to-file)
+    (persp-save-state-to-file (concat persp-save-dir "d")))
+    )
 
 (defun nicolas4d/define-custom-layouts ()
   (with-eval-after-load 'persp-mode
@@ -22,14 +24,14 @@
       :body
       (progn
         ;; hook to add all el buffers to the layout
-          (find-file-existing (concat user-home-directory "ai/note.org"))))
+        (find-file-existing (concat user-home-directory "ai/note.org"))))
 
     (spacemacs|define-custom-layout "@Python"
       :binding "p"
       :body
       (progn
         ;; hook to add all el buffers to the layout
-          (find-file-existing (concat user-home-directory "python/note.org"))))
+        (find-file-existing (concat user-home-directory "python/note.org"))))
 
     (spacemacs|define-custom-layout "@DesignPatterns"
       :binding "d"
@@ -71,22 +73,17 @@
       :body
       (progn
         ;; hook to add all el buffers to the layout
-        (find-file-existing (concat user-home-directory ".workspaces/IdeaProjects/ShangGuiGu/gulimall/note.org"))
-        ;; (find-file-existing (concat user-home-directory ".java"))
+        (find-file-existing (concat user-home-directory ".java"))
         )
       )
 
-    (spacemacs|define-custom-layout "@v"
-      :binding "v"
+    (spacemacs|define-custom-layout "@web"
+      :binding "w"
       :body
       (progn
-        ;; hook to add all el buffers to the layout
-        (find-file-existing (concat user-home-directory "workspaces/sis/js/event.js"))
+        (find-file-existing (concat user-home-directory ".4D/workspaces/chromeExtention/sis/js/event.js"))
         (split-window-horizontally)
-        (find-file-existing (concat user-home-directory ".website.org"))
-        (split-window-horizontally)
-        (find-file-existing (concat user-home-directory ".data/ubuntu/miscellaneous"))
-        ))
+        (find-file-existing (concat user-home-directory ".website.org"))))
 
     (spacemacs|define-custom-layout "@sql"
       :binding "s"
@@ -94,17 +91,16 @@
       (progn
         (find-file-existing (concat user-home-directory "sql/note.org"))))
 
-    (spacemacs|define-custom-layout "@zf"
+    (spacemacs|define-custom-layout "@zxz"
       :binding "z"
       :body
       (progn
-        (find-file-existing (concat user-home-directory ".data/zhengfangsoft/note.org"))
-        (split-window-horizontally)
-        (find-file-existing (concat user-home-directory ".data/zhengfangsoft/journal/note.org"))))
+        (find-file-existing (concat user-home-directory ".4D/data/ZhiXingZheng/note.org"))))
+
 
     (spacemacs|define-custom-layout "@Android"
       :binding "i"
       :body
       (progn
         ;; hook to add all el buffers to the layout
-          (find-file-existing (concat user-home-directory "android/note.org"))))))
+        (find-file-existing (concat user-home-directory "android/note.org"))))))

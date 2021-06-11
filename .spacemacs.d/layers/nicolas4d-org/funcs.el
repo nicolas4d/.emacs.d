@@ -17,10 +17,11 @@
 (defun nicolas4d/toggle-notify-picture-dir-add-file()
   "Notify ~/Pictures dir add event."
   (interactive)
-  (if nicolas4d/notify-picture-dir-add-file-descriptor
+  (if (eq nicolas4d/notify-bind-buffer (current-buffer))
       (progn
         (file-notify-rm-watch nicolas4d/notify-picture-dir-add-file-descriptor)
         (setq nicolas4d/notify-picture-dir-add-file-descriptor nil)
+        (setq nicolas4d/notify-bind-buffer nil)
         (message "remove notify!"))
     (progn
       (setq nicolas4d/notify-picture-dir-add-file-descriptor

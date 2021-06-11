@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: TimeUnit.SECONDS.sleep
+# key: sleep.s;
+# --
+try {
+    TimeUnit.SECONDS.sleep(${0});
+} catch (InterruptedException e) {
+        e.printStackTrace();
+}

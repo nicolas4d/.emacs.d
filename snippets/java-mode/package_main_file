@@ -4,9 +4,10 @@
 # --
 `(progn (yas-expand-snippet (yas-lookup-snippet "package"))
 nil)`
-
 public class `(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))` {
-public static void main(String[] args) throws Exception{
+
+public static void main(String[] args) {
 $0
 }
+
 }
