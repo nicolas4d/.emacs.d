@@ -52,20 +52,13 @@
             'nicolas4d/advice-notify-picture-dir-add-file-close)
 
 (defun nicolas4d/notify-picture-dir-add-file-callback (event)
-  "callback"
-  (when (string= (symbol-name (nth 1 event)) "changed")
-    (let* ((cur-img-attr (file-attributes (nth 2 event)))
-           (cur-img-size (file-attribute-size cur-img-attr))
-           )
-      (sleep-for 0 200)
-      (if (/= cur-img-size (file-attribute-size (file-attributes (nth 2 event))))
-          (message "img size chage!")
-        (progn
-          (message "img size not change")
-          (if nicolas4d/notify-bind-buffer 
-              (purpose-select-buffer nicolas4d/notify-bind-buffer)
-            (current-buffer))
-          (yas-expand-snippet (yas-lookup-snippet "Img source")))))))
+  "Copy picture to notify-bind-buffer or current-buffer."
+  ;; picture is copy to here, then trigger event "create".
+  (when (string= (symbol-name (nth 1 event)) "created")
+    (if nicolas4d/notify-bind-buffer
+        (purpose-select-buffer nicolas4d/notify-bind-buffer)
+      (current-buffer))
+    (yas-expand-snippet (yas-lookup-snippet "Img source"))))
 
 ;; (nicolas4d/toggle-notify-bind-buffer)
 

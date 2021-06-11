@@ -73,9 +73,7 @@
       :body
       (progn
         ;; hook to add all el buffers to the layout
-        (find-file-existing (concat user-home-directory ".java"))
-        )
-      )
+        (find-file-existing (concat user-home-directory ".4D/java"))))
 
     (spacemacs|define-custom-layout "@web"
       :binding "w"
