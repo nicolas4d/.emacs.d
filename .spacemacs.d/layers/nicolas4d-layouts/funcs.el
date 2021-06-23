@@ -81,7 +81,7 @@
       (progn
         (find-file-existing (concat user-home-directory ".4D/workspaces/chromeExtention/sis/js/event.js"))
         (split-window-horizontally)
-        (find-file-existing (concat user-home-directory ".website.org"))))
+        (find-file-existing (concat user-home-directory ".4D/.website.org"))))
 
     (spacemacs|define-custom-layout "@sql"
       :binding "s"
