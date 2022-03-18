@@ -150,4 +150,8 @@ emacs -nw
 https://blog.csdn.net/cuma2369/article/details/107667517  
 * emacs 环境变量文件，存在则不更新。
   比如在ubuntu上产生的，在plasma上就不会产生新的，plasma的环境变量文件。
+* ssh
+  https://blog.csdn.net/u014445063/article/details/87070156
+* Error enabling Flyspell mode: (Can’t find Hunspell dictionary with a .aff affix file)
+  install ispell.
 

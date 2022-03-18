@@ -38,11 +38,10 @@
                                            git-magit-status-fullscreen t)
                                       github
                                       nginx
-
                                       lsp
-                                      (java :variables
-                                            java-backend 'lsp)
-                                      nicolas4d-lsp
+                                      ;; (java :variables
+                                      ;;       java-backend 'lsp)
+                                      ;; nicolas4d-lsp
 
                                       ;; nicolas4d-test-layout-2
                                       ;; nicolas4d-test-layout-1

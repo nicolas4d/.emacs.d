@@ -77,34 +77,23 @@ list is elisp list"
   (interactive)
   )
 
-;;
-(defun nicolas4d/move-image-to-default-dir-img ()
-  "Copy picture to default-directory/img/.
-
-Image is the latest image in ~/Pictures/."
+(defun nicolas4d/move-image-to-default-img-dir (image-full-path)
+  "Copy picture to default-directory/img/."
   (interactive)
 
-  (let* ((ret nil)
-         (latest-imgae nil)
-         (pic-dir (concat user-home-directory "Pictures/"))
-         (img-directory (concat default-directory "img/")))
-
-    (if (> (length (directory-files-recursion pic-dir)) 0)
+  (let ((img-directory (concat default-directory "img/")))
         (progn
-          ;; Get latest image name.
-          (setq latest-imgae (car (directory-files-recursion pic-dir)))
           ;; Make sure directory exists.
           (unless (file-exists-p img-directory)
             (dired-create-directory img-directory))
-
           ;; Move picture.
-          (dired-rename-file latest-imgae img-directory t)
+          (dired-rename-file image-full-path img-directory t)
+          ;; New img path;
+          (concat img-directory (car (last (split-string image-full-path "/")))))))
 
-          (setq ret (url-file-nondirectory latest-imgae)))
-      (message "No image!"))
-    ret))
-
-;; (nicolas4d/move-image-to-default-dir-img)
+;; (last (split-string  "/home/d/Pictures/test.png" "/"))
+;; (replace-regexp-in-string "/home" "/home/home/" "/home/d/Pictures/test.png")
+;; (nicolas4d/move-image-to-default-img-dir "/home/d/Pictures/test.png")
 ;; (setq latest-imgae (car (directory-files-recursion "~/Pictures/")))
 ;; (dired-rename-file (concat default-directory "file") "newname" t)
 
@@ -124,14 +113,14 @@ change modifier keys."
 (defun find-sis-event()
   "find chrome extension sis event file"
   (interactive)
-  (find-file (concat user-home-directory ".workspaces/chromeExtention/sis/js/event.js")))
+  (find-file (concat user-home-directory ".4D/workspaces/chromeExtention/sis/js/event.js")))
 
 (defun find-layers ()
   "find my own layer cinfiguration directory."
   (interactive)
   (find-file (concat dotspacemacs-directory "layers/")))
 
-(defun find-ssr-cinfig ()
+(defun find-ssr-config ()
   "find shadowsocks config.json file."
   (interactive)
   (find-file (concat user-home-directory ".local/share/shadowsocksr/config.json")))
